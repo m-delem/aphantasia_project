@@ -9,7 +9,6 @@
 if (!require("librarian")) install.packages("librarian")
 librarian::lib_startup(librarian, 
                        tidyverse,
-                       ggplot2,
                        lib = "C:/Users/Admin/OneDrive/Documents/R Library", 
                        global = TRUE)
 

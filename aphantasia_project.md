@@ -15,6 +15,8 @@ output:
     toc_depth: 6
 bibliography: references.bib
 csl: apa.csl
+language:
+  toc: "Table des matières"
 ---
 
 <!-- # ```{r, file='your-script.R'} -->
@@ -139,7 +141,7 @@ Notre fonction `simulation` prendra donc pour argument notre dataframe `variable
 
 
 ```r
-#simulation du dataset
+# simulation du dataset
 data <- simulation(variables,fmodel,effect)
 ```
 
@@ -369,7 +371,7 @@ simulation <- function(variables, fmodel, effect) {
   return(data)  
 }
 
-#simulation du dataset
+# simulation du dataset
 data <- simulation(variables,fmodel,effect)
 data_scale <- data %>% 
   select(OSIQ_O:SRI) %>% 
