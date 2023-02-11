@@ -20,7 +20,7 @@ output:
   html_document:
     toc: yes
     toc_depth: '5'
-    df_print: paged
+    df_print: kable
 lang: "fr"
 fontsize: 12pt
 geometry: margin=1in
