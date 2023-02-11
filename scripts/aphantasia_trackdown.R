@@ -5,29 +5,50 @@
 # loading
 shelf(trackdown)
 
-# upload the Rmd to GDrive
-upload_file("aphantasia_project.Rmd",
-            gfile = "aphantasia_project",
-            gpath = "M2 EMC - Aphantasia/trackdown",
-            hide_code = TRUE,
-            path_output = "aphantasia_project.pdf",)
+# upload the Rmds to GDrive
+upload_file("xxxxxxxxxxxx.Rmd",
+            gfile = "xxxxxxxxxxxx",
+            gpath = "M2 EMC - Aphantasia/manuscrit",
+            hide_code = TRUE,)
+
+
 
 # update the GDoc with the Rmd
 update_file("aphantasia_project.Rmd",
             gfile = "aphantasia_project",
-            gpath = "M2 EMC - Aphantasia/trackdown",
+            gpath = "M2 EMC - Aphantasia/manuscrit",
             hide_code = TRUE,
             path_output = "aphantasia_project.pdf",)
 
+update_file("1_intro.Rmd",
+            gfile = "introduction",
+            gpath = "M2 EMC - Aphantasia/manuscrit",
+            hide_code = TRUE,)
+
+update_file("2_experience.Rmd",
+            gfile = "experience",
+            gpath = "M2 EMC - Aphantasia/manuscrit",
+            hide_code = TRUE,)
+
+update_file("3_discussion.Rmd",
+            gfile = "discussion",
+            gpath = "M2 EMC - Aphantasia/manuscrit",
+            hide_code = TRUE,)
+
 # download the GDoc to Rmd
-download_file("aphantasia_project.Rmd",
-              gfile = "aphantasia_project",
-              gpath = "M2 EMC - Aphantasia/trackdown",)
+download_file("1_intro.Rmd",
+            gfile = "introduction",
+            gpath = "M2 EMC - Aphantasia/manuscrit",
+            hide_code = TRUE,)
 
-# render
-render_file("aphantasia_project.Rmd",
-            gfile = "aphantasia_project",
-            gpath = "M2 EMC - Aphantasia/trackdown",)
+download_file("2_experience.Rmd",
+            gfile = "experience",
+            gpath = "M2 EMC - Aphantasia/manuscrit",
+            hide_code = TRUE,)
 
+download_file("3_discussion.Rmd",
+            gfile = "discussion",
+            gpath = "M2 EMC - Aphantasia/manuscrit",
+            hide_code = TRUE,)
 
 
