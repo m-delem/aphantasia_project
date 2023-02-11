@@ -13,27 +13,30 @@ output:
     toc: yes
     toc_depth: '5'
     df_print: paged
-  html_notebook:
-    toc: yes
-    number_sections: yes
-    toc_depth: 6
 bibliography: references.bib
 csl: apa.csl
 ---
-\newpage
+<!-- Introduction -->
 
 
 
 
 
 
+# Introduction
 
 
 
 
-# Partie uno
+<!-- Méthodologie -->
 
-Test...
+
+
+
+
+
+# Expérience
+
 
 
 
@@ -47,13 +50,13 @@ Test...
 \caption{Does that even work ?}\label{fig:network_plot}
 \end{figure}
 
+<!-- Discussion -->
 
 
 
 
 
 
+# Discussion
 
-# Partie dos
 
-La deuxième partie !

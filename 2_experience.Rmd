@@ -5,7 +5,7 @@ bibliography: references.bib
 
 # Expérience
 
-```{r setup, include=FALSE, cache=FALSE}
+```{r, include=FALSE, cache=FALSE}
 knitr::read_chunk('./scripts/aphantasia_source.R')
 knitr::opts_chunk$set(message=FALSE,
                       warning=FALSE,
@@ -18,7 +18,7 @@ knitr::opts_chunk$set(message=FALSE,
                       out.extra = "")
 ```
 
-```{r data setup,setup, echo=FALSE}
+```{r,setup, echo=FALSE}
 ```
 
 ```{r,network_plot,fig.cap="Does that even work ?",fig.pos="H"}
