@@ -4,12 +4,3 @@ bibliography: references.bib
 ---
 
 # Discussion
-
-```{r, include=FALSE}
-knitr::opts_chunk$set(message=FALSE,
-                      warning=FALSE,
-                      echo=FALSE,
-                      fig.pos = "H",
-                      fig.align = "center",
-                      out.extra = "")
-```

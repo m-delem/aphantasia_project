@@ -5,6 +5,25 @@ bibliography: references.bib
 
 # Expérience
 
+## Méthode
+
+### Participants
+
+### Questionnaires
+
+### Procédure
+
+## Variables et hypothèses
+
+### Variables indépendantes
+
+### Variables dépendantes
+
+### Hypothèses opérationnelles
+
+## Résultats
+
+### Corrélations entre les variables mesurées
 ```{r,correlation_matrix,fig.cap="Matrice de corrélation entre les variables mesurées.",fig.pos="H"}
 ```
 
@@ -14,6 +33,7 @@ bibliography: references.bib
 ```{r,mixed_matrix,eval=FALSE,fig.cap="Matrice présentant les distributions des variables, l'analyse de leurs corrélations et les représentations associées.",fig.pos="H"}
 ```
 
+### Analyses des groupes par partition non-supervisée
 ```{r,cluster_number,fig.cap="Graphique représentatant l'évalution du nombre idéal de clusters par la méthode 'Within Sum of Squares'",fig.pos="H"}
 ```
 
@@ -23,6 +43,7 @@ bibliography: references.bib
 ```{r,k_means,fig.cap="Représentation des clusters reconnus par la méthode des 'k-means', selon les deux composantes principales de l'ACP.",fig.pos="H"}
 ```
 
+### Analyse des clusters
 ```{r,cluster_repatition,fig.cap="Répartion des groupes par cluster.",fig.pos="H"}
 ```
 
@@ -32,6 +53,7 @@ bibliography: references.bib
 ```{r,profiles_lollipop,fig.cap="Représentation alternative des profils cognitifs associés aux clusters.",fig.pos="H"}
 ```
 
+### Différences entre les groupes identifiés
 ```{r,object_img_violins,fig.cap="Comparaison des moyennes de score d'imagerie visuelle-objet entre les quatre groupes identifiés.",fig.pos="H"}
 ```
 

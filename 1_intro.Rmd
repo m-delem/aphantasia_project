@@ -4,15 +4,6 @@ output:
 bibliography: references.bib
 ---
 
-```{r, include=FALSE}
-knitr::opts_chunk$set(message=FALSE,
-                      warning=FALSE,
-                      echo=FALSE,
-                      fig.pos = "H",
-                      fig.align = "center",
-                      out.extra = "")
-```
-
 # Introduction
 
 ## Imagerie visuelle et aphantasie
@@ -24,4 +15,24 @@ Cependant, il a été démontré qu'il pouvait exister une grande variabilité i
 Il est intéressant de noter que, bien qu'il y ait eu une résurgence des recherches et des débats sur l'imagerie mentale à la fin du siècle qui a suivi (e.g. @kosslynCognitiveNeuroscienceMental1995; @pylyshynMentalImagerySearch2002; @reisbergIntuitionsIntrospectionsImagery2002), cette condition d'"imagination aveugle" n'a pas suscité beaucoup d'attention. Une exception notable est Faw [-@fawConflictingIntuitionsMay2009], qui a soulevé le fait que les théories des chercheurs sur l'imagerie pourraient être fortement biaisées par leur propre expérience subjective de celle-ci. Il a indiqué que les "non-visualiseurs", ignorés par la recherche jusqu'à présent, pourraient représenter 2 à 3 % des personnes, selon son enquête (*N* = 2500). En 2010, Zeman et al. ont rapporté le cas d'un patient qui a perdu la capacité de produire des images mentales après avoir subi une intervention chirurgicale [@zemanLossImageryPhenomenology2010]. L'article a attiré l'attention du public après un reportage dans le magazine *Discovery* [@zimmerBrainLookDeep2010] : bien qu'il s'agisse apparemment d'imagination aveugle "acquise", l'article a conduit de nombreuses personnes à se reconnaître dans cette condition et à contacter l'équipe pour témoigner de leur expérience, avec la différence importante qu'elles avaient toujours eu cette absence d'imagerie. En décrivant leurs cas, Zeman et al. [-@zemanLivesImageryCongenital2015] ont créé le terme "*aphantasie*" pour décrire l'absence d'imagerie mentale.    
 
 L'aphantasie, en tant que terme et phénomène, a attiré l'attention des médias et a entraîné une augmentation importante du nombre de personnes signalant leur cas d'imagerie extrême [@monzelAphantasiaDysikonesiaAnauralia2022]. Les études à grande échelle sur les extrêmes de l'imagerie visuelle suggèrent une prévalence de 2-4% d'aphantasie dans la population générale (@dancePrevalenceAphantasiaImagery2022 : *N* = 1004 ; @dawesCognitiveProfileMultisensory2020 : *N* = 715 ; @fawConflictingIntuitionsMay2009 : *N* = 2500 ; @palermoCongenitalLackExtraordinary2022 : *N* = 490 ; @takahashiDiversityAphantasiaRevealed2022: *N* = 2885 ; @zemanPhantasiaPsychologicalSignificance2020) avec de nombreuses variations (entre 0,5 et 11%) selon les seuils choisis pour caractériser l'affection. L'étude de l'aphantasie est récente, et bien qu'il n'existe pas actuellement de " profil " clairement défini des individus aphantasiques, la recherche a lentement assemblé plusieurs caractéristiques associées à cette condition. 
+
+## Les corrélats de l'aphantasie
+
+### Corrélats cognitifs
+
+### Corrélats comportementaux et physiologiques
+
+### L'aphantasie est elle un trouble ?
+
+### Expériences de vie et "styles cognitifs"
+
+## La disctinction entre imagerie visuelle-objet et visuospatiale
+
+### Voies ventrales et dorsales dans la perception et l'imagerie visuelle
+
+### L'imagerie objet et spatiale chez les aphantasiques
+
+### Des styles cognitifs équilibrés entre imagerie objet et spatiale
+
+### Un "trade-off" entre imagerie objet et spatiale chez les aphantasiques ?
 

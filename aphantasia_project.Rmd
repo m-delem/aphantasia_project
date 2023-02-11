@@ -21,10 +21,12 @@ output:
     toc: yes
     toc_depth: '5'
     df_print: paged
-lang: french
+lang: "fr"
 fontsize: 12pt
 geometry: margin=1in
 documentclass: article
+include-before:
+- '`\newpage{}`{=latex}'
 bibliography: references.bib
 csl: apa.csl
 ---

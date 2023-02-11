@@ -21,10 +21,12 @@ output:
     toc: yes
     toc_depth: '5'
     df_print: paged
-lang: french
+lang: "fr"
 fontsize: 12pt
 geometry: margin=1in
 documentclass: article
+include-before:
+- '`\newpage{}`{=latex}'
 bibliography: references.bib
 csl: apa.csl
 ---
@@ -44,8 +46,6 @@ csl: apa.csl
 
 
 
-
-
 # Introduction
 
 ## Imagerie visuelle et aphantasie
@@ -58,6 +58,26 @@ Il est intéressant de noter que, bien qu'il y ait eu une résurgence des recher
 
 L'aphantasie, en tant que terme et phénomène, a attiré l'attention des médias et a entraîné une augmentation importante du nombre de personnes signalant leur cas d'imagerie extrême [@monzelAphantasiaDysikonesiaAnauralia2022]. Les études à grande échelle sur les extrêmes de l'imagerie visuelle suggèrent une prévalence de 2-4% d'aphantasie dans la population générale (@dancePrevalenceAphantasiaImagery2022 : *N* = 1004 ; @dawesCognitiveProfileMultisensory2020 : *N* = 715 ; @fawConflictingIntuitionsMay2009 : *N* = 2500 ; @palermoCongenitalLackExtraordinary2022 : *N* = 490 ; @takahashiDiversityAphantasiaRevealed2022: *N* = 2885 ; @zemanPhantasiaPsychologicalSignificance2020) avec de nombreuses variations (entre 0,5 et 11%) selon les seuils choisis pour caractériser l'affection. L'étude de l'aphantasie est récente, et bien qu'il n'existe pas actuellement de " profil " clairement défini des individus aphantasiques, la recherche a lentement assemblé plusieurs caractéristiques associées à cette condition. 
 
+## Les corrélats de l'aphantasie
+
+### Corrélats cognitifs
+
+### Corrélats comportementaux et physiologiques
+
+### L'aphantasie est elle un trouble ?
+
+### Expériences de vie et "styles cognitifs"
+
+## La disctinction entre imagerie visuelle-objet et visuospatiale
+
+### Voies ventrales et dorsales dans la perception et l'imagerie visuelle
+
+### L'imagerie objet et spatiale chez les aphantasiques
+
+### Des styles cognitifs équilibrés entre imagerie objet et spatiale
+
+### Un "trade-off" entre imagerie objet et spatiale chez les aphantasiques ?
+
 
 \newpage
 <!-- Méthodologie -->
@@ -69,6 +89,25 @@ L'aphantasie, en tant que terme et phénomène, a attiré l'attention des média
 
 # Expérience
 
+## Méthode
+
+### Participants
+
+### Questionnaires
+
+### Procédure
+
+## Variables et hypothèses
+
+### Variables indépendantes
+
+### Variables dépendantes
+
+### Hypothèses opérationnelles
+
+## Résultats
+
+### Corrélations entre les variables mesurées
 \begin{figure}[H]
 
 {\centering \includegraphics[width=0.8\linewidth,height=0.5\textheight,]{aphantasia_project_files/figure-latex/correlation_matrix-1} 
@@ -89,6 +128,7 @@ L'aphantasie, en tant que terme et phénomène, a attiré l'attention des média
 
 
 
+### Analyses des groupes par partition non-supervisée
 \begin{figure}[H]
 
 {\centering \includegraphics[width=0.8\linewidth,height=0.5\textheight,]{aphantasia_project_files/figure-latex/cluster_number-1} 
@@ -116,6 +156,7 @@ L'aphantasie, en tant que terme et phénomène, a attiré l'attention des média
 \caption{Représentation des clusters reconnus par la méthode des 'k-means', selon les deux composantes principales de l'ACP.}\label{fig:k_means}
 \end{figure}
 
+### Analyse des clusters
 \begin{figure}[H]
 
 {\centering \includegraphics[width=0.8\linewidth,height=0.5\textheight,]{aphantasia_project_files/figure-latex/cluster_repatition-1} 
@@ -143,6 +184,7 @@ L'aphantasie, en tant que terme et phénomène, a attiré l'attention des média
 \caption{Représentation alternative des profils cognitifs associés aux clusters.}\label{fig:profiles_lollipop}
 \end{figure}
 
+### Différences entre les groupes identifiés
 
 ```
 ## [1] FALSE
@@ -180,8 +222,6 @@ L'aphantasie, en tant que terme et phénomène, a attiré l'attention des média
 
 
 # Discussion
-
-
 
 \newpage
 # Références {-}
