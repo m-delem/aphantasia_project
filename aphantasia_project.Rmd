@@ -1,6 +1,11 @@
 ---
-title: "Aphantasia Project"
-author: "Maël Delem, Colin Fourment, Thomas Junoy, Guillaume Leal de Almeida"
+title: "Profil cognitif des aphantasiques : étude exploratoire des stratégies de compensation spatiales et abstraites"
+subtitle: "Simulation de données et analyses prévisionnelles dans le cadre de l'UE 'Data Science'"
+author:
+  - Maël Delem^[m.delem@univ-lyon2.fr]
+  - Colin Fourment^[colin.fourment@univ-lyon2.fr]
+  - Thomas Junoy^[thomas.junoy@univ-lyon2.fr]
+  - Guillaume Leal de Almeida^[g.leal-de-almeida@univ-lyon2.fr]
 date: "`r Sys.Date()`"
 output:
   pdf_document:
@@ -9,24 +14,34 @@ output:
     number_sections: yes
     extra_dependencies: float
     keep_md: yes
+    fig_height: 8
+    fig_width: 9
+    df_print: kable
   html_document:
     toc: yes
     toc_depth: '5'
     df_print: paged
+lang: french
+fontsize: 12pt
+geometry: margin=1in
+documentclass: article
 bibliography: references.bib
 csl: apa.csl
 ---
 
 <!-- Le manuscrit est divisé en plusieurs documents pour faciliter les modifications locales - ceux-ci sont dans le dossier du Drive. L'output complet du R Markdown (le pdf final) est en pdf dans le Drive, avec le même nom que ce fichier. Les GDoc de ce Drive servent à éditer le texte rédigé du document final : le code R sous-jacent et les analyses des données seront partagées et travaillées sur GitHub, lié localement à RStudio. Le repository GitHub en question : https://github.com/m-delem/aphantasia_project.git -->
 
+\newpage
 <!-- Introduction -->
 ```{r, child="1_intro.Rmd"}
 ```
 
+\newpage
 <!-- Méthodologie -->
 ```{r, child="2_experience.Rmd"}
 ```
 
+\newpage
 <!-- Discussion -->
 ```{r, child="3_discussion.Rmd"}
 ```
