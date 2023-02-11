@@ -17,7 +17,7 @@ bibliography: references.bib
 csl: apa.csl
 ---
 
-<!-- Le manuscrit est divisé en plusieurs documents pour faciliter les modifications locales - ceux-ci correspondent aux dossiers et sont dans le dossier du Drive. L'output complet du R Markdown (le pdf final) est en pdf dans le Drive, avec le même nom que ce fichier. Les GDoc de ce Drive servent à éditer le texte rédigé du document final : pour travailler sur le code R sous-jacent et les analyses des données, nous travaillerons sur GitHub, lié localement à RStudio pour chaque collaborateur. Le repository GitHub en question : https://github.com/m-delem/aphantasia_project.git -->
+<!-- Le manuscrit est divisé en plusieurs documents pour faciliter les modifications locales - ceux-ci sont dans le dossier du Drive. L'output complet du R Markdown (le pdf final) est en pdf dans le Drive, avec le même nom que ce fichier. Les GDoc de ce Drive servent à éditer le texte rédigé du document final : le code R sous-jacent et les analyses des données seront partagées et travaillées sur GitHub, lié localement à RStudio. Le repository GitHub en question : https://github.com/m-delem/aphantasia_project.git -->
 
 <!-- Introduction -->
 ```{r, child="1_intro.Rmd"}
