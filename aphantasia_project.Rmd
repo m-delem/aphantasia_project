@@ -1,20 +1,33 @@
 ---
 title: "Aphantasia Project"
 author: "Maël Delem, Colin Fourment, Thomas Junoy, Guillaume Leal de Almeida"
-date: '`r Sys.Date()`'
+date: "`r Sys.Date()`"
 output:
-  pdf_document: 
+  pdf_document:
     toc: yes
     toc_depth: 5
     number_sections: yes
-    extra_dependencies: ["float"]
-    keep_md: TRUE
-  html_notebook: 
+    extra_dependencies: float
+    keep_md: yes
+  html_document:
     toc: yes
-    number_sections: yes
-    toc_depth: 6
+    toc_depth: '5'
+    df_print: paged
 bibliography: references.bib
 csl: apa.csl
 ---
+<!-- Introduction -->
+```{r, child="intro.Rmd"}
+```
 
-<!-- # ```{r, file='your-script.R'} -->
+<!-- Méthodologie -->
+```{r, child="methodo.Rmd"}
+```
+
+<!-- Résultats -->
+```{r, child="resultats.Rmd"}
+```
+
+<!-- Discussion -->
+```{r, child="discussion.Rmd"}
+```

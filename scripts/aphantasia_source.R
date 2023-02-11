@@ -1,13 +1,13 @@
-#
-# ---- Aphantasia Project - Simulation ----
+# 
+# ---- Aphantasia Project - Source code ----------------------------------------
 # 
 # Mael Delem
 # Email : m.delem@univ-lyon2.fr
-# Last update : February 08, 2022
+# Last update : February 11, 2022
 
-# Ctrl + Alt + T pour lire les sections de code separement
+# ---- setup -------------------------------------------------------------------
 
-# ---- package loading with librarian (loaded on startup) ----
+# packages
 shelf(
   MASS,       # functions and data frame ecosystem
   easystats,  # modelling, visualization and reporting ecosystem
@@ -32,9 +32,10 @@ theme_set(theme_bw(base_size = 14, base_family = "serif"))
 # random seed
 set.seed(14051998)
 
-# ---- Simulation des donnees ----
+# Simulation des donnees
 
-# ---- : definition des variables et groupes : ----
+# definition des variables et groupes
+# groupe non-aphantasique
 Non_A <- data.frame(
   name = c("OSIQ_O", "OSIQ_S", "VVIQ",
            "Raven", "Simili", "Wason",
@@ -54,6 +55,7 @@ Non_A <- data.frame(
   n_subjects = 200
 )
 
+# groupe aphantasique
 Aph <- data.frame(
   name = c("OSIQ_O", "OSIQ_S", "VVIQ",
            "Raven", "Simili", "Wason",
@@ -73,10 +75,11 @@ Aph <- data.frame(
   n_subjects = 200
 )
 
+# dataset fusionné
 variables <- bind_rows(Aph,Non_A)
 rm(Aph,Non_A)
 
-# ---- : liens variables-capacites cognitives : ----
+# liens variables-capacites cognitives
 fmodel <- matrix(c ( .8,   0,  0,  0,  0, # OSIQ-O = img objet
                       0,  .9,  0,  0,  0, # OSIQ-S = img spatiale
                      .9,   0,  0,  0,  0, # VVIQ = img objet
@@ -92,7 +95,7 @@ fmodel <- matrix(c ( .8,   0,  0,  0,  0, # OSIQ-O = img objet
                     ), 
                  nrow=12, ncol=5, byrow=TRUE)
 
-# ---- : liens entre capacites cognitives : ----
+# liens entre capacites cognitives
 effect <- matrix(c (  1,-.1,-.1, .2,  0, # img o
                     -.1,  1, .3, .2,  0, # img s
                     -.1, .3,  1,  0, .2, # raisonnmt
@@ -101,7 +104,7 @@ effect <- matrix(c (  1,-.1,-.1, .2,  0, # img o
                      ),
                  nrow=5, ncol=5, byrow=TRUE)
 
-# ---- : fonction de simulation : ----
+# fonction de simulation
 simulation <- function(variables, fmodel, effect) {
   
   ### preparatifs ###
@@ -174,38 +177,44 @@ simulation <- function(variables, fmodel, effect) {
   return(data)  
   }
 
-# ---- : simulation et extraction d'un csv : ----
-# la fonction est donc clefs en main :
+# la fonction est donc clefs en main
 data <- simulation(variables,fmodel,effect)
 
-# # creation d'un dossier output/data si necessaire
-# if (!dir.exists("./outputs")) dir.create("./outputs",
-#                                          recursive = TRUE)
-# if (!dir.exists("./outputs/data")) dir.create("./outputs/data",
-#                                               recursive = TRUE)
-# # export de data en csv
-# write.csv(x = data,
-#           file = "./outputs/data/simulation_aphantasia.csv",
-#           row.names = FALSE,
-#           quote = FALSE)
-
-# ---- Analyse des donnees ----
-# # creation d'un dossier outputs/plots si necessaire pour exporter les plots
-# if (!dir.exists("./outputs")) dir.create("./outputs",
-#                                          recursive = TRUE)
-# if (!dir.exists("./outputs/plots")) dir.create("./outputs/plots",
-#                                                recursive = TRUE)
-
-# ---- : standardisation : ----
+# standardisation
 # Paradoxalement on va defaire ce qu'on a construit avec les moyennes,
 # en re-standardisant tous les scores sous forme de z-scores
 data_scale <- data %>% 
   select(OSIQ_O:SRI) %>% 
   mutate(across(everything(), ~ scale(.x)))
 
-# ---- Correlations ----
-# ---- : correlations package : ----
-# matrice de correlation entre les mesures
+# k-means clustering
+data_kmeans <- kmeans(data_scale, 
+                      centers = 4,
+                      nstart = 100)
+
+# on ajoute les clusters aux donnees des participants
+data <- data %>% mutate(Cluster = data_kmeans$cluster %>% factor())
+
+# Profils cognitifs sous-jacents des clusters
+# on fusionne les scores des composantes proches
+deep <- data %>% 
+  mutate(Spatial_Img = OSIQ_S + Corsi + MRT + SRI,
+         Object_Img = OSIQ_O + VVIQ,
+         Reasoning = Raven + Simili + Wason,
+         Executive = Empan_MDT + WCST + Lecture) %>% 
+  select(Spatial_Img : Executive, Cluster) %>% 
+  mutate(across(c(Spatial_Img : Executive), 
+                ~ rescale(.x, to = c(0,1))),)
+
+# on cree un dataset d'analyse avec les variables continues standardisees
+# (pour plus tard)
+data_analysis <- data %>% 
+  mutate(across(c(-Subject_nr,-Group,-Sex,-Age,-Cluster), 
+                ~ scale(.x))
+  )
+
+# ---- correlation_matrix ------------------------------------------------------
+# package "correlations" de easystats
 data_scale %>% 
   correlation(partial = TRUE) %>% 
   cor_sort() %>% 
@@ -215,10 +224,8 @@ data_scale %>%
   plot() +
   theme(panel.grid.major = element_blank(),
         panel.grid.minor = element_blank())
-# #export en png
-# ggsave("outputs/plots/correlation_matrix.png", dpi=300)
 
-# ---- : corrr and ggraph packages : ----
+# ---- network_plot ------------------------------------------------------------
 # graphe en reseau (corrr, igraph & ggraph)
 data_scale %>%
   correlate() %>% 
@@ -243,21 +250,17 @@ data_scale %>%
     theme_graph(base_family = "serif", base_size = 10) +
     #theme(legend.position = "none") +
     labs(title = "Correlations entre les variables mesurees")
-# # export en png
-# ggsave("outputs/plots/correlation_network.png", dpi=300)
 
-# ---- : GGally package : ----
+# ---- mixed_matrix ------------------------------------------------------------
 # matrice avec graphes et distributions
+# GGally package
 data_scale %>% 
   mutate(across(everything(), ~as.numeric(.x))) %>% 
   ggpairs(title = "Correlations et distributions des variables mesurees",
           lower = list(continuous = wrap("points", alpha = 0.2)),
           )
-# ggsave("outputs/plots/correlation_distributions.png", dpi=300)
 
-
-# ---- Clustering ----
-# ---- : estimation du nombre ideal de clusters : ----
+# ---- cluster_number ----------------------------------------------------------
 data_scale %>% 
   fviz_nbclust(kmeans, method = "wss",
                linecolor = "white") +
@@ -268,10 +271,8 @@ data_scale %>%
   labs(title = "Nombre optimal de clusters (methode `Within Sum of Squares`)",
        x = "Nombre de clusters",
        y = "Total des Somme des Carres intra-clusters")
-# #export en png
-# ggsave("outputs/plots/optimal_cluster_number.png", dpi=300)
 
-# ---- : ACP : ----
+# ---- pca_variables -----------------------------------------------------------
 data_scale %>% 
   prcomp(scale = TRUE) %>% 
   fviz_pca_var(repel = TRUE,
@@ -284,15 +285,8 @@ data_scale %>%
         axis.ticks.y=element_blank()) +
   labs(x = "Dimension 1 (40.7%)",
        y = "Dimension 2 (18.4%)")
-# # export en png
-# ggsave("outputs/plots/acp_variables.png", dpi=300)
 
-# ---- : k-means : ----
-# k-means clustering
-data_kmeans <- kmeans(data_scale, 
-                      centers = 4,
-                      nstart = 100)
-# plotting
+# ---- k-means -----------------------------------------------------------------
 data_kmeans %>% 
   fviz_cluster(
     data_scale,
@@ -306,13 +300,9 @@ data_kmeans %>%
     ylab = "Dimension 2 (18.4%)",
     ) +
   theme_bw(base_size = 14, base_family = "serif")
-# # export en png
-# ggsave("outputs/plots/kmeans_clustering.png", dpi=300)
 
-# ---- : analyse des clusters : ----
-# on ajoute les clusters aux donnees des participants
-data <- data %>% mutate(Cluster = data_kmeans$cluster %>% factor())
-
+# ---- cluster_repatition ------------------------------------------------------
+# repartion des groupes par cluster
 data %>% 
   ggbivariate(outcome = "Group",
               explanatory = "Cluster") +
@@ -321,21 +311,8 @@ data %>%
                     labels = c("Aphantasiques","Non-Aphantasiques")) +
   labs(title = 
     "Repartition des aphantasiques et non-aphantasiques dans les clusters")
-# # export en png
-# ggsave("outputs/plots/repartition_clusters.png", dpi=300)
 
-# ---- Profils cognitifs sous-jacents des clusters ----
-# on fusionne les scores des composantes proches
-deep <- data %>% 
-  mutate(Spatial_Img = OSIQ_S + Corsi + MRT + SRI,
-         Object_Img = OSIQ_O + VVIQ,
-         Reasoning = Raven + Simili + Wason,
-         Executive = Empan_MDT + WCST + Lecture) %>% 
-  select(Spatial_Img : Executive, Cluster) %>% 
-  mutate(across(c(Spatial_Img : Executive), 
-                ~ rescale(.x, to = c(0,1))),)
-
-# ---- : profils : radar charts : ----
+# ---- profiles_radar ----------------------------------------------------------
 deep %>%
   group_by(Cluster) %>%  
   summarise(across(everything(),mean)) %>% 
@@ -368,10 +345,8 @@ par partition non-supervisee (k-means)",
   theme(panel.grid.major = element_blank(),
         panel.grid.minor = element_blank())
   #facet(facet.by = "Cluster")
-# # export en png
-# ggsave("outputs/plots/profils_radar.png", dpi=300)
 
-# ---- : profils : Cleveland "lollipop" charts : ----
+# ---- profiles_lollipop -------------------------------------------------------
 deep %>% 
   gather(key = variable, value = value, -Cluster) %>% 
   mutate(variable = replace(variable, variable == "Spatial_Img", "Imagerie\n Spatiale"),
@@ -402,10 +377,10 @@ deep %>%
   theme(panel.grid.major = element_blank(),
         panel.grid.minor = element_blank(),
         )
-# # export en png
-# ggsave("outputs/plots/profils_lollipop.png", dpi=300)
 
-# ---- Comparaisons de moyennes entre clusters par variable ----
+# ---- object_img_violins ------------------------------------------------------
+# Comparaisons de moyennes entre clusters par variable
+
 # Object mean comparison
 data %>% 
   ggplot(aes(x = Cluster,reorder(1, 2, 3, 4),
@@ -433,6 +408,7 @@ data %>%
        x = "Cluster",
        y = "Score à l'OSIQ Object Scale")
 
+#---- spatial_img_violins
 # Spatial mean comparison
 data %>% 
   ggplot(aes(x = Cluster,reorder(1, 2, 3, 4),
@@ -460,11 +436,3 @@ data %>%
   labs(title = "Distribution des scores d'imagerie visuospatiale par cluster",
        x = "Cluster",
        y = "Score à l'OSIQ Spatial Scale")
-
-# ---- : next : ----
-# on cree un dataset d'analyse avec les variables continues standardisees
-# (pour plus tard)
-data_analysis <- data %>% 
-  mutate(across(c(-Subject_nr,-Group,-Sex,-Age,-Cluster), 
-                ~ scale(.x))
-  )
