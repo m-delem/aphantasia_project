@@ -9,9 +9,6 @@ bibliography: references.bib
 knitr::opts_chunk$set(message=FALSE,
                       warning=FALSE,
                       echo=FALSE,
-                      fig.width = 9,
-                      fig.height = 8,
-                      out.height = "50%",
                       fig.pos = "H",
                       fig.align = "center",
                       out.extra = "")

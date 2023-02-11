@@ -1,7 +1,7 @@
 # 
 # ---- Aphantasia Project - Source code ----------------------------------------
 # 
-# Mael Delem
+# Delem, Fourment, Junoy, Leal De Almeida
 # Email : m.delem@univ-lyon2.fr
 # Last update : February 11, 2022
 
@@ -13,7 +13,7 @@ shelf(
   easystats,  # modelling, visualization and reporting ecosystem
   ez,         # analysis and visualization of factorial exp
   rstatix,    # pipe friendly statistical functions
-  scale,      # scale functions
+  # scale,      # scale functions
   corrr,      # correlations
   lme4,       # mixed models
   lmerTest,   # tests in lmer
@@ -217,8 +217,8 @@ data_scale %>%
   correlation(partial = TRUE) %>% 
   cor_sort() %>% 
   summary() %>% 
-  visualisation_recipe(
-    labs = list(title = "Correlations entre les variables mesurees")) %>% 
+  # visualisation_recipe(
+  #   labs = list(title = "Correlations entre les variables mesurees")) %>% 
   plot() +
   theme(panel.grid.major = element_blank(),
         panel.grid.minor = element_blank())
@@ -245,17 +245,18 @@ data_scale %>%
                        family = "serif"),
                    colour = "white",
                    repel = FALSE) +
-    theme_graph(base_family = "serif", base_size = 10) +
-    #theme(legend.position = "none") +
-    labs(title = "Correlations entre les variables mesurees")
+    theme_graph(base_family = "serif", base_size = 10)
+    # theme(legend.position = "none") +
+    # labs(title = "Correlations entre les variables mesurees")
 
 # ---- mixed_matrix ------------------------------------------------------------
 # matrice avec graphes et distributions
 # GGally package
 data_scale %>% 
   mutate(across(everything(), ~as.numeric(.x))) %>% 
-  ggpairs(title = "Correlations et distributions des variables mesurees",
-          lower = list(continuous = wrap("points", alpha = 0.2)),
+  ggpairs(
+    #title = "Correlations et distributions des variables mesurees",
+    lower = list(continuous = wrap("points", alpha = 0.2)),
           )
 
 # ---- cluster_number ----------------------------------------------------------
@@ -266,16 +267,18 @@ data_scale %>%
   theme_bw(base_size = 14, base_family = "serif") +
   geom_line(aes(group = 1), color = "aquamarine2",size = 1.3) + 
   geom_point(group = 1, size = 3, color = "aquamarine4") +
-  labs(title = "Nombre optimal de clusters (methode `Within Sum of Squares`)",
-       x = "Nombre de clusters",
-       y = "Total des Somme des Carres intra-clusters")
+  labs(
+    title = "Nombre optimal de clusters (methode `Within Sum of Squares`)",
+    x = "Nombre de clusters",
+    y = "Total des Somme des Carres intra-clusters")
 
 # ---- pca_variables -----------------------------------------------------------
 data_scale %>% 
   prcomp(scale = TRUE) %>% 
   fviz_pca_var(repel = TRUE,
                col.var = "contrib",
-               title = "Analyse en Composantes Principales des variables") + 
+               title = "Analyse en Composantes Principales des variables",
+               ) + 
   theme_bw(base_size = 14, base_family = "serif") +
   theme(axis.text.x=element_blank(),
         axis.ticks.x=element_blank(),
@@ -284,7 +287,7 @@ data_scale %>%
   labs(x = "Dimension 1 (40.7%)",
        y = "Dimension 2 (18.4%)")
 
-# ---- k-means -----------------------------------------------------------------
+# ---- k_means -----------------------------------------------------------------
 data_kmeans %>% 
   fviz_cluster(
     data_scale,
@@ -292,7 +295,7 @@ data_kmeans %>%
     repel = TRUE,
     ellipse.type = "convex",
     shape = "circle", pointsize = 1.2,
-    main = 
+    main =
       "Representation des clusters selon les deux composantes principales",
     xlab = "Dimension 1 (40.7%)",
     ylab = "Dimension 2 (18.4%)",
@@ -306,9 +309,9 @@ data %>%
               explanatory = "Cluster") +
   scale_fill_manual("Groupe", 
                     values = c("aquamarine2", "coral"),
-                    labels = c("Aphantasiques","Non-Aphantasiques")) +
-  labs(title = 
-    "Repartition des aphantasiques et non-aphantasiques dans les clusters")
+                    labels = c("Aphantasiques","Non-Aphantasiques"))
+  # labs(title = 
+  #   "Repartition des aphantasiques et non-aphantasiques dans les clusters")
 
 # ---- profiles_radar ----------------------------------------------------------
 deep %>%
@@ -330,8 +333,8 @@ deep %>%
           legend.title = "Clusters",
           legend.text.size = 12,
           legend.position = "bottom",
-          plot.title = "Profils cognitifs des clusters identifies 
-par partition non-supervisee (k-means)",
+          # plot.title = "Profils cognitifs des clusters identifies\n 
+          # par partition non-supervisee (k-means)",
           fill = TRUE,
           fill.alpha = 0.1
   ) + 
@@ -347,10 +350,18 @@ par partition non-supervisee (k-means)",
 # ---- profiles_lollipop -------------------------------------------------------
 deep %>% 
   gather(key = variable, value = value, -Cluster) %>% 
-  mutate(variable = replace(variable, variable == "Spatial_Img", "Imagerie\n Spatiale"),
-         variable = replace(variable, variable == "Reasoning", "Raisonnement"),
-         variable = replace(variable, variable == "Object_Img", "Imagerie\n Objet"),
-         variable = replace(variable, variable == "Executive", "Fonctions\n Exectutives")) %>% 
+  mutate(variable = replace(variable, 
+                            variable == "Spatial_Img", 
+                            "Imagerie\n Spatiale"),
+         variable = replace(variable, 
+                            variable == "Reasoning", 
+                            "Raisonnement"),
+         variable = replace(variable, 
+                            variable == "Object_Img", 
+                            "Imagerie\n Objet"),
+         variable = replace(variable, 
+                            variable == "Executive", 
+                            "Fonctions\n Exectutives")) %>% 
   group_by(variable, Cluster) %>% 
   summarise(mean = mean(value)) %>% 
   ggdotchart(
@@ -368,8 +379,8 @@ deep %>%
     ggtheme = theme_bw(base_size = 14, base_family = "serif"),
     xlab = "Fonctions Cognitives",
     ylab = "Moyennes",
-    title =
-      "Scores aux differentes fonctions cognitives en fonction des clusters"
+    # title =
+    #   "Scores aux differentes fonctions cognitives en fonction des clusters"
     ) +
   geom_smooth(aes(group = Cluster, color = Cluster),size = .8) +
   theme(panel.grid.major = element_blank(),
@@ -402,9 +413,10 @@ data %>%
   # different filler colors
   scale_fill_brewer(palette = "Dark2") +
   scale_colour_brewer(palette = "Dark2") +
-  labs(title = "Distribution des scores d'imagerie visuelle-objet par cluster",
-       x = "Cluster",
-       y = "Score à l'OSIQ Object Scale")
+  labs(
+    # title = "Distribution des scores d'imagerie visuelle-objet par cluster",
+    x = "Cluster",
+    y = "Score à l'OSIQ Object Scale")
 
 #---- spatial_img_violins
 # Spatial mean comparison
@@ -431,6 +443,7 @@ data %>%
   # different filler colors
   scale_fill_brewer(palette = "Dark2") +
   scale_colour_brewer(palette = "Dark2") +
-  labs(title = "Distribution des scores d'imagerie visuospatiale par cluster",
-       x = "Cluster",
-       y = "Score à l'OSIQ Spatial Scale")
+  labs(
+    # title = "Distribution des scores d'imagerie visuospatiale par cluster",
+    x = "Cluster",
+    y = "Score à l'OSIQ Spatial Scale")

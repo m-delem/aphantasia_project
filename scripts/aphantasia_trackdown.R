@@ -36,19 +36,20 @@ update_file("3_discussion.Rmd",
             hide_code = TRUE,)
 
 # download the GDoc to Rmd
+download_file("aphantasia_project.Rmd",
+            gfile = "aphantasia_project",
+            gpath = "M2 EMC - Aphantasia/manuscrit",)
+
 download_file("1_intro.Rmd",
             gfile = "introduction",
-            gpath = "M2 EMC - Aphantasia/manuscrit",
-            hide_code = TRUE,)
+            gpath = "M2 EMC - Aphantasia/manuscrit",)
 
 download_file("2_experience.Rmd",
             gfile = "experience",
-            gpath = "M2 EMC - Aphantasia/manuscrit",
-            hide_code = TRUE,)
+            gpath = "M2 EMC - Aphantasia/manuscrit",)
 
 download_file("3_discussion.Rmd",
             gfile = "discussion",
-            gpath = "M2 EMC - Aphantasia/manuscrit",
-            hide_code = TRUE,)
+            gpath = "M2 EMC - Aphantasia/manuscrit",)
 
 
