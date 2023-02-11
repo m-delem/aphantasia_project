@@ -17,17 +17,13 @@ bibliography: references.bib
 csl: apa.csl
 ---
 <!-- Introduction -->
-```{r, child="intro.Rmd"}
+```{r, child="1_intro.Rmd"}
 ```
 
 <!-- Méthodologie -->
-```{r, child="methodo.Rmd"}
-```
-
-<!-- Résultats -->
-```{r, child="resultats.Rmd"}
+```{r, child="2_experience.Rmd"}
 ```
 
 <!-- Discussion -->
-```{r, child="discussion.Rmd"}
+```{r, child="3_discussion.Rmd"}
 ```
