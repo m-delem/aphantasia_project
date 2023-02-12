@@ -139,111 +139,129 @@ La dualité de l'imagerie visuelle entre l'objet et l'espace, l'existence propos
 
 ### Corrélations entre les variables mesurées
 
-
+Test pour référencer une figure, ici \ref{correlation_matrix}.
+\newpage
+```{=latex}
 \begin{figure}
+\caption{Matrice de corrélation entre les variables mesurées.}
+\label{correlation_matrix}
+``` 
 
-{\centering \includegraphics[width=0.8\linewidth,height=0.5\textheight,]{aphantasia_project_files/figure-latex/correlation_matrix-1} 
-
-}
-
-\caption{Matrice de corrélation entre les variables mesurées.}\label{fig:correlation_matrix}
+\begin{center}\includegraphics[width=0.8\linewidth,height=0.5\textheight,]{aphantasia_project_files/figure-latex/correlation_matrix-1} \end{center}
+```{=latex}
 \end{figure}
+``` 
 
+```{=latex}
 \begin{figure}
+\caption{Matrice présentant les distributions des variables, l'analyse de leurs corrélations et les représentations associées.}
+\label{mixed_matrix}
+``` 
 
-{\centering \includegraphics[width=0.8\linewidth,height=0.5\textheight,]{aphantasia_project_files/figure-latex/network_plot-1} 
-
-}
-
-\caption{Graphique en réseau représentant l'intensité des corrélations entre les variables.}\label{fig:network_plot}
+\begin{center}\includegraphics[width=0.8\linewidth,height=0.5\textheight,]{aphantasia_project_files/figure-latex/mixed_matrix-1} \end{center}
+```{=latex}
 \end{figure}
-
-
-
+``` 
 ### Analyses des groupes par partition non-supervisée
+```{=latex}
 \begin{figure}
+\caption{Graphique représentatant l'évalution du nombre idéal de clusters par la méthode 'Within Sum of Squares'.}
+\label{cluster_number}
+``` 
 
-{\centering \includegraphics[width=0.8\linewidth,height=0.5\textheight,]{aphantasia_project_files/figure-latex/cluster_number-1} 
-
-}
-
-\caption{Graphique représentatant l'évalution du nombre idéal de clusters par la méthode 'Within Sum of Squares'}\label{fig:cluster_number}
+\begin{center}\includegraphics[width=0.8\linewidth,height=0.5\textheight,]{aphantasia_project_files/figure-latex/cluster_number-1} \end{center}
+```{=latex}
 \end{figure}
+``` 
 
+```{=latex}
 \begin{figure}
+\caption{Matrice de corrélation entre les variables mesurées.}
+\label{pca_variables}
+``` 
 
-{\centering \includegraphics[width=0.8\linewidth,height=0.5\textheight,]{aphantasia_project_files/figure-latex/pca_variables-1} 
-
-}
-
-\caption{Représentation de l'analyse en composantes principales des variables mesurées.}\label{fig:pca_variables}
+\begin{center}\includegraphics[width=0.8\linewidth,height=0.5\textheight,]{aphantasia_project_files/figure-latex/pca_variables-1} \end{center}
+```{=latex}
 \end{figure}
+``` 
 
+```{=latex}
 \begin{figure}
+\caption{Représentation des clusters reconnus par la méthode des 'k-means', selon les deux composantes principales de l'ACP.}
+\label{k_means}
+``` 
 
-{\centering \includegraphics[width=0.8\linewidth,height=0.5\textheight,]{aphantasia_project_files/figure-latex/k_means-1} 
-
-}
-
-\caption{Représentation des clusters reconnus par la méthode des 'k-means', selon les deux composantes principales de l'ACP.}\label{fig:k_means}
+\begin{center}\includegraphics[width=0.8\linewidth,height=0.5\textheight,]{aphantasia_project_files/figure-latex/k_means-1} \end{center}
+```{=latex}
 \end{figure}
-
+``` 
 ### Analyse des clusters
+```{=latex}
 \begin{figure}
+\caption{Répartion des groupes par cluster.}
+\label{cluster_repatition}
+``` 
 
-{\centering \includegraphics[width=0.8\linewidth,height=0.5\textheight,]{aphantasia_project_files/figure-latex/cluster_repatition-1} 
-
-}
-
-\caption{Répartion des groupes par cluster.}\label{fig:cluster_repatition}
+\begin{center}\includegraphics[width=0.8\linewidth,height=0.5\textheight,]{aphantasia_project_files/figure-latex/cluster_repatition-1} \end{center}
+```{=latex}
 \end{figure}
+``` 
 
+```{=latex}
 \begin{figure}
+\caption{Diagramme représentatant les profils cognitifs associés à chaque cluster, selon quatre dimensions principales : l'imagerie visuelle-objet, l'imagerie visuo-spatiale, le raisonnement et les fonctions exécutives.}
+\label{profiles_radar}
+``` 
 
-{\centering \includegraphics[width=0.8\linewidth,height=0.5\textheight,]{aphantasia_project_files/figure-latex/profiles_radar-1} 
-
-}
-
-\caption{Diagramme représentatant les profils cognitifs associés à chaque cluster, selon quatre dimensions principales : l'imagerie visuelle-objet, l'imagerie visuo-spatiale, le raisonnement et les fonctions exécutives.}\label{fig:profiles_radar}
+\begin{center}\includegraphics[width=0.8\linewidth,height=0.5\textheight,]{aphantasia_project_files/figure-latex/profiles_radar-1} \end{center}
+```{=latex}
 \end{figure}
+``` 
 
+```{=latex}
 \begin{figure}
+\caption{Représentation alternative des profils cognitifs associés aux clusters.}
+\label{profiles_lollipop}
+``` 
 
-{\centering \includegraphics[width=0.8\linewidth,height=0.5\textheight,]{aphantasia_project_files/figure-latex/profiles_lollipop-1} 
-
-}
-
-\caption{Représentation alternative des profils cognitifs associés aux clusters.}\label{fig:profiles_lollipop}
+\begin{center}\includegraphics[width=0.8\linewidth,height=0.5\textheight,]{aphantasia_project_files/figure-latex/profiles_lollipop-1} \end{center}
+```{=latex}
 \end{figure}
-
+``` 
 ### Différences entre les groupes identifiés
+```{=latex}
+\begin{figure}
+\caption{Comparaison des moyennes de score d'imagerie visuelle-objet entre les quatre groupes identifiés.}
+\label{object_img_violins}
+``` 
 
 ```
 ## [1] FALSE
 ```
 
-\begin{figure}
 
-{\centering \includegraphics[width=0.8\linewidth,height=0.5\textheight,]{aphantasia_project_files/figure-latex/object_img_violins-1} 
 
-}
-
-\caption{Comparaison des moyennes de score d'imagerie visuelle-objet entre les quatre groupes identifiés.}\label{fig:object_img_violins}
+\begin{center}\includegraphics[width=0.8\linewidth,height=0.5\textheight,]{aphantasia_project_files/figure-latex/object_img_violins-1} \end{center}
+```{=latex}
 \end{figure}
+``` 
 
+```{=latex}
+\begin{figure}
+\caption{Comparaison des moyennes de score d'imagerie visuospatiale entre les quatre groupes identifiés.}
+\label{spatial_img_violins}
+``` 
 
 ```
 ## [1] FALSE
 ```
 
-\begin{figure}
 
-{\centering \includegraphics[width=0.8\linewidth,height=0.5\textheight,]{aphantasia_project_files/figure-latex/spatial_img_violins-1} 
 
-}
-
-\caption{Comparaison des moyennes de score d'imagerie visuospatiale entre les quatre groupes identifiés.}\label{fig:spatial_img_violins}
+\begin{center}\includegraphics[width=0.8\linewidth,height=0.5\textheight,]{aphantasia_project_files/figure-latex/spatial_img_violins-1} \end{center}
+```{=latex}
 \end{figure}
+``` 
 
 \newpage
 <!-- Discussion -->

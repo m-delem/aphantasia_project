@@ -25,39 +25,114 @@ bibliography: references.bib
 
 ### Corrélations entre les variables mesurées
 
-
-```{r,correlation_matrix,fig.cap="Matrice de corrélation entre les variables mesurées."}
+Test pour référencer une figure, ici \ref{correlation_matrix}.
+\newpage
+```{=latex}
+\begin{figure}
+\caption{Matrice de corrélation entre les variables mesurées.}
+\label{correlation_matrix}
+``` 
+```{r,correlation_matrix}
 ```
+```{=latex}
+\end{figure}
+``` 
 
-```{r,network_plot,fig.cap="Graphique en réseau représentant l'intensité des corrélations entre les variables."}
+```{=latex}
+\begin{figure}
+\caption{Matrice présentant les distributions des variables, l'analyse de leurs corrélations et les représentations associées.}
+\label{mixed_matrix}
+``` 
+```{r,mixed_matrix}
 ```
-
-```{r,mixed_matrix,eval=FALSE,fig.cap="Matrice présentant les distributions des variables, l'analyse de leurs corrélations et les représentations associées."}
-```
-
+```{=latex}
+\end{figure}
+``` 
 ### Analyses des groupes par partition non-supervisée
-```{r,cluster_number,fig.cap="Graphique représentatant l'évalution du nombre idéal de clusters par la méthode 'Within Sum of Squares'"}
+```{=latex}
+\begin{figure}
+\caption{Graphique représentatant l'évalution du nombre idéal de clusters par la méthode 'Within Sum of Squares'.}
+\label{cluster_number}
+``` 
+```{r,cluster_number}
 ```
+```{=latex}
+\end{figure}
+``` 
 
-```{r,pca_variables,fig.cap="Représentation de l'analyse en composantes principales des variables mesurées."}
+```{=latex}
+\begin{figure}
+\caption{Matrice de corrélation entre les variables mesurées.}
+\label{pca_variables}
+``` 
+```{r,pca_variables}
 ```
+```{=latex}
+\end{figure}
+``` 
 
-```{r,k_means,fig.cap="Représentation des clusters reconnus par la méthode des 'k-means', selon les deux composantes principales de l'ACP."}
+```{=latex}
+\begin{figure}
+\caption{Représentation des clusters reconnus par la méthode des 'k-means', selon les deux composantes principales de l'ACP.}
+\label{k_means}
+``` 
+```{r,k_means}
 ```
-
+```{=latex}
+\end{figure}
+``` 
 ### Analyse des clusters
-```{r,cluster_repatition,fig.cap="Répartion des groupes par cluster."}
+```{=latex}
+\begin{figure}
+\caption{Répartion des groupes par cluster.}
+\label{cluster_repatition}
+``` 
+```{r,cluster_repatition}
 ```
+```{=latex}
+\end{figure}
+``` 
 
-```{r,profiles_radar,fig.cap="Diagramme représentatant les profils cognitifs associés à chaque cluster, selon quatre dimensions principales : l'imagerie visuelle-objet, l'imagerie visuo-spatiale, le raisonnement et les fonctions exécutives."}
+```{=latex}
+\begin{figure}
+\caption{Diagramme représentatant les profils cognitifs associés à chaque cluster, selon quatre dimensions principales : l'imagerie visuelle-objet, l'imagerie visuo-spatiale, le raisonnement et les fonctions exécutives.}
+\label{profiles_radar}
+``` 
+```{r,profiles_radar}
 ```
+```{=latex}
+\end{figure}
+``` 
 
-```{r,profiles_lollipop,fig.cap="Représentation alternative des profils cognitifs associés aux clusters."}
+```{=latex}
+\begin{figure}
+\caption{Représentation alternative des profils cognitifs associés aux clusters.}
+\label{profiles_lollipop}
+``` 
+```{r,profiles_lollipop}
 ```
-
+```{=latex}
+\end{figure}
+``` 
 ### Différences entre les groupes identifiés
-```{r,object_img_violins,fig.cap="Comparaison des moyennes de score d'imagerie visuelle-objet entre les quatre groupes identifiés."}
+```{=latex}
+\begin{figure}
+\caption{Comparaison des moyennes de score d'imagerie visuelle-objet entre les quatre groupes identifiés.}
+\label{object_img_violins}
+``` 
+```{r,object_img_violins}
 ```
+```{=latex}
+\end{figure}
+``` 
 
-```{r,spatial_img_violins,fig.cap="Comparaison des moyennes de score d'imagerie visuospatiale entre les quatre groupes identifiés."}
+```{=latex}
+\begin{figure}
+\caption{Comparaison des moyennes de score d'imagerie visuospatiale entre les quatre groupes identifiés.}
+\label{spatial_img_violins}
+``` 
+```{r,spatial_img_violins}
 ```
+```{=latex}
+\end{figure}
+``` 
