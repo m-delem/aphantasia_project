@@ -26,11 +26,10 @@ documentclass: article
 bibliography: references.bib
 csl: apa.csl
 ---
-<!--
 
 
 
--->
+
 
 <!-- Le manuscrit est divisé en plusieurs documents pour faciliter les modifications locales - ceux-ci sont dans le dossier du Drive. L'output complet du R Markdown (le pdf final) est en pdf dans le Drive, avec le même nom que ce fichier. Les GDoc de ce Drive servent à éditer le texte rédigé du document final : le code R sous-jacent et les analyses des données seront partagées et travaillées sur GitHub, lié localement à RStudio. Le repository GitHub en question : https://github.com/m-delem/aphantasia_project.git -->
 
@@ -140,7 +139,7 @@ La dualité de l'imagerie visuelle entre l'objet et l'espace, l'existence propos
 
 ### Corrélations entre les variables mesurées
 
-<!--
+
 \begin{figure}[H]
 
 {\centering \includegraphics[width=0.8\linewidth,height=0.5\textheight,]{aphantasia_project_files/figure-latex/correlation_matrix-1} 
@@ -245,8 +244,6 @@ La dualité de l'imagerie visuelle entre l'objet et l'espace, l'existence propos
 
 \caption{Comparaison des moyennes de score d'imagerie visuospatiale entre les quatre groupes identifiés.}\label{fig:spatial_img_violins}
 \end{figure}
-
--->
 
 \newpage
 <!-- Discussion -->
