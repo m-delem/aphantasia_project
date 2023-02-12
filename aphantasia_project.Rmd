@@ -4,7 +4,7 @@ output:
     toc: yes
     toc_depth: 5
     number_sections: yes
-    extra_dependencies: ["float"]
+    extra_dependencies: ["float","flafter"]
     keep_md: yes
     fig_height: 8
     fig_width: 10
@@ -35,9 +35,10 @@ knitr::opts_chunk$set(message=FALSE,
                       echo=FALSE,
                       out.height = "50%",
                       out.width = "80%",
-                      fig.pos = "H",
+                      #fig.pos = "H",
                       fig.align = "center",
-                      out.extra = "")
+                      out.extra = ""
+                      )
 ```
 
 ```{r,setup, echo=FALSE}

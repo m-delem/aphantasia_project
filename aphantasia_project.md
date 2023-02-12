@@ -4,7 +4,7 @@ output:
     toc: yes
     toc_depth: 5
     number_sections: yes
-    extra_dependencies: ["float"]
+    extra_dependencies: ["float","flafter"]
     keep_md: yes
     fig_height: 8
     fig_width: 10
@@ -140,7 +140,7 @@ La dualité de l'imagerie visuelle entre l'objet et l'espace, l'existence propos
 ### Corrélations entre les variables mesurées
 
 
-\begin{figure}[H]
+\begin{figure}
 
 {\centering \includegraphics[width=0.8\linewidth,height=0.5\textheight,]{aphantasia_project_files/figure-latex/correlation_matrix-1} 
 
@@ -149,7 +149,7 @@ La dualité de l'imagerie visuelle entre l'objet et l'espace, l'existence propos
 \caption{Matrice de corrélation entre les variables mesurées.}\label{fig:correlation_matrix}
 \end{figure}
 
-\begin{figure}[H]
+\begin{figure}
 
 {\centering \includegraphics[width=0.8\linewidth,height=0.5\textheight,]{aphantasia_project_files/figure-latex/network_plot-1} 
 
@@ -161,7 +161,7 @@ La dualité de l'imagerie visuelle entre l'objet et l'espace, l'existence propos
 
 
 ### Analyses des groupes par partition non-supervisée
-\begin{figure}[H]
+\begin{figure}
 
 {\centering \includegraphics[width=0.8\linewidth,height=0.5\textheight,]{aphantasia_project_files/figure-latex/cluster_number-1} 
 
@@ -170,7 +170,7 @@ La dualité de l'imagerie visuelle entre l'objet et l'espace, l'existence propos
 \caption{Graphique représentatant l'évalution du nombre idéal de clusters par la méthode 'Within Sum of Squares'}\label{fig:cluster_number}
 \end{figure}
 
-\begin{figure}[H]
+\begin{figure}
 
 {\centering \includegraphics[width=0.8\linewidth,height=0.5\textheight,]{aphantasia_project_files/figure-latex/pca_variables-1} 
 
@@ -179,7 +179,7 @@ La dualité de l'imagerie visuelle entre l'objet et l'espace, l'existence propos
 \caption{Représentation de l'analyse en composantes principales des variables mesurées.}\label{fig:pca_variables}
 \end{figure}
 
-\begin{figure}[H]
+\begin{figure}
 
 {\centering \includegraphics[width=0.8\linewidth,height=0.5\textheight,]{aphantasia_project_files/figure-latex/k_means-1} 
 
@@ -189,7 +189,7 @@ La dualité de l'imagerie visuelle entre l'objet et l'espace, l'existence propos
 \end{figure}
 
 ### Analyse des clusters
-\begin{figure}[H]
+\begin{figure}
 
 {\centering \includegraphics[width=0.8\linewidth,height=0.5\textheight,]{aphantasia_project_files/figure-latex/cluster_repatition-1} 
 
@@ -198,7 +198,7 @@ La dualité de l'imagerie visuelle entre l'objet et l'espace, l'existence propos
 \caption{Répartion des groupes par cluster.}\label{fig:cluster_repatition}
 \end{figure}
 
-\begin{figure}[H]
+\begin{figure}
 
 {\centering \includegraphics[width=0.8\linewidth,height=0.5\textheight,]{aphantasia_project_files/figure-latex/profiles_radar-1} 
 
@@ -207,7 +207,7 @@ La dualité de l'imagerie visuelle entre l'objet et l'espace, l'existence propos
 \caption{Diagramme représentatant les profils cognitifs associés à chaque cluster, selon quatre dimensions principales : l'imagerie visuelle-objet, l'imagerie visuo-spatiale, le raisonnement et les fonctions exécutives.}\label{fig:profiles_radar}
 \end{figure}
 
-\begin{figure}[H]
+\begin{figure}
 
 {\centering \includegraphics[width=0.8\linewidth,height=0.5\textheight,]{aphantasia_project_files/figure-latex/profiles_lollipop-1} 
 
@@ -222,7 +222,7 @@ La dualité de l'imagerie visuelle entre l'objet et l'espace, l'existence propos
 ## [1] FALSE
 ```
 
-\begin{figure}[H]
+\begin{figure}
 
 {\centering \includegraphics[width=0.8\linewidth,height=0.5\textheight,]{aphantasia_project_files/figure-latex/object_img_violins-1} 
 
@@ -236,7 +236,7 @@ La dualité de l'imagerie visuelle entre l'objet et l'espace, l'existence propos
 ## [1] FALSE
 ```
 
-\begin{figure}[H]
+\begin{figure}
 
 {\centering \includegraphics[width=0.8\linewidth,height=0.5\textheight,]{aphantasia_project_files/figure-latex/spatial_img_violins-1} 
 
