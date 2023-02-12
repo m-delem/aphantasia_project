@@ -9,130 +9,196 @@ bibliography: references.bib
 
 ### Participants
 
-### Questionnaires
+<!-- Sema
 
-### Procédure
+Soixante personnes ont participé à l'expérience. Ils devaient avoir entre 18 et 50 ans, être locuteurs français natifs, avoir une vision normale ou corrigée et ne pas présenter de trouble de la lecture.
+Les participants étaient divisés en deux groupes : les aphantasiques (n=30) et les non-aphantasiques (n=30). Les participants aphantasiques ont été recrutés en ligne sur des espaces spécifiques à leur condition (forums, groupes sur les réseaux sociaux, etc.).
+
+-->
+
+### Matériel expérimental
+
+#### Questionnaires
+
+<!-- sema
+
+Le matériel était constitué de 6 épreuves neuropsychologiques, mesurant les capacités de raisonnement visuel et d'induction et de déduction de règles (version courte des matrices de Raven (Bilker et al., 2012), les capacités d'abstraction et de conceptualisation verbale (Subtest Similitudes de la WAIS-IV), la mémoire de travail verbale (Empan de chiffre envers), les fonctions exécutives (Test à préciser) et les capacités de compréhension en lecture (Texte, à décider). Cette dernière épreuve constituait une tache écologique dans laquelle les images mentales pouvaient être sollicitées. Enfin, une courte tâche de raisonnement était également proposée (Tâche de Wason, 1968). 
+L'expérience comprenait aussi 2 questionnaires : le VVIQ, Questionnaire de Vivacité de l'Imagerie Visuelle (Marks, 1973), qui comporte 16 items et dans lequel le participant doit coter sur une échelle de Likert de 5 points l'énoncé qui lui correspond le mieux. Les scores vont de 16 à 80. Il constitue le questionnaire subjectif de référence dans l'aphantasie. Le second questionnaire était le MAI, Inventaire de Conscience Métacognitive (Schraw & Dennison, 1994), qui évalue les deux composantes de la métacognition : les connaissances métacognitives et la régulation métacognitive.
+
+-->
+### Equipement
+
+<!-- Sema
+
+L’expérience a été développée à l’aide d’OpenSesame puis a été présentée en ligne sur un serveur JATOS (Lange et al, 2015).
+
+--> 
+
+### Procédure expérimentale
+ <!-- Sema
+ 
+Le participant effectuait les différentes épreuves neuropsychologiques. (Ordre des épreuves non décidé). Concernant la tâche de lecture, les participants étaient soumis à un texte qu'ils devaient lire. Le temps de lecture est libre mais chronométré. A la fin de la lecture, le texte est caché. Les participants devaient ensuite répondre à des questions sur le texte qui étaient d'ordres explicite ou implicite.
+A la fin de la passation de l'ensemble des tests, le participant répondait au questionnaire sur la vivacité de l'imagerie visuelle (VVIQ) et au questionnaire de métacognition (MAI). Pour terminer l'expérience, un questionnaire démographique a été rempli.
+
+-->
 
 ## Variables et hypothèses
 
 ### Variables indépendantes
 
+<!-- Sema
+
+Groupe : aphantasiques et non-aphantasiques
+
+-->
+
 ### Variables dépendantes
+
+<!-- Sema 
+Les VD sont les suivantes : 
+-	Score aux Matrices
+-	Score au test des Similitudes
+-	Empan en MDT ou % de bonnes réponses ?
+-	Score au texte de compréhension en lecture
+-	Score à l'épreuve évaluant les fonctions exécutives
+-	Pourcentage de réussite à la tâche de Wason pour chaque groupe
+-	Score au VVIQ
+-	Score au questionnaire MAI
+-->
 
 ### Hypothèses opérationnelles
 
+<!-- Sema
+
+1)	D'après les données présentées par l'étude de Zeman et al. (2020) (taux important d'aphantasiques dans les métiers scientifiques), on peut faire l'hypothèse que le groupe de participants aphantasiques présentera des capacités de raisonnement (mesurées par le test des Similitudes et les Matrices) plus développés que le groupe de participants non aphantasiques.
+
+2)	Dans la mesure où les aphantasiques ont un défaut d'imagerie visuelle, si le texte de compréhension en lecture sollicite des images visuelles, on peut s'attendre à des performances différentes à ce texte entre les aphantasiques et les non aphantasiques.
+
+3)	Conformément à l'hypothèse que les aphantasiques auraient recours à des stratégies pour compenser leur déficit en imagerie visuelle, des performances élevées en compréhension de texte pourraient être corrélées à des scores élevés aux épreuves mesurant le fonctionnement exécutif et les capacités d'abstraction.
+
+Plan expérimental : S30<G2>
+-->
+
 ## Résultats
 
-### Corrélations entre les variables mesurées
+### Analyses
 
-Test pour référencer une figure, ici \ref{correlation_matrix}.
-\newpage
+<!-- Sema
+L'analyse des résultats sera effectuée avec le logiciel JASP (Love et al., 2019). Des t-students et des ANOVAs seront menés en premier lieu afin d'observer s'il existe des différences dans les VD entre les aphantasiques et les non-aphantasiques. Des analyses corrélationnelles (Bravais-Pearson) seront ensuite effectuées sur les différentes mesures, ainsi que des régressions. Les données seront ensuite soumises à des analyses par clusters.
+-->
+
+### Corrélations entre les variables mesurées
 ```{=latex}
-\begin{figure}
-\caption{Matrice de corrélation entre les variables mesurées.}
-\label{correlation_matrix}
+\begin{figure}[H]
 ``` 
 ```{r,correlation_matrix}
 ```
 ```{=latex}
+\caption{Matrice de corrélation entre les variables mesurées.}
+\label{correlation_matrix}
 \end{figure}
 ``` 
 
 ```{=latex}
-\begin{figure}
-\caption{Matrice présentant les distributions des variables, l'analyse de leurs corrélations et les représentations associées.}
-\label{mixed_matrix}
+\begin{figure}[H]
 ``` 
 ```{r,mixed_matrix}
 ```
 ```{=latex}
+\caption{Matrice présentant les distributions des variables, l'analyse de leurs corrélations et les représentations associées.}
+\label{mixed_matrix}
 \end{figure}
 ``` 
+
 ### Analyses des groupes par partition non-supervisée
+
 ```{=latex}
-\begin{figure}
-\caption{Graphique représentatant l'évalution du nombre idéal de clusters par la méthode 'Within Sum of Squares'.}
-\label{cluster_number}
+\begin{figure}[H]
 ``` 
 ```{r,cluster_number}
 ```
 ```{=latex}
+\caption{Graphique représentatant l'évalution du nombre idéal de clusters par la méthode 'Within Sum of Squares'.}
+\label{cluster_number}
 \end{figure}
 ``` 
 
 ```{=latex}
-\begin{figure}
-\caption{Matrice de corrélation entre les variables mesurées.}
-\label{pca_variables}
+\begin{figure}[H]
 ``` 
 ```{r,pca_variables}
 ```
 ```{=latex}
+\caption{Représentation de l'analyse en composantes principales des variables mesurées.}
+\label{pca_variables}
 \end{figure}
 ``` 
 
 ```{=latex}
-\begin{figure}
-\caption{Représentation des clusters reconnus par la méthode des 'k-means', selon les deux composantes principales de l'ACP.}
-\label{k_means}
+\begin{figure}[H]
 ``` 
 ```{r,k_means}
 ```
 ```{=latex}
+\caption{Représentation des clusters reconnus par la méthode des 'k-means', selon les deux composantes principales de l'ACP.}
+\label{k_means}
 \end{figure}
 ``` 
+
 ### Analyse des clusters
+
 ```{=latex}
-\begin{figure}
-\caption{Répartion des groupes par cluster.}
-\label{cluster_repatition}
+\begin{figure}[H]
 ``` 
 ```{r,cluster_repatition}
 ```
 ```{=latex}
+\caption{Répartion des groupes par cluster.}
+\label{cluster_repatition}
 \end{figure}
 ``` 
 
 ```{=latex}
-\begin{figure}
-\caption{Diagramme représentatant les profils cognitifs associés à chaque cluster, selon quatre dimensions principales : l'imagerie visuelle-objet, l'imagerie visuo-spatiale, le raisonnement et les fonctions exécutives.}
-\label{profiles_radar}
+\begin{figure}[H]
 ``` 
 ```{r,profiles_radar}
 ```
 ```{=latex}
+\caption{Diagramme représentatant les profils cognitifs associés à chaque cluster, selon quatre dimensions principales : l'imagerie visuelle-objet, l'imagerie visuo-spatiale, le raisonnement et les fonctions exécutives.}
+\label{profiles_radar}
 \end{figure}
 ``` 
 
 ```{=latex}
-\begin{figure}
-\caption{Représentation alternative des profils cognitifs associés aux clusters.}
-\label{profiles_lollipop}
+\begin{figure}[H]
 ``` 
 ```{r,profiles_lollipop}
 ```
 ```{=latex}
+\caption{Représentation alternative des profils cognitifs associés aux clusters.}
+\label{profiles_lollipop}
 \end{figure}
 ``` 
+
 ### Différences entre les groupes identifiés
 ```{=latex}
-\begin{figure}
-\caption{Comparaison des moyennes de score d'imagerie visuelle-objet entre les quatre groupes identifiés.}
-\label{object_img_violins}
+\begin{figure}[H]
 ``` 
 ```{r,object_img_violins}
 ```
 ```{=latex}
+\caption{Comparaison des moyennes de score d'imagerie visuelle-objet entre les quatre groupes identifiés.}
+\label{object_img_violins}
 \end{figure}
 ``` 
 
 ```{=latex}
-\begin{figure}
-\caption{Comparaison des moyennes de score d'imagerie visuospatiale entre les quatre groupes identifiés.}
-\label{spatial_img_violins}
+\begin{figure}[H]
 ``` 
 ```{r,spatial_img_violins}
 ```
 ```{=latex}
+\caption{Comparaison des moyennes de score d'imagerie visuospatiale entre les quatre groupes identifiés.}
+\label{spatial_img_violins}
 \end{figure}
 ``` 

@@ -4,12 +4,13 @@ output:
     toc: yes
     toc_depth: 5
     number_sections: yes
-    extra_dependencies: ["float","flafter"]
+    extra_dependencies: ["float"]
     keep_md: yes
     fig_height: 8
     fig_width: 10
     df_print: kable
     includes:
+      in_header: "z_preamble.tex"
       before_body: "z_beforebody.tex"
   html_document:
     toc: yes
@@ -26,7 +27,7 @@ documentclass: article
 bibliography: references.bib
 csl: apa.csl
 ---
-
+\newpage
 ```{r, include=FALSE, cache=FALSE}
 # chargement du code source et reglages
 knitr::read_chunk('./scripts/aphantasia_source.R')
@@ -35,7 +36,7 @@ knitr::opts_chunk$set(message=FALSE,
                       echo=FALSE,
                       out.height = "50%",
                       out.width = "80%",
-                      fig.pos = "H",
+                      # fig.pos = "H",
                       fig.align = "center",
                       out.extra = ""
                       )
@@ -47,7 +48,8 @@ knitr::opts_chunk$set(message=FALSE,
 
 <!-- Le manuscrit est divisé en plusieurs documents pour faciliter les modifications locales - ceux-ci sont dans le dossier du Drive. L'output complet du R Markdown (le pdf final) est en pdf dans le Drive, avec le même nom que ce fichier. Les GDoc de ce Drive servent à éditer le texte rédigé du document final : le code R sous-jacent et les analyses des données seront partagées et travaillées sur GitHub, lié localement à RStudio. Le repository GitHub en question : https://github.com/m-delem/aphantasia_project.git -->
 
-\newpage
+Test pour référencer une figure, ici la Figure \ref{correlation_matrix}, ou encore la Figure \ref{mixed_matrix}.
+
 <!-- Introduction -->
 ```{r, child="1_intro.Rmd"}
 ```
@@ -479,7 +481,7 @@ data %>%
        x = "Cluster",
        y = "Score à l'OSIQ Object Scale")
 
-#---- spatial_img_violins
+#---- spatial_img_violins ------------------------------------------------------
 # Spatial mean comparison
 data %>% 
   ggplot(aes(x = Cluster,reorder(1, 2, 3, 4),

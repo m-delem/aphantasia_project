@@ -418,7 +418,7 @@ data %>%
     x = "Cluster",
     y = "Score à l'OSIQ Object Scale")
 
-#---- spatial_img_violins
+#---- spatial_img_violins ------------------------------------------------------
 # Spatial mean comparison
 data %>% 
   ggplot(aes(x = Cluster,reorder(1, 2, 3, 4),
