@@ -34,7 +34,7 @@ csl: apa.csl
 
 <!-- Le manuscrit est divisé en plusieurs documents pour faciliter les modifications locales - ceux-ci sont dans le dossier du Drive. L'output complet du R Markdown (le pdf final) est en pdf dans le Drive, avec le même nom que ce fichier. Les GDoc de ce Drive servent à éditer le texte rédigé du document final : le code R sous-jacent et les analyses des données seront partagées et travaillées sur GitHub, lié localement à RStudio. Le repository GitHub en question : https://github.com/m-delem/aphantasia_project.git -->
 
-Test pour référencer une figure, ici la Figure \ref{correlation_matrix}, ou encore la Figure \ref{mixed_matrix}.
+Test pour référencer une figure, ici la Figure \ref{correlation_matrix}, ou encore la Figure \ref{k_means}.
 
 <!-- Introduction -->
 
@@ -254,6 +254,7 @@ L'analyse des résultats sera effectuée avec le logiciel JASP (Love et al., 201
 \end{figure}
 ``` 
 
+<!--
 ```{=latex}
 \begin{figure}[H]
 ``` 
@@ -264,6 +265,7 @@ L'analyse des résultats sera effectuée avec le logiciel JASP (Love et al., 201
 \label{mixed_matrix}
 \end{figure}
 ``` 
+-->
 
 ### Analyses des groupes par partition non-supervisée
 
@@ -353,6 +355,7 @@ L'analyse des résultats sera effectuée avec le logiciel JASP (Love et al., 201
 \end{figure}
 ``` 
 
+<!--
 ```{=latex}
 \begin{figure}[H]
 ``` 
@@ -369,6 +372,7 @@ L'analyse des résultats sera effectuée avec le logiciel JASP (Love et al., 201
 \label{spatial_img_violins}
 \end{figure}
 ``` 
+-->
 
 \newpage
 <!-- Discussion -->
@@ -798,7 +802,7 @@ data %>%
        x = "Cluster",
        y = "Score à l'OSIQ Object Scale")
 
-#---- spatial_img_violins
+#---- spatial_img_violins ------------------------------------------------------
 # Spatial mean comparison
 data %>% 
   ggplot(aes(x = Cluster,reorder(1, 2, 3, 4),

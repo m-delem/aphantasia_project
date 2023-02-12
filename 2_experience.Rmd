@@ -99,6 +99,7 @@ L'analyse des résultats sera effectuée avec le logiciel JASP (Love et al., 201
 \end{figure}
 ``` 
 
+<!--
 ```{=latex}
 \begin{figure}[H]
 ``` 
@@ -109,6 +110,7 @@ L'analyse des résultats sera effectuée avec le logiciel JASP (Love et al., 201
 \label{mixed_matrix}
 \end{figure}
 ``` 
+-->
 
 ### Analyses des groupes par partition non-supervisée
 
@@ -192,6 +194,7 @@ L'analyse des résultats sera effectuée avec le logiciel JASP (Love et al., 201
 \end{figure}
 ``` 
 
+<!--
 ```{=latex}
 \begin{figure}[H]
 ``` 
@@ -202,3 +205,4 @@ L'analyse des résultats sera effectuée avec le logiciel JASP (Love et al., 201
 \label{spatial_img_violins}
 \end{figure}
 ``` 
+-->
