@@ -24,38 +24,40 @@ bibliography: references.bib
 ## Résultats
 
 ### Corrélations entre les variables mesurées
-```{r,correlation_matrix,fig.cap="Matrice de corrélation entre les variables mesurées.",fig.pos="H"}
+
+
+```{r,correlation_matrix,fig.cap="Matrice de corrélation entre les variables mesurées."}
 ```
 
-```{r,network_plot,fig.cap="Graphique en réseau représentant l'intensité des corrélations entre les variables.",fig.pos="H"}
+```{r,network_plot,fig.cap="Graphique en réseau représentant l'intensité des corrélations entre les variables."}
 ```
 
-```{r,mixed_matrix,eval=FALSE,fig.cap="Matrice présentant les distributions des variables, l'analyse de leurs corrélations et les représentations associées.",fig.pos="H"}
+```{r,mixed_matrix,eval=FALSE,fig.cap="Matrice présentant les distributions des variables, l'analyse de leurs corrélations et les représentations associées."}
 ```
 
 ### Analyses des groupes par partition non-supervisée
-```{r,cluster_number,fig.cap="Graphique représentatant l'évalution du nombre idéal de clusters par la méthode 'Within Sum of Squares'",fig.pos="H"}
+```{r,cluster_number,fig.cap="Graphique représentatant l'évalution du nombre idéal de clusters par la méthode 'Within Sum of Squares'"}
 ```
 
-```{r,pca_variables,fig.cap="Représentation de l'analyse en composantes principales des variables mesurées.",fig.pos="H"}
+```{r,pca_variables,fig.cap="Représentation de l'analyse en composantes principales des variables mesurées."}
 ```
 
-```{r,k_means,fig.cap="Représentation des clusters reconnus par la méthode des 'k-means', selon les deux composantes principales de l'ACP.",fig.pos="H"}
+```{r,k_means,fig.cap="Représentation des clusters reconnus par la méthode des 'k-means', selon les deux composantes principales de l'ACP."}
 ```
 
 ### Analyse des clusters
-```{r,cluster_repatition,fig.cap="Répartion des groupes par cluster.",fig.pos="H"}
+```{r,cluster_repatition,fig.cap="Répartion des groupes par cluster."}
 ```
 
-```{r,profiles_radar,fig.cap="Diagramme représentatant les profils cognitifs associés à chaque cluster, selon quatre dimensions principales : l'imagerie visuelle-objet, l'imagerie visuo-spatiale, le raisonnement et les fonctions exécutives.",fig.pos="H"}
+```{r,profiles_radar,fig.cap="Diagramme représentatant les profils cognitifs associés à chaque cluster, selon quatre dimensions principales : l'imagerie visuelle-objet, l'imagerie visuo-spatiale, le raisonnement et les fonctions exécutives."}
 ```
 
-```{r,profiles_lollipop,fig.cap="Représentation alternative des profils cognitifs associés aux clusters.",fig.pos="H"}
+```{r,profiles_lollipop,fig.cap="Représentation alternative des profils cognitifs associés aux clusters."}
 ```
 
 ### Différences entre les groupes identifiés
-```{r,object_img_violins,fig.cap="Comparaison des moyennes de score d'imagerie visuelle-objet entre les quatre groupes identifiés.",fig.pos="H"}
+```{r,object_img_violins,fig.cap="Comparaison des moyennes de score d'imagerie visuelle-objet entre les quatre groupes identifiés."}
 ```
 
-```{r,spatial_img_violins,fig.cap="Comparaison des moyennes de score d'imagerie visuospatiale entre les quatre groupes identifiés.",fig.pos="H"}
+```{r,spatial_img_violins,fig.cap="Comparaison des moyennes de score d'imagerie visuospatiale entre les quatre groupes identifiés."}
 ```

@@ -1,39 +1,36 @@
 ---
-title: "Profil cognitif des aphantasiques : étude exploratoire des stratégies de compensation spatiales et abstraites"
-subtitle: "Simulation de données et analyses prévisionnelles dans le cadre de l'UE 'Data Science'"
-author:
-  - Maël Delem^[m.delem@univ-lyon2.fr]
-  - Colin Fourment^[colin.fourment@univ-lyon2.fr]
-  - Thomas Junoy^[thomas.junoy@univ-lyon2.fr]
-  - Guillaume Leal de Almeida^[g.leal-de-almeida@univ-lyon2.fr]
-date: "2023-02-11"
 output:
   pdf_document:
     toc: yes
     toc_depth: 5
     number_sections: yes
-    extra_dependencies: float
+    extra_dependencies: ["float"]
     keep_md: yes
     fig_height: 8
     fig_width: 10
     df_print: kable
+    includes:
+      before_body: "z_beforebody.tex"
   html_document:
     toc: yes
     toc_depth: '5'
-    df_print: paged
+    df_print: kable
 lang: "fr"
 fontsize: 12pt
+linestretch: 1.5
 geometry: margin=1in
+indent: TRUE
 documentclass: article
-include-before:
-- '`\newpage{}`{=latex}'
+# classoption:
+# - twocolumn
 bibliography: references.bib
 csl: apa.csl
 ---
+<!--
 
 
 
-
+-->
 
 <!-- Le manuscrit est divisé en plusieurs documents pour faciliter les modifications locales - ceux-ci sont dans le dossier du Drive. L'output complet du R Markdown (le pdf final) est en pdf dans le Drive, avec le même nom que ce fichier. Les GDoc de ce Drive servent à éditer le texte rédigé du document final : le code R sous-jacent et les analyses des données seront partagées et travaillées sur GitHub, lié localement à RStudio. Le repository GitHub en question : https://github.com/m-delem/aphantasia_project.git -->
 
@@ -142,6 +139,8 @@ La dualité de l'imagerie visuelle entre l'objet et l'espace, l'existence propos
 ## Résultats
 
 ### Corrélations entre les variables mesurées
+
+<!--
 \begin{figure}[H]
 
 {\centering \includegraphics[width=0.8\linewidth,height=0.5\textheight,]{aphantasia_project_files/figure-latex/correlation_matrix-1} 
@@ -246,6 +245,8 @@ La dualité de l'imagerie visuelle entre l'objet et l'espace, l'existence propos
 
 \caption{Comparaison des moyennes de score d'imagerie visuospatiale entre les quatre groupes identifiés.}\label{fig:spatial_img_violins}
 \end{figure}
+
+-->
 
 \newpage
 <!-- Discussion -->
