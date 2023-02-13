@@ -129,7 +129,7 @@
     
         \includegraphics[width=0.4\textwidth]{./logo/logo.png}
             
-        12/02/2023
+        13/02/2023
             
     \end{center}
 \end{titlepage}
@@ -153,15 +153,32 @@ construire :
 \label{eq: Modèle 1}
 \operatorname{mpg} = \alpha + \beta_{1}(\operatorname{cyl}) + \beta_{2}(\operatorname{disp}) + \epsilon
 \end{equation} Ou encore de l'équation de la transformation des scores
-qu'ont utilisé Dawes et al. (2022) : \[
+qu'ont utilisé Dawes et al.
+(\protect\hyperlink{ref-dawesInnerVisionsMind2022}{2022}) : \[
 y = \frac{x - (S.min + \frac{S.max -S.min}{2})}{S.max-S.min}
 \] \ldots{} C'est magnifique. Et est-ce qu'il y aurait moyen de faire
 une mention de l'hyper-stylé
-\hyperref[eq: Modèle 1]{Modèle~\ref*{eq: Modèle 1}}? Oui !
+\hyperref[eq: Modèle 1]{Modèle~\ref*{eq: Modèle 1}} ? Oui !
 
 Test pour référencer des sections : ici on va envoyer vers la section
 \emph{\nameref{imagerie-visuelle-et-aphantasie}}, puis vers la
 sous-section \emph{\nameref{questionnaires}}. Pile ce dont on a besoin !
+
+Bon. Dernière étape. Des liens vers chaque référence
+individuellement\ldots{} Par exemple
+(\protect\hyperlink{ref-bainbridgeQuantifyingAphantasiaDrawing2021}{Bainbridge
+et al., 2021}). Ca marche ?\\
+.\\
+.\\
+.\\
+Malheureusement oui\ldots{} Ca a pris trois - littéralement
+\textbf{trois} heures à écrire et échouer à faire fonctionner du LaTeX
+dans les sous-fichiers, pour au final découvrir dans la documentation de
+Pandoc (que le Cookbook disait être \emph{essentielle} à lire, et que
+bien sûr j'ai pas lu)\ldots{} Qu'il fallait ajouter une ligne au YAML,
+\texttt{link-citations:\ yes}. Envie de caner.\\
+Mais bon, on a réussi, youpi ! Ouais, ouais\ldots{}
+\emph{tocard}\ldots{}
 
 \newpage
 
@@ -175,16 +192,23 @@ aphantasie}\label{imagerie-visuelle-et-aphantasie}}
 L'imagerie visuelle, parfois désignée poétiquement comme le fait de
 ``voir dans les yeux de l'esprit'', désigne l'expérience visuelle
 quasi-perceptive d'images mentales en l'absence du stimulus externe
-correspondant (Monzel et al., 2022; Pearson, 2019). L'imagerie visuelle
-est considérée par la plupart des gens comme un élément central de leur
-vie mentale quotidienne, dans la mémorisation et la récupération
-d'informations sur des lieux, des objets ou des personnes connus, dans
-le vagabondage mental et la rêverie, voire plus généralement dans la
-créativité (A. Zeman et al., 2015). Il a été démontré qu'elle joue un
-rôle prépondérant dans de nombreux processus cognitifs, tels que la
-mémoire autobiographique, la mémoire épisodique et la prospection
-d'évènements futurs (Greenberg \& Knowlton, 2014), la mémoire de travail
-visuelle (Pearson, 2019).
+correspondant
+(\protect\hyperlink{ref-monzelAphantasiaDysikonesiaAnauralia2022}{Monzel
+et al., 2022};
+\protect\hyperlink{ref-pearsonHumanImaginationCognitive2019}{Pearson,
+2019}). L'imagerie visuelle est considérée par la plupart des gens comme
+un élément central de leur vie mentale quotidienne, dans la mémorisation
+et la récupération d'informations sur des lieux, des objets ou des
+personnes connus, dans le vagabondage mental et la rêverie, voire plus
+généralement dans la créativité
+(\protect\hyperlink{ref-zemanLivesImageryCongenital2015}{A. Zeman et
+al., 2015}). Il a été démontré qu'elle joue un rôle prépondérant dans de
+nombreux processus cognitifs, tels que la mémoire autobiographique, la
+mémoire épisodique et la prospection d'évènements futurs
+(\protect\hyperlink{ref-greenbergRoleVisualImagery2014}{Greenberg \&
+Knowlton, 2014}), la mémoire de travail visuelle
+(\protect\hyperlink{ref-pearsonHumanImaginationCognitive2019}{Pearson,
+2019}).
 
 Cependant, il a été démontré qu'il pouvait exister une grande
 variabilité interindividuelle dans l'imagerie visuelle, et que certaines
@@ -200,40 +224,62 @@ interrogées, parmi lesquelles beaucoup de ses collègues, dans ses termes
 des ``hommes de science'', ont protesté que l'imagerie mentale leur
 était inconnue - tout comme les daltoniens ne pouvaient pas concevoir la
 nature de la couleur, ces personnes ne pouvaient pas concevoir la nature
-de l'imagerie mentale (Galton, 1880).
+de l'imagerie mentale
+(\protect\hyperlink{ref-galtonSTATISTICSMENTALIMAGERY1880}{Galton,
+1880}).
 
 Il est intéressant de noter que, bien qu'il y ait eu une résurgence des
 recherches et des débats sur l'imagerie mentale à la fin du siècle qui a
-suivi (e.g. Kosslyn et al. (1995); Pylyshyn (2002); Reisberg et al.
-(2002)), cette condition d'``imagination aveugle'' n'a pas suscité
-beaucoup d'attention. Une exception notable est Faw (2009), qui a
+suivi (e.g. Kosslyn et al.
+(\protect\hyperlink{ref-kosslynCognitiveNeuroscienceMental1995}{1995});
+Pylyshyn
+(\protect\hyperlink{ref-pylyshynMentalImagerySearch2002}{2002});
+Reisberg et al.
+(\protect\hyperlink{ref-reisbergIntuitionsIntrospectionsImagery2002}{2002})),
+cette condition d'``imagination aveugle'' n'a pas suscité beaucoup
+d'attention. Une exception notable est Faw
+(\protect\hyperlink{ref-fawConflictingIntuitionsMay2009}{2009}), qui a
 soulevé le fait que les théories des chercheurs sur l'imagerie
 pourraient être fortement biaisées par leur propre expérience subjective
 de celle-ci. Il a indiqué que les ``non-visualiseurs'', ignorés par la
 recherche jusqu'à présent, pourraient représenter 2 à 3 \% des
 personnes, selon son enquête (\emph{N} = 2500). En 2010, Zeman et
 al.~ont rapporté le cas d'un patient qui a perdu la capacité de produire
-des images mentales après avoir subi une intervention chirurgicale (A.
-Z. J. Zeman et al., 2010). L'article a attiré l'attention du public
-après un reportage dans le magazine \emph{Discovery} (Zimmer, 2010) :
-bien qu'il s'agisse apparemment d'imagination aveugle ``acquise'',
-l'article a conduit de nombreuses personnes à se reconnaître dans cette
-condition et à contacter l'équipe pour témoigner de leur expérience,
-avec la différence importante qu'elles avaient toujours eu cette absence
-d'imagerie. En décrivant leurs cas, Zeman et al. (2015) ont créé le
-terme ``\emph{aphantasie}'' pour décrire l'absence d'imagerie mentale.
+des images mentales après avoir subi une intervention chirurgicale
+(\protect\hyperlink{ref-zemanLossImageryPhenomenology2010}{A. Z. J.
+Zeman et al., 2010}). L'article a attiré l'attention du public après un
+reportage dans le magazine \emph{Discovery}
+(\protect\hyperlink{ref-zimmerBrainLookDeep2010}{Zimmer, 2010}) : bien
+qu'il s'agisse apparemment d'imagination aveugle ``acquise'', l'article
+a conduit de nombreuses personnes à se reconnaître dans cette condition
+et à contacter l'équipe pour témoigner de leur expérience, avec la
+différence importante qu'elles avaient toujours eu cette absence
+d'imagerie. En décrivant leurs cas, Zeman et al.
+(\protect\hyperlink{ref-zemanLivesImageryCongenital2015}{2015}) ont créé
+le terme ``\emph{aphantasie}'' pour décrire l'absence d'imagerie
+mentale.
 
 L'aphantasie, en tant que terme et phénomène, a attiré l'attention des
 médias et a entraîné une augmentation importante du nombre de personnes
-signalant leur cas d'imagerie extrême (Monzel et al., 2022). Les études
-à grande échelle sur les extrêmes de l'imagerie visuelle suggèrent une
-prévalence de 2-4\% d'aphantasie dans la population générale (C. J.
-Dance et al. (2022) : \emph{N} = 1004 ; A. J. Dawes et al. (2020) :
-\emph{N} = 715 ; Faw (2009) : \emph{N} = 2500 ; Palermo et al. (2022) :
-\emph{N} = 490 ; Takahashi et al. (2022): \emph{N} = 2885 ; A. Zeman et
-al. (2020)) avec de nombreuses variations (entre 0,5 et 11\%) selon les
-seuils choisis pour caractériser l'affection. L'étude de l'aphantasie
-est récente, et bien qu'il n'existe pas actuellement de '' profil ''
+signalant leur cas d'imagerie extrême
+(\protect\hyperlink{ref-monzelAphantasiaDysikonesiaAnauralia2022}{Monzel
+et al., 2022}). Les études à grande échelle sur les extrêmes de
+l'imagerie visuelle suggèrent une prévalence de 2-4\% d'aphantasie dans
+la population générale (C. J. Dance et al.
+(\protect\hyperlink{ref-dancePrevalenceAphantasiaImagery2022}{2022}) :
+\emph{N} = 1004 ; A. J. Dawes et al.
+(\protect\hyperlink{ref-dawesCognitiveProfileMultisensory2020}{2020}) :
+\emph{N} = 715 ; Faw
+(\protect\hyperlink{ref-fawConflictingIntuitionsMay2009}{2009}) :
+\emph{N} = 2500 ; Palermo et al.
+(\protect\hyperlink{ref-palermoCongenitalLackExtraordinary2022}{2022}) :
+\emph{N} = 490 ; Takahashi et al.
+(\protect\hyperlink{ref-takahashiDiversityAphantasiaRevealed2022}{2022}):
+\emph{N} = 2885 ; A. Zeman et al.
+(\protect\hyperlink{ref-zemanPhantasiaPsychologicalSignificance2020}{2020}))
+avec de nombreuses variations (entre 0,5 et 11\%) selon les seuils
+choisis pour caractériser l'affection. L'étude de l'aphantasie est
+récente, et bien qu'il n'existe pas actuellement de '' profil ''
 clairement défini des individus aphantasiques, la recherche a lentement
 assemblé plusieurs caractéristiques associées à cette condition.
 
@@ -245,12 +291,13 @@ Depuis 2015, le nouveau champ scientifique de l'aphantasie a construit
 un corpus de divers corrélats cognitifs, comportementaux et
 physiologiques de l'aphantasie. Communément, l'aphantasie est évaluée
 dans des études à grande échelle en utilisant des auto-rapports
-qualitatifs et le questionnaire Vividness of Visual Imagery (Marks,
-1973), même si le seuil VVIQ choisi pour caractériser les personnes
-ayant une faible imagerie varie selon les études (entre 16
-\textasciitilde{} 30). En utilisant les questionnaires comme point de
-départ, plusieurs études expérimentales ont été en mesure de corréler
-une faible imagerie visuelle avec des caractéristiques distinctes.
+qualitatifs et le questionnaire Vividness of Visual Imagery
+(\protect\hyperlink{ref-marksVividnessVisualImagery1973}{Marks, 1973}),
+même si le seuil VVIQ choisi pour caractériser les personnes ayant une
+faible imagerie varie selon les études (entre 16 \textasciitilde{} 30).
+En utilisant les questionnaires comme point de départ, plusieurs études
+expérimentales ont été en mesure de corréler une faible imagerie
+visuelle avec des caractéristiques distinctes.
 
 \hypertarget{corruxe9lats-cognitifs}{%
 \subsubsection{Corrélats cognitifs}\label{corruxe9lats-cognitifs}}
@@ -258,27 +305,49 @@ une faible imagerie visuelle avec des caractéristiques distinctes.
 La plupart des études à grande échelle existantes sur l'aphantasie ont
 porté sur les capacités de mémoire des aphantasiques, et ont montré des
 corrélations entre leur faible imagerie et des déficiences en mémoire
-autobiographique et épisodique (A. J. Dawes et al., 2020; Milton et al.,
-2021; A. Zeman et al., 2020). Les aphantasiques, lorsqu'on leur demande
+autobiographique et épisodique
+(\protect\hyperlink{ref-dawesCognitiveProfileMultisensory2020}{A. J.
+Dawes et al., 2020};
+\protect\hyperlink{ref-miltonBehavioralNeuralSignatures2021}{Milton et
+al., 2021};
+\protect\hyperlink{ref-zemanPhantasiaPsychologicalSignificance2020}{A.
+Zeman et al., 2020}). Les aphantasiques, lorsqu'on leur demande
 d'évaluer leur mémoire autobiographique, l'évaluent le plus souvent plus
-bas que les témoins (A. Zeman et al., 2020, 2015). L'un de ces rapports
-subjectifs a fait émerger la possibilité d'une association de
-l'aphantasie avec les syndromes de mémoire autobiographique sévèrement
-déficiente (Watkins, 2018). En accord avec les auto-rapports et les
-données neuropsychologiques sur la mémoire épisodique, Dawes et al.
-(2022) ont démontré, à l'aide de l'Autobiographical Interview, une
-mesure comportementale de la spécificité et de la richesse des détails
-épisodiques (combinant donc des évaluations subjectives et objectives)
-que l'aphantasie était également associée à une réduction des détails
-épisodiques pour les évènements passés et futurs. Leurs résultats sont
-également en accord avec ceux de Milton et al. (2021) qui ont mis en
-évidence une réduction de l'``imagination'' temporelle et atemporelle, à
-savoir la capacité à simuler des évènements fictifs. L'aphantasie a
-également été associée à la prosopagnosie - la difficulté à reconnaître
-les visages (A. J. Dawes et al., 2020; Milton et al., 2021; Palermo et
-al., 2022; A. Zeman et al., 2020), et à des rêves nocturnes et diurnes
-qualitativement appauvris (A. J. Dawes et al., 2020; A. Zeman et al.,
-2020).
+bas que les témoins
+(\protect\hyperlink{ref-zemanPhantasiaPsychologicalSignificance2020}{A.
+Zeman et al., 2020},
+\protect\hyperlink{ref-zemanLivesImageryCongenital2015}{2015}). L'un de
+ces rapports subjectifs a fait émerger la possibilité d'une association
+de l'aphantasie avec les syndromes de mémoire autobiographique
+sévèrement déficiente
+(\protect\hyperlink{ref-watkinsPhantasiaSeverelyDeficient2018}{Watkins,
+2018}). En accord avec les auto-rapports et les données
+neuropsychologiques sur la mémoire épisodique, Dawes et al.
+(\protect\hyperlink{ref-dawesInnerVisionsMind2022}{2022}) ont démontré,
+à l'aide de l'Autobiographical Interview, une mesure comportementale de
+la spécificité et de la richesse des détails épisodiques (combinant donc
+des évaluations subjectives et objectives) que l'aphantasie était
+également associée à une réduction des détails épisodiques pour les
+évènements passés et futurs. Leurs résultats sont également en accord
+avec ceux de Milton et al.
+(\protect\hyperlink{ref-miltonBehavioralNeuralSignatures2021}{2021}) qui
+ont mis en évidence une réduction de l'``imagination'' temporelle et
+atemporelle, à savoir la capacité à simuler des évènements fictifs.
+L'aphantasie a également été associée à la prosopagnosie - la difficulté
+à reconnaître les visages
+(\protect\hyperlink{ref-dawesCognitiveProfileMultisensory2020}{A. J.
+Dawes et al., 2020};
+\protect\hyperlink{ref-miltonBehavioralNeuralSignatures2021}{Milton et
+al., 2021};
+\protect\hyperlink{ref-palermoCongenitalLackExtraordinary2022}{Palermo
+et al., 2022};
+\protect\hyperlink{ref-zemanPhantasiaPsychologicalSignificance2020}{A.
+Zeman et al., 2020}), et à des rêves nocturnes et diurnes
+qualitativement appauvris
+(\protect\hyperlink{ref-dawesCognitiveProfileMultisensory2020}{A. J.
+Dawes et al., 2020};
+\protect\hyperlink{ref-zemanPhantasiaPsychologicalSignificance2020}{A.
+Zeman et al., 2020}).
 
 \hypertarget{corruxe9lats-comportementaux-et-physiologiques}{%
 \subsubsection{Corrélats comportementaux et
@@ -289,34 +358,43 @@ sont appuyées sur des évaluations subjectives, des questionnaires et des
 rapports personnels pour identifier et évaluer la condition et
 l'imagerie visuelle. Bien que les phénomènes subjectifs rapportés par
 les aphantasiques montrent une cohérence remarquable, les rapports à la
-première personne et l'introspection restent faillibles (Milton et al.,
-2021; A. Zeman et al., 2020). Les différences dans les jugements
-d'imagerie visuelle pourraient être liées à une mauvaise métacognition,
-résultant en une incapacité des aphantasiques à percevoir consciemment
-leur imagerie potentiellement effective. Pour surmonter cette
-limitation, de nouvelles méthodes de mesure de l'imagerie visuelle et de
-son absence ont été développées afin de trianguler ces auto-rapports
-subjectifs avec des marqueurs comportementaux et physiologiques
-objectifs. Ainsi, il a été démontré que les personnes atteintes
-d'aphantasie ne présentent pas d'amorçage par l'imagerie visuelle par
-rapport aux témoins en utilisant le paradigme de rivalité binoculaire
-basé sur les sens (Keogh \& Pearson, 2018, 2020) ; elles se souviennent
-de moins d'objets et de couleurs que les témoins à partir de scènes
-étudiées (Bainbridge et al., 2021) ; ils ont montré moins de sensibilité
-sensorielle dans une tâche d'éblouissement de motifs visuels, ce qui
-suggère que l'imagerie sensorielle et la sensibilité sensorielle sont
-liées (C. Dance, 2022; C. J. Dance et al., 2021) ; ils n'ont pas montré
-de réponse de conductivité cutanée à l'imagerie émotionnelle lors de la
-lecture de scénarios effrayants (Wicken et al., 2019) ; et enfin, ils
-n'ont pas montré de réponse pupillaire à des formes claires ou sombres
-imaginées (Lachlan et al., 2022). Ces deux derniers paradigmes en
-particulier ont établi les premiers indices physiologiques de la force
-de l'imagerie sensorielle et phénoménologique, et les premières
-validations physiologiques de l'aphantasie. L'investigation du phénomène
-de l'imagerie visuelle par ces méthodes objectives a permis de
-rassembler des preuves solides en faveur de la conception de
-l'aphantasie comme une véritable absence (ou une réduction sévère) de
-l'imagerie visuelle plutôt que comme un déficit métacognitif.
+première personne et l'introspection restent faillibles
+(\protect\hyperlink{ref-miltonBehavioralNeuralSignatures2021}{Milton et
+al., 2021};
+\protect\hyperlink{ref-zemanPhantasiaPsychologicalSignificance2020}{A.
+Zeman et al., 2020}). Les différences dans les jugements d'imagerie
+visuelle pourraient être liées à une mauvaise métacognition, résultant
+en une incapacité des aphantasiques à percevoir consciemment leur
+imagerie potentiellement effective. Pour surmonter cette limitation, de
+nouvelles méthodes de mesure de l'imagerie visuelle et de son absence
+ont été développées afin de trianguler ces auto-rapports subjectifs avec
+des marqueurs comportementaux et physiologiques objectifs. Ainsi, il a
+été démontré que les personnes atteintes d'aphantasie ne présentent pas
+d'amorçage par l'imagerie visuelle par rapport aux témoins en utilisant
+le paradigme de rivalité binoculaire basé sur les sens
+(\protect\hyperlink{ref-keoghBlindMindNo2018}{Keogh \& Pearson, 2018},
+\protect\hyperlink{ref-keoghAttentionDrivenPhantom2020}{2020}) ; elles
+se souviennent de moins d'objets et de couleurs que les témoins à partir
+de scènes étudiées
+(\protect\hyperlink{ref-bainbridgeQuantifyingAphantasiaDrawing2021}{Bainbridge
+et al., 2021}) ; ils ont montré moins de sensibilité sensorielle dans
+une tâche d'éblouissement de motifs visuels, ce qui suggère que
+l'imagerie sensorielle et la sensibilité sensorielle sont liées
+(\protect\hyperlink{ref-danceLessSensoryOverwhelm2022}{C. Dance, 2022};
+\protect\hyperlink{ref-danceWhatLinkMental2021}{C. J. Dance et al.,
+2021}) ; ils n'ont pas montré de réponse de conductivité cutanée à
+l'imagerie émotionnelle lors de la lecture de scénarios effrayants
+(Wicken et al., 2019) ; et enfin, ils n'ont pas montré de réponse
+pupillaire à des formes claires ou sombres imaginées
+(\protect\hyperlink{ref-lachlanPupillaryLightResponse2022}{Lachlan et
+al., 2022}). Ces deux derniers paradigmes en particulier ont établi les
+premiers indices physiologiques de la force de l'imagerie sensorielle et
+phénoménologique, et les premières validations physiologiques de
+l'aphantasie. L'investigation du phénomène de l'imagerie visuelle par
+ces méthodes objectives a permis de rassembler des preuves solides en
+faveur de la conception de l'aphantasie comme une véritable absence (ou
+une réduction sévère) de l'imagerie visuelle plutôt que comme un déficit
+métacognitif.
 
 \hypertarget{laphantasie-est-elle-un-trouble}{%
 \subsubsection{L'aphantasie est elle un trouble
@@ -324,39 +402,62 @@ l'imagerie visuelle plutôt que comme un déficit métacognitif.
 
 L'aphantasie a été associée dans la littérature récente à une série de
 déficiences et de déficits, et est donc souvent logiquement désignée
-comme un handicap ou un trouble (e.g. Blomkvist (2022); Fox-Muraton
-(2021)) ; certaines revues vont jusqu'à caractériser la condition comme
-un ensemble de déficiences résultant d'un dysfonctionnement d'un système
-cognitif (Blomkvist, 2022). Bien que ce point de vue puisse être
-justifié d'une certaine manière si l'on considère que les déficiences de
-l'imagerie mentale peuvent survenir à la suite de lésions cérébrales,
-d'opérations chirurgicales ou de troubles psychiatriques - une condition
-appelée ``aphantasie acquise'' (Bartolomeo et al., 2020; Cavedon-Taylor,
-2021; Farah et al., 1988; Spagna, 2022; Zago et al., 2011; A. Z. J.
-Zeman et al., 2010), on peut trouver à redire sur plusieurs observations
-dans l'aphantasie congénitale (c'est-à-dire à vie). Des preuves
-empiriques provenant de plusieurs études soulignent que les
+comme un handicap ou un trouble (e.g. Blomkvist
+(\protect\hyperlink{ref-blomkvistAphantasiaSearchTheory2022}{2022});
+Fox-Muraton
+(\protect\hyperlink{ref-fox-muratonWorldImaginationConsequences2021}{2021}))
+; certaines revues vont jusqu'à caractériser la condition comme un
+ensemble de déficiences résultant d'un dysfonctionnement d'un système
+cognitif
+(\protect\hyperlink{ref-blomkvistAphantasiaSearchTheory2022}{Blomkvist,
+2022}). Bien que ce point de vue puisse être justifié d'une certaine
+manière si l'on considère que les déficiences de l'imagerie mentale
+peuvent survenir à la suite de lésions cérébrales, d'opérations
+chirurgicales ou de troubles psychiatriques - une condition appelée
+``aphantasie acquise''
+(\protect\hyperlink{ref-bartolomeoAssessingCausalRole2020}{Bartolomeo et
+al., 2020};
+\protect\hyperlink{ref-cavedon-taylorPredictiveProcessingPerception2021}{Cavedon-Taylor,
+2021}; \protect\hyperlink{ref-farahCaseStudyMental1988}{Farah et al.,
+1988}; \protect\hyperlink{ref-spagnaChapterVisualMental2022}{Spagna,
+2022}; \protect\hyperlink{ref-zagoCharcotBernardCase2011}{Zago et al.,
+2011}; \protect\hyperlink{ref-zemanLossImageryPhenomenology2010}{A. Z.
+J. Zeman et al., 2010}), on peut trouver à redire sur plusieurs
+observations dans l'aphantasie congénitale (c'est-à-dire à vie). Des
+preuves empiriques provenant de plusieurs études soulignent que les
 aphantasiques pourraient n'avoir aucune différence de performance dans
 divers types de tâches présumées nécessiter une imagerie visuelle.
 
 Tout d'abord, en contraste frappant avec les résultats suggestifs sur la
 mémoire épisodique, les aphantasiques ont des performances aussi
 précises que les témoins dans plusieurs paradigmes de mémoire de travail
-visuelle en laboratoire et en clinique (Keogh et al., 2021; Knight et
-al., 2022) ; ils ont également les mêmes performances dans les tâches de
-mémoire clinique évaluant le rappel antérograde (Milton et al., 2021) et
-la mémoire de reconnaissance pour le matériel verbal et visuel
-(Bainbridge et al., 2021; Milton et al., 2021) ; ils ne présentent pas
-de différences significatives dans les tâches de mémoire sémantique (A.
-J. Dawes et al., 2020; Milton et al., 2021) ; de même, ils ne présentent
-pas de déficience de la mémoire déclarative générale ou visuelle dans
-une batterie de tests neuropsychologiques (Pounder et al., 2022). Keogh
-et al. (2021) soulignent également dans leur étude le fait que les
-performances des aphantasiques dans les tâches d'imagerie visuelle
-peuvent s'appuyer sur des stratégies différentes, sur la base des
-différences notables entre leurs stratégies rapportées, et corroborées
-par une absence d'effet d'orientation dans leurs réponses, supposé se
-produire en raison du recrutement sensoriel.
+visuelle en laboratoire et en clinique
+(\protect\hyperlink{ref-keoghVisualWorkingMemory2021}{Keogh et al.,
+2021}; \protect\hyperlink{ref-knightMemoryImageryNo2022}{Knight et al.,
+2022}) ; ils ont également les mêmes performances dans les tâches de
+mémoire clinique évaluant le rappel antérograde
+(\protect\hyperlink{ref-miltonBehavioralNeuralSignatures2021}{Milton et
+al., 2021}) et la mémoire de reconnaissance pour le matériel verbal et
+visuel
+(\protect\hyperlink{ref-bainbridgeQuantifyingAphantasiaDrawing2021}{Bainbridge
+et al., 2021};
+\protect\hyperlink{ref-miltonBehavioralNeuralSignatures2021}{Milton et
+al., 2021}) ; ils ne présentent pas de différences significatives dans
+les tâches de mémoire sémantique
+(\protect\hyperlink{ref-dawesCognitiveProfileMultisensory2020}{A. J.
+Dawes et al., 2020};
+\protect\hyperlink{ref-miltonBehavioralNeuralSignatures2021}{Milton et
+al., 2021}) ; de même, ils ne présentent pas de déficience de la mémoire
+déclarative générale ou visuelle dans une batterie de tests
+neuropsychologiques
+(\protect\hyperlink{ref-pounderOnlyMinimalDifferences2022}{Pounder et
+al., 2022}). Keogh et al.
+(\protect\hyperlink{ref-keoghVisualWorkingMemory2021}{2021}) soulignent
+également dans leur étude le fait que les performances des aphantasiques
+dans les tâches d'imagerie visuelle peuvent s'appuyer sur des stratégies
+différentes, sur la base des différences notables entre leurs stratégies
+rapportées, et corroborées par une absence d'effet d'orientation dans
+leurs réponses, supposé se produire en raison du recrutement sensoriel.
 
 Pris ensemble, ces résultats suggèrent que les aphantasiques ne
 présentent pas de problèmes de mémoire de travail, de reconnaissance ou
@@ -367,8 +468,9 @@ visuelles tout aussi adaptées pour résoudre des problèmes supposés
 auparavant nécessiter une imagerie visuelle. Ceci plaide pour considérer
 que les aphantasiques utilisent des approches alternatives qui
 pourraient ne pas être uniquement de la compensation, mais un tout autre
-'' mode de fonctionnement humain du traitement de l'information '' (A.
-Zeman et al., 2020) : si nous adhérons à ce point de vue, les
+'' mode de fonctionnement humain du traitement de l'information ''
+(\protect\hyperlink{ref-zemanPhantasiaPsychologicalSignificance2020}{A.
+Zeman et al., 2020}) : si nous adhérons à ce point de vue, les
 spécificités des différences entre ces modes restent encore à
 déterminer.
 
@@ -380,10 +482,14 @@ En accord avec le fait que leur vie quotidienne ne semble pas être
 affectée par leur état, les aphantasiques sont le plus souvent
 inconscients de leur état, qui est de la même manière invisible pour les
 gens, puisqu'ils ne vivent apparemment pas différemment de n'importe qui
-d'autre (Kendle, 2017; A. Zeman et al., 2015). Bien qu'il n'existe pas,
-à ce jour, d'étude systématique du profil démographique des
-aphantasiques, les résultats préliminaires d'une étude récente (A. Zeman
-et al., 2020) apportent un éclairage sur les préférences
+d'autre
+(\protect\hyperlink{ref-kendleAphantasiaExperiencesPerceptions2017}{Kendle,
+2017}; \protect\hyperlink{ref-zemanLivesImageryCongenital2015}{A. Zeman
+et al., 2015}). Bien qu'il n'existe pas, à ce jour, d'étude systématique
+du profil démographique des aphantasiques, les résultats préliminaires
+d'une étude récente
+(\protect\hyperlink{ref-zemanPhantasiaPsychologicalSignificance2020}{A.
+Zeman et al., 2020}) apportent un éclairage sur les préférences
 professionnelles potentielles des personnes dotées d'imageries extrêmes.
 En effet, les données des questionnaires de milliers de participants sur
 l'imagerie visuelle ont révélé que les extrêmes de ce spectre
@@ -394,19 +500,27 @@ personnes présentant une imagerie visuelle extrêmement élevée (appelées
 professions traditionnellement considérées comme ``créatives'' (à savoir
 les arts, le design, le divertissement et la communication), les
 aphantasiques étaient plus susceptibles de travailler dans
-l'informatique, les mathématiques et les sciences (Crowder, 2018; A.
-Zeman et al., 2020). Ces résultats apportent un autre argument, d'un
+l'informatique, les mathématiques et les sciences
+(\protect\hyperlink{ref-crowderDifferencesSpatialVisualization2018}{Crowder,
+2018};
+\protect\hyperlink{ref-zemanPhantasiaPsychologicalSignificance2020}{A.
+Zeman et al., 2020}). Ces résultats apportent un autre argument, d'un
 point de vue comportemental plus large, vers l'idée d'une tension entre
-deux ``styles cognitifs'' (Kozhevnikov et al., 2005), et une vision de
-l'aphantasie et de l'hyperphantasie comme des conditions équilibrées,
-avec des avantages et des inconvénients (A. Zeman et al., 2020).
+deux ``styles cognitifs''
+(\protect\hyperlink{ref-kozhevnikovSpatialObjectVisualizers2005}{Kozhevnikov
+et al., 2005}), et une vision de l'aphantasie et de l'hyperphantasie
+comme des conditions équilibrées, avec des avantages et des
+inconvénients
+(\protect\hyperlink{ref-zemanPhantasiaPsychologicalSignificance2020}{A.
+Zeman et al., 2020}).
 
 Bien que les affirmations initiales de Galton selon lesquelles les
 ``hommes de science'' manquaient d'imagerie mentale aient été contestées
 depuis et qu'il ait été démontré qu'il s'agissait d'une extension
 excessive de son observation de quelques répondants particulièrement
-inhabituels parmi ses collègues scientifiques (Brewer \&
-Schommer-Aikins, 2006), son récit reste intéressant d'un point de vue
+inhabituels parmi ses collègues scientifiques
+(\protect\hyperlink{ref-brewerScientistsAreNot2006}{Brewer \&
+Schommer-Aikins, 2006}), son récit reste intéressant d'un point de vue
 opposé : Si les aphantasiques sont effectivement très peu nombreux,
 comme l'ont montré des données plus récentes, ont-ils vraiment tendance
 à se tourner vers les domaines scientifiques ? Les premiers résultats
@@ -434,22 +548,35 @@ l'imagerie
 visuelle}\label{voies-ventrales-et-dorsales-dans-la-perception-et-limagerie-visuelle}}
 
 La distinction entre le traitement des objets et le traitement spatial a
-d'abord été introduite pour la perception visuelle (Mishkin \&
-Ungerleider, 1982), puis proposée pour la mémoire de travail visuelle
-(Della Sala et al., 1999; Salway \& Logie, 1995). Il a été démontré que
-le traitement visuel de plus haut niveau est divisé en deux voies
-distinctes sur le plan fonctionnel et anatomique : la voie ventrale, qui
-va du lobe occipital au lobe temporal inférieur et qui traite les
-propriétés des objets (couleurs, forme, luminosité), et la voie dorsale,
-qui va du lobe occipital au lobe pariétal postérieur et qui traite les
-propriétés spatiales. Sur la base de données comportementales,
-neuropsychologiques et de neuroimagerie (Blajenkova et al., 2006b;
-Boccia et al., 2015; Kozhevnikov et al., 2005, 2002; Morton \& Morris,
-1995; Palermo et al., 2022), une distinction objet-spatial similaire a
-été suggérée pour l'imagerie visuelle. Ce contexte théorique a conduit
-au développement et à la validation d'un questionnaire permettant
-d'évaluer ces deux aspects de l'imagerie visuelle, l'Object and Spatial
-Imagery Questionnaire (OSIQ : Blajenkova et al. (2006b)).
+d'abord été introduite pour la perception visuelle
+(\protect\hyperlink{ref-mishkinContributionStriateInputs1982}{Mishkin \&
+Ungerleider, 1982}), puis proposée pour la mémoire de travail visuelle
+(\protect\hyperlink{ref-dellasalaPatternSpanTool1999}{Della Sala et al.,
+1999};
+\protect\hyperlink{ref-salwayVisuospatialWorkingMemory1995}{Salway \&
+Logie, 1995}). Il a été démontré que le traitement visuel de plus haut
+niveau est divisé en deux voies distinctes sur le plan fonctionnel et
+anatomique : la voie ventrale, qui va du lobe occipital au lobe temporal
+inférieur et qui traite les propriétés des objets (couleurs, forme,
+luminosité), et la voie dorsale, qui va du lobe occipital au lobe
+pariétal postérieur et qui traite les propriétés spatiales. Sur la base
+de données comportementales, neuropsychologiques et de neuroimagerie
+(\protect\hyperlink{ref-blajenkovaObjectspatialImageryNew2006}{Blajenkova
+et al., 2006b};
+\protect\hyperlink{ref-bocciaPennyYourThoughts2015}{Boccia et al.,
+2015};
+\protect\hyperlink{ref-kozhevnikovSpatialObjectVisualizers2005}{Kozhevnikov
+et al., 2005},
+\protect\hyperlink{ref-kozhevnikovRevisingVisualizerVerbalizerDimension2002}{2002};
+\protect\hyperlink{ref-mortonImageTransformationDissociated1995}{Morton
+\& Morris, 1995};
+\protect\hyperlink{ref-palermoCongenitalLackExtraordinary2022}{Palermo
+et al., 2022}), une distinction objet-spatial similaire a été suggérée
+pour l'imagerie visuelle. Ce contexte théorique a conduit au
+développement et à la validation d'un questionnaire permettant d'évaluer
+ces deux aspects de l'imagerie visuelle, l'Object and Spatial Imagery
+Questionnaire (OSIQ : Blajenkova et al.
+(\protect\hyperlink{ref-blajenkovaObjectspatialImageryNew2006}{2006b})).
 
 \hypertarget{limagerie-objet-et-spatiale-chez-les-aphantasiques}{%
 \subsubsection{L'imagerie objet et spatiale chez les
@@ -463,51 +590,76 @@ cohérent dans toutes les études récentes sur l'aphantasie est l'imagerie
 spatiale préservée des aphantasiques, par opposition à leur imagerie
 d'objet altérée. En utilisant l'OSIQ, plusieurs études ont montré qu'il
 n'y avait pas de différence significative entre les aphantasiques et les
-témoins sur les items d'imagerie spatiale (Bainbridge et al., 2021; A.
-J. Dawes et al., 2020; Keogh \& Pearson, 2018; Milton et al., 2021; A.
-Zeman et al., 2020). Les aphantasiques ont obtenu des résultats précis
+témoins sur les items d'imagerie spatiale
+(\protect\hyperlink{ref-bainbridgeQuantifyingAphantasiaDrawing2021}{Bainbridge
+et al., 2021};
+\protect\hyperlink{ref-dawesCognitiveProfileMultisensory2020}{A. J.
+Dawes et al., 2020}; \protect\hyperlink{ref-keoghBlindMindNo2018}{Keogh
+\& Pearson, 2018};
+\protect\hyperlink{ref-miltonBehavioralNeuralSignatures2021}{Milton et
+al., 2021};
+\protect\hyperlink{ref-zemanPhantasiaPsychologicalSignificance2020}{A.
+Zeman et al., 2020}). Les aphantasiques ont obtenu des résultats précis
 au test des mannequins et aux tâches de rotation mentale, impliquant la
-rotation mentale d'avatars ou d'objets (Crowder, 2018; Milton et al.,
-2021; Pounder et al., 2022) - bien que Pounder et al. (2022) aient
+rotation mentale d'avatars ou d'objets
+(\protect\hyperlink{ref-crowderDifferencesSpatialVisualization2018}{Crowder,
+2018};
+\protect\hyperlink{ref-miltonBehavioralNeuralSignatures2021}{Milton et
+al., 2021};
+\protect\hyperlink{ref-pounderOnlyMinimalDifferences2022}{Pounder et
+al., 2022}) - bien que Pounder et al.
+(\protect\hyperlink{ref-pounderOnlyMinimalDifferences2022}{2022}) aient
 signalé des temps de réponse plus lents pour les aphantasiques à très
-faible imagerie. Zeman et al. (2020) rapportent que, lorsqu'on leur
-demande d'imaginer et de compter les fenêtres de leur maison, les
-personnes ayant une imagerie élevée ou moyenne s'appuient
-systématiquement sur l'imagerie visuelle, tandis que les aphantasiques
-utilisent diverses autres stratégies : visualisation ou mémoire
-spatiale, imagerie alternative (kinesthésique, auditive, etc.),
-traitement sémantique ou '' connaissances '' amodales. De même,
-Bainbridge et al. (2021) ont observé que, lorsqu'on leur demande de
-dessiner de mémoire une scène vue précédemment, les aphantasiques se
-souviennent de beaucoup moins d'objets et de façon moins détaillée que
-les témoins, mais avec des tailles, des emplacements et une organisation
-corrects, voire plus précis. Ensemble, ces résultats suggèrent que les
-``aphantasiques'' actuellement les plus étudiés sont en fait des
-aphantasiques ``objets'', avec une imagerie visuospatiale intacte.
+faible imagerie. Zeman et al.
+(\protect\hyperlink{ref-zemanPhantasiaPsychologicalSignificance2020}{2020})
+rapportent que, lorsqu'on leur demande d'imaginer et de compter les
+fenêtres de leur maison, les personnes ayant une imagerie élevée ou
+moyenne s'appuient systématiquement sur l'imagerie visuelle, tandis que
+les aphantasiques utilisent diverses autres stratégies : visualisation
+ou mémoire spatiale, imagerie alternative (kinesthésique, auditive,
+etc.), traitement sémantique ou '' connaissances '' amodales. De même,
+Bainbridge et al.
+(\protect\hyperlink{ref-bainbridgeQuantifyingAphantasiaDrawing2021}{2021})
+ont observé que, lorsqu'on leur demande de dessiner de mémoire une scène
+vue précédemment, les aphantasiques se souviennent de beaucoup moins
+d'objets et de façon moins détaillée que les témoins, mais avec des
+tailles, des emplacements et une organisation corrects, voire plus
+précis. Ensemble, ces résultats suggèrent que les ``aphantasiques''
+actuellement les plus étudiés sont en fait des aphantasiques ``objets'',
+avec une imagerie visuospatiale intacte.
 
 Ce phénomène pourrait être lié au fait que les individus aphantasiques
-ont été principalement identifiés à l'aide du VVIQ (Marks, 1973), qui
-est corrélé positivement avec l'échelle objet de l'OSIQ, mais pas avec
-l'échelle spatiale, ni avec les tâches d'imagerie spatiale (Blajenkova
-et al., 2006a, 2006b; Blazhenkova \& Kozhevnikov, 2010; Blazhenkova \&
-Pechenkova, 2019). Le VVIQ permettrait donc de détecter sélectivement
+ont été principalement identifiés à l'aide du VVIQ
+(\protect\hyperlink{ref-marksVividnessVisualImagery1973}{Marks, 1973}),
+qui est corrélé positivement avec l'échelle objet de l'OSIQ, mais pas
+avec l'échelle spatiale, ni avec les tâches d'imagerie spatiale
+(\protect\hyperlink{ref-blajenkovaObjectSpatialImagery2006}{Blajenkova
+et al., 2006a},
+\protect\hyperlink{ref-blajenkovaObjectspatialImageryNew2006}{2006b};
+\protect\hyperlink{ref-blazhenkovaVisualobjectAbilityNew2010}{Blazhenkova
+\& Kozhevnikov, 2010};
+\protect\hyperlink{ref-blazhenkovaTwoEyesBlind2019}{Blazhenkova \&
+Pechenkova, 2019}). Le VVIQ permettrait donc de détecter sélectivement
 les déficiences de l'imagerie visuelle des objets, mais pas de l'espace.
-À ce titre, Blazhenkova et Pechenkova (2019) ont émis l'hypothèse qu'il
-pourrait exister deux types d'imagerie extrême (potentiellement
-congénitale) : l'aphantasie des objets d'une part, et l'aphantasie
-spatiale d'autre part (et inversement, deux types d'hyperphantasie).
-Dans une étude récente examinant pour la première fois cette hypothèse
-de manière systématique, Palermo et al. (2022) ont rassemblé des preuves
-très prometteuses de l'existence d'aphantasies et d'hyperphantasies
-objectales et spatiales, en utilisant l'OSIQ et des questionnaires
-évaluant plusieurs compétences. Elles ont également montré que les deux
-sous-types d'aphantasie étaient associés à des modèles différents de
-difficultés cognitives : les aphantasiques ``objet'', comme nous l'avons
-vu précédemment, ont montré des difficultés à imaginer des objets et à
-reconnaître des visages, tandis que les aphantasiques ``spatiaux''
-avaient des problèmes avec les tâches d'imagerie mentale visuospatiale
-et le sens de la direction - un modèle opposé de performances a été
-observé pour les deux types d'hyperphantasie.
+À ce titre, Blazhenkova et Pechenkova
+(\protect\hyperlink{ref-blazhenkovaTwoEyesBlind2019}{2019}) ont émis
+l'hypothèse qu'il pourrait exister deux types d'imagerie extrême
+(potentiellement congénitale) : l'aphantasie des objets d'une part, et
+l'aphantasie spatiale d'autre part (et inversement, deux types
+d'hyperphantasie). Dans une étude récente examinant pour la première
+fois cette hypothèse de manière systématique, Palermo et al.
+(\protect\hyperlink{ref-palermoCongenitalLackExtraordinary2022}{2022})
+ont rassemblé des preuves très prometteuses de l'existence d'aphantasies
+et d'hyperphantasies objectales et spatiales, en utilisant l'OSIQ et des
+questionnaires évaluant plusieurs compétences. Elles ont également
+montré que les deux sous-types d'aphantasie étaient associés à des
+modèles différents de difficultés cognitives : les aphantasiques
+``objet'', comme nous l'avons vu précédemment, ont montré des
+difficultés à imaginer des objets et à reconnaître des visages, tandis
+que les aphantasiques ``spatiaux'' avaient des problèmes avec les tâches
+d'imagerie mentale visuospatiale et le sens de la direction - un modèle
+opposé de performances a été observé pour les deux types
+d'hyperphantasie.
 
 \hypertarget{des-styles-cognitifs-uxe9quilibruxe9s-entre-imagerie-objet-et-spatiale}{%
 \subsubsection{Des styles cognitifs équilibrés entre imagerie objet et
@@ -523,46 +675,69 @@ avoir ces deux axes permet d'envisager une possibilité pour le profil ''
 visuelle-spatiale.
 
 Des résultats intéressants dans la littérature sur l'imagerie spatiale
-semblent faire écho aux premiers résultats de Zeman et al. (2020) sur
-les préférences professionnelles des aphantasiques (objet). Les hautes
-performances dans les tests de visualisation spatiale sont corrélées aux
-performances professionnelles et académiques dans divers domaines STEM,
-notamment la physique, la chimie organique, la géologie, les
-mathématiques, ainsi que la chirurgie, l'architecture et le raisonnement
-mécanique (Coleman \& Gotch, 1998; Hegarty \& Waller, 2005; Keehner et
-al., 2004; Kozhevnikov et al., 2007; Orion et al., 1997; Wai et al.,
-2009). D'autres études ont mis en évidence que la réussite dans les STEM
-reposait sur des capacités fondamentales d'imagerie spatiale telles que
-l'imagination de structures schématiques ou l'exécution de
-transformations spatiales mentales (Kozhevnikov et al., 2007; Wai et
-al., 2009). Ces considérations jettent également un nouvel éclairage sur
-les observations et les intuitions de Galton (1880) concernant les
-scientifiques. Blajenkova et al. (Blajenkova et al., 2006a) ont proposé
-une explication avec le clivage objet-spatial : les scientifiques ne
-seraient pas complètement déficients en imagerie visuelle générale,
-comme le suggérait Galton, mais seraient seulement sélectivement
-déficients en imagerie visuelle objet.
+semblent faire écho aux premiers résultats de Zeman et al.
+(\protect\hyperlink{ref-zemanPhantasiaPsychologicalSignificance2020}{2020})
+sur les préférences professionnelles des aphantasiques (objet). Les
+hautes performances dans les tests de visualisation spatiale sont
+corrélées aux performances professionnelles et académiques dans divers
+domaines STEM, notamment la physique, la chimie organique, la géologie,
+les mathématiques, ainsi que la chirurgie, l'architecture et le
+raisonnement mécanique
+(\protect\hyperlink{ref-colemanSpatialPerceptionSkills1998}{Coleman \&
+Gotch, 1998};
+\protect\hyperlink{ref-hegartyIndividualDifferencesSpatial2005}{Hegarty
+\& Waller, 2005};
+\protect\hyperlink{ref-keehnerSpatialAbilityExperience2004}{Keehner et
+al., 2004};
+\protect\hyperlink{ref-kozhevnikovSpatialVisualizationPhysics2007}{Kozhevnikov
+et al., 2007};
+\protect\hyperlink{ref-orionRelationshipEarthScienceEducation1997}{Orion
+et al., 1997}; \protect\hyperlink{ref-waiSpatialAbilitySTEM2009}{Wai et
+al., 2009}). D'autres études ont mis en évidence que la réussite dans
+les STEM reposait sur des capacités fondamentales d'imagerie spatiale
+telles que l'imagination de structures schématiques ou l'exécution de
+transformations spatiales mentales
+(\protect\hyperlink{ref-kozhevnikovSpatialVisualizationPhysics2007}{Kozhevnikov
+et al., 2007}; \protect\hyperlink{ref-waiSpatialAbilitySTEM2009}{Wai et
+al., 2009}). Ces considérations jettent également un nouvel éclairage
+sur les observations et les intuitions de Galton
+(\protect\hyperlink{ref-galtonSTATISTICSMENTALIMAGERY1880}{1880})
+concernant les scientifiques. Blajenkova et al.
+(\protect\hyperlink{ref-blajenkovaObjectSpatialImagery2006}{Blajenkova
+et al., 2006a}) ont proposé une explication avec le clivage
+objet-spatial : les scientifiques ne seraient pas complètement
+déficients en imagerie visuelle générale, comme le suggérait Galton,
+mais seraient seulement sélectivement déficients en imagerie visuelle
+objet.
 
 En outre, les recherches sur les différences individuelles en matière
 d'imagerie ont démontré que les scientifiques et les ingénieurs ont
 tendance à être des imageurs spatiaux tandis que les artistes visuels
-ont tendance à être des imageurs objet (Blajenkova et al., 2006a;
-Blazhenkova \& Kozhevnikov, 2010, 2009; Kozhevnikov et al., 2010;
-Kozhevnikov et al., 2005). Ces études ont non seulement montré, par le
-biais de rapports subjectifs, que les artistes et les scientifiques
-différaient en termes d'imagerie, mais elles ont également mis en
-évidence des différences de performance : les artistes ont obtenu de
-meilleurs résultats dans les tâches nécessitant la visualisation
-d'objets (par exemple, la création de représentations d'images et de
-couleurs, l'identification d'objets dégradés) ; tandis que les
-visualiseurs spatiaux et les scientifiques ont obtenu de meilleurs
-résultats dans les tâches nécessitant une visualisation spatiale (par
-exemple, la rotation mentale, le pliage de papier, la recherche d'un
-emplacement). Enfin, Kozhevnikov et al. (Kozhevnikov et al., 2013) ont
-constaté que les évaluations de l'imagerie de visualisation d'objets par
-rapport à celle de visualisation spatiale étaient respectivement et
-sélectivement associées aux évaluations de créativité artistique par
-rapport à celle de créativité scientifique.
+ont tendance à être des imageurs objet
+(\protect\hyperlink{ref-blajenkovaObjectSpatialImagery2006}{Blajenkova
+et al., 2006a};
+\protect\hyperlink{ref-blazhenkovaVisualobjectAbilityNew2010}{Blazhenkova
+\& Kozhevnikov, 2010},
+\protect\hyperlink{ref-blazhenkovaNewObjectspatialverbalCognitive2009}{2009};
+\protect\hyperlink{ref-kozhevnikovTradeoffObjectSpatial2010}{Kozhevnikov
+et al., 2010};
+\protect\hyperlink{ref-kozhevnikovSpatialObjectVisualizers2005}{Kozhevnikov
+et al., 2005}). Ces études ont non seulement montré, par le biais de
+rapports subjectifs, que les artistes et les scientifiques différaient
+en termes d'imagerie, mais elles ont également mis en évidence des
+différences de performance : les artistes ont obtenu de meilleurs
+résultats dans les tâches nécessitant la visualisation d'objets (par
+exemple, la création de représentations d'images et de couleurs,
+l'identification d'objets dégradés) ; tandis que les visualiseurs
+spatiaux et les scientifiques ont obtenu de meilleurs résultats dans les
+tâches nécessitant une visualisation spatiale (par exemple, la rotation
+mentale, le pliage de papier, la recherche d'un emplacement). Enfin,
+Kozhevnikov et al.
+(\protect\hyperlink{ref-kozhevnikovCreativityVisualizationAbilities2013}{Kozhevnikov
+et al., 2013}) ont constaté que les évaluations de l'imagerie de
+visualisation d'objets par rapport à celle de visualisation spatiale
+étaient respectivement et sélectivement associées aux évaluations de
+créativité artistique par rapport à celle de créativité scientifique.
 
 \hypertarget{un-trade-off-entre-imagerie-objet-et-spatiale-chez-les-aphantasiques}{%
 \subsubsection{Un ``trade-off'' entre imagerie objet et spatiale chez
@@ -573,27 +748,31 @@ Une question ouverte reste celle du lien potentiel entre l'imagerie
 visuelle objet et spatiale, et plus particulièrement ici dans les cas
 d'aphantasie. Les voies ventrales et dorsales régissant ces deux aspects
 étant connues pour être fonctionnellement et anatomiquement différentes
-(Mishkin \& Ungerleider, 1982), il a longtemps été considéré que les
-deux processus visuels objet et spatial étaient des composantes
-mutuellement indépendantes de la représentation et de l'imagerie (Farah
-et al., 1988; Mishkin \& Ungerleider, 1982). Néanmoins, Kozhevnikov et
-al. (Kozhevnikov et al., 2010) ont montré, sur cinq groupes d'âge
-différents et quatre groupes de spécialisation différents, que les
-artistes visuels avaient des capacités de visualisation d'objets
-supérieures à la moyenne mais des capacités de visualisation spatiale
-inférieures à la moyenne, tandis que les scientifiques présentaient le
-schéma inverse. Aucun des groupes professionnels (artistes,
-scientifiques, architectes ou spécialistes des sciences humaines) ne
-présentait à la fois des capacités de visualisation d'objets et des
-capacités de visualisation spatiale supérieures à la moyenne : il a donc
-été proposé qu'il pouvait y avoir un compromis entre les capacités de
-visualisation d'objets et les capacités de visualisation spatiale. Comme
-l'étude a montré que les scores d'imagerie globale (spatiale + objet)
-étaient relativement homogènes chez tous les participants, ce compromis
-impliquerait l'existence d'un ``goulot d'étranglement'' dans la quantité
-totale des capacités d'imagerie, qui nécessiterait leur affectation en
-fonction de l'activité de chacun. Par conséquent, on peut supposer qu'un
-tel compromis pourrait exister, dans le cas de l'aphantasie, entre les
+(\protect\hyperlink{ref-mishkinContributionStriateInputs1982}{Mishkin \&
+Ungerleider, 1982}), il a longtemps été considéré que les deux processus
+visuels objet et spatial étaient des composantes mutuellement
+indépendantes de la représentation et de l'imagerie
+(\protect\hyperlink{ref-farahCaseStudyMental1988}{Farah et al., 1988};
+\protect\hyperlink{ref-mishkinContributionStriateInputs1982}{Mishkin \&
+Ungerleider, 1982}). Néanmoins, Kozhevnikov et al.
+(\protect\hyperlink{ref-kozhevnikovTradeoffObjectSpatial2010}{Kozhevnikov
+et al., 2010}) ont montré, sur cinq groupes d'âge différents et quatre
+groupes de spécialisation différents, que les artistes visuels avaient
+des capacités de visualisation d'objets supérieures à la moyenne mais
+des capacités de visualisation spatiale inférieures à la moyenne, tandis
+que les scientifiques présentaient le schéma inverse. Aucun des groupes
+professionnels (artistes, scientifiques, architectes ou spécialistes des
+sciences humaines) ne présentait à la fois des capacités de
+visualisation d'objets et des capacités de visualisation spatiale
+supérieures à la moyenne : il a donc été proposé qu'il pouvait y avoir
+un compromis entre les capacités de visualisation d'objets et les
+capacités de visualisation spatiale. Comme l'étude a montré que les
+scores d'imagerie globale (spatiale + objet) étaient relativement
+homogènes chez tous les participants, ce compromis impliquerait
+l'existence d'un ``goulot d'étranglement'' dans la quantité totale des
+capacités d'imagerie, qui nécessiterait leur affectation en fonction de
+l'activité de chacun. Par conséquent, on peut supposer qu'un tel
+compromis pourrait exister, dans le cas de l'aphantasie, entre les
 ressources objet et spatiales : les aphantasiques objet, les cas
 d'aphantasie les plus étudiés, pourraient potentiellement compenser
 cette imagerie objet réduite par une imagerie spatiale plus vive - une
@@ -611,8 +790,10 @@ inconvénients qui pourraient être répartis sur plusieurs dimensions :
 parmi lesquelles le traitement visuel-objet ou visuospatial, mais
 peut-être aussi le traitement verbal, en accord avec les modèles
 précédemment développés de styles cognitifs Objet-Spatial-Verbal
-(Blazhenkova \& Kozhevnikov, 2009), et comme l'ont supposé Zeman et al.
-(A. Zeman et al., 2020).
+(\protect\hyperlink{ref-blazhenkovaNewObjectspatialverbalCognitive2009}{Blazhenkova
+\& Kozhevnikov, 2009}), et comme l'ont supposé Zeman et al.
+(\protect\hyperlink{ref-zemanPhantasiaPsychologicalSignificance2020}{A.
+Zeman et al., 2020}).
 
 \newpage
 
@@ -732,10 +913,6 @@ identifiés}\label{diffuxe9rences-entre-les-groupes-identifiuxe9s}}
 \section{Discussion}\label{discussion}}
 
 \newpage
-
-\hypertarget{ruxe9fuxe9rences}{%
-\section*{Références}\label{ruxe9fuxe9rences}}
-\addcontentsline{toc}{section}{Références}
 
 \hypertarget{refs}{}
 \begin{CSLReferences}{1}{0}

@@ -18,15 +18,15 @@ output:
     toc_depth: '3'
     df_print: kable
 lang: "fr"
+langid: french
 fontsize: 12pt
 linestretch: 1.5
 geometry: margin=1in
-indent: TRUE
+indent: yes
 documentclass: article
-# classoption:
-# - twocolumn
 bibliography: references.bib
 csl: apa.csl
+link-citations: yes
 ---
 \newpage
 ```{r, include=FALSE, cache=FALSE}
@@ -62,6 +62,14 @@ $$
 Et est-ce qu'il y aurait moyen de faire une mention de l'hyper-stylé \hyperref[eq: Modèle 1]{Modèle~\ref*{eq: Modèle 1}} ? Oui !
 
 Test pour référencer des sections : ici on va envoyer vers la section *\nameref{imagerie-visuelle-et-aphantasie}*, puis vers la sous-section *\nameref{questionnaires}*. Pile ce dont on a besoin !
+
+Bon. Dernière étape. Des liens vers chaque référence individuellement...
+Par exemple [@bainbridgeQuantifyingAphantasiaDrawing2021]. Ca marche ?       
+.      
+.       
+.     
+Malheureusement oui... Ca a pris trois - littéralement **trois** heures à écrire et échouer à faire fonctionner du LaTeX dans les sous-fichiers, pour au final découvrir dans la documentation de Pandoc (que le Cookbook disait être *essentielle* à lire, et que bien sûr j'ai pas lu)... Qu'il fallait ajouter une ligne au YAML, `link-citations: yes`. Envie de caner.     
+Mais bon, on a réussi, youpi ! Ouais, ouais... *tocard*... 
 
 \newpage
 <!-- Introduction -->

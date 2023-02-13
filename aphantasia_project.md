@@ -18,15 +18,15 @@ output:
     toc_depth: '3'
     df_print: kable
 lang: "fr"
+langid: french
 fontsize: 12pt
 linestretch: 1.5
 geometry: margin=1in
-indent: TRUE
+indent: yes
 documentclass: article
-# classoption:
-# - twocolumn
 bibliography: references.bib
 csl: apa.csl
+link-citations: yes
 ---
 \newpage
 
@@ -48,9 +48,17 @@ $$
 y = \frac{x - (S.min + \frac{S.max -S.min}{2})}{S.max-S.min}
 $$
 ... C'est magnifique.
-Et est-ce qu'il y aurait moyen de faire une mention de l'hyper-stylé \hyperref[eq: Modèle 1]{Modèle~\ref*{eq: Modèle 1}}? Oui !
+Et est-ce qu'il y aurait moyen de faire une mention de l'hyper-stylé \hyperref[eq: Modèle 1]{Modèle~\ref*{eq: Modèle 1}} ? Oui !
 
 Test pour référencer des sections : ici on va envoyer vers la section *\nameref{imagerie-visuelle-et-aphantasie}*, puis vers la sous-section *\nameref{questionnaires}*. Pile ce dont on a besoin !
+
+Bon. Dernière étape. Des liens vers chaque référence individuellement...
+Par exemple [@bainbridgeQuantifyingAphantasiaDrawing2021]. Ca marche ?       
+.      
+.       
+.     
+Malheureusement oui... Ca a pris trois - littéralement **trois** heures à écrire et échouer à faire fonctionner du LaTeX dans les sous-fichiers, pour au final découvrir dans la documentation de Pandoc (que le Cookbook disait être *essentielle* à lire, et que bien sûr j'ai pas lu)... Qu'il fallait ajouter une ligne au YAML, `link-citations: yes`. Envie de caner.     
+Mais bon, on a réussi, youpi ! Ouais, ouais... *tocard*... 
 
 \newpage
 <!-- Introduction -->
@@ -254,8 +262,6 @@ Questionnaires were administered online using the Qualtrics research platform, a
 Palermo 2022
 The protocol was performed online on the Qualtrics platform, and it included three sections: demographic and general health information, imagery assessment, and other cognitive skills assessment. Since we were interested in providing some preliminary information on the prevalence of aphantasia in the Italian context, we did not approach online groups of people with aphantasia as in some previous studies (e.g., Dawes et al., 2020), but we recruitedparticipants from the general community through advertisements on social media and university web pages. Data were collected from April 2020 to May 2021.
 --> 
-
-
 
 ### Procédure expérimentale
 <!-- Sema
@@ -524,9 +530,6 @@ Je sais pas si elle a fait le tableau manuellement sur Rmd ou Latex ou R, mais l
 # Discussion
 
 \newpage
-# Références {-}
-
-<div id="refs"></div>
 
 <!-- \newpage -->
 <!-- # Annexes {-} -->
