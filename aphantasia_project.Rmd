@@ -50,6 +50,11 @@ knitr::opts_chunk$set(message=FALSE,
 
 Test pour référencer une figure, ici la Figure \ref{correlation_matrix}, ou encore la Figure \ref{k_means}.
 
+Test d'affichage de l'équation d'un modèle hyper stylé qu'on va construire :
+```{r, equation, results="asis"}
+```
+
+
 <!-- Introduction -->
 ```{r, child="1_intro.Rmd"}
 ```

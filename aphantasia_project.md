@@ -36,6 +36,13 @@ csl: apa.csl
 
 Test pour référencer une figure, ici la Figure \ref{correlation_matrix}, ou encore la Figure \ref{k_means}.
 
+Test d'affichage de l'équation d'un modèle hyper stylé qu'on va construire :
+
+\begin{equation}
+\operatorname{mpg} = \alpha + \beta_{1}(\operatorname{cyl}) + \beta_{2}(\operatorname{disp}) + \epsilon
+\end{equation}
+
+
 <!-- Introduction -->
 
 
@@ -168,34 +175,101 @@ Donc rien que sur ça, le domaine d’activité, le niveau d’études, le QI, e
 
 Soixante personnes ont participé à l'expérience. Ils devaient avoir entre 18 et 50 ans, être locuteurs français natifs, avoir une vision normale ou corrigée et ne pas présenter de trouble de la lecture.
 Les participants étaient divisés en deux groupes : les aphantasiques (n=30) et les non-aphantasiques (n=30). Les participants aphantasiques ont été recrutés en ligne sur des espaces spécifiques à leur condition (forums, groupes sur les réseaux sociaux, etc.).
+L'échantillon réel de l'étude (qui sera recruté à partir de mars environ, au début de la diffusion de l'expérience sur internet) sera composé d'un nombre équilibré de personnes aphantasiques et non-aphantasiques, caractéristique auto-évaluée sur la base d'un score au VVIQ inférieur ou égal à  [@marksVividnessVisualImagery1973], 
 
+
+Palermo 2022
+
+Critères d'exclusion
+Similarly, since we were interested in studying congenital aphantasia, 47 participants with a neurological or psychiatric disease history were excluded from the final analysis.
+
+OSIQ :
+The OSIQ was used to subdivide participants into individuals with average mental imagery skills on both object and spatial domain (Controls); participants with object aphantasia (OAph; i.e., individuals with a score under two standard deviations in the OSIQ object scale, as calculated referring to the sample of Blajenkova et al., 2006 ; OSIQ object total score ≤ 36); participants with spatial aphantasia (SAph; i.e., individuals with a score under two standard deviations in the OSIQ spatial scale, as calculated referring to the sample of Blajenkova et al., 2006; OSIQ spatial total score ≤ 25); participants with object hyperphantasia (OHyper; i.e., individuals with a score above two standard deviations in the OSIQ object scale, as calculated referring to the sample of Blajenkova et al., 2006; OSIQ object total score ≥ 71); participants with spatial hyperphantasia (SHyper; i.e., individuals with a score above two standard deviations in the OSIQ spatial scale, as calculated referring to the sample of Blajenkova et al., 2006; OSIQ spatial total score ≥ 62).
+
+
+Dawes 2022
+
+Analyse de puissance :
+Establishing a comparatively moderate expected effect size of d = 0.5, with 80% power and a highly conservative alpha of 0.0002 (see Statistical Analyses in Methods), we estimated that at least 170 participants would be required in each comparison group.
+
+N :
+Because our study was easily accessible online and received more participant responses than anticipated within our data collection window, we exceeded our sample size aim (N = 170) and ceased data collection for our aphantasic participant group at the sample size reported below.Sample sizes for the aphantasia group, control group 1, and control group 2 were approximately equal after data cleaning and exclusions (n = 267, n = 203, and n = 197, respectively).
+
+Recrutement :
+Aphantasic individuals in our study were recruited from online community research platforms (https://www.facebook.com/sydneyaphantasiaresearch/) and participated in exchange for entry into a gift card prize draw.
+Control 1
+Participants in our main control group were recruited using the Amazon Mechanical Turk (MTurk) platform, and were remunerated to complete the study.
+Control
+A second control group of 193 firstyear undergraduate psychology students were tested using the same experimental design. Participants in our second control group (73% identifying as female, 27% identifying as male; mean age = 19.33 years, SD = 3.69, range = 17 – 55 years) completed the study in exchange for course credit. All participants were included in final analysis (see section titled Control Group 2: Replication Analysis, in Results).
+
+Demographics :
+Of the 267 participants in our sample who reported aphantasia, a majority reported English as their first language (83%, n = 220) and identified as White/Caucasian (88%, n = 235). 31 countries of residence were listed, with a majority of participants originating from the United States of America.
+
+Imagery Scores : 
+Weak visual imagery ability is typically defined by a total score of 32 or less on the Vividness of Visual Imagery Questionnaire (VVIQ: see Imagery Questionnaires in Materials), a five-point Likert self-report scale which ranges from 16 – 80 (Marks, 1995; Zeman et al., 2015). A total score of 32 is equivalent to rating one’s agreement on every questionnaire item at 2 (“Vague and dim”; where 1 = “No image at all, you only know you are thinking of the object”). 
+On average, aphantasic participants in our sample scored 17.94 on the VVIQ (including 70% with total floor scores of 16), compared to 58.12 in control group 1 (see Imagery Results section) and 58.79 in control group 2.
+### Note : Nous avons choisi une moyenne plus conservatrice dans notre simulation pour le VVIQ des aphantasiques, à M = 30.2, et à 63.8 dans le groupe contrôle. L'écart entre les deux est donc plus ou moins équivalent, à 40 chez Dawes et 33 dans notre simulation.
 -->
 
 ### Matériel expérimental
 
 #### Questionnaires
 
-<!-- sema
+<!-- Sema
 
 Le matériel était constitué de 6 épreuves neuropsychologiques, mesurant les capacités de raisonnement visuel et d'induction et de déduction de règles (version courte des matrices de Raven (Bilker et al., 2012), les capacités d'abstraction et de conceptualisation verbale (Subtest Similitudes de la WAIS-IV), la mémoire de travail verbale (Empan de chiffre envers), les fonctions exécutives (Test à préciser) et les capacités de compréhension en lecture (Texte, à décider). Cette dernière épreuve constituait une tache écologique dans laquelle les images mentales pouvaient être sollicitées. Enfin, une courte tâche de raisonnement était également proposée (Tâche de Wason, 1968). 
 L'expérience comprenait aussi 2 questionnaires : le VVIQ, Questionnaire de Vivacité de l'Imagerie Visuelle (Marks, 1973), qui comporte 16 items et dans lequel le participant doit coter sur une échelle de Likert de 5 points l'énoncé qui lui correspond le mieux. Les scores vont de 16 à 80. Il constitue le questionnaire subjectif de référence dans l'aphantasie. Le second questionnaire était le MAI, Inventaire de Conscience Métacognitive (Schraw & Dennison, 1994), qui évalue les deux composantes de la métacognition : les connaissances métacognitives et la régulation métacognitive.
 
+
+Dawes 2022 
+
+VVIQ
+The Vividness of Visual Imagery Questionnaire (VVIQ; Marks, 1995) is a 16-item scale which asks participants to imagine a person as well as several scenes and rate the vividness of these mental images using a 5-point scale ranging from 1 (“No image at all, you only “know” that you are thinking of the object”) to 5 (“Perfectly clear and <as> vivid as normal vision”). A single mean score on the VVIQ was computed for each participant. 
+
+OSIQ
+The Object and Spatial Imagery Questionnaire (OSIQ; Blajenkova, Kozhevnikov, & Motes, 2006) is a 30-item scale which requires participants to indicate how well each of several statements on object imagery ability (e.g. “When I imagine the face of a friend, I have a perfectly clear and bright image”) and spatial imagery ability (e.g. “I am a good Tetris player”) applies to them on a 5-point scale ranging from 1 (“Totally disagree”) to 5 (“Totally agree”). There are 15 items each comprising the Object and Spatial imagery domains of the OSIQ, averaged to form a mean score on each domain.
 -->
+
 ### Equipement
 
 <!-- Sema
 
 L’expérience a été développée à l’aide d’OpenSesame puis a été présentée en ligne sur un serveur JATOS (Lange et al, 2015).
-
 --> 
 
 ### Procédure expérimentale
- <!-- Sema
+<!-- Sema
  
 Le participant effectuait les différentes épreuves neuropsychologiques. (Ordre des épreuves non décidé). Concernant la tâche de lecture, les participants étaient soumis à un texte qu'ils devaient lire. Le temps de lecture est libre mais chronométré. A la fin de la lecture, le texte est caché. Les participants devaient ensuite répondre à des questions sur le texte qui étaient d'ordres explicite ou implicite.
 A la fin de la passation de l'ensemble des tests, le participant répondait au questionnaire sur la vivacité de l'imagerie visuelle (VVIQ) et au questionnaire de métacognition (MAI). Pour terminer l'expérience, un questionnaire démographique a été rempli.
 
 -->
+
+### Analyses
+
+<!-- Sema
+
+L'analyse des résultats sera effectuée avec le logiciel JASP (Love et al., 2019). Des t-students et des ANOVAs seront menés en premier lieu afin d'observer s'il existe des différences dans les VD entre les aphantasiques et les non-aphantasiques. Des analyses corrélationnelles (Bravais-Pearson) seront ensuite effectuées sur les différentes mesures, ainsi que des régressions. Les données seront ensuite soumises à des analyses par clusters.
+
+
+Dawes 2022
+
+Data for aphantasic subjects demonstrated significant positive skew (see Figure 2.1). Non-parametric Mann-Whitney U hypothesis tests were therefore conducted in SPSS 25.0 for Mac OS, using Bonferroni adjusted alpha levels of a= 0.0002 (0.05/206 where 206 is the total number of question items across all questionnaires) to correct for multiple comparisons. Estimates of effect sizes r were computed using the following formula: r= ! √	$ where Z is the Mann-Whitney standardized test statistic, N the total sample size of the combined groups, and r the output effect size estimate (comparable with Cohen’s d effect size interpretations; Rosenthal, 1994). Because we adopted a highly conservative adjusted alpha, Mann-Whitney tests were supplemented by Bayesian analyses conducted in JASP. For all Bayesian analyses, a Cauchy prior of .707 was used. Bayes factors were used to help compare the weight of evidence for between-group differences across test comparisons, whilst Mann-Whitney tests were used to make overall inferences about test direction and significance. Bayes factors were interpreted according to common threshold guidelines (Jeffreys, 1961), where 1 = “No evidence”, 1-3 = “Anecdotal evidence, 3-10 = “Moderate evidence”, 10-30 = “Strong evidence”, 30-100 = “Very strong evidence”, and >100 = “Extreme evidence”.
+
+Palermo 2022
+
+Due to the non-normal distribution of the demographic, mental imagery, and other skills measures, as verified with the ShapiroWilk test (see Table S1 in Supplementary material), non-parametric analyses (i.e., Kruskal–Wallis tests) were performed to evaluate possible differences among the groups.
+we performed group comparisons only on five groups: Controls, OAph, SAph, OHyper, and SHyper; thus, these two participants were not included in the group analyses. A Bonferroni adjusted alpha level of 0.005 was applied (0.05/11). Significant group effects were further analyzed with planned post hoc comparisons using Mann–Whitney U tests and applying a Bonferroni correction for multiple comparisons (0.05/6 = 0.008). In particular, the following planned post-hoc comparisons were performed: OAph vs. SAph, OAph vs. Controls, SAph vs. Controls, OHyper vs. SHyper, OHyper vs. Controls, SHyper vs. Controls.
+
+
+Data transformation
+
+Dawes 2022
+
+All analyses were conducted on raw data. Data visualisation for Figure 2.1 only, however, was carried out on median-centered raw questionnaire data using the following transformation:
+y = (x - (Smin + (Smac -Smin)/2))/(Smax-Smin)
+where y is the transformed score, x the raw individual item score for scale S, and S.min and S.max the lowest and highest possible scores on that scale, respectively. This transformation allows us to graphically compare results across scales, with a value of -0.5 representing the lowest possible score, 0 the median score, and 0.5 the maximum possible score on each scale.
+--> 
 
 ## Variables et hypothèses
 
@@ -232,16 +306,30 @@ Les VD sont les suivantes :
 3)	Conformément à l'hypothèse que les aphantasiques auraient recours à des stratégies pour compenser leur déficit en imagerie visuelle, des performances élevées en compréhension de texte pourraient être corrélées à des scores élevés aux épreuves mesurant le fonctionnement exécutif et les capacités d'abstraction.
 
 Plan expérimental : S30<G2>
+
+
+Dawes 2022
+Object Imagery
+We expected aphantasic individuals to report reduced visual imagery ability compared to controls, in line with previous findings (Keogh & Pearson, 2018; Zeman et al., 2015). There is some suggestion that auditory imagery may also be reduced in individuals who report visual imagery absence, however this evidence comes from case studies with limited sample sizes (Greenberg & Knowlton, 2014). We therefore had no strong hypotheses regarding group differences in other multi-sensory imagery domains.
+Spatial Imagery
+Lastly, we expected aphantasic self-reports of spatial imagery and spatial navigation abilities to align with data from previous studies suggesting that despite visual imagery absence, spatial abilities (as measured by questionnaires and performance on mental rotation and visuo-spatial tasks) appear to be largely preserved in aphantasia (Keogh & Pearson, 2018; Zeman et al., 2010).
 -->
 
 ## Résultats
 
-### Analyses
+### Différences de moyenne des deux groupes
 
-<!-- Sema
-L'analyse des résultats sera effectuée avec le logiciel JASP (Love et al., 2019). Des t-students et des ANOVAs seront menés en premier lieu afin d'observer s'il existe des différences dans les VD entre les aphantasiques et les non-aphantasiques. Des analyses corrélationnelles (Bravais-Pearson) seront ensuite effectuées sur les différentes mesures, ainsi que des régressions. Les données seront ensuite soumises à des analyses par clusters.
--->
+<!-- Dawes 2022
 
+Violin plot vertical avec toutes les mesures (ils en ont 12 ! Comme nous)
+-> le nom de la mesure
+-> la capacité cognitive qu'elle évalue, comme une barre traversant plusieurs mesures
+-> la légende avec les deux groupes au dessus
+
+Spatial Ability Results. 
+Aphantasic participants reported slightly lower spatial imagery ability on the spatial sub-component of the OSIQ when compared to control group 1 (Mann-Whitney U = 24,462, p = 0.001, r = .15, BF10 = 14.65, two-sided; see Figure 2.1 purple section), although this effect was not significant after Bonferroni correction. Additionally, the scores of aphantasic individuals on the Spatial Memory component of the SAM (which includes items measuring reported spatial navigation and naturalistic spatial memory ability) were not significantly different from controls (SAM; Mann-Whitney U = 24,720, p = 0.1, r = .08, BF10 = .23, two-sided; see Figure 2.1 purple section). These results demonstrate that overall, there were no consistent differences in reported spatial abilities between aphantasic individuals and participants in control group 1.
+
+--> 
 ### Corrélations entre les variables mesurées
 ```{=latex}
 \begin{figure}[H]
