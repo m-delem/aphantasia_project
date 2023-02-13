@@ -24,19 +24,8 @@ shelf(
   ggradar,    # radar charts
   ggraph,     # auto graph layout
   igraph,     # network graphs
-  equatiomatic # model equation
+  equatiomatic, # model equation
 )
-
-# # equatiomatic example
-# fit <- lm(mpg ~ cyl + disp, mtcars)
-# # show the theoretical model
-# # equatiomatic::extract_eq(fit)
-# # display the actual coefficients
-# equatiomatic::extract_eq(fit, use_coefs = TRUE)
-# To display the actual math equations, you need the chunk option results = "asis" 
-# (see Section 11.11 for the meaning of this option), 
-# otherwise the equations will be displayed as normal text output.
-# Section refers to the Cookbook
 
 # global theme
 theme_set(theme_bw(base_size = 14, base_family = "serif"))
@@ -227,7 +216,10 @@ data_analysis <- data %>%
 
 mtcars <- mtcars
 fit <- lm(mpg ~ cyl + disp, mtcars)
-equatiomatic::extract_eq(fit)
+equatiomatic::extract_eq(
+  label = "fit",
+  fit,
+  )
 
 # ---- correlation_matrix ------------------------------------------------------
 # package "correlations" de easystats
