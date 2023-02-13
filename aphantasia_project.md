@@ -2,10 +2,11 @@
 output:
   pdf_document:
     toc: yes
-    toc_depth: 5
+    toc_depth: 3
     number_sections: yes
     extra_dependencies: ["float","amsmath"]
     keep_md: yes
+    keep_tex: yes
     fig_height: 8
     fig_width: 10
     df_print: kable
@@ -14,7 +15,7 @@ output:
       before_body: "z_beforebody.tex"
   html_document:
     toc: yes
-    toc_depth: '5'
+    toc_depth: '3'
     df_print: kable
 lang: "fr"
 fontsize: 12pt
@@ -34,12 +35,12 @@ csl: apa.csl
 
 <!-- Le manuscrit est divisé en plusieurs documents pour faciliter les modifications locales - ceux-ci sont dans le dossier du Drive. L'output complet du R Markdown (le pdf final) est en pdf dans le Drive, avec le même nom que ce fichier. Les GDoc de ce Drive servent à éditer le texte rédigé du document final : le code R sous-jacent et les analyses des données seront partagées et travaillées sur GitHub, lié localement à RStudio. Le repository GitHub en question : https://github.com/m-delem/aphantasia_project.git -->
 
-Test pour référencer une figure, ici la Figure \ref{correlation_matrix}, ou encore la Figure \ref{k_means}.
+Test pour référencer des figures, ici la  \autoref{correlation_matrix}, ou encore la \autoref{k_means}.
 
 Test d'affichage de l'équation d'un modèle hyper stylé qu'on va construire :
 
 \begin{equation}
-\label{eq: fit}
+\label{eq: Modèle 1}
 \operatorname{mpg} = \alpha + \beta_{1}(\operatorname{cyl}) + \beta_{2}(\operatorname{disp}) + \epsilon
 \end{equation}
 Ou encore de l'équation de la transformation des scores qu'ont utilisé Dawes et al. [-@dawesInnerVisionsMind2022] :
@@ -47,7 +48,9 @@ $$
 y = \frac{x - (S.min + \frac{S.max -S.min}{2})}{S.max-S.min}
 $$
 ... C'est magnifique.
-Et est qu'il y aurait moyen de faire une mention du modèle hyper-stylé \ref{eq: fit} ? Oui
+Et est-ce qu'il y aurait moyen de faire une mention de l'hyper-stylé \hyperref[eq: Modèle 1]{Modèle~\ref*{eq: Modèle 1}}? Oui !
+
+Test pour référencer des sections : ici on va envoyer vers la section *\nameref{imagerie-visuelle-et-aphantasie}*, puis vers la sous-section *\nameref{questionnaires}*. Pile ce dont on a besoin !
 
 \newpage
 <!-- Introduction -->
@@ -242,7 +245,17 @@ The Object and Spatial Imagery Questionnaire (OSIQ; Blajenkova, Kozhevnikov, & M
 <!-- Sema
 
 L’expérience a été développée à l’aide d’OpenSesame puis a été présentée en ligne sur un serveur JATOS (Lange et al, 2015).
+
+
+Dawes 2022
+Questionnaires were administered online using the Qualtrics research platform, and presented to each participant in random order. All participants completed a total of 206 questions in eight questionnaires. These questionnaires assessed self-reported multi-sensory imagery, episodic memory and future prospection, spatial abilities, mind-wandering and dreaming propensity, and response to stressful life events, as detailed below.
+
+
+Palermo 2022
+The protocol was performed online on the Qualtrics platform, and it included three sections: demographic and general health information, imagery assessment, and other cognitive skills assessment. Since we were interested in providing some preliminary information on the prevalence of aphantasia in the Italian context, we did not approach online groups of people with aphantasia as in some previous studies (e.g., Dawes et al., 2020), but we recruitedparticipants from the general community through advertisements on social media and university web pages. Data were collected from April 2020 to May 2021.
 --> 
+
+
 
 ### Procédure expérimentale
 <!-- Sema
@@ -276,6 +289,24 @@ Dawes 2022
 All analyses were conducted on raw data. Data visualisation for Figure 2.1 only, however, was carried out on median-centered raw questionnaire data using the following transformation:
 y = (x - (Smin + (Smac -Smin)/2))/(Smax-Smin)
 where y is the transformed score, x the raw individual item score for scale S, and S.min and S.max the lowest and highest possible scores on that scale, respectively. This transformation allows us to graphically compare results across scales, with a value of -0.5 representing the lowest possible score, 0 the median score, and 0.5 the maximum possible score on each scale.
+
+
+Cluster Analysis
+
+Lefèvre 2022
+
+Analyse de partition non-supervisée
+L’objectif de cette partie est de proposer une identification de profils combinant les trois compétences du langage écrit grâce à un algorithme de partition non-supervisée (unsupervised clustering) provenant des techniques de l'apprentissage machine. 
+Les techniques de partition non-supervisée permettent une identification de profils sans hypothèse a priori et en particulier sans prendre en compte le diagnostic de la personne. 
+L’algorithme des k-means a été choisi parmi l’ensemble des méthodes existantes car il montre de bonnes performances dans le domaine des études trans-diagnostiques (Bradshaw et al., 2020; Dalmaijer et al., 2021; Willems et al., 2016) et les résultats sont simples d’interprétation. 
+L’algorithme des k-means repose sur le calcul d’une matrice de dissimilarité contenant les mesures de distance euclidienne. Une distance euclidienne est une mesure permettant de quantifier la distance entre deux observations (ici deux personnes). Plus la distance euclidienne est importante et plus la distance entre les observations est importante.
+Le calcul de la distance euclidienne entre deux observations repose sur le théorème de Pythagore tel que représenté dans la Figure 1.2. Alors qu’il est aisé de comprendre et de représenter graphiquement le calcul d’une distance euclidienne dans un espace bi-dimensionnel, avec l’ajout d’une troisième dimension le théorème de Pythagore ne suffit plus pour calculer la distance euclidienne et par conséquent la formule suivante est utilisée :
+$$
+D_{i,j}^2 = \sum_{v=1}^{n}(x_{vi}-x_{vj})^2
+$$
+La distance entre l’observation i et l’observation j (Dij) est calculée dans un espace de dimension n et est égale à la somme des carrés des distances entre les deux scores dans chacune des dimensions. Une fois appliquée, cette formule permet d’avoir une mesure de distance, aussi appelé dissimilarité, pour chaque paire d’observations. La mesure de distance peut ensuite être utilisée dans un algorithme des k-means qui permet de regrouper les observations en k sous-groupes (k étant le nombre de sous-groupes/clusters). Le nombre de clusters peut être décidé grâce à plusieurs indices informatifs (Charrad et al., 2014). Les étapes de l’algorithme des k-means sont présentées dans l’Encart 2.
+Une des limites de l’algorithme des k-means repose sur la première étape. Durant l’étape d’initialisation, des observations sont choisies au hasard pour servir de centres des clusters. Ce type d’initialisation a une tendance à biaiser l’attribution des observations au sein des clusters. Pour pallier ce biais, il est possible de conduire l’algorithme de multiples fois et d’observer les résultats d’assignation de chaque observation comme une probabilité (Fränti & Sieranoja, 2019). Par exemple, dans un k-means à deux clusters conduits 1000 fois, l’observation A peut-être assignée 200 fois au cluster 1 et 800 fois au cluster 2. Dans ce cas, l’observation A peut être attribuée au cluster 2, représentant 80% des assignations. 
+
 --> 
 
 ## Variables et hypothèses
@@ -336,13 +367,18 @@ Violin plot vertical avec toutes les mesures (ils en ont 12 ! Comme nous)
 Spatial Ability Results. 
 Aphantasic participants reported slightly lower spatial imagery ability on the spatial sub-component of the OSIQ when compared to control group 1 (Mann-Whitney U = 24,462, p = 0.001, r = .15, BF10 = 14.65, two-sided; see Figure 2.1 purple section), although this effect was not significant after Bonferroni correction. Additionally, the scores of aphantasic individuals on the Spatial Memory component of the SAM (which includes items measuring reported spatial navigation and naturalistic spatial memory ability) were not significantly different from controls (SAM; Mann-Whitney U = 24,720, p = 0.1, r = .08, BF10 = .23, two-sided; see Figure 2.1 purple section). These results demonstrate that overall, there were no consistent differences in reported spatial abilities between aphantasic individuals and participants in control group 1.
 
+
+Lefèvre 2022
+
+Ptet aussi faire un tableau simple pour les moyennes générales
+
+
 --> 
 ### Corrélations entre les variables mesurées
 ```{=latex}
 \begin{figure}[H]
 ``` 
 
-\begin{center}\includegraphics[width=0.8\linewidth,height=0.5\textheight,]{aphantasia_project_files/figure-latex/correlation_matrix-1} \end{center}
 ```{=latex}
 \caption{Matrice de corrélation entre les variables mesurées.}
 \label{correlation_matrix}
@@ -364,11 +400,16 @@ Aphantasic participants reported slightly lower spatial imagery ability on the s
 
 ### Analyses des groupes par partition non-supervisée
 
+<!-- Lefèvre 2022
+
+La création de ces profils dans notre échantillon repose sur les trois compétences du langage écrit : fluence et compréhension en lecture et orthographe. Nous avons calculé une matrice de dissimilarité puis le nombre de clusters a été calculé grâce à l’ensemble des indices présents dans le package R NbClus (Charrad et al., 2014). 
+La majorité des indices propose un nombre optimal de quatre clusters pour notre échantillon. Une implémentation multiple (n = 1000) de l’algorithme des k-means a été conduite avec 4 clusters sur l’ensemble de l’échantillon. 
+-->
+
 ```{=latex}
 \begin{figure}[H]
 ``` 
 
-\begin{center}\includegraphics[width=0.8\linewidth,height=0.5\textheight,]{aphantasia_project_files/figure-latex/cluster_number-1} \end{center}
 ```{=latex}
 \caption{Graphique représentatant l'évalution du nombre idéal de clusters par la méthode 'Within Sum of Squares'.}
 \label{cluster_number}
@@ -379,18 +420,21 @@ Aphantasic participants reported slightly lower spatial imagery ability on the s
 \begin{figure}[H]
 ``` 
 
-\begin{center}\includegraphics[width=0.8\linewidth,height=0.5\textheight,]{aphantasia_project_files/figure-latex/pca_variables-1} \end{center}
 ```{=latex}
 \caption{Représentation de l'analyse en composantes principales des variables mesurées.}
 \label{pca_variables}
 \end{figure}
 ``` 
 
+<!--
+Les observations étaient ensuite attribuées au cluster le plus probable en termes d’assignation. 
+Le résultat des k-means est représenté dans la Figure 1.3 (avec les profils cognitifs sur les trois compétences -> pas nous). 
+-->
+
 ```{=latex}
 \begin{figure}[H]
 ``` 
 
-\begin{center}\includegraphics[width=0.8\linewidth,height=0.5\textheight,]{aphantasia_project_files/figure-latex/k_means-1} \end{center}
 ```{=latex}
 \caption{Représentation des clusters reconnus par la méthode des 'k-means', selon les deux composantes principales de l'ACP.}
 \label{k_means}
@@ -399,22 +443,11 @@ Aphantasic participants reported slightly lower spatial imagery ability on the s
 
 ### Analyse des clusters
 
+<!-- Les profils ont ensuite été étudiés sur leur composition en fonction du diagnostic initial et sur les compétences cognitives du profil et celles sous-tendant ces performances grâce à des comparaisons de groupes.-->
 ```{=latex}
 \begin{figure}[H]
 ``` 
 
-\begin{center}\includegraphics[width=0.8\linewidth,height=0.5\textheight,]{aphantasia_project_files/figure-latex/cluster_repatition-1} \end{center}
-```{=latex}
-\caption{Répartion des groupes par cluster.}
-\label{cluster_repatition}
-\end{figure}
-``` 
-
-```{=latex}
-\begin{figure}[H]
-``` 
-
-\begin{center}\includegraphics[width=0.8\linewidth,height=0.5\textheight,]{aphantasia_project_files/figure-latex/profiles_radar-1} \end{center}
 ```{=latex}
 \caption{Diagramme représentatant les profils cognitifs associés à chaque cluster, selon quatre dimensions principales : l'imagerie visuelle-objet, l'imagerie visuo-spatiale, le raisonnement et les fonctions exécutives.}
 \label{profiles_radar}
@@ -425,7 +458,6 @@ Aphantasic participants reported slightly lower spatial imagery ability on the s
 \begin{figure}[H]
 ``` 
 
-\begin{center}\includegraphics[width=0.8\linewidth,height=0.5\textheight,]{aphantasia_project_files/figure-latex/profiles_lollipop-1} \end{center}
 ```{=latex}
 \caption{Représentation alternative des profils cognitifs associés aux clusters.}
 \label{profiles_lollipop}
@@ -437,13 +469,25 @@ Aphantasic participants reported slightly lower spatial imagery ability on the s
 \begin{figure}[H]
 ``` 
 
-```
-## [1] FALSE
-```
+```{=latex}
+\caption{Répartion des groupes par cluster.}
+\label{cluster_repatition}
+\end{figure}
+``` 
 
+<!--
+Dans le but d’interpréter les clusters à partir des scores des compétences les composant, une moyenne en dessous de 0 (moyenne standardisée) était considérée comme déficitaire et une moyenne au-dessus de 0 comme non-déficitaire. Les moyennes et écart-types avec les tailles d’effectif sont présentés dans le Tableau 1.2. Dans l’objectif de mieux décrire les sousgroupes, nous avons réalisé des analyses de variance univariées. Les trois comparaisons étant significatives, nous présentons les résultats des tests post-hocs (avec correction de Bonferroni) qui sont représentés sur les histogrammes de la Figure 1.4.
 
+Moyennes, écart-types et effectifs par clusters.
+Note : Les moyennes en gras correspondent à des moyennes supérieures à 0.
+Voir la figure d'Elise : les clusters sont en ligne, les fonctions cognitives en colonnes, deux colonnes avec la proportion d'Aph NAph et le total des clusters. Le notre aura en théorie juste une colonne en plus
+Je sais pas si elle a fait le tableau manuellement sur Rmd ou Latex ou R, mais le résultat est joli.
+-->
 
-\begin{center}\includegraphics[width=0.8\linewidth,height=0.5\textheight,]{aphantasia_project_files/figure-latex/object_img_violins-1} \end{center}
+```{=latex}
+\begin{figure}[H]
+``` 
+
 ```{=latex}
 \caption{Comparaison des moyennes de score d'imagerie visuelle-objet entre les quatre groupes identifiés.}
 \label{object_img_violins}
@@ -484,445 +528,445 @@ Aphantasic participants reported slightly lower spatial imagery ability on the s
 
 <div id="refs"></div>
 
-\newpage
-# Annexes {-}
-Code complet des analyses :
+<!-- \newpage -->
+<!-- # Annexes {-} -->
+<!-- Code complet des analyses : -->
+<!-- ```{r,echo=TRUE, eval=FALSE} -->
+<!-- # -->
+<!-- # ---- Aphantasia Project - Source code ---------------------------------------- -->
+<!-- # -->
+<!-- # Delem, Fourment, Junoy, Leal De Almeida -->
+<!-- # Email : m.delem@univ-lyon2.fr -->
+<!-- # Last update : February 11, 2022 -->
 
-```r
-#
-# ---- Aphantasia Project - Source code ----------------------------------------
-#
-# Delem, Fourment, Junoy, Leal De Almeida
-# Email : m.delem@univ-lyon2.fr
-# Last update : February 11, 2022
+<!-- # ---- setup ------------------------------------------------------------------- -->
 
-# ---- setup -------------------------------------------------------------------
+<!-- # packages -->
+<!-- shelf( -->
+<!--   MASS,       # functions and data frame ecosystem -->
+<!--   easystats,  # modelling, visualization and reporting ecosystem -->
+<!--   ez,         # analysis and visualization of factorial exp -->
+<!--   rstatix,    # pipe friendly statistical functions -->
+<!--   scale,      # scale functions -->
+<!--   corrr,      # correlations -->
+<!--   lme4,       # mixed models -->
+<!--   lmerTest,   # tests in lmer -->
+<!--   cluster,    # cluster analysis -->
+<!--   factoextra, # multivariate data analysis visualization -->
+<!--   GGally,     # more ggplot2 plots -->
+<!--   ggpubr,     # publication plots -->
+<!--   ggradar,    # radar charts -->
+<!--   ggraph,     # auto graph layout -->
+<!--   igraph,     # network graphs -->
+<!-- ) -->
 
-# packages
-shelf(
-  MASS,       # functions and data frame ecosystem
-  easystats,  # modelling, visualization and reporting ecosystem
-  ez,         # analysis and visualization of factorial exp
-  rstatix,    # pipe friendly statistical functions
-  scale,      # scale functions
-  corrr,      # correlations
-  lme4,       # mixed models
-  lmerTest,   # tests in lmer
-  cluster,    # cluster analysis
-  factoextra, # multivariate data analysis visualization
-  GGally,     # more ggplot2 plots
-  ggpubr,     # publication plots
-  ggradar,    # radar charts
-  ggraph,     # auto graph layout
-  igraph,     # network graphs
-)
+<!-- # global theme -->
+<!-- theme_set(theme_bw(base_size = 14, base_family = "serif")) -->
 
-# global theme
-theme_set(theme_bw(base_size = 14, base_family = "serif"))
+<!-- # random seed -->
+<!-- set.seed(14051998) -->
 
-# random seed
-set.seed(14051998)
+<!-- # Simulation des donnees -->
 
-# Simulation des donnees
+<!-- # definition des variables et groupes -->
+<!-- # groupe non-aphantasique -->
+<!-- Non_A <- data.frame( -->
+<!--   name = c("OSIQ_O", "OSIQ_S", "VVIQ", -->
+<!--            "Raven", "Simili", "Wason", -->
+<!--            "Empan_MDT", "WCST", "Lecture", -->
+<!--            "Corsi","MRT", "SRI"), -->
+<!--   mean = c(54.6,  46.2,  63.8, -->
+<!--            20.9,  37.8,  32.2, -->
+<!--            6.43,  32.1,  50.2, -->
+<!--            5.81,  16.5,  35.7), -->
+<!--     sd = c(8.45,  9.54,  9.67, -->
+<!--            5.34,  4.25,  3.78, -->
+<!--            2.12,  5.32,  8.89, -->
+<!--            1.87,  3.54,  6.23), -->
+<!--   group = ("Non_A") %>% factor(), -->
+<!--   n_subjects = 200 -->
+<!-- ) -->
 
-# definition des variables et groupes
-# groupe non-aphantasique
-Non_A <- data.frame(
-  name = c("OSIQ_O", "OSIQ_S", "VVIQ",
-           "Raven", "Simili", "Wason",
-           "Empan_MDT", "WCST", "Lecture",
-           "Corsi","MRT", "SRI"),
-  mean = c(54.6,  46.2,  63.8,
-           20.9,  37.8,  32.2,
-           6.43,  32.1,  50.2,
-           5.81,  16.5,  35.7),
-    sd = c(8.45,  9.54,  9.67,
-           5.34,  4.25,  3.78,
-           2.12,  5.32,  8.89,
-           1.87,  3.54,  6.23),
-  group = ("Non_A") %>% factor(),
-  n_subjects = 200
-)
+<!-- # groupe aphantasique -->
+<!-- Aph <- data.frame( -->
+<!--   name = c("OSIQ_O", "OSIQ_S", "VVIQ", -->
+<!--            "Raven", "Simili", "Wason", -->
+<!--            "Empan_MDT", "WCST", "Lecture", -->
+<!--            "Corsi","MRT", "SRI"), -->
 
-# groupe aphantasique
-Aph <- data.frame(
-  name = c("OSIQ_O", "OSIQ_S", "VVIQ",
-           "Raven", "Simili", "Wason",
-           "Empan_MDT", "WCST", "Lecture",
-           "Corsi","MRT", "SRI"),
+<!--   mean = c(32.5,  58.9,  30.2, -->
+<!--            23.6,  42.2,  36.1, -->
+<!--            7.53,  33.8,  48.4, -->
+<!--            6.8,   18.2,  38.5), -->
 
-  mean = c(32.5,  58.9,  30.2,
-           23.6,  42.2,  36.1,
-           7.53,  33.8,  48.4,
-           6.8,   18.2,  38.5),
+<!--     sd = c(8.45,  9.54,  9.67, -->
+<!--            4.24,  6.15,  3.47, -->
+<!--            1.45,  2.62,  9.67, -->
+<!--            1.65,  5.78,  8.21), -->
+<!--   group = ("Aph") %>% factor(), -->
+<!--   n_subjects = 200 -->
+<!-- ) -->
 
-    sd = c(8.45,  9.54,  9.67,
-           4.24,  6.15,  3.47,
-           1.45,  2.62,  9.67,
-           1.65,  5.78,  8.21),
-  group = ("Aph") %>% factor(),
-  n_subjects = 200
-)
+<!-- # dataset fusionné -->
+<!-- variables <- bind_rows(Aph,Non_A) -->
+<!-- rm(Aph,Non_A) -->
 
-# dataset fusionné
-variables <- bind_rows(Aph,Non_A)
-rm(Aph,Non_A)
+<!-- # liens variables-capacites cognitives -->
+<!-- fmodel <- matrix(c ( .8,   0,  0,  0,  0, # OSIQ-O = img objet -->
+<!--                       0,  .9,  0,  0,  0, # OSIQ-S = img spatiale -->
+<!--                      .9,   0,  0,  0,  0, # VVIQ = img objet -->
+<!--                      .1,  .3, .8,  0,.05, # Raven = raisonnmt > img s/o > flex -->
+<!--                     -.2,   0, .6,  0, .1, # Simili = raisonnmt >  flex -->
+<!--                     -.1,   0, .3,  0,  0, # Wason = raisonnmt -->
+<!--                       0,   0,  0, .8,  0, # Empan = MDT -->
+<!--                     -.1,   0, .2,  0, .6, # WCST = Flex > raisonnmt -->
+<!--                      .4,   0, .6,  0,  0, # Lecture = img objet > raisonnmt -->
+<!--                      .1,  .7,  0, .8,  0, # Corsi = MDT > img s -->
+<!--                      .2, .85,  0,  0,  0, # MRT = img s -->
+<!--                      .1,  .9,  0,  0,  0  # SRI = img s -->
+<!--                     ), -->
+<!--                  nrow=12, ncol=5, byrow=TRUE) -->
 
-# liens variables-capacites cognitives
-fmodel <- matrix(c ( .8,   0,  0,  0,  0, # OSIQ-O = img objet
-                      0,  .9,  0,  0,  0, # OSIQ-S = img spatiale
-                     .9,   0,  0,  0,  0, # VVIQ = img objet
-                     .1,  .3, .8,  0,.05, # Raven = raisonnmt > img s/o > flex
-                    -.2,   0, .6,  0, .1, # Simili = raisonnmt >  flex
-                    -.1,   0, .3,  0,  0, # Wason = raisonnmt
-                      0,   0,  0, .8,  0, # Empan = MDT
-                    -.1,   0, .2,  0, .6, # WCST = Flex > raisonnmt
-                     .4,   0, .6,  0,  0, # Lecture = img objet > raisonnmt
-                     .1,  .7,  0, .8,  0, # Corsi = MDT > img s
-                     .2, .85,  0,  0,  0, # MRT = img s
-                     .1,  .9,  0,  0,  0  # SRI = img s
-                    ),
-                 nrow=12, ncol=5, byrow=TRUE)
+<!-- # liens entre capacites cognitives -->
+<!-- effect <- matrix(c (  1,-.1,-.1, .2,  0, # img o -->
+<!--                     -.1,  1, .3, .2,  0, # img s -->
+<!--                     -.1, .3,  1,  0, .2, # raisonnmt -->
+<!--                      .2, .2,  0,  1,  0, # MDT -->
+<!--                       0,  0, .2,  0,  1  # flex -->
+<!--                      ), -->
+<!--                  nrow=5, ncol=5, byrow=TRUE) -->
 
-# liens entre capacites cognitives
-effect <- matrix(c (  1,-.1,-.1, .2,  0, # img o
-                    -.1,  1, .3, .2,  0, # img s
-                    -.1, .3,  1,  0, .2, # raisonnmt
-                     .2, .2,  0,  1,  0, # MDT
-                      0,  0, .2,  0,  1  # flex
-                     ),
-                 nrow=5, ncol=5, byrow=TRUE)
+<!-- # fonction de simulation -->
+<!-- simulation <- function(variables, fmodel, effect) { -->
 
-# fonction de simulation
-simulation <- function(variables, fmodel, effect) {
+<!--   ### preparatifs ### -->
+<!--   n_variables <- dim(fmodel)[1] # notre nb de mesures/variables (rows) -->
+<!--   n_skills <- dim(fmodel)[2]    # les capacites sous-jacentes evaluees (columns) -->
 
-  ### preparatifs ###
-  n_variables <- dim(fmodel)[1] # notre nb de mesures/variables (rows)
-  n_skills <- dim(fmodel)[2]    # les capacites sous-jacentes evaluees (columns)
+<!--   # matrice de poids des erreurs -->
+<!--   errorweight <- (1 - diag(fmodel %*% t(fmodel))) %>% -->
+<!--                   abs() %>%   # necessaire pour la racine carree -->
+<!--                   sqrt() %>%  # doit avoir des arguments positifs -->
+<!--                   diag()      # recree une matrice diagonalisee -->
 
-  # matrice de poids des erreurs
-  errorweight <- (1 - diag(fmodel %*% t(fmodel))) %>%
-                  abs() %>%   # necessaire pour la racine carree
-                  sqrt() %>%  # doit avoir des arguments positifs
-                  diag()      # recree une matrice diagonalisee
+<!--   # initialisation d'un dataframe vide -->
+<!--   data <- data.frame() -->
 
-  # initialisation d'un dataframe vide
-  data <- data.frame()
+<!--   ### simulation ### -->
+<!--   for (i in levels(variables$group)){   # on simule separement chaque groupe -->
 
-  ### simulation ###
-  for (i in levels(variables$group)){   # on simule separement chaque groupe
+<!--     var_group = variables %>% filter(group == i) # donnees du groupe isolees -->
+<!--     n_subjects = var_group$n_subjects[1]         # nb de sujets dans le groupe -->
+<!--     group = i                                    # nom du groupe -->
 
-    var_group = variables %>% filter(group == i) # donnees du groupe isolees
-    n_subjects = var_group$n_subjects[1]         # nb de sujets dans le groupe
-    group = i                                    # nom du groupe
+<!--     # generation de scores aleatoires normaux pour chaque capacite cognitive -->
+<!--     randomscores <- matrix(rnorm(n_subjects * (n_skills)), -->
+<!--                            nrow = n_subjects, -->
+<!--                            ncol = n_skills) -->
+<!--     # ponderation par la matrice d'effets = les scores sont desormais correles -->
+<!--     # entre eux -->
+<!--     skillscores <- randomscores %*% effect -->
 
-    # generation de scores aleatoires normaux pour chaque capacite cognitive
-    randomscores <- matrix(rnorm(n_subjects * (n_skills)),
-                           nrow = n_subjects,
-                           ncol = n_skills)
-    # ponderation par la matrice d'effets = les scores sont desormais correles
-    # entre eux
-    skillscores <- randomscores %*% effect
+<!--     # genere les valeurs standardisees des mesures/variables grace a fmodel -->
+<!--     observedscores <- skillscores %*% t(fmodel) -->
 
-    # genere les valeurs standardisees des mesures/variables grace a fmodel
-    observedscores <- skillscores %*% t(fmodel)
+<!--     # generation d'erreurs normales pour chaque mesure/variable -->
+<!--     randomerror <- matrix(rnorm(n_subjects * (n_variables)), -->
+<!--                           nrow = n_subjects, -->
+<!--                           ncol = n_variables) -->
+<!--     # ponderation par notre matrice de poids des erreurs -->
+<!--     error <- randomerror %*% errorweight -->
 
-    # generation d'erreurs normales pour chaque mesure/variable
-    randomerror <- matrix(rnorm(n_subjects * (n_variables)),
-                          nrow = n_subjects,
-                          ncol = n_variables)
-    # ponderation par notre matrice de poids des erreurs
-    error <- randomerror %*% errorweight
+<!--     # nos mesures effectives = les valeurs reeles + une erreur standard -->
+<!--     measures <- observedscores + error -->
 
-    # nos mesures effectives = les valeurs reeles + une erreur standard
-    measures <- observedscores + error
+<!--     # on cree un dataframe avec le nom de groupe -->
+<!--     data_group <- data.frame(measures) %>% -->
+<!--       mutate(Group = group %>% factor()) -->
 
-    # on cree un dataframe avec le nom de groupe
-    data_group <- data.frame(measures) %>%
-      mutate(Group = group %>% factor())
+<!--     # ajout des valeurs reeles de moyenne et d'ecart-type pour chaque variable -->
+<!--     # et renommage -->
+<!--     for (i in 1:length(var_group$name)){ -->
+<!--       data_group[,i] = data_group[,i]*var_group$sd[i] + var_group$mean[i] -->
+<!--       colnames(data_group)[i] = var_group$name[i] -->
+<!--       } -->
 
-    # ajout des valeurs reeles de moyenne et d'ecart-type pour chaque variable
-    # et renommage
-    for (i in 1:length(var_group$name)){
-      data_group[,i] = data_group[,i]*var_group$sd[i] + var_group$mean[i]
-      colnames(data_group)[i] = var_group$name[i]
-      }
+<!--     # fusion avec le dataframe complet -->
+<!--     data <- bind_rows(data,data_group) -->
+<!--     } -->
 
-    # fusion avec le dataframe complet
-    data <- bind_rows(data,data_group)
-    }
+<!--   # ajout d'id individuels et stats demographiques -->
+<!--   n = length(data[,1])  # nombre total de participants -->
+<!--   data <- data %>% -->
+<!--     mutate(Subject_nr = row_number() %>% as.character(), -->
+<!--            Sex = (c("H","F") %>% rep(times = n/2) %>% factor()), -->
+<!--            Age = seq(from = 16, to = 55, by = 1) %>% sample(size = n, -->
+<!--                                                             replace = TRUE) -->
+<!--            ) %>% -->
+<!--     relocate(Subject_nr) -->
 
-  # ajout d'id individuels et stats demographiques
-  n = length(data[,1])  # nombre total de participants
-  data <- data %>%
-    mutate(Subject_nr = row_number() %>% as.character(),
-           Sex = (c("H","F") %>% rep(times = n/2) %>% factor()),
-           Age = seq(from = 16, to = 55, by = 1) %>% sample(size = n,
-                                                            replace = TRUE)
-           ) %>%
-    relocate(Subject_nr)
+<!--   # mission accomplished! -->
+<!--   return(data) -->
+<!--   } -->
 
-  # mission accomplished!
-  return(data)
-  }
+<!-- # la fonction est donc clefs en main -->
+<!-- data <- simulation(variables,fmodel,effect) -->
 
-# la fonction est donc clefs en main
-data <- simulation(variables,fmodel,effect)
+<!-- # standardisation -->
+<!-- # Paradoxalement on va defaire ce qu'on a construit avec les moyennes, -->
+<!-- # en re-standardisant tous les scores sous forme de z-scores -->
+<!-- data_scale <- data %>% -->
+<!--   select(OSIQ_O:SRI) %>% -->
+<!--   mutate(across(everything(), ~ scale(.x))) -->
 
-# standardisation
-# Paradoxalement on va defaire ce qu'on a construit avec les moyennes,
-# en re-standardisant tous les scores sous forme de z-scores
-data_scale <- data %>%
-  select(OSIQ_O:SRI) %>%
-  mutate(across(everything(), ~ scale(.x)))
+<!-- # k-means clustering -->
+<!-- data_kmeans <- kmeans(data_scale, -->
+<!--                       centers = 4, -->
+<!--                       nstart = 100) -->
 
-# k-means clustering
-data_kmeans <- kmeans(data_scale,
-                      centers = 4,
-                      nstart = 100)
+<!-- # on ajoute les clusters aux donnees des participants -->
+<!-- data <- data %>% mutate(Cluster = data_kmeans$cluster %>% factor()) -->
 
-# on ajoute les clusters aux donnees des participants
-data <- data %>% mutate(Cluster = data_kmeans$cluster %>% factor())
+<!-- # Profils cognitifs sous-jacents des clusters -->
+<!-- # on fusionne les scores des composantes proches -->
+<!-- deep <- data %>% -->
+<!--   mutate(Spatial_Img = OSIQ_S + Corsi + MRT + SRI, -->
+<!--          Object_Img = OSIQ_O + VVIQ, -->
+<!--          Reasoning = Raven + Simili + Wason, -->
+<!--          Executive = Empan_MDT + WCST + Lecture) %>% -->
+<!--   select(Spatial_Img : Executive, Cluster) %>% -->
+<!--   mutate(across(c(Spatial_Img : Executive), -->
+<!--                 ~ rescale(.x, to = c(0,1))),) -->
 
-# Profils cognitifs sous-jacents des clusters
-# on fusionne les scores des composantes proches
-deep <- data %>%
-  mutate(Spatial_Img = OSIQ_S + Corsi + MRT + SRI,
-         Object_Img = OSIQ_O + VVIQ,
-         Reasoning = Raven + Simili + Wason,
-         Executive = Empan_MDT + WCST + Lecture) %>%
-  select(Spatial_Img : Executive, Cluster) %>%
-  mutate(across(c(Spatial_Img : Executive),
-                ~ rescale(.x, to = c(0,1))),)
+<!-- # on cree un dataset d'analyse avec les variables continues standardisees -->
+<!-- # (pour plus tard) -->
+<!-- data_analysis <- data %>% -->
+<!--   mutate(across(c(-Subject_nr,-Group,-Sex,-Age,-Cluster), -->
+<!--                 ~ scale(.x)) -->
+<!--   ) -->
 
-# on cree un dataset d'analyse avec les variables continues standardisees
-# (pour plus tard)
-data_analysis <- data %>%
-  mutate(across(c(-Subject_nr,-Group,-Sex,-Age,-Cluster),
-                ~ scale(.x))
-  )
+<!-- # ---- correlation_matrix ------------------------------------------------------ -->
+<!-- # package "correlations" de easystats -->
+<!-- data_scale %>% -->
+<!--   correlation(partial = TRUE) %>% -->
+<!--   cor_sort() %>% -->
+<!--   summary() %>% -->
+<!--   visualisation_recipe( -->
+<!--     labs = list(title = "Correlations entre les variables mesurees")) %>% -->
+<!--   plot() + -->
+<!--   theme(panel.grid.major = element_blank(), -->
+<!--         panel.grid.minor = element_blank()) -->
 
-# ---- correlation_matrix ------------------------------------------------------
-# package "correlations" de easystats
-data_scale %>%
-  correlation(partial = TRUE) %>%
-  cor_sort() %>%
-  summary() %>%
-  visualisation_recipe(
-    labs = list(title = "Correlations entre les variables mesurees")) %>%
-  plot() +
-  theme(panel.grid.major = element_blank(),
-        panel.grid.minor = element_blank())
+<!-- # ---- network_plot ------------------------------------------------------------ -->
+<!-- # graphe en reseau (corrr, igraph & ggraph) -->
+<!-- data_scale %>% -->
+<!--   correlate() %>% -->
+<!--   stretch %>% -->
+<!--   filter(abs(r) >= .1) %>% -->
+<!--   mutate(x = replace(x, x == "Empan_MDT", "Empan"), -->
+<!--          y = replace(y, y == "Empan_MDT", "Empan")) %>% -->
+<!--   graph_from_data_frame(directed = FALSE) %>% -->
+<!--   ggraph() + -->
+<!--     geom_edge_arc(strength = 0.1, -->
+<!--                   aes(edge_alpha = abs(r), -->
+<!--                       edge_width = abs(r), -->
+<!--                       colour = r)) + -->
+<!--     guides(edge_alpha = "none", edge_width = "none") + -->
+<!--     scale_edge_colour_gradientn(limits = c(-1, 1), -->
+<!--                                 colors = c("firebrick2", "dodgerblue2")) + -->
+<!--     geom_node_point(size = 20) + -->
+<!--     geom_node_text(aes(label = name, -->
+<!--                        family = "serif"), -->
+<!--                    colour = "white", -->
+<!--                    repel = FALSE) + -->
+<!--     theme_graph(base_family = "serif", base_size = 10) + -->
+<!--     #theme(legend.position = "none") + -->
+<!--     labs(title = "Correlations entre les variables mesurees") -->
 
-# ---- network_plot ------------------------------------------------------------
-# graphe en reseau (corrr, igraph & ggraph)
-data_scale %>%
-  correlate() %>%
-  stretch %>%
-  filter(abs(r) >= .1) %>%
-  mutate(x = replace(x, x == "Empan_MDT", "Empan"),
-         y = replace(y, y == "Empan_MDT", "Empan")) %>%
-  graph_from_data_frame(directed = FALSE) %>%
-  ggraph() +
-    geom_edge_arc(strength = 0.1,
-                  aes(edge_alpha = abs(r),
-                      edge_width = abs(r),
-                      colour = r)) +
-    guides(edge_alpha = "none", edge_width = "none") +
-    scale_edge_colour_gradientn(limits = c(-1, 1),
-                                colors = c("firebrick2", "dodgerblue2")) +
-    geom_node_point(size = 20) +
-    geom_node_text(aes(label = name,
-                       family = "serif"),
-                   colour = "white",
-                   repel = FALSE) +
-    theme_graph(base_family = "serif", base_size = 10) +
-    #theme(legend.position = "none") +
-    labs(title = "Correlations entre les variables mesurees")
+<!-- # ---- mixed_matrix ------------------------------------------------------------ -->
+<!-- # matrice avec graphes et distributions -->
+<!-- # GGally package -->
+<!-- data_scale %>% -->
+<!--   mutate(across(everything(), ~as.numeric(.x))) %>% -->
+<!--   ggpairs(title = "Correlations et distributions des variables mesurees", -->
+<!--           lower = list(continuous = wrap("points", alpha = 0.2)), -->
+<!--           ) -->
 
-# ---- mixed_matrix ------------------------------------------------------------
-# matrice avec graphes et distributions
-# GGally package
-data_scale %>%
-  mutate(across(everything(), ~as.numeric(.x))) %>%
-  ggpairs(title = "Correlations et distributions des variables mesurees",
-          lower = list(continuous = wrap("points", alpha = 0.2)),
-          )
+<!-- # ---- cluster_number ---------------------------------------------------------- -->
+<!-- data_scale %>% -->
+<!--   fviz_nbclust(kmeans, method = "wss", -->
+<!--                linecolor = "white") + -->
+<!--   geom_vline(xintercept = 4, linetype = 2) + -->
+<!--   theme_bw(base_size = 14, base_family = "serif") + -->
+<!--   geom_line(aes(group = 1), color = "aquamarine2",size = 1.3) + -->
+<!--   geom_point(group = 1, size = 3, color = "aquamarine4") + -->
+<!--   labs(title = "Nombre optimal de clusters (methode `Within Sum of Squares`)", -->
+<!--        x = "Nombre de clusters", -->
+<!--        y = "Total des Somme des Carres intra-clusters") -->
 
-# ---- cluster_number ----------------------------------------------------------
-data_scale %>%
-  fviz_nbclust(kmeans, method = "wss",
-               linecolor = "white") +
-  geom_vline(xintercept = 4, linetype = 2) +
-  theme_bw(base_size = 14, base_family = "serif") +
-  geom_line(aes(group = 1), color = "aquamarine2",size = 1.3) +
-  geom_point(group = 1, size = 3, color = "aquamarine4") +
-  labs(title = "Nombre optimal de clusters (methode `Within Sum of Squares`)",
-       x = "Nombre de clusters",
-       y = "Total des Somme des Carres intra-clusters")
+<!-- # ---- pca_variables ----------------------------------------------------------- -->
+<!-- data_scale %>% -->
+<!--   prcomp(scale = TRUE) %>% -->
+<!--   fviz_pca_var(repel = TRUE, -->
+<!--                col.var = "contrib", -->
+<!--                title = "Analyse en Composantes Principales des variables") + -->
+<!--   theme_bw(base_size = 14, base_family = "serif") + -->
+<!--   theme(axis.text.x=element_blank(), -->
+<!--         axis.ticks.x=element_blank(), -->
+<!--         axis.text.y=element_blank(), -->
+<!--         axis.ticks.y=element_blank()) + -->
+<!--   labs(x = "Dimension 1 (40.7%)", -->
+<!--        y = "Dimension 2 (18.4%)") -->
 
-# ---- pca_variables -----------------------------------------------------------
-data_scale %>%
-  prcomp(scale = TRUE) %>%
-  fviz_pca_var(repel = TRUE,
-               col.var = "contrib",
-               title = "Analyse en Composantes Principales des variables") +
-  theme_bw(base_size = 14, base_family = "serif") +
-  theme(axis.text.x=element_blank(),
-        axis.ticks.x=element_blank(),
-        axis.text.y=element_blank(),
-        axis.ticks.y=element_blank()) +
-  labs(x = "Dimension 1 (40.7%)",
-       y = "Dimension 2 (18.4%)")
+<!-- # ---- k-means ----------------------------------------------------------------- -->
+<!-- data_kmeans %>% -->
+<!--   fviz_cluster( -->
+<!--     data_scale, -->
+<!--     geom = "point", -->
+<!--     repel = TRUE, -->
+<!--     ellipse.type = "convex", -->
+<!--     shape = "circle", pointsize = 1.2, -->
+<!--     main = -->
+<!--       "Representation des clusters selon les deux composantes principales", -->
+<!--     xlab = "Dimension 1 (40.7%)", -->
+<!--     ylab = "Dimension 2 (18.4%)", -->
+<!--     ) + -->
+<!--   theme_bw(base_size = 14, base_family = "serif") -->
 
-# ---- k-means -----------------------------------------------------------------
-data_kmeans %>%
-  fviz_cluster(
-    data_scale,
-    geom = "point",
-    repel = TRUE,
-    ellipse.type = "convex",
-    shape = "circle", pointsize = 1.2,
-    main =
-      "Representation des clusters selon les deux composantes principales",
-    xlab = "Dimension 1 (40.7%)",
-    ylab = "Dimension 2 (18.4%)",
-    ) +
-  theme_bw(base_size = 14, base_family = "serif")
+<!-- # ---- cluster_repatition ------------------------------------------------------ -->
+<!-- # repartion des groupes par cluster -->
+<!-- data %>% -->
+<!--   ggbivariate(outcome = "Group", -->
+<!--               explanatory = "Cluster") + -->
+<!--   scale_fill_manual("Groupe", -->
+<!--                     values = c("aquamarine2", "coral"), -->
+<!--                     labels = c("Aphantasiques","Non-Aphantasiques")) + -->
+<!--   labs(title = -->
+<!--     "Repartition des aphantasiques et non-aphantasiques dans les clusters") -->
 
-# ---- cluster_repatition ------------------------------------------------------
-# repartion des groupes par cluster
-data %>%
-  ggbivariate(outcome = "Group",
-              explanatory = "Cluster") +
-  scale_fill_manual("Groupe",
-                    values = c("aquamarine2", "coral"),
-                    labels = c("Aphantasiques","Non-Aphantasiques")) +
-  labs(title =
-    "Repartition des aphantasiques et non-aphantasiques dans les clusters")
+<!-- # ---- profiles_radar ---------------------------------------------------------- -->
+<!-- deep %>% -->
+<!--   group_by(Cluster) %>% -->
+<!--   summarise(across(everything(),mean)) %>% -->
+<!--   ggradar(base.size = 10, -->
+<!--           font.radar = "serif", -->
+<!--           values.radar = c("0","0.5","1"), -->
+<!--           grid.label.size = 4, -->
+<!--           axis.labels = c( "Imagerie Spatiale", -->
+<!--                            "Imagerie\n Objet", -->
+<!--                            "Raisonnement", -->
+<!--                            "Fonctions\n Executives"), -->
+<!--           grid.min = 0, grid.mid = .5, grid.max = 1, -->
+<!--           label.gridline.min = FALSE, -->
+<!--           group.line.width = 1, group.point.size = 3, -->
+<!--           group.colours =, -->
+<!--           background.circle.transparency = .1, -->
+<!--           legend.title = "Clusters", -->
+<!--           legend.text.size = 12, -->
+<!--           legend.position = "bottom", -->
+<!--           plot.title = "Profils cognitifs des clusters identifies -->
+<!-- par partition non-supervisee (k-means)", -->
+<!--           fill = TRUE, -->
+<!--           fill.alpha = 0.1 -->
+<!--   ) + -->
+<!--   theme_bw(base_size = 14, base_family = "serif") + -->
+<!--   theme(axis.text.x=element_blank(), -->
+<!--         axis.ticks.x=element_blank(), -->
+<!--         axis.text.y=element_blank(), -->
+<!--         axis.ticks.y=element_blank()) + -->
+<!--   theme(panel.grid.major = element_blank(), -->
+<!--         panel.grid.minor = element_blank()) -->
+<!--   #facet(facet.by = "Cluster") -->
 
-# ---- profiles_radar ----------------------------------------------------------
-deep %>%
-  group_by(Cluster) %>%
-  summarise(across(everything(),mean)) %>%
-  ggradar(base.size = 10,
-          font.radar = "serif",
-          values.radar = c("0","0.5","1"),
-          grid.label.size = 4,
-          axis.labels = c( "Imagerie Spatiale",
-                           "Imagerie\n Objet",
-                           "Raisonnement",
-                           "Fonctions\n Executives"),
-          grid.min = 0, grid.mid = .5, grid.max = 1,
-          label.gridline.min = FALSE,
-          group.line.width = 1, group.point.size = 3,
-          group.colours =,
-          background.circle.transparency = .1,
-          legend.title = "Clusters",
-          legend.text.size = 12,
-          legend.position = "bottom",
-          plot.title = "Profils cognitifs des clusters identifies
-par partition non-supervisee (k-means)",
-          fill = TRUE,
-          fill.alpha = 0.1
-  ) +
-  theme_bw(base_size = 14, base_family = "serif") +
-  theme(axis.text.x=element_blank(),
-        axis.ticks.x=element_blank(),
-        axis.text.y=element_blank(),
-        axis.ticks.y=element_blank()) +
-  theme(panel.grid.major = element_blank(),
-        panel.grid.minor = element_blank())
-  #facet(facet.by = "Cluster")
+<!-- # ---- profiles_lollipop ------------------------------------------------------- -->
+<!-- deep %>% -->
+<!--   gather(key = variable, value = value, -Cluster) %>% -->
+<!--   mutate(variable = replace(variable, variable == "Spatial_Img", "Imagerie\n Spatiale"), -->
+<!--          variable = replace(variable, variable == "Reasoning", "Raisonnement"), -->
+<!--          variable = replace(variable, variable == "Object_Img", "Imagerie\n Objet"), -->
+<!--          variable = replace(variable, variable == "Executive", "Fonctions\n Exectutives")) %>% -->
+<!--   group_by(variable, Cluster) %>% -->
+<!--   summarise(mean = mean(value)) %>% -->
+<!--   ggdotchart( -->
+<!--     x = "variable", -->
+<!--     y = "mean", -->
+<!--     group = "Cluster", -->
+<!--     color = "Cluster", size = 1, dot.size = 3, -->
+<!--     palette = "aas", -->
+<!--     add = "segment", -->
+<!--     position = position_dodge(0), -->
+<!--     #sorting = "descending", -->
+<!--     #facet.by = "Cluster", -->
+<!--     #rotate = TRUE, -->
+<!--     #legend = "none", -->
+<!--     ggtheme = theme_bw(base_size = 14, base_family = "serif"), -->
+<!--     xlab = "Fonctions Cognitives", -->
+<!--     ylab = "Moyennes", -->
+<!--     title = -->
+<!--       "Scores aux differentes fonctions cognitives en fonction des clusters" -->
+<!--     ) + -->
+<!--   geom_smooth(aes(group = Cluster, color = Cluster),size = .8) + -->
+<!--   theme(panel.grid.major = element_blank(), -->
+<!--         panel.grid.minor = element_blank(), -->
+<!--         ) -->
 
-# ---- profiles_lollipop -------------------------------------------------------
-deep %>%
-  gather(key = variable, value = value, -Cluster) %>%
-  mutate(variable = replace(variable, variable == "Spatial_Img", "Imagerie\n Spatiale"),
-         variable = replace(variable, variable == "Reasoning", "Raisonnement"),
-         variable = replace(variable, variable == "Object_Img", "Imagerie\n Objet"),
-         variable = replace(variable, variable == "Executive", "Fonctions\n Exectutives")) %>%
-  group_by(variable, Cluster) %>%
-  summarise(mean = mean(value)) %>%
-  ggdotchart(
-    x = "variable",
-    y = "mean",
-    group = "Cluster",
-    color = "Cluster", size = 1, dot.size = 3,
-    palette = "aas",
-    add = "segment",
-    position = position_dodge(0),
-    #sorting = "descending",
-    #facet.by = "Cluster",
-    #rotate = TRUE,
-    #legend = "none",
-    ggtheme = theme_bw(base_size = 14, base_family = "serif"),
-    xlab = "Fonctions Cognitives",
-    ylab = "Moyennes",
-    title =
-      "Scores aux differentes fonctions cognitives en fonction des clusters"
-    ) +
-  geom_smooth(aes(group = Cluster, color = Cluster),size = .8) +
-  theme(panel.grid.major = element_blank(),
-        panel.grid.minor = element_blank(),
-        )
+<!-- # ---- object_img_violins ------------------------------------------------------ -->
+<!-- # Comparaisons de moyennes entre clusters par variable -->
 
-# ---- object_img_violins ------------------------------------------------------
-# Comparaisons de moyennes entre clusters par variable
+<!-- # Object mean comparison -->
+<!-- data %>% -->
+<!--   ggplot(aes(x = Cluster,reorder(1, 2, 3, 4), -->
+<!--              y = OSIQ_O, -->
+<!--              fill = Cluster,)) + -->
+<!--   geom_violin(alpha = 0.3, -->
+<!--               position = position_dodge(1), -->
+<!--               draw_quantiles = FALSE,) + -->
+<!--   geom_boxplot(alpha = 0.6, -->
+<!--                position = position_dodge(1), -->
+<!--                width = 0.15,) + -->
+<!--   # significance indicator labels -->
+<!--   stat_compare_means(comparisons = list(c("1","2"), -->
+<!--                                         c("3","4"), -->
+<!--                                         c("1","4") -->
+<!--   ), -->
+<!--   method = "t.test", -->
+<!--   label = "p.format", -->
+<!--   # height of the labels -->
+<!--   label.y.npc = c("top")) + -->
+<!--   # different filler colors -->
+<!--   scale_fill_brewer(palette = "Dark2") + -->
+<!--   scale_colour_brewer(palette = "Dark2") + -->
+<!--   labs(title = "Distribution des scores d'imagerie visuelle-objet par cluster", -->
+<!--        x = "Cluster", -->
+<!--        y = "Score à l'OSIQ Object Scale") -->
 
-# Object mean comparison
-data %>%
-  ggplot(aes(x = Cluster,reorder(1, 2, 3, 4),
-             y = OSIQ_O,
-             fill = Cluster,)) +
-  geom_violin(alpha = 0.3,
-              position = position_dodge(1),
-              draw_quantiles = FALSE,) +
-  geom_boxplot(alpha = 0.6,
-               position = position_dodge(1),
-               width = 0.15,) +
-  # significance indicator labels
-  stat_compare_means(comparisons = list(c("1","2"),
-                                        c("3","4"),
-                                        c("1","4")
-  ),
-  method = "t.test",
-  label = "p.format",
-  # height of the labels
-  label.y.npc = c("top")) +
-  # different filler colors
-  scale_fill_brewer(palette = "Dark2") +
-  scale_colour_brewer(palette = "Dark2") +
-  labs(title = "Distribution des scores d'imagerie visuelle-objet par cluster",
-       x = "Cluster",
-       y = "Score à l'OSIQ Object Scale")
+<!-- #---- spatial_img_violins ------------------------------------------------------ -->
+<!-- # Spatial mean comparison -->
+<!-- data %>% -->
+<!--   ggplot(aes(x = Cluster,reorder(1, 2, 3, 4), -->
+<!--              y = OSIQ_S, -->
+<!--              fill = Cluster,)) + -->
+<!--   geom_violin(alpha = 0.3, -->
+<!--               position = position_dodge(1), -->
+<!--               draw_quantiles = FALSE,) + -->
+<!--   geom_boxplot(alpha = 0.6, -->
+<!--                position = position_dodge(1), -->
+<!--                width = 0.15,) + -->
+<!--   # significance indicator labels -->
+<!--   stat_compare_means(comparisons = list(c("1","2"), -->
+<!--                                         c("2","3"), -->
+<!--                                         c("3","4"), -->
+<!--                                         c("1","4") -->
+<!--   ), -->
+<!--   method = "t.test", -->
+<!--   label = "p.format", -->
+<!--   # height of the labels -->
+<!--   label.y.npc = c("top")) + -->
+<!--   # different filler colors -->
+<!--   scale_fill_brewer(palette = "Dark2") + -->
+<!--   scale_colour_brewer(palette = "Dark2") + -->
+<!--   labs(title = "Distribution des scores d'imagerie visuospatiale par cluster", -->
+<!--        x = "Cluster", -->
+<!--        y = "Score à l'OSIQ Spatial Scale") -->
 
-#---- spatial_img_violins ------------------------------------------------------
-# Spatial mean comparison
-data %>%
-  ggplot(aes(x = Cluster,reorder(1, 2, 3, 4),
-             y = OSIQ_S,
-             fill = Cluster,)) +
-  geom_violin(alpha = 0.3,
-              position = position_dodge(1),
-              draw_quantiles = FALSE,) +
-  geom_boxplot(alpha = 0.6,
-               position = position_dodge(1),
-               width = 0.15,) +
-  # significance indicator labels
-  stat_compare_means(comparisons = list(c("1","2"),
-                                        c("2","3"),
-                                        c("3","4"),
-                                        c("1","4")
-  ),
-  method = "t.test",
-  label = "p.format",
-  # height of the labels
-  label.y.npc = c("top")) +
-  # different filler colors
-  scale_fill_brewer(palette = "Dark2") +
-  scale_colour_brewer(palette = "Dark2") +
-  labs(title = "Distribution des scores d'imagerie visuospatiale par cluster",
-       x = "Cluster",
-       y = "Score à l'OSIQ Spatial Scale")
-```
+<!-- ``` -->

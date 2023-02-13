@@ -217,7 +217,7 @@ data_analysis <- data %>%
 mtcars <- mtcars
 fit <- lm(mpg ~ cyl + disp, mtcars)
 equatiomatic::extract_eq(
-  label = "fit",
+  label = "Modèle 1",
   fit,
   )
 
