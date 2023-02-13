@@ -1,0 +1,164 @@
+## Résultats
+
+### Différences de moyenne des deux groupes
+
+<!-- Dawes 2022
+
+Violin plot vertical avec toutes les mesures (ils en ont 12 ! Comme nous)
+-> le nom de la mesure
+-> la capacité cognitive qu'elle évalue, comme une barre traversant plusieurs mesures
+-> la légende avec les deux groupes au dessus
+
+Spatial Ability Results. 
+Aphantasic participants reported slightly lower spatial imagery ability on the spatial sub-component of the OSIQ when compared to control group 1 (Mann-Whitney U = 24,462, p = 0.001, r = .15, BF10 = 14.65, two-sided; see Figure 2.1 purple section), although this effect was not significant after Bonferroni correction. Additionally, the scores of aphantasic individuals on the Spatial Memory component of the SAM (which includes items measuring reported spatial navigation and naturalistic spatial memory ability) were not significantly different from controls (SAM; Mann-Whitney U = 24,720, p = 0.1, r = .08, BF10 = .23, two-sided; see Figure 2.1 purple section). These results demonstrate that overall, there were no consistent differences in reported spatial abilities between aphantasic individuals and participants in control group 1.
+
+
+Lefèvre 2022
+
+Ptet aussi faire un tableau simple pour les moyennes générales
+
+
+--> 
+
+
+### Corrélations entre les variables mesurées
+```{=latex}
+\begin{figure}[H]
+```
+```{r,correlation_matrix,eval=FALSE}
+```
+```{=latex}
+\caption{Matrice de corrélation entre les variables mesurées.}
+\label{correlation_matrix}
+\end{figure}
+```
+
+<!--
+```{=latex}
+\begin{figure}[H]
+```
+```{r,mixed_matrix}
+```
+```{=latex}
+\caption{Matrice présentant les distributions des variables, l'analyse de leurs corrélations et les représentations associées.}
+\label{mixed_matrix}
+\end{figure}
+```
+-->
+
+### Analyses des groupes par partition non-supervisée
+
+<!-- Lefèvre 2022
+
+La création de ces profils dans notre échantillon repose sur les trois compétences du langage écrit : fluence et compréhension en lecture et orthographe. Nous avons calculé une matrice de dissimilarité puis le nombre de clusters a été calculé grâce à l’ensemble des indices présents dans le package R NbClus (Charrad et al., 2014).
+La majorité des indices propose un nombre optimal de quatre clusters pour notre échantillon. Une implémentation multiple (n = 1000) de l’algorithme des k-means a été conduite avec 4 clusters sur l’ensemble de l’échantillon.
+-->
+
+```{=latex}
+\begin{figure}[H]
+```
+```{r,cluster_number,eval=FALSE}
+```
+```{=latex}
+\caption{Graphique représentatant l'évalution du nombre idéal de clusters par la méthode 'Within Sum of Squares'.}
+\label{cluster_number}
+\end{figure}
+```
+
+```{=latex}
+\begin{figure}[H]
+```
+```{r,pca_variables,eval=FALSE}
+```
+```{=latex}
+\caption{Représentation de l'analyse en composantes principales des variables mesurées.}
+\label{pca_variables}
+\end{figure}
+```
+
+<!--
+Les observations étaient ensuite attribuées au cluster le plus probable en termes d’assignation.
+Le résultat des k-means est représenté dans la Figure 1.3 (avec les profils cognitifs sur les trois compétences -> pas nous).
+-->
+
+```{=latex}
+\begin{figure}[H]
+```
+```{r,k_means,eval=FALSE}
+```
+```{=latex}
+\caption{Représentation des clusters reconnus par la méthode des 'k-means', selon les deux composantes principales de l'ACP.}
+\label{k_means}
+\end{figure}
+```
+
+### Analyse des clusters
+
+<!-- Les profils ont ensuite été étudiés sur leur composition en fonction du diagnostic initial et sur les compétences cognitives du profil et celles sous-tendant ces performances grâce à des comparaisons de groupes.-->
+```{=latex}
+\begin{figure}[H]
+```
+```{r,profiles_radar,eval=FALSE}
+```
+```{=latex}
+\caption{Diagramme représentatant les profils cognitifs associés à chaque cluster, selon quatre dimensions principales : l'imagerie visuelle-objet, l'imagerie visuo-spatiale, le raisonnement et les fonctions exécutives.}
+\label{profiles_radar}
+\end{figure}
+```
+
+```{=latex}
+\begin{figure}[H]
+```
+```{r,profiles_lollipop,eval=FALSE}
+```
+```{=latex}
+\caption{Représentation alternative des profils cognitifs associés aux clusters.}
+\label{profiles_lollipop}
+\end{figure}
+```
+
+### Différences entre les groupes identifiés
+```{=latex}
+\begin{figure}[H]
+```
+```{r,cluster_repatition,eval=FALSE}
+```
+```{=latex}
+\caption{Répartion des groupes par cluster.}
+\label{cluster_repatition}
+\end{figure}
+```
+
+<!--
+Dans le but d’interpréter les clusters à partir des scores des compétences les composant, une moyenne en dessous de 0 (moyenne standardisée) était considérée comme déficitaire et une moyenne au-dessus de 0 comme non-déficitaire. Les moyennes et écart-types avec les tailles d’effectif sont présentés dans le Tableau 1.2. Dans l’objectif de mieux décrire les sousgroupes, nous avons réalisé des analyses de variance univariées. Les trois comparaisons étant significatives, nous présentons les résultats des tests post-hocs (avec correction de Bonferroni) qui sont représentés sur les histogrammes de la Figure 1.4.
+
+Moyennes, écart-types et effectifs par clusters.
+Note : Les moyennes en gras correspondent à des moyennes supérieures à 0.
+Voir la figure d'Elise : les clusters sont en ligne, les fonctions cognitives en colonnes, deux colonnes avec la proportion d'Aph NAph et le total des clusters. Le notre aura en théorie juste une colonne en plus
+Je sais pas si elle a fait le tableau manuellement sur Rmd ou Latex ou R, mais le résultat est joli.
+-->
+
+```{=latex}
+\begin{figure}[H]
+```
+```{r,object_img_violins,eval=FALSE}
+```
+```{=latex}
+\caption{Comparaison des moyennes de score d'imagerie visuelle-objet entre les quatre groupes identifiés.}
+\label{object_img_violins}
+\end{figure}
+```
+
+<!--
+```{=latex}
+\begin{figure}[H]
+```
+```{r,spatial_img_violins}
+```
+```{=latex}
+\caption{Comparaison des moyennes de score d'imagerie visuospatiale entre les quatre groupes identifiés.}
+\label{spatial_img_violins}
+\end{figure}
+```
+-->
+

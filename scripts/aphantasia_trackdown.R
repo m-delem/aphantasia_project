@@ -12,7 +12,6 @@ upload_file("xxxxxxxxxxxx.Rmd",
             hide_code = TRUE,)
 
 
-
 # update the GDoc with the Rmd
 update_file("aphantasia_project.Rmd",
             gfile = "aphantasia_project",
@@ -25,15 +24,21 @@ update_file("1_intro.Rmd",
             gpath = "M2 EMC - Aphantasia/manuscrit",
             hide_code = TRUE,)
 
-update_file("2_experience.Rmd",
-            gfile = "experience",
+update_file("2_methode.Rmd",
+            gfile = "methode",
             gpath = "M2 EMC - Aphantasia/manuscrit",
             hide_code = TRUE,)
 
-update_file("3_discussion.Rmd",
+update_file("3_resultats.Rmd",
+            gfile = "resultats",
+            gpath = "M2 EMC - Aphantasia/manuscrit",
+            hide_code = TRUE,)
+
+update_file("4_discussion.Rmd",
             gfile = "discussion",
             gpath = "M2 EMC - Aphantasia/manuscrit",
             hide_code = TRUE,)
+
 
 # download the GDoc to Rmd
 download_file("aphantasia_project.Rmd",

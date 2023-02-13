@@ -158,7 +158,8 @@ qu'ont utilisé Dawes et al.
 y = \frac{x - (S.min + \frac{S.max -S.min}{2})}{S.max-S.min}
 \] \ldots{} C'est magnifique. Et est-ce qu'il y aurait moyen de faire
 une mention de l'hyper-stylé
-\hyperref[eq: Modèle 1]{Modèle~\ref*{eq: Modèle 1}} ? Oui !
+\hyperref[eq: Modèle 1]{Modèle~\ref*{eq: Modèle 1}} décrit plus haut ?
+Oui !
 
 Test pour référencer des sections : ici on va envoyer vers la section
 \emph{\nameref{imagerie-visuelle-et-aphantasie}}, puis vers la
@@ -806,22 +807,115 @@ Zeman et al., 2020}).
 \hypertarget{participants}{%
 \subsubsection{Participants}\label{participants}}
 
-\hypertarget{matuxe9riel-expuxe9rimental}{%
-\subsubsection{Matériel
-expérimental}\label{matuxe9riel-expuxe9rimental}}
+Nous recruterons des participants à partir de mi-février/début mars,
+lorsque l'expérience sera codée et prête à être diffusée en ligne. Pour
+estimer un ordre de grandeur du nombre de participants nécessaire pour
+obtenir des résultats intéressants, nous pouvons nous baser sur les
+calculs de puissance de A. J. Dawes et al.
+(\protect\hyperlink{ref-dawesCognitiveProfileMultisensory2020}{2020}),
+qui ont mené une étude assez proche de la notre impliquant douze
+questionnaires et ayant pour objectif de mieux cerner le profil des
+aphantasiques. Ceux-ci ont estimé que pour une taille d'effet modérée
+des comparaisons, une puissance de 80\% et avec un \(\alpha\) très
+conservateur de 0.0002 (voir la section \emph{\nameref{analyses}}), au
+moins 170 participants seraient nécessaires par groupe expérimental.
+
+Les participants devront avoir entre 18 et 50 ans et être locuteurs
+natifs français\footnote{Il est à noter que dans l'étude de Dawes et al.
+  (\protect\hyperlink{ref-dawesCognitiveProfileMultisensory2020}{2020}),
+  31 pays de résidence ont été répertoriés, avec 83\% (\emph{N} = 220)
+  déclarant que l'anglais était leur première langue, et 88\% (\emph{N}
+  = 235), s'identifiant comme blancs/caucasiens. Les résultats sont
+  néanmoins cohérent avec le reste de la littérature sur l'aphantasie,
+  avec aucun effet du langage. Cette étude interroge sur le potentiel
+  intérêt de tenter de diffuser la présente étude à l'international.},
+avoir une vision normale ou corrigée et ne pas présenter de trouble de
+la lecture. Les participants aphantasiques seront recrutés en ligne sur
+des espaces spécifiques à leur condition (forums, groupes sur les
+réseaux sociaux, etc.). Nous nous intéressons à l'étude de l'aphantasie
+congénitale, les participants ne devront donc pas présenter
+d'antécédents de maladies neurologiques ou psychiatriques.
+
+Le critère répandu dans les études sur l'aphantasie pour identifier la
+condition est celui de l'auto-évaluation par le questionnaire VVIQ
+(Vividness of Visual Imagery Questionnaire, Marks
+(\protect\hyperlink{ref-marksVividnessVisualImagery1973}{1973})), avec
+un score inférieur à 32 (voir la section
+\emph{\nameref{questionnaires}}). Nous disposerons aussi de la
+composante objet de l'OSIQ (Object and Spatial Imagery Questionnaire,
+Blajenkova et al.
+(\protect\hyperlink{ref-blajenkovaObjectspatialImageryNew2006}{2006b})),
+fortement corrélée au VVIQ, fournissant donc des items supplémentaires -
+le seuil inférieur de ce questionnaire est évalué à 36, sur la base de
+deux écart-types à la moyenne de l'échantillon de Blajenkova et al.
+(\protect\hyperlink{ref-blajenkovaObjectspatialImageryNew2006}{2006b}).
+L'OSIQ, dans sa composante spatiale, sera par ailleurs utilisé pour
+l'auto-évaluation des capacités d'imagerie visuospatiales des
+participants, justifiant son utilisation en parallèle du VVIQ.
+
+En l'absence de données réelles de participants, nous avons donc préparé
+nos analyses prévisionnelles sur des données simulées sur R
+(\protect\hyperlink{ref-R-base}{R Core Team, 2022}). Les paramètres de
+cette simulation (les résultats potentiels de chaque groupe) ont été
+basés sur la littérature et sur nos hypothèses : nous définirons donc le
+protocole dans un premier temps, puis reviendrons sur cette simulation
+dans la \emph{section \ref{simulation}} dédiée.
 
 \hypertarget{questionnaires}{%
-\paragraph{Questionnaires}\label{questionnaires}}
+\subsubsection{Questionnaires}\label{questionnaires}}
+
+Une faible capacité d'imagerie visuelle est généralement définie par un
+score total de 32 ou moins au questionnaire sur la vivacité de
+l'imagerie visuelle (VVIQ : voir Questionnaires sur l'imagerie dans les
+documents), une échelle d'auto-évaluation de Likert en cinq points qui
+varie de 16 à 80 (Marks, 1995 ; Zeman et al., 2015). Un score total de
+32 équivaut à une note de 2 (``vague et faible'') pour chaque item du
+questionnaire ; où 1 = ``Pas d'image du tout, vous savez seulement que
+vous pensez à l'objet'').
+
+\hypertarget{tuxe2ches}{%
+\subsubsection{Tâches}\label{tuxe2ches}}
+
+Matrices de Raven
+
+Test des Similitudes
+
+Tâche de Wason
+
+Digit Span
+
+Lecture Comprehension
+
+WCST
+
+Blocs de Corsi
+
+MRT
+
+SRI
 
 \hypertarget{equipement}{%
 \subsubsection{Equipement}\label{equipement}}
+
+Sema :\\
+L'expérience a été développée à l'aide d'OpenSesame puis a été présentée
+en ligne sur un serveur JATOS (Lange et al, 2015).
 
 \hypertarget{procuxe9dure-expuxe9rimentale}{%
 \subsubsection{Procédure
 expérimentale}\label{procuxe9dure-expuxe9rimentale}}
 
-\hypertarget{analyses}{%
-\subsubsection{Analyses}\label{analyses}}
+Sema :\\
+Le participant effectuait les différentes épreuves neuropsychologiques.
+(Ordre des épreuves non décidé). Concernant la tâche de lecture, les
+participants étaient soumis à un texte qu'ils devaient lire. Le temps de
+lecture est libre mais chronométré. A la fin de la lecture, le texte est
+caché. Les participants devaient ensuite répondre à des questions sur le
+texte qui étaient d'ordres explicite ou implicite. A la fin de la
+passation de l'ensemble des tests, le participant répondait au
+questionnaire sur la vivacité de l'imagerie visuelle (VVIQ) et au
+questionnaire de métacognition (MAI). Pour terminer l'expérience, un
+questionnaire démographique a été rempli.
 
 \hypertarget{variables-et-hypothuxe8ses}{%
 \subsection{Variables et hypothèses}\label{variables-et-hypothuxe8ses}}
@@ -830,12 +924,69 @@ expérimentale}\label{procuxe9dure-expuxe9rimentale}}
 \subsubsection{Variables
 indépendantes}\label{variables-induxe9pendantes}}
 
+Sema :\\
+Groupe : aphantasiques et non-aphantasiques
+
 \hypertarget{variables-duxe9pendantes}{%
 \subsubsection{Variables dépendantes}\label{variables-duxe9pendantes}}
+
+Sema :\\
+Les VD sont les suivantes : - Score aux Matrices - Score au test des
+Similitudes - Empan en MDT ou \% de bonnes réponses ? - Score au texte
+de compréhension en lecture - Score à l'épreuve évaluant les fonctions
+exécutives - Pourcentage de réussite à la tâche de Wason pour chaque
+groupe - Score au VVIQ - Score au questionnaire MAI
 
 \hypertarget{hypothuxe8ses-opuxe9rationnelles}{%
 \subsubsection{Hypothèses
 opérationnelles}\label{hypothuxe8ses-opuxe9rationnelles}}
+
+Sema :
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi})}
+\item
+  D'après les données présentées par l'étude de Zeman et al.~(2020)
+  (taux important d'aphantasiques dans les métiers scientifiques), on
+  peut faire l'hypothèse que le groupe de participants aphantasiques
+  présentera des capacités de raisonnement (mesurées par le test des
+  Similitudes et les Matrices) plus développés que le groupe de
+  participants non aphantasiques.
+\item
+  Dans la mesure où les aphantasiques ont un défaut d'imagerie visuelle,
+  si le texte de compréhension en lecture sollicite des images
+  visuelles, on peut s'attendre à des performances différentes à ce
+  texte entre les aphantasiques et les non aphantasiques.
+\item
+  Conformément à l'hypothèse que les aphantasiques auraient recours à
+  des stratégies pour compenser leur déficit en imagerie visuelle, des
+  performances élevées en compréhension de texte pourraient être
+  corrélées à des scores élevés aux épreuves mesurant le fonctionnement
+  exécutif et les capacités d'abstraction.
+\end{enumerate}
+
+Plan expérimental : S30
+
+\hypertarget{simulation}{%
+\subsection{Simulation}\label{simulation}}
+
+En suivant les recommandations des analyses de puissance, nous avons
+décidé de simuler \emph{N} = 200 participants pour chaque groupe,
+aphantasiques et non-aphantasiques.
+
+\hypertarget{analyses}{%
+\subsection{Analyses}\label{analyses}}
+
+Sema :\\
+L'analyse des résultats sera effectuée avec le logiciel JASP (Love et
+al., 2019). Des t-students et des ANOVAs seront menés en premier lieu
+afin d'observer s'il existe des différences dans les VD entre les
+aphantasiques et les non-aphantasiques. Des analyses corrélationnelles
+(Bravais-Pearson) seront ensuite effectuées sur les différentes mesures,
+ainsi que des régressions. Les données seront ensuite soumises à des
+analyses par clusters.
+
+\newpage
 
 \hypertarget{ruxe9sultats}{%
 \subsection{Résultats}\label{ruxe9sultats}}
@@ -1190,6 +1341,11 @@ Neuropsychological Tasks That Involve Imagery. \emph{Cortex},
 Pylyshyn, Z. W. (2002). Mental Imagery: {In} Search of a Theory.
 \emph{Behavioral and Brain Sciences}, \emph{25}(2), 157‑182.
 \url{https://doi.org/10.1017/S0140525X02000043}
+
+\leavevmode\vadjust pre{\hypertarget{ref-R-base}{}}%
+R Core Team. (2022). \emph{R: {A} Language and Environment for
+Statistical Computing} {[}Manual{]}. {R Foundation for Statistical
+Computing}. \url{https://www.R-project.org/}
 
 \leavevmode\vadjust pre{\hypertarget{ref-reisbergIntuitionsIntrospectionsImagery2002}{}}%
 Reisberg, D., Pearson, D. G., \& Kosslyn, S. M. (2002). Intuitions and

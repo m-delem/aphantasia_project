@@ -13,10 +13,6 @@ output:
     includes:
       in_header: "z_preamble.tex"
       before_body: "z_beforebody.tex"
-  html_document:
-    toc: yes
-    toc_depth: '3'
-    df_print: kable
 lang: "fr"
 langid: french
 fontsize: 12pt
@@ -28,6 +24,7 @@ bibliography: references.bib
 csl: apa.csl
 link-citations: yes
 ---
+
 \newpage
 ```{r, include=FALSE, cache=FALSE}
 # chargement du code source et reglages
@@ -43,12 +40,15 @@ knitr::opts_chunk$set(message=FALSE,
                       )
 ```
 
-```{r,setup, echo=FALSE}
+```{r,setup}
 # chargement des donnees sans output
 ```
 
+
 <!-- Le manuscrit est divisé en plusieurs documents pour faciliter les modifications locales - ceux-ci sont dans le dossier du Drive. L'output complet du R Markdown (le pdf final) est en pdf dans le Drive, avec le même nom que ce fichier. Les GDoc de ce Drive servent à éditer le texte rédigé du document final : le code R sous-jacent et les analyses des données seront partagées et travaillées sur GitHub, lié localement à RStudio. Le repository GitHub en question : https://github.com/m-delem/aphantasia_project.git -->
 
+
+<!-- Tous les tests de formatage -->
 Test pour référencer des figures, ici la  \autoref{correlation_matrix}, ou encore la \autoref{k_means}.
 
 Test d'affichage de l'équation d'un modèle hyper stylé qu'on va construire :
@@ -59,7 +59,7 @@ $$
 y = \frac{x - (S.min + \frac{S.max -S.min}{2})}{S.max-S.min}
 $$
 ... C'est magnifique.
-Et est-ce qu'il y aurait moyen de faire une mention de l'hyper-stylé \hyperref[eq: Modèle 1]{Modèle~\ref*{eq: Modèle 1}} ? Oui !
+Et est-ce qu'il y aurait moyen de faire une mention de l'hyper-stylé \hyperref[eq: Modèle 1]{Modèle~\ref*{eq: Modèle 1}} décrit plus haut ? Oui !
 
 Test pour référencer des sections : ici on va envoyer vers la section *\nameref{imagerie-visuelle-et-aphantasie}*, puis vers la sous-section *\nameref{questionnaires}*. Pile ce dont on a besoin !
 
@@ -71,19 +71,28 @@ Par exemple [@bainbridgeQuantifyingAphantasiaDrawing2021]. Ca marche ?
 Malheureusement oui... Ca a pris trois - littéralement **trois** heures à écrire et échouer à faire fonctionner du LaTeX dans les sous-fichiers, pour au final découvrir dans la documentation de Pandoc (que le Cookbook disait être *essentielle* à lire, et que bien sûr j'ai pas lu)... Qu'il fallait ajouter une ligne au YAML, `link-citations: yes`. Envie de caner.     
 Mais bon, on a réussi, youpi ! Ouais, ouais... *tocard*... 
 
+
+
 \newpage
 <!-- Introduction -->
 ```{r, child="1_intro.Rmd"}
 ```
 
 \newpage
-<!-- Méthodologie -->
-```{r, child="2_experience.Rmd"}
+# Expérience
+
+<!-- Méthode -->
+```{r, child="2_methode.Rmd"}
+```
+
+\newpage
+<!-- Résultats -->
+```{r, child="3_resultats.Rmd"}
 ```
 
 \newpage
 <!-- Discussion -->
-```{r, child="3_discussion.Rmd"}
+```{r, child="4_discussion.Rmd"}
 ```
 
 \newpage

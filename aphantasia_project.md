@@ -13,10 +13,6 @@ output:
     includes:
       in_header: "z_preamble.tex"
       before_body: "z_beforebody.tex"
-  html_document:
-    toc: yes
-    toc_depth: '3'
-    df_print: kable
 lang: "fr"
 langid: french
 fontsize: 12pt
@@ -28,13 +24,17 @@ bibliography: references.bib
 csl: apa.csl
 link-citations: yes
 ---
+
 \newpage
+
 
 
 
 
 <!-- Le manuscrit est divisé en plusieurs documents pour faciliter les modifications locales - ceux-ci sont dans le dossier du Drive. L'output complet du R Markdown (le pdf final) est en pdf dans le Drive, avec le même nom que ce fichier. Les GDoc de ce Drive servent à éditer le texte rédigé du document final : le code R sous-jacent et les analyses des données seront partagées et travaillées sur GitHub, lié localement à RStudio. Le repository GitHub en question : https://github.com/m-delem/aphantasia_project.git -->
 
+
+<!-- Tous les tests de formatage -->
 Test pour référencer des figures, ici la  \autoref{correlation_matrix}, ou encore la \autoref{k_means}.
 
 Test d'affichage de l'équation d'un modèle hyper stylé qu'on va construire :
@@ -48,7 +48,7 @@ $$
 y = \frac{x - (S.min + \frac{S.max -S.min}{2})}{S.max-S.min}
 $$
 ... C'est magnifique.
-Et est-ce qu'il y aurait moyen de faire une mention de l'hyper-stylé \hyperref[eq: Modèle 1]{Modèle~\ref*{eq: Modèle 1}} ? Oui !
+Et est-ce qu'il y aurait moyen de faire une mention de l'hyper-stylé \hyperref[eq: Modèle 1]{Modèle~\ref*{eq: Modèle 1}} décrit plus haut ? Oui !
 
 Test pour référencer des sections : ici on va envoyer vers la section *\nameref{imagerie-visuelle-et-aphantasie}*, puis vers la sous-section *\nameref{questionnaires}*. Pile ce dont on a besoin !
 
@@ -60,14 +60,11 @@ Par exemple [@bainbridgeQuantifyingAphantasiaDrawing2021]. Ca marche ?
 Malheureusement oui... Ca a pris trois - littéralement **trois** heures à écrire et échouer à faire fonctionner du LaTeX dans les sous-fichiers, pour au final découvrir dans la documentation de Pandoc (que le Cookbook disait être *essentielle* à lire, et que bien sûr j'ai pas lu)... Qu'il fallait ajouter une ligne au YAML, `link-citations: yes`. Envie de caner.     
 Mais bon, on a réussi, youpi ! Ouais, ouais... *tocard*... 
 
+
+
+
 \newpage
 <!-- Introduction -->
-
-
-
-
-
-
 
 # Introduction
 
@@ -176,65 +173,27 @@ Donc rien que sur ça, le domaine d’activité, le niveau d’études, le QI, e
 
 
 \newpage
-<!-- Méthodologie -->
-
-
-
-
-
-
 # Expérience
+
+<!-- Méthode -->
 
 ## Méthode
 
 ### Participants
 
-<!-- Sema
+Nous recruterons des participants à partir de mi-février/début mars, lorsque l'expérience sera codée et prête à être diffusée en ligne. Pour estimer un ordre de grandeur du nombre de participants nécessaire pour obtenir des résultats intéressants, nous pouvons nous baser sur les calculs de puissance de @dawesCognitiveProfileMultisensory2020, qui ont mené une étude assez proche de la notre impliquant douze questionnaires et ayant pour objectif de mieux cerner le profil des aphantasiques. Ceux-ci ont estimé que pour une taille d'effet modérée des comparaisons, une puissance de 80% et avec un $\alpha$ très conservateur de 0.0002 (voir la section *\nameref{analyses}*), au moins 170 participants seraient nécessaires par groupe expérimental.   
 
-Soixante personnes ont participé à l'expérience. Ils devaient avoir entre 18 et 50 ans, être locuteurs français natifs, avoir une vision normale ou corrigée et ne pas présenter de trouble de la lecture.
-Les participants étaient divisés en deux groupes : les aphantasiques (n=30) et les non-aphantasiques (n=30). Les participants aphantasiques ont été recrutés en ligne sur des espaces spécifiques à leur condition (forums, groupes sur les réseaux sociaux, etc.).
-L'échantillon réel de l'étude (qui sera recruté à partir de mars environ, au début de la diffusion de l'expérience sur internet) sera composé d'un nombre équilibré de personnes aphantasiques et non-aphantasiques, caractéristique auto-évaluée sur la base d'un score au VVIQ inférieur ou égal à  [@marksVividnessVisualImagery1973], 
+Les participants devront avoir entre 18 et 50 ans et être locuteurs natifs français^[Il est à noter que dans l'étude de Dawes et al. [-@dawesCognitiveProfileMultisensory2020], 31 pays de résidence ont été répertoriés, avec 83% (*N* = 220) déclarant que l'anglais était leur première langue, et 88% (*N* = 235), s'identifiant comme blancs/caucasiens. Les résultats sont néanmoins cohérent avec le reste de la littérature sur l'aphantasie, avec aucun effet du langage. Cette étude interroge sur le potentiel intérêt de tenter de diffuser la présente étude à l'international.], avoir une vision normale ou corrigée et ne pas présenter de trouble de la lecture. Les participants aphantasiques seront recrutés en ligne sur des espaces spécifiques à leur condition (forums, groupes sur les réseaux sociaux, etc.). Nous nous intéressons à l'étude de l'aphantasie congénitale, les participants ne devront donc pas présenter d'antécédents de maladies neurologiques ou psychiatriques.      
 
+Le critère répandu dans les études sur l'aphantasie pour identifier la condition est celui de l'auto-évaluation par le questionnaire VVIQ (Vividness of Visual Imagery Questionnaire, @marksVividnessVisualImagery1973), avec un score inférieur à 32 (voir la section *\nameref{questionnaires}*). Nous disposerons aussi de la composante objet de l'OSIQ (Object and Spatial Imagery Questionnaire, @blajenkovaObjectspatialImageryNew2006), fortement corrélée au VVIQ, fournissant donc des items supplémentaires - le seuil inférieur de ce questionnaire est évalué à 36, sur la base de deux écart-types à la moyenne de l'échantillon de @blajenkovaObjectspatialImageryNew2006. L'OSIQ, dans sa composante spatiale, sera par ailleurs utilisé pour l'auto-évaluation des capacités d'imagerie visuospatiales des participants, justifiant son utilisation en parallèle du VVIQ.   
 
-Palermo 2022
+En l'absence de données réelles de participants, nous avons donc préparé nos analyses prévisionnelles sur des données simulées sur R [@R-base]. Les paramètres de cette simulation (les résultats potentiels de chaque groupe) ont été basés sur la littérature et sur nos hypothèses : nous définirons donc le protocole dans un premier temps, puis reviendrons sur cette simulation dans la *section \ref{simulation}* dédiée.
 
-Critères d'exclusion
-Similarly, since we were interested in studying congenital aphantasia, 47 participants with a neurological or psychiatric disease history were excluded from the final analysis.
+### Questionnaires
 
-OSIQ :
-The OSIQ was used to subdivide participants into individuals with average mental imagery skills on both object and spatial domain (Controls); participants with object aphantasia (OAph; i.e., individuals with a score under two standard deviations in the OSIQ object scale, as calculated referring to the sample of Blajenkova et al., 2006 ; OSIQ object total score ≤ 36); participants with spatial aphantasia (SAph; i.e., individuals with a score under two standard deviations in the OSIQ spatial scale, as calculated referring to the sample of Blajenkova et al., 2006; OSIQ spatial total score ≤ 25); participants with object hyperphantasia (OHyper; i.e., individuals with a score above two standard deviations in the OSIQ object scale, as calculated referring to the sample of Blajenkova et al., 2006; OSIQ object total score ≥ 71); participants with spatial hyperphantasia (SHyper; i.e., individuals with a score above two standard deviations in the OSIQ spatial scale, as calculated referring to the sample of Blajenkova et al., 2006; OSIQ spatial total score ≥ 62).
-
-
-Dawes 2022
-
-Analyse de puissance :
-Establishing a comparatively moderate expected effect size of d = 0.5, with 80% power and a highly conservative alpha of 0.0002 (see Statistical Analyses in Methods), we estimated that at least 170 participants would be required in each comparison group.
-
-N :
-Because our study was easily accessible online and received more participant responses than anticipated within our data collection window, we exceeded our sample size aim (N = 170) and ceased data collection for our aphantasic participant group at the sample size reported below.Sample sizes for the aphantasia group, control group 1, and control group 2 were approximately equal after data cleaning and exclusions (n = 267, n = 203, and n = 197, respectively).
-
-Recrutement :
-Aphantasic individuals in our study were recruited from online community research platforms (https://www.facebook.com/sydneyaphantasiaresearch/) and participated in exchange for entry into a gift card prize draw.
-Control 1
-Participants in our main control group were recruited using the Amazon Mechanical Turk (MTurk) platform, and were remunerated to complete the study.
-Control
-A second control group of 193 firstyear undergraduate psychology students were tested using the same experimental design. Participants in our second control group (73% identifying as female, 27% identifying as male; mean age = 19.33 years, SD = 3.69, range = 17 – 55 years) completed the study in exchange for course credit. All participants were included in final analysis (see section titled Control Group 2: Replication Analysis, in Results).
-
-Demographics :
-Of the 267 participants in our sample who reported aphantasia, a majority reported English as their first language (83%, n = 220) and identified as White/Caucasian (88%, n = 235). 31 countries of residence were listed, with a majority of participants originating from the United States of America.
-
-Imagery Scores : 
-Weak visual imagery ability is typically defined by a total score of 32 or less on the Vividness of Visual Imagery Questionnaire (VVIQ: see Imagery Questionnaires in Materials), a five-point Likert self-report scale which ranges from 16 – 80 (Marks, 1995; Zeman et al., 2015). A total score of 32 is equivalent to rating one’s agreement on every questionnaire item at 2 (“Vague and dim”; where 1 = “No image at all, you only know you are thinking of the object”). 
-On average, aphantasic participants in our sample scored 17.94 on the VVIQ (including 70% with total floor scores of 16), compared to 58.12 in control group 1 (see Imagery Results section) and 58.79 in control group 2.
-### Note : Nous avons choisi une moyenne plus conservatrice dans notre simulation pour le VVIQ des aphantasiques, à M = 30.2, et à 63.8 dans le groupe contrôle. L'écart entre les deux est donc plus ou moins équivalent, à 40 chez Dawes et 33 dans notre simulation.
--->
-
-### Matériel expérimental
-
-#### Questionnaires
+Une faible capacité d'imagerie visuelle est généralement définie par un score total de 32 ou moins au questionnaire sur la vivacité de l'imagerie visuelle (VVIQ : voir Questionnaires sur l'imagerie dans les documents), une échelle d'auto-évaluation de Likert en cinq points qui varie de 16 à 80 (Marks, 1995 ; Zeman et al., 2015). Un score total de 32 équivaut à une note de 2 ("vague et faible") pour chaque item du questionnaire ; où 1 = "Pas d'image du tout, vous savez seulement que vous pensez à l'objet"). 
 
 <!-- Sema
-
 Le matériel était constitué de 6 épreuves neuropsychologiques, mesurant les capacités de raisonnement visuel et d'induction et de déduction de règles (version courte des matrices de Raven (Bilker et al., 2012), les capacités d'abstraction et de conceptualisation verbale (Subtest Similitudes de la WAIS-IV), la mémoire de travail verbale (Empan de chiffre envers), les fonctions exécutives (Test à préciser) et les capacités de compréhension en lecture (Texte, à décider). Cette dernière épreuve constituait une tache écologique dans laquelle les images mentales pouvaient être sollicitées. Enfin, une courte tâche de raisonnement était également proposée (Tâche de Wason, 1968). 
 L'expérience comprenait aussi 2 questionnaires : le VVIQ, Questionnaire de Vivacité de l'Imagerie Visuelle (Marks, 1973), qui comporte 16 items et dans lequel le participant doit coter sur une échelle de Likert de 5 points l'énoncé qui lui correspond le mieux. Les scores vont de 16 à 80. Il constitue le questionnaire subjectif de référence dans l'aphantasie. Le second questionnaire était le MAI, Inventaire de Conscience Métacognitive (Schraw & Dennison, 1994), qui évalue les deux composantes de la métacognition : les connaissances métacognitives et la régulation métacognitive.
 
@@ -248,13 +207,32 @@ OSIQ
 The Object and Spatial Imagery Questionnaire (OSIQ; Blajenkova, Kozhevnikov, & Motes, 2006) is a 30-item scale which requires participants to indicate how well each of several statements on object imagery ability (e.g. “When I imagine the face of a friend, I have a perfectly clear and bright image”) and spatial imagery ability (e.g. “I am a good Tetris player”) applies to them on a 5-point scale ranging from 1 (“Totally disagree”) to 5 (“Totally agree”). There are 15 items each comprising the Object and Spatial imagery domains of the OSIQ, averaged to form a mean score on each domain.
 -->
 
+### Tâches
+
+Matrices de Raven
+
+Test des Similitudes
+
+Tâche de Wason
+
+Digit Span
+
+Lecture Comprehension
+
+WCST
+
+Blocs de Corsi
+
+MRT
+
+SRI
+
 ### Equipement
 
-<!-- Sema
-
+Sema :      
 L’expérience a été développée à l’aide d’OpenSesame puis a été présentée en ligne sur un serveur JATOS (Lange et al, 2015).
 
-
+<!-- 
 Dawes 2022
 Questionnaires were administered online using the Qualtrics research platform, and presented to each participant in random order. All participants completed a total of 206 questions in eight questionnaires. These questionnaires assessed self-reported multi-sensory imagery, episodic memory and future prospection, spatial abilities, mind-wandering and dreaming propensity, and response to stressful life events, as detailed below.
 
@@ -264,20 +242,76 @@ The protocol was performed online on the Qualtrics platform, and it included thr
 --> 
 
 ### Procédure expérimentale
-<!-- Sema
- 
+
+Sema :      
 Le participant effectuait les différentes épreuves neuropsychologiques. (Ordre des épreuves non décidé). Concernant la tâche de lecture, les participants étaient soumis à un texte qu'ils devaient lire. Le temps de lecture est libre mais chronométré. A la fin de la lecture, le texte est caché. Les participants devaient ensuite répondre à des questions sur le texte qui étaient d'ordres explicite ou implicite.
 A la fin de la passation de l'ensemble des tests, le participant répondait au questionnaire sur la vivacité de l'imagerie visuelle (VVIQ) et au questionnaire de métacognition (MAI). Pour terminer l'expérience, un questionnaire démographique a été rempli.
 
+## Variables et hypothèses
+
+### Variables indépendantes
+
+Sema :      
+Groupe : aphantasiques et non-aphantasiques
+
+
+### Variables dépendantes
+
+Sema :      
+Les VD sont les suivantes : 
+-	Score aux Matrices
+-	Score au test des Similitudes
+-	Empan en MDT ou % de bonnes réponses ?
+-	Score au texte de compréhension en lecture
+-	Score à l'épreuve évaluant les fonctions exécutives
+-	Pourcentage de réussite à la tâche de Wason pour chaque groupe
+-	Score au VVIQ
+-	Score au questionnaire MAI
+
+
+### Hypothèses opérationnelles
+
+Sema :     
+
+1)	D'après les données présentées par l'étude de Zeman et al. (2020) (taux important d'aphantasiques dans les métiers scientifiques), on peut faire l'hypothèse que le groupe de participants aphantasiques présentera des capacités de raisonnement (mesurées par le test des Similitudes et les Matrices) plus développés que le groupe de participants non aphantasiques.
+
+2)	Dans la mesure où les aphantasiques ont un défaut d'imagerie visuelle, si le texte de compréhension en lecture sollicite des images visuelles, on peut s'attendre à des performances différentes à ce texte entre les aphantasiques et les non aphantasiques.
+
+3)	Conformément à l'hypothèse que les aphantasiques auraient recours à des stratégies pour compenser leur déficit en imagerie visuelle, des performances élevées en compréhension de texte pourraient être corrélées à des scores élevés aux épreuves mesurant le fonctionnement exécutif et les capacités d'abstraction.
+
+Plan expérimental : S30<G2>
+
+<!-- 
+Dawes 2022
+Object Imagery
+We expected aphantasic individuals to report reduced visual imagery ability compared to controls, in line with previous findings (Keogh & Pearson, 2018; Zeman et al., 2015). There is some suggestion that auditory imagery may also be reduced in individuals who report visual imagery absence, however this evidence comes from case studies with limited sample sizes (Greenberg & Knowlton, 2014). We therefore had no strong hypotheses regarding group differences in other multi-sensory imagery domains.
+Spatial Imagery
+Lastly, we expected aphantasic self-reports of spatial imagery and spatial navigation abilities to align with data from previous studies suggesting that despite visual imagery absence, spatial abilities (as measured by questionnaires and performance on mental rotation and visuo-spatial tasks) appear to be largely preserved in aphantasia (Keogh & Pearson, 2018; Zeman et al., 2010).
 -->
 
-### Analyses
+## Simulation
 
-<!-- Sema
+En suivant les recommandations des analyses de puissance, nous avons décidé de simuler *N* = 200 participants pour chaque groupe, aphantasiques et non-aphantasiques. 
 
+<!-- 
+VVIQ
+M dawes = 17.94 vs 58.12
+M Chacha = 21.23, sd 5.48 16 à 31.5
+M NA Chacha = 56.33 sd 9.87 34.5 à 78.5
+OSIQ
+OSIQ object total score < 36);
+OSIQ spatial total score < 25);
+(see Imagery Results section)
+
+### Note : Nous avons choisi une moyenne plus conservatrice dans notre simulation pour le VVIQ des aphantasiques, à M = 30.2, et à 63.8 dans le groupe contrôle. L'écart entre les deux est donc plus ou moins équivalent, à 40 chez Dawes et 33 dans notre simulation.
+-->
+
+## Analyses
+
+Sema :      
 L'analyse des résultats sera effectuée avec le logiciel JASP (Love et al., 2019). Des t-students et des ANOVAs seront menés en premier lieu afin d'observer s'il existe des différences dans les VD entre les aphantasiques et les non-aphantasiques. Des analyses corrélationnelles (Bravais-Pearson) seront ensuite effectuées sur les différentes mesures, ainsi que des régressions. Les données seront ensuite soumises à des analyses par clusters.
 
-
+<!--
 Dawes 2022
 
 Data for aphantasic subjects demonstrated significant positive skew (see Figure 2.1). Non-parametric Mann-Whitney U hypothesis tests were therefore conducted in SPSS 25.0 for Mac OS, using Bonferroni adjusted alpha levels of a= 0.0002 (0.05/206 where 206 is the total number of question items across all questionnaires) to correct for multiple comparisons. Estimates of effect sizes r were computed using the following formula: r= ! √	$ where Z is the Mann-Whitney standardized test statistic, N the total sample size of the combined groups, and r the output effect size estimate (comparable with Cohen’s d effect size interpretations; Rosenthal, 1994). Because we adopted a highly conservative adjusted alpha, Mann-Whitney tests were supplemented by Bayesian analyses conducted in JASP. For all Bayesian analyses, a Cauchy prior of .707 was used. Bayes factors were used to help compare the weight of evidence for between-group differences across test comparisons, whilst Mann-Whitney tests were used to make overall inferences about test direction and significance. Bayes factors were interpreted according to common threshold guidelines (Jeffreys, 1961), where 1 = “No evidence”, 1-3 = “Anecdotal evidence, 3-10 = “Moderate evidence”, 10-30 = “Strong evidence”, 30-100 = “Very strong evidence”, and >100 = “Extreme evidence”.
@@ -315,49 +349,8 @@ Une des limites de l’algorithme des k-means repose sur la première étape. Du
 
 --> 
 
-## Variables et hypothèses
-
-### Variables indépendantes
-
-<!-- Sema
-
-Groupe : aphantasiques et non-aphantasiques
-
--->
-
-### Variables dépendantes
-
-<!-- Sema 
-Les VD sont les suivantes : 
--	Score aux Matrices
--	Score au test des Similitudes
--	Empan en MDT ou % de bonnes réponses ?
--	Score au texte de compréhension en lecture
--	Score à l'épreuve évaluant les fonctions exécutives
--	Pourcentage de réussite à la tâche de Wason pour chaque groupe
--	Score au VVIQ
--	Score au questionnaire MAI
--->
-
-### Hypothèses opérationnelles
-
-<!-- Sema
-
-1)	D'après les données présentées par l'étude de Zeman et al. (2020) (taux important d'aphantasiques dans les métiers scientifiques), on peut faire l'hypothèse que le groupe de participants aphantasiques présentera des capacités de raisonnement (mesurées par le test des Similitudes et les Matrices) plus développés que le groupe de participants non aphantasiques.
-
-2)	Dans la mesure où les aphantasiques ont un défaut d'imagerie visuelle, si le texte de compréhension en lecture sollicite des images visuelles, on peut s'attendre à des performances différentes à ce texte entre les aphantasiques et les non aphantasiques.
-
-3)	Conformément à l'hypothèse que les aphantasiques auraient recours à des stratégies pour compenser leur déficit en imagerie visuelle, des performances élevées en compréhension de texte pourraient être corrélées à des scores élevés aux épreuves mesurant le fonctionnement exécutif et les capacités d'abstraction.
-
-Plan expérimental : S30<G2>
-
-
-Dawes 2022
-Object Imagery
-We expected aphantasic individuals to report reduced visual imagery ability compared to controls, in line with previous findings (Keogh & Pearson, 2018; Zeman et al., 2015). There is some suggestion that auditory imagery may also be reduced in individuals who report visual imagery absence, however this evidence comes from case studies with limited sample sizes (Greenberg & Knowlton, 2014). We therefore had no strong hypotheses regarding group differences in other multi-sensory imagery domains.
-Spatial Imagery
-Lastly, we expected aphantasic self-reports of spatial imagery and spatial navigation abilities to align with data from previous studies suggesting that despite visual imagery absence, spatial abilities (as measured by questionnaires and performance on mental rotation and visuo-spatial tasks) appear to be largely preserved in aphantasia (Keogh & Pearson, 2018; Zeman et al., 2010).
--->
+\newpage
+<!-- Résultats -->
 
 ## Résultats
 
@@ -380,106 +373,108 @@ Ptet aussi faire un tableau simple pour les moyennes générales
 
 
 --> 
+
+
 ### Corrélations entre les variables mesurées
 ```{=latex}
 \begin{figure}[H]
-``` 
+```
 
 ```{=latex}
 \caption{Matrice de corrélation entre les variables mesurées.}
 \label{correlation_matrix}
 \end{figure}
-``` 
+```
 
 <!--
 ```{=latex}
 \begin{figure}[H]
-``` 
+```
 
 \begin{center}\includegraphics[width=0.8\linewidth,height=0.5\textheight,]{aphantasia_project_files/figure-latex/mixed_matrix-1} \end{center}
 ```{=latex}
 \caption{Matrice présentant les distributions des variables, l'analyse de leurs corrélations et les représentations associées.}
 \label{mixed_matrix}
 \end{figure}
-``` 
+```
 -->
 
 ### Analyses des groupes par partition non-supervisée
 
 <!-- Lefèvre 2022
 
-La création de ces profils dans notre échantillon repose sur les trois compétences du langage écrit : fluence et compréhension en lecture et orthographe. Nous avons calculé une matrice de dissimilarité puis le nombre de clusters a été calculé grâce à l’ensemble des indices présents dans le package R NbClus (Charrad et al., 2014). 
-La majorité des indices propose un nombre optimal de quatre clusters pour notre échantillon. Une implémentation multiple (n = 1000) de l’algorithme des k-means a été conduite avec 4 clusters sur l’ensemble de l’échantillon. 
+La création de ces profils dans notre échantillon repose sur les trois compétences du langage écrit : fluence et compréhension en lecture et orthographe. Nous avons calculé une matrice de dissimilarité puis le nombre de clusters a été calculé grâce à l’ensemble des indices présents dans le package R NbClus (Charrad et al., 2014).
+La majorité des indices propose un nombre optimal de quatre clusters pour notre échantillon. Une implémentation multiple (n = 1000) de l’algorithme des k-means a été conduite avec 4 clusters sur l’ensemble de l’échantillon.
 -->
 
 ```{=latex}
 \begin{figure}[H]
-``` 
+```
 
 ```{=latex}
 \caption{Graphique représentatant l'évalution du nombre idéal de clusters par la méthode 'Within Sum of Squares'.}
 \label{cluster_number}
 \end{figure}
-``` 
+```
 
 ```{=latex}
 \begin{figure}[H]
-``` 
+```
 
 ```{=latex}
 \caption{Représentation de l'analyse en composantes principales des variables mesurées.}
 \label{pca_variables}
 \end{figure}
-``` 
+```
 
 <!--
-Les observations étaient ensuite attribuées au cluster le plus probable en termes d’assignation. 
-Le résultat des k-means est représenté dans la Figure 1.3 (avec les profils cognitifs sur les trois compétences -> pas nous). 
+Les observations étaient ensuite attribuées au cluster le plus probable en termes d’assignation.
+Le résultat des k-means est représenté dans la Figure 1.3 (avec les profils cognitifs sur les trois compétences -> pas nous).
 -->
 
 ```{=latex}
 \begin{figure}[H]
-``` 
+```
 
 ```{=latex}
 \caption{Représentation des clusters reconnus par la méthode des 'k-means', selon les deux composantes principales de l'ACP.}
 \label{k_means}
 \end{figure}
-``` 
+```
 
 ### Analyse des clusters
 
 <!-- Les profils ont ensuite été étudiés sur leur composition en fonction du diagnostic initial et sur les compétences cognitives du profil et celles sous-tendant ces performances grâce à des comparaisons de groupes.-->
 ```{=latex}
 \begin{figure}[H]
-``` 
+```
 
 ```{=latex}
 \caption{Diagramme représentatant les profils cognitifs associés à chaque cluster, selon quatre dimensions principales : l'imagerie visuelle-objet, l'imagerie visuo-spatiale, le raisonnement et les fonctions exécutives.}
 \label{profiles_radar}
 \end{figure}
-``` 
+```
 
 ```{=latex}
 \begin{figure}[H]
-``` 
+```
 
 ```{=latex}
 \caption{Représentation alternative des profils cognitifs associés aux clusters.}
 \label{profiles_lollipop}
 \end{figure}
-``` 
+```
 
 ### Différences entre les groupes identifiés
 ```{=latex}
 \begin{figure}[H]
-``` 
+```
 
 ```{=latex}
 \caption{Répartion des groupes par cluster.}
 \label{cluster_repatition}
 \end{figure}
-``` 
+```
 
 <!--
 Dans le but d’interpréter les clusters à partir des scores des compétences les composant, une moyenne en dessous de 0 (moyenne standardisée) était considérée comme déficitaire et une moyenne au-dessus de 0 comme non-déficitaire. Les moyennes et écart-types avec les tailles d’effectif sont présentés dans le Tableau 1.2. Dans l’objectif de mieux décrire les sousgroupes, nous avons réalisé des analyses de variance univariées. Les trois comparaisons étant significatives, nous présentons les résultats des tests post-hocs (avec correction de Bonferroni) qui sont représentés sur les histogrammes de la Figure 1.4.
@@ -492,18 +487,18 @@ Je sais pas si elle a fait le tableau manuellement sur Rmd ou Latex ou R, mais l
 
 ```{=latex}
 \begin{figure}[H]
-``` 
+```
 
 ```{=latex}
 \caption{Comparaison des moyennes de score d'imagerie visuelle-objet entre les quatre groupes identifiés.}
 \label{object_img_violins}
 \end{figure}
-``` 
+```
 
 <!--
 ```{=latex}
 \begin{figure}[H]
-``` 
+```
 
 ```
 ## [1] FALSE
@@ -516,16 +511,12 @@ Je sais pas si elle a fait le tableau manuellement sur Rmd ou Latex ou R, mais l
 \caption{Comparaison des moyennes de score d'imagerie visuospatiale entre les quatre groupes identifiés.}
 \label{spatial_img_violins}
 \end{figure}
-``` 
+```
 -->
+
 
 \newpage
 <!-- Discussion -->
-
-
-
-
-
 
 # Discussion
 
@@ -536,4 +527,5 @@ Je sais pas si elle a fait le tableau manuellement sur Rmd ou Latex ou R, mais l
 
 \newpage
 # Annexes {-}
+
 Le code complet de ce manuscrit, de la simulation, des figures, tables et analyses est accessible dans [*ce repository*, sur GitHub](https://github.com/m-delem/aphantasia_project.git).
