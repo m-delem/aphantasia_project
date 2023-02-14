@@ -48,43 +48,26 @@ knitr::opts_chunk$set(message=FALSE,
 <!-- Le manuscrit est divisé en plusieurs documents pour faciliter les modifications locales - ceux-ci sont dans le dossier du Drive. L'output complet du R Markdown (le pdf final) est en pdf dans le Drive, avec le même nom que ce fichier. Les GDoc de ce Drive servent à éditer le texte rédigé du document final : le code R sous-jacent et les analyses des données seront partagées et travaillées sur GitHub, lié localement à RStudio. Le repository GitHub en question : https://github.com/m-delem/aphantasia_project.git -->
 
 
-<!-- Tous les tests de formatage -->
-Test pour référencer des figures, ici la  \autoref{cluster_number}, ou encore la \autoref{k_means}.
-
+<!-- Tests de formatage
 Test d'affichage de l'équation d'un modèle hyper stylé qu'on va construire :
 ```{r, equation}
 ```
-Ou encore de l'équation de la transformation des scores qu'ont utilisé Dawes et al. [-@dawesInnerVisionsMind2022] :
-$$
-y = \frac{x - (S.min + \frac{S.max -S.min}{2})}{S.max-S.min}
-$$
-... C'est magnifique.
-Et est-ce qu'il y aurait moyen de faire une mention de l'hyper-stylé \hyperref[eq: Modèle 1]{Modèle~\ref*{eq: Modèle 1}} décrit plus haut ? Oui !
+mention du modèle hyper-stylé : \hyperref[eq: Modèle 1]{Modèle~\ref*{eq: Modèle 1}}
+-->
 
-Test pour référencer des sections : ici on va envoyer vers la section *\nameref{imagerie-visuelle-et-aphantasie}*, puis vers la sous-section *\nameref{questionnaires}*. Pile ce dont on a besoin !
-
-Bon. Dernière étape. Des liens vers chaque référence individuellement...
-Par exemple [@bainbridgeQuantifyingAphantasiaDrawing2021]. Ca marche ? Oui.
-
-\newpage
 <!-- Introduction -->
 ```{r, child="1_intro.Rmd"}
 ```
-
-\newpage
-# Expérience
 
 <!-- Méthode -->
 ```{r, child="2_methode.Rmd"}
 ```
 
-\newpage
 <!-- Résultats -->
 ```{r, child="3_resultats.Rmd"}
 ```
 
-\newpage
-<!-- Discussion -->
+<!-- Discussion --> 
 ```{r, child="4_discussion.Rmd"}
 ```
 
@@ -97,3 +80,32 @@ Par exemple [@bainbridgeQuantifyingAphantasiaDrawing2021]. Ca marche ? Oui.
 <!-- Annexes -->
 ```{r, child="5_annexes.Rmd"}
 ```
+
+<!-- Session Info for Reproducibility
+> print(sessionInfo())
+R version 4.2.0 (2022-04-22 ucrt)
+Platform: x86_64-w64-mingw32/x64 (64-bit)
+Running under: Windows 10 x64 (build 19044)
+
+Matrix products: default
+
+locale:
+[1] LC_COLLATE=French_France.utf8  LC_CTYPE=French_France.utf8   
+[3] LC_MONETARY=French_France.utf8 LC_NUMERIC=C                  
+[5] LC_TIME=French_France.utf8    
+
+attached base packages:
+[1] stats     graphics  grDevices utils     datasets  methods   base     
+
+other attached packages:
+ [1] equatiomatic_0.3.1 igraph_1.3.5       ggraph_2.1.0       ggradar_0.2       
+ [5] ggpubr_0.5.0       GGally_2.1.2       factoextra_1.0.7   cluster_2.1.3     
+ [9] lmerTest_3.1-3     lme4_1.1-31        Matrix_1.5-3       corrr_0.4.4       
+[13] rstatix_0.7.1      ez_4.4-0           see_0.7.4          report_0.5.6      
+[17] parameters_0.20.2  performance_0.10.2 modelbased_0.8.6   insight_0.19.0    
+[21] effectsize_0.8.3   datawizard_0.6.5   correlation_0.8.3  bayestestR_0.13.0 
+[25] easystats_0.6.0    MASS_7.3-56        shiny_1.7.4        forcats_0.5.2     
+[29] stringr_1.5.0      dplyr_1.0.10       purrr_0.3.5        readr_2.1.3       
+[33] tidyr_1.2.1        tibble_3.1.8       ggplot2_3.4.0      tidyverse_1.3.2   
+[37] librarian_1.8.1   
+-->

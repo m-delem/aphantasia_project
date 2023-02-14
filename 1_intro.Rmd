@@ -101,5 +101,9 @@ Donc rien que sur ça, le domaine d’activité, le niveau d’études, le QI, e
 
 -->
 
-
+<!--
+Lefèvre 2022
+L’objectif de cette partie (étude pour nous ?) est de proposer une identification de profils combinant les trois compétences du langage écrit grâce à un algorithme de partition non-supervisée (unsupervised clustering) provenant des techniques de l'apprentissage machine. 
+Les techniques de partition non-supervisée permettent une identification de profils sans hypothèse a priori et en particulier sans prendre en compte le diagnostic de la personne. 
+--> 
 

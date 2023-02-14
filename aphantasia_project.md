@@ -34,28 +34,16 @@ link-citations: yes
 <!-- Le manuscrit est divisé en plusieurs documents pour faciliter les modifications locales - ceux-ci sont dans le dossier du Drive. L'output complet du R Markdown (le pdf final) est en pdf dans le Drive, avec le même nom que ce fichier. Les GDoc de ce Drive servent à éditer le texte rédigé du document final : le code R sous-jacent et les analyses des données seront partagées et travaillées sur GitHub, lié localement à RStudio. Le repository GitHub en question : https://github.com/m-delem/aphantasia_project.git -->
 
 
-<!-- Tous les tests de formatage -->
-Test pour référencer des figures, ici la  \autoref{cluster_number}, ou encore la \autoref{k_means}.
-
+<!-- Tests de formatage
 Test d'affichage de l'équation d'un modèle hyper stylé qu'on va construire :
 
 \begin{equation}
 \label{eq: Modèle 1}
 \operatorname{mpg} = \alpha + \beta_{1}(\operatorname{cyl}) + \beta_{2}(\operatorname{disp}) + \epsilon
 \end{equation}
-Ou encore de l'équation de la transformation des scores qu'ont utilisé Dawes et al. [-@dawesInnerVisionsMind2022] :
-$$
-y = \frac{x - (S.min + \frac{S.max -S.min}{2})}{S.max-S.min}
-$$
-... C'est magnifique.
-Et est-ce qu'il y aurait moyen de faire une mention de l'hyper-stylé \hyperref[eq: Modèle 1]{Modèle~\ref*{eq: Modèle 1}} décrit plus haut ? Oui !
+mention du modèle hyper-stylé : \hyperref[eq: Modèle 1]{Modèle~\ref*{eq: Modèle 1}}
+-->
 
-Test pour référencer des sections : ici on va envoyer vers la section *\nameref{imagerie-visuelle-et-aphantasie}*, puis vers la sous-section *\nameref{questionnaires}*. Pile ce dont on a besoin !
-
-Bon. Dernière étape. Des liens vers chaque référence individuellement...
-Par exemple [@bainbridgeQuantifyingAphantasiaDrawing2021]. Ca marche ? Oui.
-
-\newpage
 <!-- Introduction -->
 
 # Introduction
@@ -161,19 +149,22 @@ Donc rien que sur ça, le domaine d’activité, le niveau d’études, le QI, e
 
 -->
 
+<!--
+Lefèvre 2022
+L’objectif de cette partie (étude pour nous ?) est de proposer une identification de profils combinant les trois compétences du langage écrit grâce à un algorithme de partition non-supervisée (unsupervised clustering) provenant des techniques de l'apprentissage machine. 
+Les techniques de partition non-supervisée permettent une identification de profils sans hypothèse a priori et en particulier sans prendre en compte le diagnostic de la personne. 
+--> 
 
-
-
-\newpage
-# Expérience
 
 <!-- Méthode -->
+
+# Expérience
 
 ## Méthode
 
 ### Participants
 
-Nous recruterons des participants à partir de mi-février/début mars, lorsque l'expérience sera codée et prête à être diffusée en ligne. Pour estimer un ordre de grandeur du nombre de participants nécessaire pour obtenir des résultats intéressants, nous pouvons nous baser sur les calculs de puissance de @dawesCognitiveProfileMultisensory2020, qui ont mené une étude assez proche de la notre impliquant douze questionnaires et ayant pour objectif de mieux cerner le profil des aphantasiques. Ceux-ci ont estimé que pour une taille d'effet modérée des comparaisons, une puissance de 80% et avec un $\alpha$ très conservateur de 0.0002 (voir la section *\nameref{analyses}*), au moins 170 participants seraient nécessaires par groupe expérimental.   
+Nous recruterons des participants à partir de mi-février/début mars, lorsque l'expérience sera codée et prête à être diffusée en ligne. Pour estimer un ordre de grandeur du nombre de participants nécessaire pour obtenir des résultats intéressants, nous pouvons nous baser sur les calculs de puissance de @dawesCognitiveProfileMultisensory2020, qui ont mené une étude assez proche de la nôtre impliquant douze questionnaires et ayant pour objectif de mieux cerner le profil des aphantasiques. Ceux-ci ont estimé que pour une taille d'effet modérée des comparaisons, une puissance de 80% et avec un $\alpha$ très conservateur de 0.0002 (voir la section *\nameref{analyses}*), au moins 170 participants seraient nécessaires par groupe expérimental.   
 
 Les participants devront avoir entre 18 et 50 ans et être locuteurs natifs français^[Il est à noter que dans l'étude de Dawes et al. [-@dawesCognitiveProfileMultisensory2020], 31 pays de résidence ont été répertoriés, avec 83% (*N* = 220) déclarant que l'anglais était leur première langue, et 88% (*N* = 235), s'identifiant comme blancs/caucasiens. Les résultats sont néanmoins cohérent avec le reste de la littérature sur l'aphantasie, avec aucun effet du langage. Cette étude interroge sur le potentiel intérêt de tenter de diffuser la présente étude à l'international.], avoir une vision normale ou corrigée et ne pas présenter de trouble de la lecture. Les participants aphantasiques seront recrutés en ligne sur des espaces spécifiques à leur condition (forums, groupes sur les réseaux sociaux, etc.). Nous nous intéressons à l'étude de l'aphantasie congénitale, les participants ne devront donc pas présenter d'antécédents de maladies neurologiques ou psychiatriques.      
 
@@ -181,185 +172,129 @@ Le critère répandu dans les études sur l'aphantasie pour identifier la condit
 
 En l'absence de données réelles de participants, nous avons donc préparé nos analyses prévisionnelles sur des données simulées sur R [@R-base]. Les paramètres de cette simulation (les résultats potentiels de chaque groupe) ont été basés sur la littérature et sur nos hypothèses : nous définirons donc le protocole dans un premier temps, puis reviendrons sur cette simulation dans la *section \ref{simulation}* dédiée.
 
+### Équipement et procédure
+
+Le protocole sera composé de plusieurs questionnaires et tâches qui seront administrées en ligne via un serveur JATOS [@langeJustAnotherTool2015]. Les questionnaires seront codés sur [SurveyJS](https://surveyjs.io/), une bibliothèque JavaScript Open Source dédiée à la création de questionnaires, et les tâches seront codées sur OpenSesame [@mathotOpenSesameOpensourceGraphical2012], une interface graphique de construction d'expériences comportementales. Avant les premiers questionnaires seront recueillies des données démographiques (âge, genre, métier et/ou études). Tous les participants devront donner leur consentement éclairé avant de commencer l'étude. La participation sera volontaire et sans compensation.
+
 ### Questionnaires
 
+#### *Vividness of Visual Imagery Questionnaire* (VVIQ). {-}
+Dawes 2022
+The Vividness of Visual Imagery Questionnaire (VVIQ; Marks, 1995) is a 16-item scale which asks participants to imagine a person as well as several scenes and rate the vividness of these mental images using a 5-point scale ranging from 1 (“No image at all, you only “know” that you are thinking of the object”) to 5 (“Perfectly clear and <as> vivid as normal vision”). A single mean score on the VVIQ was computed for each participant. 
 Une faible capacité d'imagerie visuelle est généralement définie par un score total de 32 ou moins au questionnaire sur la vivacité de l'imagerie visuelle (VVIQ : voir Questionnaires sur l'imagerie dans les documents), une échelle d'auto-évaluation de Likert en cinq points qui varie de 16 à 80 (Marks, 1995 ; Zeman et al., 2015). Un score total de 32 équivaut à une note de 2 ("vague et faible") pour chaque item du questionnaire ; où 1 = "Pas d'image du tout, vous savez seulement que vous pensez à l'objet"). 
 
-<!-- Sema
-Le matériel était constitué de 6 épreuves neuropsychologiques, mesurant les capacités de raisonnement visuel et d'induction et de déduction de règles (version courte des matrices de Raven (Bilker et al., 2012), les capacités d'abstraction et de conceptualisation verbale (Subtest Similitudes de la WAIS-IV), la mémoire de travail verbale (Empan de chiffre envers), les fonctions exécutives (Test à préciser) et les capacités de compréhension en lecture (Texte, à décider). Cette dernière épreuve constituait une tache écologique dans laquelle les images mentales pouvaient être sollicitées. Enfin, une courte tâche de raisonnement était également proposée (Tâche de Wason, 1968). 
-L'expérience comprenait aussi 2 questionnaires : le VVIQ, Questionnaire de Vivacité de l'Imagerie Visuelle (Marks, 1973), qui comporte 16 items et dans lequel le participant doit coter sur une échelle de Likert de 5 points l'énoncé qui lui correspond le mieux. Les scores vont de 16 à 80. Il constitue le questionnaire subjectif de référence dans l'aphantasie. Le second questionnaire était le MAI, Inventaire de Conscience Métacognitive (Schraw & Dennison, 1994), qui évalue les deux composantes de la métacognition : les connaissances métacognitives et la régulation métacognitive.
+Sema
+Questionnaire de Vivacité de l'Imagerie Visuelle (Marks, 1973), 
+qui comporte 16 items et dans lequel le participant doit coter sur une échelle de Likert de 5 points l'énoncé qui lui correspond le mieux. 
+Les scores vont de 16 à 80. 
+Il constitue le questionnaire subjectif de référence dans l'aphantasie. 
 
-
-Dawes 2022 
-
-VVIQ
-The Vividness of Visual Imagery Questionnaire (VVIQ; Marks, 1995) is a 16-item scale which asks participants to imagine a person as well as several scenes and rate the vividness of these mental images using a 5-point scale ranging from 1 (“No image at all, you only “know” that you are thinking of the object”) to 5 (“Perfectly clear and <as> vivid as normal vision”). A single mean score on the VVIQ was computed for each participant. 
+#### *Object and Spatial Imagery Questionnaire* (OSIQ). {-}
 
 OSIQ
 The Object and Spatial Imagery Questionnaire (OSIQ; Blajenkova, Kozhevnikov, & Motes, 2006) is a 30-item scale which requires participants to indicate how well each of several statements on object imagery ability (e.g. “When I imagine the face of a friend, I have a perfectly clear and bright image”) and spatial imagery ability (e.g. “I am a good Tetris player”) applies to them on a 5-point scale ranging from 1 (“Totally disagree”) to 5 (“Totally agree”). There are 15 items each comprising the Object and Spatial imagery domains of the OSIQ, averaged to form a mean score on each domain.
--->
+
+#### *Metacognition Awareness Inventory* (MAI). {-}
+Le second questionnaire était le MAI, Inventaire de Conscience Métacognitive (Schraw & Dennison, 1994)
+évalue les deux composantes de la métacognition : les connaissances métacognitives et la régulation métacognitive.
 
 ### Tâches
 
-Matrices de Raven
+#### Matrices de Raven. {-}
+Sema
+version courte des matrices de Raven (Bilker et al., 2012)
+capacités de raisonnement visuel et d'induction et de déduction de règles (
 
-Test des Similitudes
+#### Tâche de Wason.{-}
+Tâche de Wason, 1968
+courte tâche de raisonnement
 
-Tâche de Wason
+#### Sous-test des Similitudes de la WAIS-IV. {-}
+les capacités d'abstraction et de conceptualisation verbale
+Subtest Similitudes de la WAIS-IV 
 
-Digit Span
+#### Empan de chiffres envers. {-}
+Empan de chiffre envers
+la mémoire de travail verbale, 
 
-Lecture Comprehension
-
+#### *Wisconsin Card-Sorting Test*. {-}
+les fonctions exécutives
 WCST
 
-Blocs de Corsi
+#### Compréhension en lecture.{-}
+et les capacités de compréhension en lecture
+Textes. Cette dernière épreuve constituait une tache écologique dans laquelle les images mentales pouvaient être sollicitées. 
+Tâche de lecture
+Concernant la tâche de lecture, les participants étaient soumis à un texte qu'ils devaient lire. Le temps de lecture est libre mais chronométré. A la fin de la lecture, le texte est caché. Les participants devaient ensuite répondre à des questions sur le texte qui étaient d'ordres explicite ou implicite.
 
-MRT
+#### Blocs de Corsi. {-}
 
-SRI
+#### Test de Rotation Mentale (MRT). {-}
 
-### Equipement
+#### Spatial Reasoning Inventory (SRI). {-}
 
-Sema :      
-L’expérience a été développée à l’aide d’OpenSesame puis a été présentée en ligne sur un serveur JATOS (Lange et al, 2015).
+## Variables
 
-<!-- 
-Dawes 2022
-Questionnaires were administered online using the Qualtrics research platform, and presented to each participant in random order. All participants completed a total of 206 questions in eight questionnaires. These questionnaires assessed self-reported multi-sensory imagery, episodic memory and future prospection, spatial abilities, mind-wandering and dreaming propensity, and response to stressful life events, as detailed below.
+Nos participants seront initialement divisés en deux groupes, et potentiellement subdivisés par la suite. Le ***Groupe*** sera donc notre seule **variable indépendante**. **Nos variables dépendantes** seront donc toutes nos mesures : i.e. les ***Scores*** au VVIQ, à l'OSIQ, au MAI, aux Matrices, aux Similitudes, aux textes de compréhension, au WCST, au MRT, au SRI, la précision au Wason, l'empan mnésique de chiffres, et le nombre de blocs rappelés au Corsi (qui correspond à un empan mnésique spatial) - soit treize scores.
 
+## Hypothèses
 
-Palermo 2022
-The protocol was performed online on the Qualtrics platform, and it included three sections: demographic and general health information, imagery assessment, and other cognitive skills assessment. Since we were interested in providing some preliminary information on the prevalence of aphantasia in the Italian context, we did not approach online groups of people with aphantasia as in some previous studies (e.g., Dawes et al., 2020), but we recruitedparticipants from the general community through advertisements on social media and university web pages. Data were collected from April 2020 to May 2021.
---> 
-
-### Procédure expérimentale
-
-Sema :      
-Le participant effectuait les différentes épreuves neuropsychologiques. (Ordre des épreuves non décidé). Concernant la tâche de lecture, les participants étaient soumis à un texte qu'ils devaient lire. Le temps de lecture est libre mais chronométré. A la fin de la lecture, le texte est caché. Les participants devaient ensuite répondre à des questions sur le texte qui étaient d'ordres explicite ou implicite.
-A la fin de la passation de l'ensemble des tests, le participant répondait au questionnaire sur la vivacité de l'imagerie visuelle (VVIQ) et au questionnaire de métacognition (MAI). Pour terminer l'expérience, un questionnaire démographique a été rempli.
-
-## Variables et hypothèses
-
-### Variables indépendantes
-
-Sema :      
-Groupe : aphantasiques et non-aphantasiques
-
-
-### Variables dépendantes
-
-Sema :      
-Les VD sont les suivantes : 
--	Score aux Matrices
--	Score au test des Similitudes
--	Empan en MDT ou % de bonnes réponses ?
--	Score au texte de compréhension en lecture
--	Score à l'épreuve évaluant les fonctions exécutives
--	Pourcentage de réussite à la tâche de Wason pour chaque groupe
--	Score au VVIQ
--	Score au questionnaire MAI
-
-
-### Hypothèses opérationnelles
-
-Sema :     
-
-1)	D'après les données présentées par l'étude de Zeman et al. (2020) (taux important d'aphantasiques dans les métiers scientifiques), on peut faire l'hypothèse que le groupe de participants aphantasiques présentera des capacités de raisonnement (mesurées par le test des Similitudes et les Matrices) plus développés que le groupe de participants non aphantasiques.
-
-2)	Dans la mesure où les aphantasiques ont un défaut d'imagerie visuelle, si le texte de compréhension en lecture sollicite des images visuelles, on peut s'attendre à des performances différentes à ce texte entre les aphantasiques et les non aphantasiques.
-
-3)	Conformément à l'hypothèse que les aphantasiques auraient recours à des stratégies pour compenser leur déficit en imagerie visuelle, des performances élevées en compréhension de texte pourraient être corrélées à des scores élevés aux épreuves mesurant le fonctionnement exécutif et les capacités d'abstraction.
-
-Plan expérimental : S30<G2>
-
-<!-- 
+### Imagerie visuelle-objet
 Dawes 2022
 Object Imagery
 We expected aphantasic individuals to report reduced visual imagery ability compared to controls, in line with previous findings (Keogh & Pearson, 2018; Zeman et al., 2015). There is some suggestion that auditory imagery may also be reduced in individuals who report visual imagery absence, however this evidence comes from case studies with limited sample sizes (Greenberg & Knowlton, 2014). We therefore had no strong hypotheses regarding group differences in other multi-sensory imagery domains.
+
+### Imagerie visuospatiale
 Spatial Imagery
 Lastly, we expected aphantasic self-reports of spatial imagery and spatial navigation abilities to align with data from previous studies suggesting that despite visual imagery absence, spatial abilities (as measured by questionnaires and performance on mental rotation and visuo-spatial tasks) appear to be largely preserved in aphantasia (Keogh & Pearson, 2018; Zeman et al., 2010).
--->
+
+### Raisonnement
+D'après les données présentées par l'étude de Zeman et al. (2020) (taux important d'aphantasiques dans les métiers scientifiques), on peut faire l'hypothèse que le groupe de participants aphantasiques présentera des capacités de raisonnement (mesurées par le test des Similitudes et les Matrices) plus développés que le groupe de participants non aphantasiques.
+
+### Compréhension en lecture
+Dans la mesure où les aphantasiques ont un défaut d'imagerie visuelle, si le texte de compréhension en lecture sollicite des images visuelles, on peut s'attendre à des performances différentes à ce texte entre les aphantasiques et les non aphantasiques.
+
+### Fonctions exécutives
+Conformément à l'hypothèse que les aphantasiques auraient recours à des stratégies pour compenser leur déficit en imagerie visuelle, des performances élevées en compréhension de texte pourraient être corrélées à des scores élevés aux épreuves mesurant le fonctionnement exécutif et les capacités d'abstraction.
 
 ## Simulation
 
 En suivant les recommandations des analyses de puissance, nous avons décidé de simuler *N* = 200 participants pour chaque groupe, aphantasiques et non-aphantasiques. Pour simuler ceux-ci, nous avons créé une **matrice des moyennes** et des écarts types arbitraires aux douze tâches et questionnaires pour chaque groupe, sur la base de la littérature et de nos hypothèses (avec donc une part inévitable de *wishful thinking* et de prophétie auto-réalisatrice). Ainsi nous avons fixé des moyennes aux tâches d'imagerie objet faibles chez les aphantasiques et hautes chez les contrôles, des scores aux tâches d'imagerie spatiale et de raisonnement légèrement plus élevés chez les aphantasiques, et des scores aux tâches de fonctions exécutives variables.      
 Nous avons ensuite établi un **modèle de mesures**, une matrice définissant par des coefficients les liens entre nos douze variables et ce qu'elles "évaluent vraiment", les capacités cognitives sous-jacentes. Nous avons choisi d'en désigner cinq : l'*imagerie objet*, l'*imagerie spatiale*, le *raisonnement abstrait*, la *mémoire de travail* et *la flexibilité mentale* (ces deux dernières pouvant être regroupées ou non sous la catégorie de *fonctions exécutives*). Nous aurons donc des corrélations entre nos variables évaluées, qu'il faudra éclaircir pour comprendre les aspects fondamentaux qu'elles révèlent.       
 Enfin, nous avons fixé une **matrice de covariance** entre ces cinq capacités cognitives, qui sont loin d'être indépendantes : la littérature pointe par exemple vers des liens entre imagerie spatiale et raisonnement [@kozhevnikovSpatialVisualizationPhysics2007; @kozhevnikovTradeoffObjectSpatial2010], ou encore les différentes imageries et la mémoire de travail [@dawesCognitiveProfileMultisensory2020; @knightMemoryImageryNo2022; @salwayVisuospatialWorkingMemory1995]. Nous avons donc pondéré ces liens avec des coefficients arbitraires sur cette base et celle de nos prédictions.      
-Notre fonction de simulation a donc eu pour tâche, à l'aide de ces trois matrices (*moyennes*, *mesures*, *covariance*), de créer des moyennes aléatoires -bien que liées par les corrélations sous-jacentes- pour chaque tâche et chaque participant, avec une distribution normale et l'ajout d'erreurs aléatoires normales. Les moyennes ont ensuite été standardisées en *z-scores* pour les analyses (et pour les rassembler si nécessaire).     
-Le code source pour reproduire la simulation des données (ou en créer de nouvelles) est dans [*le dossier de ce projet sur GitHub*](https://github.com/m-delem/aphantasia_project.git).      
+Notre fonction de simulation a donc eu pour tâche, à l'aide de ces trois matrices (*moyennes*, *mesures*, *covariance*), de créer des moyennes aléatoires -bien que liées par les corrélations sous-jacentes- pour chaque tâche et chaque participant, avec une distribution normale et l'ajout d'erreurs aléatoires normales. Les moyennes ont ensuite été standardisées en *z-scores* pour les analyses (et pour les rassembler si nécessaire). La fonction de simulation a été codée sur R [@R-base] (voir *\nameref{annexes}* pour la liste complète des packages cités dans le document, leurs références ainsi que les liens vers le code détaillé ici).
 
-<!-- 
-VVIQ
-M dawes = 17.94 vs 58.12
-M Chacha = 21.23, sd 5.48 16 à 31.5
-M NA Chacha = 56.33 sd 9.87 34.5 à 78.5
-OSIQ
-OSIQ object total score < 36);
-OSIQ spatial total score < 25);
-(see Imagery Results section)
+## Analyses                                   
 
-### Note : Nous avons choisi une moyenne plus conservatrice dans notre simulation pour le VVIQ des aphantasiques, à M = 30.2, et à 63.8 dans le groupe contrôle. L'écart entre les deux est donc plus ou moins équivalent, à 40 chez Dawes et 33 dans notre simulation.
--->
+### Transformation des données
 
-## Analyses
+Les analyses prévisionnelles ont de même été réalisées sur R.      
+Dans la littérature, les mesures réelles de tâches comparables aux nôtres ont des distributions non-normales [@dawesCognitiveProfileMultisensory2020; @dawesInnerVisionsMind2022; @palermoCongenitalLackExtraordinary2022]. Après vérification des distributions par des tests de Shapiro-Wilk, nous pourrons dans ce cas réaliser des **tests non-paramétriques** tels que des tests de Kruskal-Wallis ou Mann-Whitney-U. Alternativement, nous pourrions réaliser des **transformations des données** pour les rapprocher de la normalité, de type Box-Cox par exemple. L'étude de Dawes et al. [-@dawesCognitiveProfileMultisensory2020] utilise une autre transformation centrée sur la médiane permettant de comparer les différences entre groupes pour chaque tâche selon la même échelle :
+$$
+y = \frac{x - (S.min + \frac{S.max -S.min}{2})}{S.max-S.min}
+$$
+Où y est le score transformé, x le score brut, S.min le score minimum et S.max le maximum. Dans les présentes analyses nous avons choisi la deuxième solution, en standardisant les scores en z-scores via la fonction `scale()` sur R, puis en les ramenant sur une échelle de 0 à 1, avec une médiane à 0.5, via la fonction `rescale()` du package `datawizard` sur R - de sorte à pouvoir construire des profils plus aisément. Nous n'avons pas eu besoin ici d'utiliser une transformation normale, car les données ont déjà été simulées comme tel.
 
-Sema :      
-L'analyse des résultats sera effectuée avec le logiciel JASP (Love et al., 2019). Des t-students et des ANOVAs seront menés en premier lieu afin d'observer s'il existe des différences dans les VD entre les aphantasiques et les non-aphantasiques. Des analyses corrélationnelles (Bravais-Pearson) seront ensuite effectuées sur les différentes mesures, ainsi que des régressions. Les données seront ensuite soumises à des analyses par clusters.
+### Composantes principales et *clustering*
 
-L'analyse des données a été menée sur R
-<!--
-Dawes 2022
+Comme nous l'avons mentionné dans la section *\nameref{simulation}*, nos variables initiales (les scores) ont pour certaines des corrélations très significatives entre elles du fait de la proximité des capacités cognitives qu'elles évaluent. Nous pourrons alors réduire le nombre de variables en isolant des dimensions essentielles qu'elles représentent par une **analyse en composantes principales** (ACP). Celle-ci nous permettra alors de combiner les scores de différentes tâches pour les ramener à des scores liés à des capacités cognitives (e.g. un score en imagerie visuelle au lieu de deux scores au VVIQ et à l'OSIQ-objet). Cette analyse a ici été conduite sur R via la fonction `fviz_pca_var()` du package `factoextra`.
 
-Data for aphantasic subjects demonstrated significant positive skew (see Figure 2.1). Non-parametric Mann-Whitney U hypothesis tests were therefore conducted in SPSS 25.0 for Mac OS, using Bonferroni adjusted alpha levels of a= 0.0002 (0.05/206 where 206 is the total number of question items across all questionnaires) to correct for multiple comparisons. Estimates of effect sizes r were computed using the following formula: r= ! √	$ where Z is the Mann-Whitney standardized test statistic, N the total sample size of the combined groups, and r the output effect size estimate (comparable with Cohen’s d effect size interpretations; Rosenthal, 1994). Because we adopted a highly conservative adjusted alpha, Mann-Whitney tests were supplemented by Bayesian analyses conducted in JASP. For all Bayesian analyses, a Cauchy prior of .707 was used. Bayes factors were used to help compare the weight of evidence for between-group differences across test comparisons, whilst Mann-Whitney tests were used to make overall inferences about test direction and significance. Bayes factors were interpreted according to common threshold guidelines (Jeffreys, 1961), where 1 = “No evidence”, 1-3 = “Anecdotal evidence, 3-10 = “Moderate evidence”, 10-30 = “Strong evidence”, 30-100 = “Very strong evidence”, and >100 = “Extreme evidence”.
-
-Palermo 2022
-
-Due to the non-normal distribution of the demographic, mental imagery, and other skills measures, as verified with the ShapiroWilk test (see Table S1 in Supplementary material), non-parametric analyses (i.e., Kruskal–Wallis tests) were performed to evaluate possible differences among the groups.
-we performed group comparisons only on five groups: Controls, OAph, SAph, OHyper, and SHyper; thus, these two participants were not included in the group analyses. A Bonferroni adjusted alpha level of 0.005 was applied (0.05/11). Significant group effects were further analyzed with planned post hoc comparisons using Mann–Whitney U tests and applying a Bonferroni correction for multiple comparisons (0.05/6 = 0.008). In particular, the following planned post-hoc comparisons were performed: OAph vs. SAph, OAph vs. Controls, SAph vs. Controls, OHyper vs. SHyper, OHyper vs. Controls, SHyper vs. Controls.
-
-
-Data transformation
-
-Dawes 2022
-
-All analyses were conducted on raw data. Data visualisation for Figure 2.1 only, however, was carried out on median-centered raw questionnaire data using the following transformation:
-y = (x - (Smin + (Smac -Smin)/2))/(Smax-Smin)
-where y is the transformed score, x the raw individual item score for scale S, and S.min and S.max the lowest and highest possible scores on that scale, respectively. This transformation allows us to graphically compare results across scales, with a value of -0.5 representing the lowest possible score, 0 the median score, and 0.5 the maximum possible score on each scale.
-
-
-Cluster Analysis
-
-Lefèvre 2022
-
-Analyse de partition non-supervisée
-L’objectif de cette partie est de proposer une identification de profils combinant les trois compétences du langage écrit grâce à un algorithme de partition non-supervisée (unsupervised clustering) provenant des techniques de l'apprentissage machine. 
-Les techniques de partition non-supervisée permettent une identification de profils sans hypothèse a priori et en particulier sans prendre en compte le diagnostic de la personne. 
-L’algorithme des k-means a été choisi parmi l’ensemble des méthodes existantes car il montre de bonnes performances dans le domaine des études trans-diagnostiques (Bradshaw et al., 2020; Dalmaijer et al., 2021; Willems et al., 2016) et les résultats sont simples d’interprétation. 
-L’algorithme des k-means repose sur le calcul d’une matrice de dissimilarité contenant les mesures de distance euclidienne. Une distance euclidienne est une mesure permettant de quantifier la distance entre deux observations (ici deux personnes). Plus la distance euclidienne est importante et plus la distance entre les observations est importante.
-Le calcul de la distance euclidienne entre deux observations repose sur le théorème de Pythagore tel que représenté dans la Figure 1.2. Alors qu’il est aisé de comprendre et de représenter graphiquement le calcul d’une distance euclidienne dans un espace bi-dimensionnel, avec l’ajout d’une troisième dimension le théorème de Pythagore ne suffit plus pour calculer la distance euclidienne et par conséquent la formule suivante est utilisée :
+De même, nos groupes initiaux ont été définis de manière arbitraire (une limite de score définie par convention, VVIQ < 32) et pourraient représenter une division imprécise des participants. Pour corriger ce biais potentiel nous réaliserons une **analyse de partition non-supervisée** (dite en *clusters*") par l'algorithme des *k-means*, pour ainsi étudier la répartition en groupes qu'il propose en prenant en compte toutes nos variables redéfinies par l'ACP. L'algorithme fonctionne sur la base d'une *matrice de dissimilarité* selon des distances euclidiennes : i.e. il évalue "géométriquement" selon les axes de nos variables la "distance" entre chaque observation (ici les participants). La distance euclidienne en deux dimensions se calcule simplement par le théorème de Pythagore. Pour un nombre plus grand de dimensions, la formule généralisée est la suivante :
 $$
 D_{i,j}^2 = \sum_{v=1}^{n}(x_{vi}-x_{vj})^2
 $$
-La distance entre l’observation i et l’observation j (Dij) est calculée dans un espace de dimension n et est égale à la somme des carrés des distances entre les deux scores dans chacune des dimensions. Une fois appliquée, cette formule permet d’avoir une mesure de distance, aussi appelé dissimilarité, pour chaque paire d’observations. La mesure de distance peut ensuite être utilisée dans un algorithme des k-means qui permet de regrouper les observations en k sous-groupes (k étant le nombre de sous-groupes/clusters). Le nombre de clusters peut être décidé grâce à plusieurs indices informatifs (Charrad et al., 2014). Les étapes de l’algorithme des k-means sont présentées dans l’Encart 2.
-Une des limites de l’algorithme des k-means repose sur la première étape. Durant l’étape d’initialisation, des observations sont choisies au hasard pour servir de centres des clusters. Ce type d’initialisation a une tendance à biaiser l’attribution des observations au sein des clusters. Pour pallier ce biais, il est possible de conduire l’algorithme de multiples fois et d’observer les résultats d’assignation de chaque observation comme une probabilité (Fränti & Sieranoja, 2019). Par exemple, dans un k-means à deux clusters conduits 1000 fois, l’observation A peut-être assignée 200 fois au cluster 1 et 800 fois au cluster 2. Dans ce cas, l’observation A peut être attribuée au cluster 2, représentant 80% des assignations. 
+"D" étant la distance entre i et j dans n dimensions, égale à la somme des carrés des distances dans chaque dimension. Cette distance, ou *"dissimilarité"*, une fois calculée pour toutes les observations (participants) permet d'obtenir une matrice de des distances entre chacune d'elles. Par suite, l'algorithme des *k-means* utilise cette matrice pour diviser les observations en *k* sous-groupes : il rassemble les observations les plus proches entre elles de sorte à minimiser la superposition entre les clusters, i.e. les observations pouvant se trouver dans plusieurs groupes définis. La détermination de *k* - i.e. le nombre de sous-groupes (ou *clusters*) idéal pour une partition intéressante - est une étape importante, et peut se réaliser via de nombreux indices. Nous avons ici utilisé la fonction `fviz_nbclust()` du package `factoextra` sur R. L'analyse en *clusters* elle-même a été conduite avec la fonction `kmeans()` du package `stats` et visualisée avec `fviz_cluster()` de `factoextra`.
 
---> 
+### Composition des clusters et profils cognitifs
 
-\newpage
+Pour finir, l'algorithme des *k-means* permettra donc de créer des groupes qui auront des profils particuliers sur chaque composante cognitive représentée par nos variables. La composition de ces groupes (en pourcentage d'aphantasiques/non-aphantasiques définis initialement) ainsi que leurs capacités cognitives seront analysées : la variable du *groupe* étant notre seule variable indépendante, nous réaliserons alors des **ANOVAs univariées** en fonction du groupe ainsi que des **t-tests post-hoc**. Nous pourrions par ailleurs ajuster des **modèles mixtes linéaires** sur nos données pour comparer la qualité d'un modèle à deux groupes ou à *k* groupes, ainsi que l'importance des facteurs aléatoires tels que les différences entre participants.        
+Pour nos comparaisons, nous devrons choisir une correction pour compenser les tests multiples, la plus utilisée étant la **correction de Bonferroni**. Dawes et al. [-@dawesCognitiveProfileMultisensory2020] en ont utilisée une très conservatrice pour ajuster l'$\alpha$ en fonction de leur nombre d'items dans les questionnaires, donnant $\alpha$ = 0.05/206 = 0.0002. Palermo et al. [-@palermoCongenitalLackExtraordinary2022] ont utilisé une correction de $\alpha$ = 0.05/11 = 0.005 pour les ANOVAs, et de $\alpha$ = 0.05/6 = 0.008 pour les comparaisons post-hoc. Celle que nous utiliserons et le critère pour la choisir restent à définir.
+
 <!-- Résultats -->
 
 ## Résultats
 
 ### Différences de moyenne des deux groupes
-
-
-<!-- Dawes 2022
-
-Violin plot vertical avec toutes les mesures (ils en ont 12 ! Comme nous)
--> le nom de la mesure
--> la capacité cognitive qu'elle évalue, comme une barre traversant plusieurs mesures
--> la légende avec les deux groupes au dessus
 
 Spatial Ability Results. 
 Aphantasic participants reported slightly lower spatial imagery ability on the spatial sub-component of the OSIQ when compared to control group 1 (Mann-Whitney U = 24,462, p = 0.001, r = .15, BF10 = 14.65, two-sided; see Figure 2.1 purple section), although this effect was not significant after Bonferroni correction. Additionally, the scores of aphantasic individuals on the Spatial Memory component of the SAM (which includes items measuring reported spatial navigation and naturalistic spatial memory ability) were not significantly different from controls (SAM; Mann-Whitney U = 24,720, p = 0.1, r = .08, BF10 = .23, two-sided; see Figure 2.1 purple section). These results demonstrate that overall, there were no consistent differences in reported spatial abilities between aphantasic individuals and participants in control group 1.
@@ -368,10 +303,6 @@ Aphantasic participants reported slightly lower spatial imagery ability on the s
 Lefèvre 2022
 
 Ptet aussi faire un tableau simple pour les moyennes générales
-
-
---> 
-
 
 ### Corrélations entre les variables mesurées
 
@@ -475,7 +406,7 @@ Le résultat des k-means est représenté dans la Figure 1.3 (avec les profils c
 \end{figure}
 ```
 
-### Différences entre les groupes identifiés
+### Comparaison des profils cognitifs
 ```{=latex}
 \begin{figure}[H]
 ```
@@ -485,6 +416,12 @@ Le résultat des k-means est représenté dans la Figure 1.3 (avec les profils c
 \label{cluster_repatition}
 \end{figure}
 ```
+<!-- Dawes 2022
+
+Violin plot vertical avec toutes les mesures (ils en ont 12 ! Comme nous)
+-> le nom de la mesure
+-> la capacité cognitive qu'elle évalue, comme une barre traversant plusieurs mesures
+-> la légende avec les deux groupes au dessus
 
 <!--
 Dans le but d’interpréter les clusters à partir des scores des compétences les composant, une moyenne en dessous de 0 (moyenne standardisée) était considérée comme déficitaire et une moyenne au-dessus de 0 comme non-déficitaire. Les moyennes et écart-types avec les tailles d’effectif sont présentés dans le Tableau 1.2. Dans l’objectif de mieux décrire les sousgroupes, nous avons réalisé des analyses de variance univariées. Les trois comparaisons étant significatives, nous présentons les résultats des tests post-hocs (avec correction de Bonferroni) qui sont représentés sur les histogrammes de la Figure 1.4.
@@ -525,8 +462,7 @@ Je sais pas si elle a fait le tableau manuellement sur Rmd ou Latex ou R, mais l
 -->
 
 
-\newpage
-<!-- Discussion -->
+<!-- Discussion --> 
 
 # Discussion
 
@@ -539,9 +475,10 @@ Je sais pas si elle a fait le tableau manuellement sur Rmd ou Latex ou R, mais l
 <!-- Annexes -->
 
 # Annexes {-}
-Ce manuscrit a été rédigé en [R Markdown](https://rmarkdown.rstudio.com) [@R-rmarkdown] et en \LaTeX, dans l'Environnement de Développement Intégré [RStudio](https://posit.co/) , par l'intermédiaire du package `knitr` [@knitr2014; @knitr2015; @R-knitr]. Il a été partagé entre collaborateurs à l'aide du package `trackdown` [@kotheTrackdownCollaborativeWriting2021] et de [*GitHub*](https://github.com/). Le code complet de ce manuscrit, de la simulation, des figures, tables et analyses est accessible dans [*le dossier de ce projet sur GitHub*](https://github.com/m-delem/aphantasia_project.git).     
 
-La préparation du code, la simulation, les figures, tables et analyses ont nécessité les packages `cluster, correlation, corrr, datasets, datawizard, dplyr, easystats, effectsize, equatiomatic, ez, factoextra, forcats, GGally, ggplot2, ggpubr, ggradar, ggraph, igraph, insight, librarian, lme4, lmerTest, MASS, Matrix, modelbased, purrr, rstatix, tidyr, et tidyverse` [@datawizard2022; @R-cluster; @R-correlation; @R-corrr; @R-dplyr; @R-easystats; @R-effectsize; @R-equatiomatic; @R-ez; @R-factoextra; @R-forcats; @R-GGally; @R-ggpubr; @R-ggradar; @R-ggraph; @igraph2006; @R-insight; @R-librarian; @R-lme4; @R-lmerTest; @R-MASS; @R-Matrix; @R-modelbased; @R-purrr; @R-rstatix; @R-tidyr; @R-tidyverse; @tidyverse2019].
+Ce manuscrit a été rédigé en [R Markdown](https://rmarkdown.rstudio.com) [@R-rmarkdown] et en \LaTeX, dans l'Environnement de Développement Intégré (IDE) [RStudio](https://posit.co/) [@positteamRStudioIntegratedDevelopment2022], par l'intermédiaire du package `knitr` [@knitr2014; @knitr2015; @R-knitr]. Il a été partagé entre collaborateurs à l'aide du package `trackdown` [@kotheTrackdownCollaborativeWriting2021] et de [*GitHub*](https://github.com/). Le code complet de ce manuscrit, de la simulation, des figures, tables et analyses est accessible dans [*le dossier de ce projet sur GitHub*](https://github.com/m-delem/aphantasia_project.git).     
+
+La préparation du code, la simulation, les figures, tables et analyses ont nécessité les packages `cluster, correlation, corrr, datasets, datawizard, dplyr, easystats, effectsize, equatiomatic, ez, factoextra, forcats, GGally, ggplot2, ggpubr, ggradar, ggraph, igraph, insight, librarian, lme4, lmerTest, MASS, Matrix, modelbased, purrr, rstatix, stats, tidyr, et tidyverse` [@datawizard2022; @R-cluster; @R-correlation; @R-corrr; @R-dplyr; @R-easystats; @R-effectsize; @R-equatiomatic; @R-ez; @R-factoextra; @R-forcats; @R-GGally; @R-ggpubr; @R-ggradar; @R-ggraph; @igraph2006; @R-insight; @R-librarian; @R-lme4; @R-lmerTest; @R-MASS; @R-Matrix; @R-modelbased; @R-purrr; @R-rstatix; @R-tidyr; @R-tidyverse; @tidyverse2019].
 
 <!-- Ajouter les tableaux summary des moyennes et écarts types de chaque groupe à chaque score dans la simulation -->
 

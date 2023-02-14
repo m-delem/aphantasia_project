@@ -2,14 +2,6 @@
 
 ### Différences de moyenne des deux groupes
 
-
-<!-- Dawes 2022
-
-Violin plot vertical avec toutes les mesures (ils en ont 12 ! Comme nous)
--> le nom de la mesure
--> la capacité cognitive qu'elle évalue, comme une barre traversant plusieurs mesures
--> la légende avec les deux groupes au dessus
-
 Spatial Ability Results. 
 Aphantasic participants reported slightly lower spatial imagery ability on the spatial sub-component of the OSIQ when compared to control group 1 (Mann-Whitney U = 24,462, p = 0.001, r = .15, BF10 = 14.65, two-sided; see Figure 2.1 purple section), although this effect was not significant after Bonferroni correction. Additionally, the scores of aphantasic individuals on the Spatial Memory component of the SAM (which includes items measuring reported spatial navigation and naturalistic spatial memory ability) were not significantly different from controls (SAM; Mann-Whitney U = 24,720, p = 0.1, r = .08, BF10 = .23, two-sided; see Figure 2.1 purple section). These results demonstrate that overall, there were no consistent differences in reported spatial abilities between aphantasic individuals and participants in control group 1.
 
@@ -17,10 +9,6 @@ Aphantasic participants reported slightly lower spatial imagery ability on the s
 Lefèvre 2022
 
 Ptet aussi faire un tableau simple pour les moyennes générales
-
-
---> 
-
 
 ### Corrélations entre les variables mesurées
 
@@ -130,7 +118,7 @@ Le résultat des k-means est représenté dans la Figure 1.3 (avec les profils c
 \end{figure}
 ```
 
-### Différences entre les groupes identifiés
+### Comparaison des profils cognitifs
 ```{=latex}
 \begin{figure}[H]
 ```
@@ -141,6 +129,12 @@ Le résultat des k-means est représenté dans la Figure 1.3 (avec les profils c
 \label{cluster_repatition}
 \end{figure}
 ```
+<!-- Dawes 2022
+
+Violin plot vertical avec toutes les mesures (ils en ont 12 ! Comme nous)
+-> le nom de la mesure
+-> la capacité cognitive qu'elle évalue, comme une barre traversant plusieurs mesures
+-> la légende avec les deux groupes au dessus
 
 <!--
 Dans le but d’interpréter les clusters à partir des scores des compétences les composant, une moyenne en dessous de 0 (moyenne standardisée) était considérée comme déficitaire et une moyenne au-dessus de 0 comme non-déficitaire. Les moyennes et écart-types avec les tailles d’effectif sont présentés dans le Tableau 1.2. Dans l’objectif de mieux décrire les sousgroupes, nous avons réalisé des analyses de variance univariées. Les trois comparaisons étant significatives, nous présentons les résultats des tests post-hocs (avec correction de Bonferroni) qui sont représentés sur les histogrammes de la Figure 1.4.

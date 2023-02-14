@@ -227,8 +227,8 @@ data_scale %>%
   correlation(partial = TRUE) %>% 
   cor_sort() %>% 
   summary() %>% 
-  # visualisation_recipe(
-  #   labs = list(title = "Correlations entre les variables mesurees")) %>% 
+  visualisation_recipe(
+    labs = list(title = "Correlations entre les variables mesurees")) %>%
   plot() +
   theme(panel.grid.major = element_blank(),
         panel.grid.minor = element_blank())
