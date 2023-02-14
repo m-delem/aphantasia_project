@@ -35,7 +35,7 @@ link-citations: yes
 
 
 <!-- Tous les tests de formatage -->
-Test pour référencer des figures, ici la  \autoref{correlation_matrix}, ou encore la \autoref{k_means}.
+Test pour référencer des figures, ici la  \autoref{cluster_number}, ou encore la \autoref{k_means}.
 
 Test d'affichage de l'équation d'un modèle hyper stylé qu'on va construire :
 
@@ -59,7 +59,6 @@ Par exemple [@bainbridgeQuantifyingAphantasiaDrawing2021]. Ca marche ?
 .     
 Malheureusement oui... Ca a pris trois - littéralement **trois** heures à écrire et échouer à faire fonctionner du LaTeX dans les sous-fichiers, pour au final découvrir dans la documentation de Pandoc (que le Cookbook disait être *essentielle* à lire, et que bien sûr j'ai pas lu)... Qu'il fallait ajouter une ligne au YAML, `link-citations: yes`. Envie de caner.     
 Mais bon, on a réussi, youpi ! Ouais, ouais... *tocard*... 
-
 
 
 
@@ -291,7 +290,11 @@ Lastly, we expected aphantasic self-reports of spatial imagery and spatial navig
 
 ## Simulation
 
-En suivant les recommandations des analyses de puissance, nous avons décidé de simuler *N* = 200 participants pour chaque groupe, aphantasiques et non-aphantasiques. 
+En suivant les recommandations des analyses de puissance, nous avons décidé de simuler *N* = 200 participants pour chaque groupe, aphantasiques et non-aphantasiques. Pour simuler ceux-ci, nous avons créé une **matrice des moyennes** et des écarts types arbitraires aux douze tâches et questionnaires pour chaque groupe, sur la base de la littérature et de nos hypothèses (avec donc une part inévitable de *wishful thinking* et de prophétie auto-réalisatrice). Ainsi nous avons fixé des moyennes aux tâches d'imagerie objet faibles chez les aphantasiques et hautes chez les contrôles, des scores aux tâches d'imagerie spatiale et de raisonnement légèrement plus élevés chez les aphantasiques, et des scores aux tâches de fonctions exécutives variables.      
+Nous avons ensuite établi un **modèle de mesures**, une matrice définissant par des coefficients les liens entre nos douze variables et ce qu'elles "évaluent vraiment", les capacités cognitives sous-jacentes. Nous avons choisi d'en désigner cinq : l'*imagerie objet*, l'*imagerie spatiale*, le *raisonnement abstrait*, la *mémoire de travail* et *la flexibilité mentale* (ces deux dernières pouvant être regroupées ou non sous la catégorie de *fonctions exécutives*). Nous aurons donc des corrélations entre nos variables évaluées, qu'il faudra éclaircir pour comprendre les aspects fondamentaux qu'elles révèlent.       
+Enfin, nous avons fixé une **matrice de covariance** entre ces cinq capacités cognitives, qui sont loin d'être indépendantes : la littérature pointe par exemple vers des liens entre imagerie spatiale et raisonnement [@kozhevnikovSpatialVisualizationPhysics2007; @kozhevnikovTradeoffObjectSpatial2010], ou encore les différentes imageries et la mémoire de travail [@dawesCognitiveProfileMultisensory2020; @knightMemoryImageryNo2022; @salwayVisuospatialWorkingMemory1995]. Nous avons donc pondéré ces liens avec des coefficients arbitraires sur cette base et celle de nos prédictions.      
+Notre fonction de simulation a donc eu pour tâche, à l'aide de ces trois matrices (*moyennes*, *mesures*, *covariance*), de créer des moyennes aléatoires -bien que liées par les corrélations sous-jacentes- pour chaque tâche et chaque participant, avec une distribution normale et l'ajout d'erreurs aléatoires normales. Les moyennes ont ensuite été standardisées en *z-scores* pour les analyses (et pour les rassembler si nécessaire).     
+Le code source pour reproduire la simulation des données (ou en créer de nouvelles) est dans [*le dossier de ce projet sur GitHub*](https://github.com/m-delem/aphantasia_project.git).      
 
 <!-- 
 VVIQ
@@ -356,6 +359,7 @@ Une des limites de l’algorithme des k-means repose sur la première étape. Du
 
 ### Différences de moyenne des deux groupes
 
+
 <!-- Dawes 2022
 
 Violin plot vertical avec toutes les mesures (ils en ont 12 ! Comme nous)
@@ -376,6 +380,19 @@ Ptet aussi faire un tableau simple pour les moyennes générales
 
 
 ### Corrélations entre les variables mesurées
+
+```{=latex}
+\begin{figure}[H]
+```
+
+\begin{center}\includegraphics[width=0.8\linewidth,height=0.5\textheight,]{aphantasia_project_files/figure-latex/network_plot-1} \end{center}
+```{=latex}
+\caption{Représentation des corrélations entre les variables mesurées. Les liens bleus dénotent une corrélation positive, et les rouges une corrélation négative. Cette figure illustre les choix de pondération réalisés à l'étape de simulation : on peut notamment voir des corrélations très prononcées entre le VVIQ et l'OSIQ-objet (r = 0.77*) qui évaluent tous deux l'imagerie objet, le Digit Span et les blocs de Corsi (r = 0.68*) qui évaluent entre autres la mémoire de travail, ou encore entre l'OSIQ-spatial et le SRI, qui respectivement l'auto-évaluation et la tâche les plus spécifiques de l'imagerie spatiale.}
+\label{network_plot}
+\end{figure}
+```
+
+<!--
 ```{=latex}
 \begin{figure}[H]
 ```
@@ -386,7 +403,6 @@ Ptet aussi faire un tableau simple pour les moyennes générales
 \end{figure}
 ```
 
-<!--
 ```{=latex}
 \begin{figure}[H]
 ```
@@ -526,6 +542,9 @@ Je sais pas si elle a fait le tableau manuellement sur Rmd ou Latex ou R, mais l
 <div id="refs"></div>
 
 \newpage
+<!-- Annexes -->
+
 # Annexes {-}
 
-Le code complet de ce manuscrit, de la simulation, des figures, tables et analyses est accessible dans [*ce repository*, sur GitHub](https://github.com/m-delem/aphantasia_project.git).
+Le code complet de ce manuscrit, de la simulation, des figures, tables et analyses est accessible dans [le dossier de ce projet sur *GitHub*](https://github.com/m-delem/aphantasia_project.git).
+

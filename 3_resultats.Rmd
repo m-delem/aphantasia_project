@@ -2,6 +2,7 @@
 
 ### Différences de moyenne des deux groupes
 
+
 <!-- Dawes 2022
 
 Violin plot vertical avec toutes les mesures (ils en ont 12 ! Comme nous)
@@ -22,6 +23,19 @@ Ptet aussi faire un tableau simple pour les moyennes générales
 
 
 ### Corrélations entre les variables mesurées
+
+```{=latex}
+\begin{figure}[H]
+```
+```{r,network_plot}
+```
+```{=latex}
+\caption{Représentation des corrélations entre les variables mesurées. Les liens bleus dénotent une corrélation positive, et les rouges une corrélation négative. Cette figure illustre les choix de pondération réalisés à l'étape de simulation : on peut notamment voir des corrélations très prononcées entre le VVIQ et l'OSIQ-objet (r = 0.77*) qui évaluent tous deux l'imagerie objet, le Digit Span et les blocs de Corsi (r = 0.68*) qui évaluent entre autres la mémoire de travail, ou encore entre l'OSIQ-spatial et le SRI, qui respectivement l'auto-évaluation et la tâche les plus spécifiques de l'imagerie spatiale.}
+\label{network_plot}
+\end{figure}
+```
+
+<!--
 ```{=latex}
 \begin{figure}[H]
 ```
@@ -33,7 +47,6 @@ Ptet aussi faire un tableau simple pour les moyennes générales
 \end{figure}
 ```
 
-<!--
 ```{=latex}
 \begin{figure}[H]
 ```

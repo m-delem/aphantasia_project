@@ -49,7 +49,7 @@ knitr::opts_chunk$set(message=FALSE,
 
 
 <!-- Tous les tests de formatage -->
-Test pour référencer des figures, ici la  \autoref{correlation_matrix}, ou encore la \autoref{k_means}.
+Test pour référencer des figures, ici la  \autoref{cluster_number}, ou encore la \autoref{k_means}.
 
 Test d'affichage de l'équation d'un modèle hyper stylé qu'on va construire :
 ```{r, equation}
@@ -101,6 +101,6 @@ Mais bon, on a réussi, youpi ! Ouais, ouais... *tocard*...
 <div id="refs"></div>
 
 \newpage
-# Annexes {-}
-
-Le code complet de ce manuscrit, de la simulation, des figures, tables et analyses est accessible dans [*ce repository*, sur GitHub](https://github.com/m-delem/aphantasia_project.git).
+<!-- Annexes -->
+```{r, child="5_annexes.Rmd"}
+```

@@ -1,0 +1,4 @@
+# Annexes {-}
+
+Le code complet de ce manuscrit, de la simulation, des figures, tables et analyses est accessible dans [le dossier de ce projet sur *GitHub*](https://github.com/m-delem/aphantasia_project.git).
+

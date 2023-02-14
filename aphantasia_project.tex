@@ -143,8 +143,8 @@
 \setstretch{1.5}
 \newpage
 
-Test pour référencer des figures, ici la \autoref{correlation_matrix},
-ou encore la \autoref{k_means}.
+Test pour référencer des figures, ici la \autoref{cluster_number}, ou
+encore la \autoref{k_means}.
 
 Test d'affichage de l'équation d'un modèle hyper stylé qu'on va
 construire :
@@ -972,7 +972,52 @@ Plan expérimental : S30
 
 En suivant les recommandations des analyses de puissance, nous avons
 décidé de simuler \emph{N} = 200 participants pour chaque groupe,
-aphantasiques et non-aphantasiques.
+aphantasiques et non-aphantasiques. Pour simuler ceux-ci, nous avons
+créé une \textbf{matrice des moyennes} et des écarts types arbitraires
+aux douze tâches et questionnaires pour chaque groupe, sur la base de la
+littérature et de nos hypothèses (avec donc une part inévitable de
+\emph{wishful thinking} et de prophétie auto-réalisatrice). Ainsi nous
+avons fixé des moyennes aux tâches d'imagerie objet faibles chez les
+aphantasiques et hautes chez les contrôles, des scores aux tâches
+d'imagerie spatiale et de raisonnement légèrement plus élevés chez les
+aphantasiques, et des scores aux tâches de fonctions exécutives
+variables.\\
+Nous avons ensuite établi un \textbf{modèle de mesures}, une matrice
+définissant par des coefficients les liens entre nos douze variables et
+ce qu'elles ``évaluent vraiment'', les capacités cognitives
+sous-jacentes. Nous avons choisi d'en désigner cinq : l'\emph{imagerie
+objet}, l'\emph{imagerie spatiale}, le \emph{raisonnement abstrait}, la
+\emph{mémoire de travail} et \emph{la flexibilité mentale} (ces deux
+dernières pouvant être regroupées ou non sous la catégorie de
+\emph{fonctions exécutives}). Nous aurons donc des corrélations entre
+nos variables évaluées, qu'il faudra éclaircir pour comprendre les
+aspects fondamentaux qu'elles révèlent.\\
+Enfin, nous avons fixé une \textbf{matrice de covariance} entre ces cinq
+capacités cognitives, qui sont loin d'être indépendantes : la
+littérature pointe par exemple vers des liens entre imagerie spatiale et
+raisonnement
+(\protect\hyperlink{ref-kozhevnikovTradeoffObjectSpatial2010}{Kozhevnikov
+et al., 2010};
+\protect\hyperlink{ref-kozhevnikovSpatialVisualizationPhysics2007}{Kozhevnikov
+et al., 2007}), ou encore les différentes imageries et la mémoire de
+travail
+(\protect\hyperlink{ref-dawesCognitiveProfileMultisensory2020}{A. J.
+Dawes et al., 2020};
+\protect\hyperlink{ref-knightMemoryImageryNo2022}{Knight et al., 2022};
+\protect\hyperlink{ref-salwayVisuospatialWorkingMemory1995}{Salway \&
+Logie, 1995}). Nous avons donc pondéré ces liens avec des coefficients
+arbitraires sur cette base et celle de nos prédictions.\\
+Notre fonction de simulation a donc eu pour tâche, à l'aide de ces trois
+matrices (\emph{moyennes}, \emph{mesures}, \emph{covariance}), de créer
+des moyennes aléatoires -bien que liées par les corrélations
+sous-jacentes- pour chaque tâche et chaque participant, avec une
+distribution normale et l'ajout d'erreurs aléatoires normales. Les
+moyennes ont ensuite été standardisées en \emph{z-scores} pour les
+analyses (et pour les rassembler si nécessaire).\\
+Le code source pour reproduire la simulation des données (ou en créer de
+nouvelles) est dans
+\href{https://github.com/m-delem/aphantasia_project.git}{\emph{le
+dossier de ce projet sur GitHub}}.
 
 \hypertarget{analyses}{%
 \subsection{Analyses}\label{analyses}}
@@ -1001,8 +1046,10 @@ mesurées}\label{corruxe9lations-entre-les-variables-mesuruxe9es}}
 
 \begin{figure}[H]
 
-\caption{Matrice de corrélation entre les variables mesurées.}
-\label{correlation_matrix}
+\begin{center}\includegraphics[width=0.8\linewidth,height=0.5\textheight,]{aphantasia_project_files/figure-latex/network_plot-1} \end{center}
+
+\caption{Représentation des corrélations entre les variables mesurées. Les liens bleus dénotent une corrélation positive, et les rouges une corrélation négative. Cette figure illustre les choix de pondération réalisés à l'étape de simulation : on peut notamment voir des corrélations très prononcées entre le VVIQ et l'OSIQ-objet (r = 0.77*) qui évaluent tous deux l'imagerie objet, le Digit Span et les blocs de Corsi (r = 0.68*) qui évaluent entre autres la mémoire de travail, ou encore entre l'OSIQ-spatial et le SRI, qui respectivement l'auto-évaluation et la tâche les plus spécifiques de l'imagerie spatiale.}
+\label{network_plot}
 \end{figure}
 
 \hypertarget{analyses-des-groupes-par-partition-non-supervisuxe9e}{%
@@ -1426,7 +1473,7 @@ Zimmer, C. (2010, mars 23). \emph{The {Brain}: {Look Deep Into} the
 
 Le code complet de ce manuscrit, de la simulation, des figures, tables
 et analyses est accessible dans
-\href{https://github.com/m-delem/aphantasia_project.git}{\emph{ce
-repository}, sur GitHub}.
+\href{https://github.com/m-delem/aphantasia_project.git}{le dossier de
+ce projet sur \emph{GitHub}}.
 
 \end{document}
