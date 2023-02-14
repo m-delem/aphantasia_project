@@ -4,6 +4,7 @@ pdf-engine: pdflatex
 documentclass: article
 toc: true
 number-sections: true
+number-depth: 3
 cap-location: bottom
 fontsize: 12pt
 linestretch: 1.5
@@ -33,7 +34,7 @@ include-before-body: "zb_beforebody.tex"
 \newpage
 ```{r, include=FALSE, cache=FALSE}
 # chargement du code source et reglages
-knitr::read_chunk('./zc_scripts/aphantasia_source.R')
+knitr::read_chunk('./zc_scripts/aphantasia_new_source.R')
 knitr::opts_chunk$set(out.height = "50%",
                       out.extra = ""
                       )
@@ -44,13 +45,6 @@ knitr::opts_chunk$set(out.height = "50%",
 ```
 
 <!-- Le manuscrit est divisé en plusieurs documents pour faciliter les modifications locales - ceux-ci sont dans le dossier du Drive. L'output complet du R Markdown (le pdf final) est en pdf dans le Drive, avec le même nom que ce fichier. Les GDoc de ce Drive servent à éditer le texte rédigé du document final : le code R sous-jacent et les analyses des données seront partagées et travaillées sur GitHub, lié localement à RStudio. Le repository GitHub en question : https://github.com/m-delem/aphantasia_project.git -->
-
-<!-- Tests de formatage
-Test d'affichage de l'équation d'un modèle hyper stylé qu'on va construire :
-```{r, equation}
-```
-mention du modèle hyper-stylé : \hyperref[eq: Modèle 1]{Modèle~\ref*{eq: Modèle 1}}
--->
 
 <!-- Introduction -->
 ```{r, child="1_intro.Rmd"}
@@ -77,6 +71,8 @@ mention du modèle hyper-stylé : \hyperref[eq: Modèle 1]{Modèle~\ref*{eq: Mod
 <!-- Annexes -->
 ```{r, child="5_annexes.Rmd"}
 ```
+
+<!-- La liste totale des packages ira ici, mais dans le papier je citerai que ceux vraiment utilisés, jusque là y à que la base, le tidyverse et easystats -->
 
 <!-- Session Info for Reproducibility
 > print(sessionInfo())

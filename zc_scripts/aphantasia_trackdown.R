@@ -13,8 +13,8 @@ knitr::write_bib(x = c(.packages()), file = "packages.bib")
 # --> add the .bib to Zotero and use citr here
 
 # upload the Rmds to GDrive
-upload_file("xxxxxxxxxxxx.Rmd",
-            gfile = "xxxxxxxxxxxx",
+upload_file("5_annexes.Rmd",
+            gfile = "annexes",
             gpath = "M2 EMC - Aphantasia/manuscrit",
             hide_code = TRUE,)
 
@@ -46,6 +46,10 @@ update_file("4_discussion.Rmd",
             gpath = "M2 EMC - Aphantasia/manuscrit",
             hide_code = TRUE,)
 
+update_file("5_annexes.Rmd",
+            gfile = "annexes",
+            gpath = "M2 EMC - Aphantasia/manuscrit",
+            hide_code = TRUE,)
 
 # download the GDoc to Rmd
 download_file("aphantasia_project.Rmd",
