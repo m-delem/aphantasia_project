@@ -1,3 +1,3 @@
 # aphantasia_project
 
-2023 EMC aphantasia study material.
+2023 EMC aphantasia study code and manuscripts.

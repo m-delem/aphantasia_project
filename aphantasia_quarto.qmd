@@ -1,41 +1,40 @@
 ---
-output:
-  pdf_document:
-    toc: yes
-    toc_depth: 3
-    number_sections: yes
-    extra_dependencies: ["float","amsmath"]
-    keep_md: yes
-    keep_tex: yes
-    fig_height: 8
-    fig_width: 10
-    df_print: kable
-    includes:
-      in_header: "za_header.tex"
-      before_body: "zb_beforebody.tex"
-lang: "fr"
-langid: french
+format: pdf
+pdf-engine: pdflatex
+documentclass: article
+toc: true
+number-sections: true
+cap-location: bottom
 fontsize: 12pt
 linestretch: 1.5
 geometry: margin=1in
 indent: yes
-documentclass: article
+echo: false
+warning: false
+error: false
+message: false
+fig-align: center
+fig-pos: H
+fig-cap-location: bottom
+fig-height: 8
+fig-width: 10
+tbl-cap-location: bottom
 bibliography: references.bib
 csl: apa.csl
+links-as-notes: true
 link-citations: yes
+lang: fr
+langid: french
+include-in-header: "za_header.tex"
+include-before-body: "zb_beforebody.tex"
 ---
+<!-- shelf(quarto) -->
 
 \newpage
 ```{r, include=FALSE, cache=FALSE}
 # chargement du code source et reglages
 knitr::read_chunk('./zc_scripts/aphantasia_source.R')
-knitr::opts_chunk$set(message=FALSE,
-                      warning=FALSE,
-                      echo=FALSE,
-                      out.height = "50%",
-                      out.width = "80%",
-                      # fig.pos = "H",
-                      fig.align = "center",
+knitr::opts_chunk$set(out.height = "50%",
                       out.extra = ""
                       )
 ```
@@ -44,10 +43,7 @@ knitr::opts_chunk$set(message=FALSE,
 # chargement des donnees sans output
 ```
 
-
 <!-- Le manuscrit est divisé en plusieurs documents pour faciliter les modifications locales - ceux-ci sont dans le dossier du Drive. L'output complet du R Markdown (le pdf final) est en pdf dans le Drive, avec le même nom que ce fichier. Les GDoc de ce Drive servent à éditer le texte rédigé du document final : le code R sous-jacent et les analyses des données seront partagées et travaillées sur GitHub, lié localement à RStudio. Le repository GitHub en question : https://github.com/m-delem/aphantasia_project.git -->
-
-Le p était de *p `r print_p(cor.test(data_scale$VVIQ,data_scale$OSIQ_O)$p.value)`*
 
 <!-- Tests de formatage
 Test d'affichage de l'équation d'un modèle hyper stylé qu'on va construire :
@@ -73,7 +69,7 @@ mention du modèle hyper-stylé : \hyperref[eq: Modèle 1]{Modèle~\ref*{eq: Mod
 ```
 
 \newpage
-# Références {-}
+# Références {.unnumbered}
 <!-- Insérer les références précisément ici -->
 <div id="refs"></div>
 

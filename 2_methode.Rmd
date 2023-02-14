@@ -6,7 +6,7 @@
 
 Nous recruterons des participants à partir de mi-février/début mars, lorsque l'expérience sera codée et prête à être diffusée en ligne. Pour estimer un ordre de grandeur du nombre de participants nécessaire pour obtenir des résultats intéressants, nous pouvons nous baser sur les calculs de puissance de @dawesCognitiveProfileMultisensory2020, qui ont mené une étude assez proche de la nôtre impliquant douze questionnaires et ayant pour objectif de mieux cerner le profil des aphantasiques. Ceux-ci ont estimé que pour une taille d'effet modérée des comparaisons, une puissance de 80% et avec un $\alpha$ très conservateur de 0.0002 (voir la section *\nameref{analyses}*), au moins 170 participants seraient nécessaires par groupe expérimental.   
 
-Les participants devront avoir entre 18 et 50 ans et être locuteurs natifs français^[Il est à noter que dans l'étude de Dawes et al. [-@dawesCognitiveProfileMultisensory2020], 31 pays de résidence ont été répertoriés, avec 83% (*N* = 220) déclarant que l'anglais était leur première langue, et 88% (*N* = 235), s'identifiant comme blancs/caucasiens. Les résultats sont néanmoins cohérent avec le reste de la littérature sur l'aphantasie, avec aucun effet du langage. Cette étude interroge sur le potentiel intérêt de tenter de diffuser la présente étude à l'international.], avoir une vision normale ou corrigée et ne pas présenter de trouble de la lecture. Les participants aphantasiques seront recrutés en ligne sur des espaces spécifiques à leur condition (forums, groupes sur les réseaux sociaux, etc.). Nous nous intéressons à l'étude de l'aphantasie congénitale, les participants ne devront donc pas présenter d'antécédents de maladies neurologiques ou psychiatriques.      
+Les participants devront avoir entre 18 et 50 ans et être locuteurs natifs français^[Il est à noter que dans l'étude de Dawes et al. [-@dawesCognitiveProfileMultisensory2020], 31 pays de résidence ont été répertoriés, avec 83% (*N* = 220) déclarant que l'anglais était leur première langue, et 88% (*N* = 235), s'identifiant comme blancs/caucasiens. Les résultats sont néanmoins cohérents avec le reste de la littérature sur l'aphantasie, avec aucun effet du langage. Cette étude interroge sur le potentiel intérêt de tenter de diffuser la présente étude à l'international.], avoir une vision normale ou corrigée et ne pas présenter de trouble de la lecture. Les participants aphantasiques seront recrutés en ligne sur des espaces spécifiques à leur condition (forums, groupes sur les réseaux sociaux, etc.). Nous nous intéressons à l'étude de l'aphantasie congénitale, les participants ne devront donc pas présenter d'antécédents de maladies neurologiques ou psychiatriques.      
 
 Le critère répandu dans les études sur l'aphantasie pour identifier la condition est celui de l'auto-évaluation par le questionnaire VVIQ (Vividness of Visual Imagery Questionnaire, @marksVividnessVisualImagery1973), avec un score inférieur à 32 (voir la section *\nameref{questionnaires}*). Nous disposerons aussi de la composante objet de l'OSIQ (Object and Spatial Imagery Questionnaire, @blajenkovaObjectspatialImageryNew2006), fortement corrélée au VVIQ, fournissant donc des items supplémentaires - le seuil inférieur de ce questionnaire est évalué à 36, sur la base de deux écart-types à la moyenne de l'échantillon de @blajenkovaObjectspatialImageryNew2006. L'OSIQ, dans sa composante spatiale, sera par ailleurs utilisé pour l'auto-évaluation des capacités d'imagerie visuospatiales des participants, justifiant son utilisation en parallèle du VVIQ.   
 
@@ -18,7 +18,7 @@ Le protocole sera composé de plusieurs questionnaires et tâches qui seront adm
 
 ### Questionnaires
 
-#### *Vividness of Visual Imagery Questionnaire* (VVIQ). {-}
+#### *Vividness of Visual Imagery Questionnaire* (VVIQ) {.unnumbered}
 Dawes 2022
 The Vividness of Visual Imagery Questionnaire (VVIQ; Marks, 1995) is a 16-item scale which asks participants to imagine a person as well as several scenes and rate the vividness of these mental images using a 5-point scale ranging from 1 (“No image at all, you only “know” that you are thinking of the object”) to 5 (“Perfectly clear and <as> vivid as normal vision”). A single mean score on the VVIQ was computed for each participant. 
 Une faible capacité d'imagerie visuelle est généralement définie par un score total de 32 ou moins au questionnaire sur la vivacité de l'imagerie visuelle (VVIQ : voir Questionnaires sur l'imagerie dans les documents), une échelle d'auto-évaluation de Likert en cinq points qui varie de 16 à 80 (Marks, 1995 ; Zeman et al., 2015). Un score total de 32 équivaut à une note de 2 ("vague et faible") pour chaque item du questionnaire ; où 1 = "Pas d'image du tout, vous savez seulement que vous pensez à l'objet"). 
@@ -29,49 +29,49 @@ qui comporte 16 items et dans lequel le participant doit coter sur une échelle 
 Les scores vont de 16 à 80. 
 Il constitue le questionnaire subjectif de référence dans l'aphantasie. 
 
-#### *Object and Spatial Imagery Questionnaire* (OSIQ). {-}
+#### *Object and Spatial Imagery Questionnaire* (OSIQ). {.unnumbered}
 
 OSIQ
 The Object and Spatial Imagery Questionnaire (OSIQ; Blajenkova, Kozhevnikov, & Motes, 2006) is a 30-item scale which requires participants to indicate how well each of several statements on object imagery ability (e.g. “When I imagine the face of a friend, I have a perfectly clear and bright image”) and spatial imagery ability (e.g. “I am a good Tetris player”) applies to them on a 5-point scale ranging from 1 (“Totally disagree”) to 5 (“Totally agree”). There are 15 items each comprising the Object and Spatial imagery domains of the OSIQ, averaged to form a mean score on each domain.
 
-#### *Metacognition Awareness Inventory* (MAI). {-}
+#### Metacognition Awareness Inventory (MAI). {.unnumbered}
 Le second questionnaire était le MAI, Inventaire de Conscience Métacognitive (Schraw & Dennison, 1994)
 évalue les deux composantes de la métacognition : les connaissances métacognitives et la régulation métacognitive.
 
 ### Tâches
 
-#### Matrices de Raven. {-}
+#### Matrices de Raven. {.unnumbered}
 Sema
 version courte des matrices de Raven (Bilker et al., 2012)
 capacités de raisonnement visuel et d'induction et de déduction de règles (
 
-#### Tâche de Wason.{-}
+#### Tâche de Wason.{.unnumbered}
 Tâche de Wason, 1968
 courte tâche de raisonnement
 
-#### Sous-test des Similitudes de la WAIS-IV. {-}
+#### Sous-test des Similitudes de la WAIS-IV. {.unnumbered}
 les capacités d'abstraction et de conceptualisation verbale
 Subtest Similitudes de la WAIS-IV 
 
-#### Empan de chiffres envers. {-}
+#### Empan de chiffres envers. {.unnumbered}
 Empan de chiffre envers
 la mémoire de travail verbale, 
 
-#### *Wisconsin Card-Sorting Test*. {-}
+#### *Wisconsin Card-Sorting Test*. {.unnumbered}
 les fonctions exécutives
 WCST
 
-#### Compréhension en lecture.{-}
+#### Compréhension en lecture.{.unnumbered}
 et les capacités de compréhension en lecture
 Textes. Cette dernière épreuve constituait une tache écologique dans laquelle les images mentales pouvaient être sollicitées. 
 Tâche de lecture
 Concernant la tâche de lecture, les participants étaient soumis à un texte qu'ils devaient lire. Le temps de lecture est libre mais chronométré. A la fin de la lecture, le texte est caché. Les participants devaient ensuite répondre à des questions sur le texte qui étaient d'ordres explicite ou implicite.
 
-#### Blocs de Corsi. {-}
+#### Blocs de Corsi. {.unnumbered}
 
-#### Test de Rotation Mentale (MRT). {-}
+#### Test de Rotation Mentale (MRT). {.unnumbered}
 
-#### Spatial Reasoning Inventory (SRI). {-}
+#### Spatial Reasoning Inventory (SRI). {.unnumbered}
 
 ## Variables
 

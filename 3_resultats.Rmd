@@ -1,16 +1,15 @@
 ## Résultats
 
-### Différences de moyenne des deux groupes
+### Statistiques descriptives
 
-Spatial Ability Results. 
-Aphantasic participants reported slightly lower spatial imagery ability on the spatial sub-component of the OSIQ when compared to control group 1 (Mann-Whitney U = 24,462, p = 0.001, r = .15, BF10 = 14.65, two-sided; see Figure 2.1 purple section), although this effect was not significant after Bonferroni correction. Additionally, the scores of aphantasic individuals on the Spatial Memory component of the SAM (which includes items measuring reported spatial navigation and naturalistic spatial memory ability) were not significantly different from controls (SAM; Mann-Whitney U = 24,720, p = 0.1, r = .08, BF10 = .23, two-sided; see Figure 2.1 purple section). These results demonstrate that overall, there were no consistent differences in reported spatial abilities between aphantasic individuals and participants in control group 1.
+Violin plot vertical méga classe de Dawes pour afficher les scores des deux groupees sur tous les questionnaires
 
+On peut ici observer les différences entre les deux groupes sur différents scores, avec des distributions qui se recoupent, et des scores équivalents à certains endroits
 
-Lefèvre 2022
-
-Ptet aussi faire un tableau simple pour les moyennes générales
 
 ### Corrélations entre les variables mesurées
+
+Comme nous l'avons vu, il existe de nombreux liens (ici par construction, à des fins d'observation). La \autoref{network_plot} en donne une représentation graphique explicite (voir \autoref{correlation_matrix} en \nameref{annexes} pour une matrice avec l'ensemble des *r* de corrélation et leur significativité). Parmi les covariances significatives, le VVIQ et l'OSIQ-objet sont extrêmement proches `test de corrélation`, le MRT, le SRI, l'OSIQ-spatial et les blocs de Corsi (toutes des tâches impliquant de l'imagerie spatiale) forment un réseau très corrélé (voir \autoref{correlation_matrix} pour les corrélations deux à deux), l'empan de chiffres est proche des blocs de Corsi (tâches mnésiques), la tâche de lecture est lointaine et 
 
 ```{=latex}
 \begin{figure}[H]
@@ -22,30 +21,6 @@ Ptet aussi faire un tableau simple pour les moyennes générales
 \label{network_plot}
 \end{figure}
 ```
-
-<!--
-```{=latex}
-\begin{figure}[H]
-```
-```{r,correlation_matrix,eval=FALSE}
-```
-```{=latex}
-\caption{Matrice de corrélation entre les variables mesurées.}
-\label{correlation_matrix}
-\end{figure}
-```
-
-```{=latex}
-\begin{figure}[H]
-```
-```{r,mixed_matrix}
-```
-```{=latex}
-\caption{Matrice présentant les distributions des variables, l'analyse de leurs corrélations et les représentations associées.}
-\label{mixed_matrix}
-\end{figure}
-```
--->
 
 ### Analyses des groupes par partition non-supervisée
 
@@ -168,4 +143,14 @@ Je sais pas si elle a fait le tableau manuellement sur Rmd ou Latex ou R, mais l
 \end{figure}
 ```
 -->
+
+### Différences de moyenne des deux groupes
+
+Spatial Ability Results. 
+Aphantasic participants reported slightly lower spatial imagery ability on the spatial sub-component of the OSIQ when compared to control group 1 (Mann-Whitney U = 24,462, p = 0.001, r = .15, BF10 = 14.65, two-sided; see Figure 2.1 purple section), although this effect was not significant after Bonferroni correction. Additionally, the scores of aphantasic individuals on the Spatial Memory component of the SAM (which includes items measuring reported spatial navigation and naturalistic spatial memory ability) were not significantly different from controls (SAM; Mann-Whitney U = 24,720, p = 0.1, r = .08, BF10 = .23, two-sided; see Figure 2.1 purple section). These results demonstrate that overall, there were no consistent differences in reported spatial abilities between aphantasic individuals and participants in control group 1.
+
+
+Lefèvre 2022
+
+Ptet aussi faire un tableau simple pour les moyennes générales
 

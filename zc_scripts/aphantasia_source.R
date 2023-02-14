@@ -3,7 +3,7 @@
 # 
 # Delem, Fourment, Junoy, Leal De Almeida
 # Email : m.delem@univ-lyon2.fr
-# Last update : February 11, 2022
+# Last update : February 14, 2022
 
 # ---- setup -------------------------------------------------------------------
 
@@ -25,6 +25,7 @@ shelf(
   ggraph,     # auto graph layout
   igraph,     # network graphs
   equatiomatic, # model equation
+  papaja,     # apa things
 )
 
 # global theme

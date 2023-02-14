@@ -1,8 +1,36 @@
-# Annexes {-}
+# Annexes {.unnumbered}
 
-Ce manuscrit a été rédigé en [R Markdown](https://rmarkdown.rstudio.com) [@R-rmarkdown] et en \LaTeX, dans l'Environnement de Développement Intégré (IDE) [RStudio](https://posit.co/) [@positteamRStudioIntegratedDevelopment2022], par l'intermédiaire du package `knitr` [@knitr2014; @knitr2015; @R-knitr]. Il a été partagé entre collaborateurs à l'aide du package `trackdown` [@kotheTrackdownCollaborativeWriting2021] et de [*GitHub*](https://github.com/). Le code complet de ce manuscrit, de la simulation, des figures, tables et analyses est accessible dans [*le dossier de ce projet sur GitHub*](https://github.com/m-delem/aphantasia_project.git).     
+Ce manuscrit a été rédigé avec [R Markdown](https://rmarkdown.rstudio.com) [@R-rmarkdown], [Pandoc](https://pandoc.org/) [@R-pandoc], [Quarto](https://quarto.org/) [@R-quarto] et en \LaTeX, médiés par le package *knitr* [@knitr2014; @knitr2015; @R-knitr], dans l'Environnement de Développement Intégré (IDE) [RStudio](https://posit.co/) [@positteamRStudioIntegratedDevelopment2022]. Il a été partagé entre collaborateurs à l'aide du package *trackdown* [@kotheTrackdownCollaborativeWriting2021] et de [*GitHub*](https://github.com/). Le code complet de ce manuscrit, de la simulation, des figures, tables et analyses est accessible dans [*le dossier de ce projet sur GitHub*](https://github.com/m-delem/aphantasia_project.git).     
 
-La préparation du code, la simulation, les figures, tables et analyses ont nécessité les packages `cluster, correlation, corrr, datasets, datawizard, dplyr, easystats, effectsize, equatiomatic, ez, factoextra, forcats, GGally, ggplot2, ggpubr, ggradar, ggraph, igraph, insight, librarian, lme4, lmerTest, MASS, Matrix, modelbased, purrr, rstatix, stats, tidyr, et tidyverse` [@datawizard2022; @R-cluster; @R-correlation; @R-corrr; @R-dplyr; @R-easystats; @R-effectsize; @R-equatiomatic; @R-ez; @R-factoextra; @R-forcats; @R-GGally; @R-ggpubr; @R-ggradar; @R-ggraph; @igraph2006; @R-insight; @R-librarian; @R-lme4; @R-lmerTest; @R-MASS; @R-Matrix; @R-modelbased; @R-purrr; @R-rstatix; @R-tidyr; @R-tidyverse; @tidyverse2019].
+La préparation du code, la simulation, les figures, tables et analyses ont nécessité les packages *cluster* [@R-cluster], *correlation* [@R-correlation], *corrr* [@R-corrr], *datawizard* [@datawizard2022], *dplyr* [@R-dplyr], *easystats* [@R-easystats], *effectsize* [@R-effectsize], *equatiomatic* [@R-equatiomatic], *ez* [@R-ez], *factoextra* [@R-factoextra], *forcats* [@R-forcats], *GGally* [@R-GGally], *ggpubr* [@R-ggpubr], *ggradar* [@R-ggradar], *ggraph* [@R-ggraph], *igraph* [@igraph2006], *insight* [@R-insight], *librarian* [@R-librarian], *lme4* [@R-lme4], *lmerTest* [@R-lmerTest], *MASS* [@R-MASS], *Matrix* [@R-Matrix], *modelbased* [@R-modelbased], *purrr* [@R-purrr], *rstatix* [@R-rstatix], *tidyr* [@R-tidyr], et *tidyverse* [@R-tidyverse; @tidyverse2019].
 
-<!-- Ajouter les tableaux summary des moyennes et écarts types de chaque groupe à chaque score dans la simulation -->
+<!-- 
+Ajouter les tableaux summary des moyennes et écarts types de chaque groupe à chaque score dans la simulation ? 
+Ou juste ajouter tous les graphiques intéressants mais trop gros pour le manuscrit ?
+-->
 
+<!--
+```{=latex}
+\begin{figure}[H]
+```
+-->
+```{r,correlation_matrix,fig.cap="Matrice de corrélation."}
+```
+<!--
+```{=latex}
+\caption{Matrice de corrélation entre les variables mesurées.}
+\label{correlation_matrix}
+\end{figure}
+```
+-->
+
+<!-- triple figure that span the entire screen
+```{r}
+#| column: screen-inset-shaded
+#| layout-nrow: 1
+
+plot(cars)
+plot(iris)
+plot(pressure)
+```
+-->
