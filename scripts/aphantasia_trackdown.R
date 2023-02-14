@@ -5,6 +5,13 @@
 # loading
 shelf(trackdown)
 
+# check packages
+print(.packages())
+
+#  add packages to a new .bib
+knitr::write_bib(x = c(.packages()), file = "packages.bib")
+# --> add the .bib to Zotero and use citr here
+
 # upload the Rmds to GDrive
 upload_file("xxxxxxxxxxxx.Rmd",
             gfile = "xxxxxxxxxxxx",

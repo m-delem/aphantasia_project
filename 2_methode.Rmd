@@ -136,6 +136,7 @@ OSIQ spatial total score < 25);
 Sema :      
 L'analyse des résultats sera effectuée avec le logiciel JASP (Love et al., 2019). Des t-students et des ANOVAs seront menés en premier lieu afin d'observer s'il existe des différences dans les VD entre les aphantasiques et les non-aphantasiques. Des analyses corrélationnelles (Bravais-Pearson) seront ensuite effectuées sur les différentes mesures, ainsi que des régressions. Les données seront ensuite soumises à des analyses par clusters.
 
+L'analyse des données a été menée sur R
 <!--
 Dawes 2022
 

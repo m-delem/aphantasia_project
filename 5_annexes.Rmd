@@ -1,4 +1,7 @@
 # Annexes {-}
+Ce manuscrit a été rédigé en [R Markdown](https://rmarkdown.rstudio.com) [@R-rmarkdown] et en \LaTeX, dans l'Environnement de Développement Intégré (IDE) [RStudio](https://posit.co/) , par l'intermédiaire du package `knitr` [@knitr2014; @knitr2015; @R-knitr]. Il a été partagé entre collaborateurs à l'aide du package `trackdown` [@kotheTrackdownCollaborativeWriting2021] et de [*GitHub*](https://github.com/). Le code complet de ce manuscrit, de la simulation, des figures, tables et analyses est accessible dans [*le dossier de ce projet sur GitHub*](https://github.com/m-delem/aphantasia_project.git).     
 
-Le code complet de ce manuscrit, de la simulation, des figures, tables et analyses est accessible dans [le dossier de ce projet sur *GitHub*](https://github.com/m-delem/aphantasia_project.git).
+La préparation du code, la simulation, les figures, tables et analyses ont nécessité les packages `cluster, correlation, corrr, datasets, datawizard, dplyr, easystats, effectsize, equatiomatic, ez, factoextra, forcats, GGally, ggplot2, ggpubr, ggradar, ggraph, igraph, insight, librarian, lme4, lmerTest, MASS, Matrix, modelbased, purrr, rstatix, tidyr, et tidyverse` [@datawizard2022; @R-cluster; @R-correlation; @R-corrr; @R-dplyr; @R-easystats; @R-effectsize; @R-equatiomatic; @R-ez; @R-factoextra; @R-forcats; @R-GGally; @R-ggpubr; @R-ggradar; @R-ggraph; @igraph2006; @R-insight; @R-librarian; @R-lme4; @R-lmerTest; @R-MASS; @R-Matrix; @R-modelbased; @R-purrr; @R-rstatix; @R-tidyr; @R-tidyverse; @tidyverse2019].
+
+<!-- Ajouter les tableaux summary des moyennes et écarts types de chaque groupe à chaque score dans la simulation -->
 

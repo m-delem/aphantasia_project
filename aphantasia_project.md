@@ -53,14 +53,7 @@ Et est-ce qu'il y aurait moyen de faire une mention de l'hyper-stylé \hyperref[
 Test pour référencer des sections : ici on va envoyer vers la section *\nameref{imagerie-visuelle-et-aphantasie}*, puis vers la sous-section *\nameref{questionnaires}*. Pile ce dont on a besoin !
 
 Bon. Dernière étape. Des liens vers chaque référence individuellement...
-Par exemple [@bainbridgeQuantifyingAphantasiaDrawing2021]. Ca marche ?       
-.      
-.       
-.     
-Malheureusement oui... Ca a pris trois - littéralement **trois** heures à écrire et échouer à faire fonctionner du LaTeX dans les sous-fichiers, pour au final découvrir dans la documentation de Pandoc (que le Cookbook disait être *essentielle* à lire, et que bien sûr j'ai pas lu)... Qu'il fallait ajouter une ligne au YAML, `link-citations: yes`. Envie de caner.     
-Mais bon, on a réussi, youpi ! Ouais, ouais... *tocard*... 
-
-
+Par exemple [@bainbridgeQuantifyingAphantasiaDrawing2021]. Ca marche ? Oui.
 
 \newpage
 <!-- Introduction -->
@@ -314,6 +307,7 @@ OSIQ spatial total score < 25);
 Sema :      
 L'analyse des résultats sera effectuée avec le logiciel JASP (Love et al., 2019). Des t-students et des ANOVAs seront menés en premier lieu afin d'observer s'il existe des différences dans les VD entre les aphantasiques et les non-aphantasiques. Des analyses corrélationnelles (Bravais-Pearson) seront ensuite effectuées sur les différentes mesures, ainsi que des régressions. Les données seront ensuite soumises à des analyses par clusters.
 
+L'analyse des données a été menée sur R
 <!--
 Dawes 2022
 
@@ -538,13 +532,16 @@ Je sais pas si elle a fait le tableau manuellement sur Rmd ou Latex ou R, mais l
 
 \newpage
 # Références {-}
-
+<!-- Insérer les références précisément ici -->
 <div id="refs"></div>
 
 \newpage
 <!-- Annexes -->
 
 # Annexes {-}
+Ce manuscrit a été rédigé en [R Markdown](https://rmarkdown.rstudio.com) [@R-rmarkdown] et en \LaTeX, dans l'Environnement de Développement Intégré [RStudio](https://posit.co/) , par l'intermédiaire du package `knitr` [@knitr2014; @knitr2015; @R-knitr]. Il a été partagé entre collaborateurs à l'aide du package `trackdown` [@kotheTrackdownCollaborativeWriting2021] et de [*GitHub*](https://github.com/). Le code complet de ce manuscrit, de la simulation, des figures, tables et analyses est accessible dans [*le dossier de ce projet sur GitHub*](https://github.com/m-delem/aphantasia_project.git).     
 
-Le code complet de ce manuscrit, de la simulation, des figures, tables et analyses est accessible dans [le dossier de ce projet sur *GitHub*](https://github.com/m-delem/aphantasia_project.git).
+La préparation du code, la simulation, les figures, tables et analyses ont nécessité les packages `cluster, correlation, corrr, datasets, datawizard, dplyr, easystats, effectsize, equatiomatic, ez, factoextra, forcats, GGally, ggplot2, ggpubr, ggradar, ggraph, igraph, insight, librarian, lme4, lmerTest, MASS, Matrix, modelbased, purrr, rstatix, tidyr, et tidyverse` [@datawizard2022; @R-cluster; @R-correlation; @R-corrr; @R-dplyr; @R-easystats; @R-effectsize; @R-equatiomatic; @R-ez; @R-factoextra; @R-forcats; @R-GGally; @R-ggpubr; @R-ggradar; @R-ggraph; @igraph2006; @R-insight; @R-librarian; @R-lme4; @R-lmerTest; @R-MASS; @R-Matrix; @R-modelbased; @R-purrr; @R-rstatix; @R-tidyr; @R-tidyverse; @tidyverse2019].
+
+<!-- Ajouter les tableaux summary des moyennes et écarts types de chaque groupe à chaque score dans la simulation -->
 
