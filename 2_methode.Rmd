@@ -115,7 +115,7 @@ y = \frac{x - (S.min + \frac{S.max -S.min}{2})}{S.max-S.min}
 $$
 Où y est le score transformé, x le score brut, S.min le score minimum et S.max le maximum. Dans les présentes analyses nous avons choisi la deuxième solution, en standardisant les scores en z-scores via la fonction `scale()` sur R, puis en les ramenant sur une échelle de 0 à 1, avec une médiane à 0.5, via la fonction `rescale()` du package `datawizard` sur R - de sorte à pouvoir construire des profils plus aisément. Nous n'avons pas eu besoin ici d'utiliser une transformation normale, car les données ont déjà été simulées comme tel.
 
-### Composantes principales et *clustering*
+### Analyse Factorielle Multiple et *clustering*
 
 Comme nous l'avons mentionné dans la section *\nameref{simulation}*, nos variables initiales (les scores) ont pour certaines des corrélations très significatives entre elles du fait de la proximité des capacités cognitives qu'elles évaluent. Nous pourrons alors réduire le nombre de variables en isolant des dimensions essentielles qu'elles représentent par une **analyse en composantes principales** (ACP). Celle-ci nous permettra alors de combiner les scores de différentes tâches pour les ramener à des scores liés à des capacités cognitives (e.g. un score en imagerie visuelle au lieu de deux scores au VVIQ et à l'OSIQ-objet). Cette analyse a ici été conduite sur R via la fonction `fviz_pca_var()` du package `factoextra`.
 

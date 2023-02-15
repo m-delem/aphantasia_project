@@ -213,7 +213,7 @@
 
 \newpage{}
 
-\ifdefined\Shaded\renewenvironment{Shaded}{\begin{tcolorbox}[boxrule=0pt, borderline west={3pt}{0pt}{shadecolor}, interior hidden, enhanced, sharp corners, frame hidden, breakable]}{\end{tcolorbox}}\fi
+\ifdefined\Shaded\renewenvironment{Shaded}{\begin{tcolorbox}[sharp corners, interior hidden, borderline west={3pt}{0pt}{shadecolor}, boxrule=0pt, breakable, enhanced, frame hidden]}{\end{tcolorbox}}\fi
 
 \renewcommand*\contentsname{Table des matières}
 {
@@ -1196,9 +1196,9 @@ package \texttt{datawizard} sur R - de sorte à pouvoir construire des
 profils plus aisément. Nous n'avons pas eu besoin ici d'utiliser une
 transformation normale, car les données ont déjà été simulées comme tel.
 
-\hypertarget{composantes-principales-et-clustering}{%
-\subsubsection{\texorpdfstring{Composantes principales et
-\emph{clustering}}{Composantes principales et clustering}}\label{composantes-principales-et-clustering}}
+\hypertarget{analyse-factorielle-multiple-et-clustering}{%
+\subsubsection{\texorpdfstring{Analyse Factorielle Multiple et
+\emph{clustering}}{Analyse Factorielle Multiple et clustering}}\label{analyse-factorielle-multiple-et-clustering}}
 
 Comme nous l'avons mentionné dans la section
 \emph{\nameref{simulation}}, nos variables initiales (les scores) ont
@@ -1282,7 +1282,7 @@ restent à définir.
 descriptives}\label{statistiques-descriptives}}
 
 Les statistiques descriptives de notre échantillon sont en
-\autoref{desc}.
+\autoref{descriptives}.
 
 \begin{longtable}[]{@{}lrrrr@{}}
 \toprule()
@@ -1309,137 +1309,286 @@ SRI & 37.463108 & 7.429337 & 14.6270358 & 69.13171 \\
 \bottomrule()
 \caption{Statistiques descriptives de l'ensemble des variables mesurées
 : Moyenne (\emph{Mean}), Écart-type (\emph{SD}), Minimum (\emph{Min}) et
-Maximum (\emph{Max}).\label{desc}}\tabularnewline
+Maximum (\emph{Max}).\label{descriptives}}\tabularnewline
 \end{longtable}
 
-On a conduit une ANOVA entre les deux groupes sur les scores au VVIQ
-(voir \autoref{vv})
+\hypertarget{analyse-factorielle-multiple}{%
+\subsubsection{Analyse Factorielle
+Multiple}\label{analyse-factorielle-multiple}}
 
-\begin{longtable}[]{@{}lrrrrrr@{}}
-\toprule()
-Parameter & Sum\_Squares & df & Mean\_Square & F & p & Eta2 \\
-\midrule()
-\endfirsthead
-\toprule()
-Parameter & Sum\_Squares & df & Mean\_Square & F & p & Eta2 \\
-\midrule()
-\endhead
-Group & 108107.6 & 1 & 108107.63 & 1083.06 & 1.26443e-115 & 0.73 \\
-Residuals & 39727.0 & 398 & 99.82 & & & \\
-\bottomrule()
-\caption{Anova conduite sur les groupes pour le score au
-VVIQ.\label{vv}}\tabularnewline
-\end{longtable}
-
-\hypertarget{corruxe9lations-entre-les-variables-mesuruxe9es}{%
-\subsubsection{Corrélations entre les variables
-mesurées}\label{corruxe9lations-entre-les-variables-mesuruxe9es}}
-
-\emph{correlation} de \emph{easystats}\\
 Comme nous l'avons vu, il existe de nombreux liens (ici par
-construction, à des fins d'observation). La \autoref{ggm} en donne une
-représentation graphique explicite. Parmi les covariances
-significatives, le VVIQ et l'OSIQ-objet sont extrêmement proches
-\texttt{test\ de\ corrélation}, le MRT, le SRI, l'OSIQ-spatial et les
-blocs de Corsi (toutes des tâches impliquant de l'imagerie spatiale)
-forment un réseau très corrélé,l'empan de chiffres est proche des blocs
-de Corsi (tâches mnésiques), la tâche de lecture est lointaine et
+construction, à des fins d'observation). La \autoref{ggm_graph} en donne
+une représentation graphique explicite.
+
+Parmi les covariances significatives, le VVIQ et l'OSIQ-objet sont
+extrêmement proches, le MRT, le SRI, l'OSIQ-spatial et les blocs de
+Corsi (toutes des tâches impliquant de l'imagerie spatiale) forment un
+réseau très corrélé,l'empan de chiffres est proche des blocs de Corsi
+(tâches mnésiques) (Voir la \autoref{correlation_matrix} en
+\nameref{annexes} pour tous les coefficients de corrélation et leur
+significativité).
 
 \begin{figure}[H]
 
-\includegraphics[width=\textwidth,height=0.5\textheight]{aphantasia_quarto_files/figure-pdf/ggm-1.pdf}
+\includegraphics[width=\textwidth,height=0.5\textheight]{aphantasia_quarto_files/figure-pdf/ggm_graph-1.pdf}
 
-\caption{Représentation des corrélations entre les variables mesurées. Les liens bleus dénotent une corrélation positive, et les rouges une corrélation négative. Cette figure illustre les choix de pondération réalisés à l'étape de simulation : on peut notamment voir des corrélations très prononcées entre le VVIQ et l'OSIQ-objet (r = 0.77*) qui évaluent tous deux l'imagerie objet, le Digit Span et les blocs de Corsi (r = 0.68*) qui évaluent entre autres la mémoire de travail, ou encore entre l'OSIQ-spatial et le SRI, qui respectivement l'auto-évaluation et la tâche les plus spécifiques de l'imagerie spatiale.}
-\label{ggm}
+\caption{Représentation des corrélations entre les variables mesurées. Les liens bleus dénotent une corrélation positive, et les rouges une corrélation négative. Cette figure illustre les choix de pondération réalisés à l'étape de simulation : on peut notamment voir des corrélations très prononcées entre le VVIQ et l'OSIQ-objet (r = 0.77, p<.001) qui évaluent tous deux l'imagerie objet, le Digit Span et les blocs de Corsi (r = 0.68, p<.001) qui évaluent entre autres la mémoire de travail, ou encore entre l'OSIQ-spatial et le SRI, qui sont respectivement l'auto-évaluation et la tâche les plus spécifiques de l'imagerie spatiale.}
+\label{ggm_graph}
 \end{figure}
 
-\hypertarget{analyse-de-facteurs}{%
-\subsubsection{Analyse de facteurs}\label{analyse-de-facteurs}}
+Gaussian Graphical Models (GGMs) Such partial correlations can also be
+represented as Gaussian Graphical Models (GGM), an increasingly popular
+tool in psychology. A GGM traditionally include a set of variables
+depicted as circles (``nodes''), and a set of lines that visualize
+relationships between them, which thickness represents the strength of
+association (see Bhushan et al., 2019).
 
-\emph{check\_factorstructure} de \emph{easystats} Is the data suitable
-for Factor Analysis? - KMO: The Kaiser, Meyer, Olkin (KMO) measure of
+Is the data suitable for Factor Analysis? Nous avons évalué que les
+données étaient adaptées à une analyse factorielle multiple avec
+plusieurs indices : - KMO: The Kaiser, Meyer, Olkin (KMO) measure of
 sampling adequacy suggests that data seems appropriate for factor
 analysis (KMO = 0.82). - Sphericity: Bartlett's test of sphericity
 suggests that there is sufficient significant correlation in the data
 for factor analysis (Chisq(66) = 3194.04, p \textless{} .001).
 
-\hypertarget{analyses-des-groupes-par-partition-non-supervisuxe9e}{%
-\subsubsection{Analyses des groupes par partition
-non-supervisée}\label{analyses-des-groupes-par-partition-non-supervisuxe9e}}
+The choice of 3 dimensions is supported by 5 (35.71\%) methods out of 14
+(CNG, Optimal coordinates, Parallel analysis, Kaiser criterion, Scree
+(SE))\footnote{Nous avons par ailleurs mené une analyse à quatre
+  facteurs, dans la mesure où ce nombre était le deuxième le plus
+  supporté par les indices de détermination : la quatrième dimension
+  identifiée par cette analyse rassemble quasi-exclusivement les scores
+  au Corsi et à l'Empan Verbal, soit les deux tâches de mémoire de
+  travail. Voir la \autoref{loadings_graph_annex} en \nameref{annexes}.
+  The 4 latent factors (cluster rotation) accounted for 67.82\% of the
+  total variance of the original data (MR1 = 25.86\%, MR2 = 21.57\%, MR3
+  = 12.91\%, MR4 = 7.48\%).}. Nous avons donc conduit l'analyse avec la
+fonction \texttt{factor\_analysis} du package \emph{parameters} sur R.
+La \autoref{loadings_tbl} présente les capacités explicatives de chaque
+composante sur la variance de totale de l'échantillon. The 3 latent
+factors (cluster rotation) accounted for 62.55\% of the total variance
+of the original data (MR1 = 26.91\%, MR2 = 21.53\%, MR3 = 14.11\%). La
+distribution des poids de chaque variable selon les facteurs est
+présentée en \autoref{loadings_graph}.
+
+\begin{longtable}[]{@{}lrrr@{}}
+\toprule()
+Parameter & MR1 & MR2 & MR3 \\
+\midrule()
+\endfirsthead
+\toprule()
+Parameter & MR1 & MR2 & MR3 \\
+\midrule()
+\endhead
+Eigenvalues & 4.545 & 2.000 & 0.961 \\
+Variance & 0.269 & 0.215 & 0.141 \\
+Variance\_Cumulative & 0.269 & 0.484 & 0.626 \\
+Variance\_Proportion & 0.430 & 0.344 & 0.226 \\
+\bottomrule()
+\caption{Analyses des performances en termes de variance expliquée des
+facteurs détérminés selon une rotation adaptée à une analyse de
+clusters.\label{loadings_tbl}}\tabularnewline
+\end{longtable}
+
+\begin{figure}[h]
+
+\includegraphics[width=\textwidth,height=0.5\textheight]{aphantasia_quarto_files/figure-pdf/loadings_graph-1.pdf}
+
+\caption{Rotated loadings from factor analysis.}
+\label{loadings_graph}
+\end{figure}
+
+A partir de cette distribution et de l'analyse en graphes de nos
+facteurs, nous avons catégorisé les trois composantes : la première, la
+plus corrélée au SRI, au MRT, à l'OSIQ-Spatial et aux blocs de Corsi
+(toutes des tâches ayant une composante spatiale) sera appelée
+\textbf{Imagerie Spatiale}. La seconde, corrélée au VVIQ, à l'OSIQ-Objet
+et au Wason, sera l'\textbf{Imagerie Objet}. La dernière, corrélée aux
+Matrices de Raven, aux Similitudes, à la compréhension en lecture et au
+WCST, sera le \textbf{Raisonnement}.
+
+\hypertarget{analyse-en-clusters}{%
+\subsubsection{\texorpdfstring{Analyse en
+\emph{clusters}}{Analyse en clusters}}\label{analyse-en-clusters}}
+
+The dataset is suitable for clustering (Hopkins' H =
+0.23).(\protect\hyperlink{ref-lawsonNewIndexClustering1990}{Lawson \&
+Jurs, 1990}) This checks whether the data is appropriate for clustering
+using the Hopkins' H statistic of given data. If the value of Hopkins
+statistic is close to 0 (below 0.5), then we can reject the null
+hypothesis and conclude that the dataset is significantly clusterable. A
+value for H lower than 0.25 indicates a clustering tendency at the 90\%
+confidence level. The visual assessment of cluster tendency (VAT)
+approach (Bezdek and Hathaway, 2002) consists in investigating the
+heatmap of the ordered dissimilarity matrix. Following this, one can
+potentially detect the clustering tendency by counting the number of
+square shaped blocks along the diagonal.
+
+Lefèvre 2022 La création de ces profils dans notre échantillon repose
+sur les trois compétences du langage écrit : fluence et compréhension en
+lecture et orthographe. Nous avons calculé une matrice de dissimilarité
+puis le nombre de clusters a été calculé grâce à l'ensemble des indices
+présents dans le package R NbClus (Charrad et al., 2014). La majorité
+des indices propose un nombre optimal de quatre clusters pour notre
+échantillon. Une implémentation multiple (n = 1000) de l'algorithme des
+k-means a été conduite avec 4 clusters sur l'ensemble de l'échantillon.
+
+The choice of 2 clusters is supported by 14 (48.28\%) methods out of 29
+(Elbow, Silhouette, Ch, CCC, Cindex, DB, Duda, Pseudot2, Beale,
+Ratkowsky, Mcclain, SDindex, Mixture (EVE), Mixture (VVE)).
+
+(Avec les anciennes variables : The 2 clusters accounted for 25.77\% of
+the total variance of the original data. The 4 clusters accounted for
+41.79\% of the total variance of the original data. r2 0.25 et 0.42 )
+(The 4 clusters accounted for 60.70\% of the total variance of the
+original data. The 2 clusters accounted for 37.26\% of the total
+variance of the original data.)
+
+Les observations étaient ensuite attribuées au cluster le plus probable
+en termes d'assignation. Le résultat des k-means est représenté dans la
+\autoref{kmeans_plot}, et les profils cognitifs associés sur les trois
+capacités en \autoref{radar}.
 
 \begin{figure}[H]
 
-\caption{Graphique représentatant l'évalution du nombre idéal de clusters par la méthode 'Within Sum of Squares'.}
-\label{cluster_number}
+\includegraphics[width=\textwidth,height=0.5\textheight]{aphantasia_quarto_files/figure-pdf/kmeans_plot-1.pdf}
+
+\caption{Représentation des clusters reconnus par la méthode des 'k-means', selon les deux composantes principales de l'AFM.}
+\label{kmeans_plot}
+\end{figure}
+
+Les profils ont ensuite été étudiés sur leur composition en fonction du
+diagnostic initial et sur les compétences cognitives du profil et celles
+sous-tendant ces performances grâce à des comparaisons de groupes.
+
+\begin{figure}[h]
+
+\includegraphics[width=1\textwidth,height=0.5\textheight]{aphantasia_quarto_files/figure-pdf/radar-1.pdf}
+
+\caption{Diagramme représentatant les profils cognitifs associés à chaque cluster, selon  trois dimensions principales : l'imagerie visuelle-objet, l'imagerie visuo-spatiale et le raisonnement.}
+\label{radar}
 \end{figure}
 
 \begin{figure}[H]
 
-\caption{Représentation de l'analyse en composantes principales des variables mesurées.}
-\label{pca_variables}
+\includegraphics[width=\textwidth,height=0.5\textheight]{aphantasia_quarto_files/figure-pdf/lollipop-1.pdf}
+
+\caption{Représentation des moyennes de chaque cluster pour les trois capacités cognitives.}
+\label{lollipop}
 \end{figure}
 
-\begin{figure}[H]
+La \autoref{repartition} présente la répartition dans les nouveaux
+clusters des participants initialement identifiés comme aphantasiques ou
+non par le VVIQ. Les clusters 3 et 4 sont représentatifs de l'importance
+du critère de l'imagerie visuelle-objet : ils sont composés
+respectivement de 100\% de contrôles et de 100\% d'aphantasiques. Les
+clusters 1 et 2 sont néanmoins plus équilibrés,
 
-\caption{Représentation des clusters reconnus par la méthode des 'k-means', selon les deux composantes principales de l'ACP.}
-\label{k_means}
-\end{figure}
+\ldots et reflèteraient potentiellement la nécessité de raffiner la
+définition de l'imagerie visuelle, ou de considérer celle-ci comme un
+continuum avec des corrélations spécifiques.
 
-\hypertarget{analyse-des-clusters}{%
-\subsubsection{Analyse des clusters}\label{analyse-des-clusters}}
-
-\begin{figure}[H]
-
-\caption{Diagramme représentatant les profils cognitifs associés à chaque cluster, selon quatre dimensions principales : l'imagerie visuelle-objet, l'imagerie visuo-spatiale, le raisonnement et les fonctions exécutives.}
-\label{profiles_radar}
-\end{figure}
-
-\begin{figure}[H]
-
-\caption{Représentation alternative des profils cognitifs associés aux clusters.}
-\label{profiles_lollipop}
-\end{figure}
-
-\hypertarget{comparaison-des-profils-cognitifs}{%
-\subsubsection{Comparaison des profils
-cognitifs}\label{comparaison-des-profils-cognitifs}}
-
-\begin{figure}[H]
-
-\caption{Répartion des groupes par cluster.}
-\label{cluster_repatition}
-\end{figure}
-
-\begin{figure}[H]
-
-\caption{Comparaison des moyennes de score d'imagerie visuelle-objet entre les quatre groupes identifiés.}
-\label{object_img_violins}
-\end{figure}
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 10\tabcolsep) * \real{0.0930}}
+  >{\raggedleft\arraybackslash}p{(\columnwidth - 10\tabcolsep) * \real{0.2093}}
+  >{\raggedleft\arraybackslash}p{(\columnwidth - 10\tabcolsep) * \real{0.1744}}
+  >{\raggedleft\arraybackslash}p{(\columnwidth - 10\tabcolsep) * \real{0.1512}}
+  >{\raggedleft\arraybackslash}p{(\columnwidth - 10\tabcolsep) * \real{0.1628}}
+  >{\raggedleft\arraybackslash}p{(\columnwidth - 10\tabcolsep) * \real{0.2093}}@{}}
+\toprule()
+\begin{minipage}[b]{\linewidth}\raggedright
+Cluster
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+Imagerie Spatiale
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+Imagerie Objet
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+Raisonnement
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+Aphantasiques
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+Non-Aphantasiques
+\end{minipage} \\
+\midrule()
+\endfirsthead
+\toprule()
+\begin{minipage}[b]{\linewidth}\raggedright
+Cluster
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+Imagerie Spatiale
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+Imagerie Objet
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+Raisonnement
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+Aphantasiques
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+Non-Aphantasiques
+\end{minipage} \\
+\midrule()
+\endhead
+1 & -0.2435470 & -0.7742495 & -0.1801197 & 42 & 73 \\
+2 & 0.4247462 & 0.7090962 & 0.6260035 & 29 & 49 \\
+3 & 1.1891565 & -0.9185303 & 0.8451114 & 0 & 81 \\
+4 & -0.8051109 & 0.8581758 & -0.7664169 & 126 & 0 \\
+\bottomrule()
+\caption{Moyennes évaluée à chaque compétence et répartion des effectifs
+par cluster.\label{repartition}}\tabularnewline
+\end{longtable}
 
 \hypertarget{diffuxe9rences-de-moyenne-des-deux-groupes}{%
 \subsubsection{Différences de moyenne des deux
 groupes}\label{diffuxe9rences-de-moyenne-des-deux-groupes}}
 
-Spatial Ability Results. Aphantasic participants reported slightly lower
-spatial imagery ability on the spatial sub-component of the OSIQ when
-compared to control group 1 (Mann-Whitney U = 24,462, p = 0.001, r =
-.15, BF10 = 14.65, two-sided; see Figure 2.1 purple section), although
-this effect was not significant after Bonferroni correction.
-Additionally, the scores of aphantasic individuals on the Spatial Memory
-component of the SAM (which includes items measuring reported spatial
-navigation and naturalistic spatial memory ability) were not
-significantly different from controls (SAM; Mann-Whitney U = 24,720, p =
-0.1, r = .08, BF10 = .23, two-sided; see Figure 2.1 purple section).
-These results demonstrate that overall, there were no consistent
-differences in reported spatial abilities between aphantasic individuals
-and participants in control group 1.
+Nous avons ajusté des modèles linéaires sur nos données pour prédire les
+nouveaux scores de \emph{Raisonnement}, d'\emph{Imagerie Objet} et
+d'\emph{Imagerie Spatiale} en fonction des clusters. Ces modèles ont
+permis d'expliquer une part de variance importante et statistiquement
+significative des scores en Raisonnement (\(r^2\) = 0.49, \emph{F}(3,
+396) = 128.86, \emph{p} \textless{} .001, adj. \(r^2\) ajusté = 0.49),
+en Imagerie Objet (\(r^2\) = 0.69, \emph{F}(3, 396) = 290.12,
+\emph{p}\textless{} .001, \(r^2\) ajusté = 0.68) et en Imagerie Spatiale
+(\(r^2\) = 0.56, \emph{F}(3, 396) = 168.39, \emph{p} \textless{} .001,
+\(r^2\) ajusté = 0.56).
 
-Lefèvre 2022
-
-Ptet aussi faire un tableau simple pour les moyennes générales
+Les comparaisons ont été ajustées sur un intercept centré par rapport
+aux données standardisées, pour pouvoir contraster chaque cluster par
+rapport à la moyenne globale. Nous observons pour tous les clusters des
+effets statistiquement significatifs sur les trois composantes (les
+\emph{p} values seront précisées plus bas). Ainsi nous observons, par
+cluster : - Le cluster 1 a un effet négatif sur le Raisonnement (beta =
+-0.18, 95\% CI {[}-0.30, -0.06{]}, t(396) = -2.95, p = 0.003; Std. beta
+= -0.20, 95\% CI {[}-0.33, -0.07{]}), sur l'Imagerie Objet (beta =
+-0.77, 95\% CI {[}-0.88, -0.67{]}, t(396) = -14.93, p \textless{} .001;
+Std. beta = -0.78, 95\% CI {[}-0.88, -0.68{]}) et sur l'Imagerie
+Spatiale (beta = -0.24, 95\% CI {[}-0.36, -0.12{]}, t(396) = -3.98, p
+\textless{} .001; Std. beta = -0.25, 95\% CI {[}-0.37, -0.13{]}). - Le
+cluster 2 a un effet positif sur le Raisonnement (beta = 0.63, 95\% CI
+{[}0.48, 0.77{]}, t(396) = 8.43, p \textless{} .001; Std. beta = 0.68,
+95\% CI {[}0.52, 0.84{]}), positif sur l'Imagerie Objet (beta = 0.71,
+95\% CI {[}0.59, 0.83{]}, t(396) = 11.26, p \textless{} .001; Std. beta
+= 0.72, 95\% CI {[}0.59, 0.84{]}) et sur l'Imagerie Spatiale (beta =
+0.42, 95\% CI {[}0.28, 0.57{]}, t(396) = 5.72, p \textless{} .001; Std.
+beta = 0.43, 95\% CI {[}0.28, 0.58{]}) - Le cluster 3 a un effet positif
+sur le Raisonnement (beta = 0.85, 95\% CI {[}0.70, 0.99{]}, t(396) =
+11.60, p \textless{} .001; Std. beta = 0.92, 95\% CI {[}0.76, 1.08{]}),
+négatif sur l'Imagerie Objet (beta = -0.92, 95\% CI {[}-1.04, -0.80{]},
+t(396) = -14.86, p \textless{} .001; Std. beta = -0.93, 95\% CI
+{[}-1.05, -0.80{]}), et positif sur l'Imagerie Spatiale (beta = 1.19,
+95\% CI {[}1.05, 1.33{]}, t(396) = 16.33, p \textless{} .001; Std. beta
+= 1.21, 95\% CI {[}1.06, 1.35{]}) - Le cluster 4 a un effet négatif sur
+le Raisonnement (beta = -0.77, 95\% CI {[}-0.88, -0.65{]}, t(396) =
+-13.12, p \textless{} .001; Std. beta = -0.83, 95\% CI {[}-0.96,
+-0.71{]}), positif sur l'Imagerie Objet (beta = 0.86, 95\% CI {[}0.76,
+0.96{]}, t(396) = 17.32, p \textless{} .001; Std. beta = 0.87, 95\% CI
+{[}0.77, 0.96{]}) et négatif sur l'Imagerie Spatiale (beta = -0.81, 95\%
+CI {[}-0.92, -0.69{]}, t(396) = -13.79, p \textless{} .001; Std. beta =
+-0.82, 95\% CI {[}-0.93, -0.70{]}).
 
 \hypertarget{discussion}{%
 \section{Discussion}\label{discussion}}
+
+\hypertarget{profils-cognitifs}{%
+\subsection{Profils cognitifs}\label{profils-cognitifs}}
 
 \newpage
 
@@ -1751,6 +1900,11 @@ Lawrence, M. A. (2016). \emph{Ez: {Easy} Analysis and Visualization of
 Factorial Experiments} {[}Manual{]}.
 \url{http://github.com/mike-lawrence/ez}
 
+\leavevmode\vadjust pre{\hypertarget{ref-lawsonNewIndexClustering1990}{}}%
+Lawson, R. G., \& Jurs, P. C. (1990). New Index for Clustering Tendency
+and Its Application to Chemical Problems. \emph{Journal of chemical
+information and computer sciences}, \emph{30}(1), 36‑41.
+
 \leavevmode\vadjust pre{\hypertarget{ref-R-easystats}{}}%
 Lüdecke, D., Makowski, D., Ben-Shachar, M. S., Patil, I., \& Wiernik, B.
 M. (2022). \emph{Easystats: {Framework} for Easy Statistical Modeling,
@@ -2057,6 +2211,22 @@ Jagan, 2022}), \emph{modelbased}
 2022}), et \emph{tidyverse}
 (\protect\hyperlink{ref-tidyverse2019}{Wickham et al., 2019};
 \protect\hyperlink{ref-R-tidyverse}{Wickham, 2022b}).
+
+\begin{figure}[H]
+
+\includegraphics[width=\textwidth,height=0.5\textheight]{aphantasia_quarto_files/figure-pdf/loadings_graph_annex-1.pdf}
+
+\caption{Rotated loadings from factor analysis.}
+\label{loadings_graph_annex}
+\end{figure}
+
+\begin{figure}[H]
+
+\includegraphics[width=\textwidth,height=0.5\textheight]{aphantasia_quarto_files/figure-pdf/correlation_matrix-1.pdf}
+
+\caption{Matrice de corrélation entre les toutes les variables mesurées.}
+\label{correlation_matrix}
+\end{figure}
 
 
 

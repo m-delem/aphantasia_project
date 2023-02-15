@@ -13,6 +13,7 @@ shelf(
   ggpubr,     # publication plots
   ggradar,    # radar charts
   cluster,     # self-explanatory
+  factoextra,
   )
 
 # global theme
@@ -189,7 +190,7 @@ data_latent <-
                     "Raisonnement"))
 
 # ajout des clusters identifiés
-data_latent$Cluster <- 
+data_latent$cluster <- 
   cluster_analysis(datascores, n = 4, method = "hkmeans") %>%
   predict() %>% 
   as.factor()
@@ -209,10 +210,21 @@ datascores %>%
   knitr::kable(row.names = FALSE,
                caption = "Statistiques descriptives de l'ensemble des variables mesurées : Moyenne (*Mean*), Écart-type (*SD*), Minimum (*Min*) et Maximum (*Max*).\\label{descriptives}")
 
+# ---- correlation_matrix ------------------------------------------------------
+datascores %>% 
+  mutate(across(everything(), ~ scale(.x))) %>% 
+  correlation(partial = TRUE) %>% 
+  cor_sort() %>% 
+  summary() %>% 
+  plot() +
+  theme(panel.grid.major = element_blank(),
+        panel.grid.minor = element_blank()) +
+  labs(title = NULL)
+
 # ---- ggm_graph ----------------------------------------------------------------
 datascores %>%
   correlation(partial = FALSE) %>%
-  filter(abs(r) >= .08) %>% 
+  filter(abs(r) >= .3) %>% 
   mutate(Parameter1 = replace(Parameter1, Parameter1 == "Empan_MDT", "Empan"),
          Parameter2 = replace(Parameter2, Parameter2 == "Empan_MDT", "Empan")) %>%
   plot() +
@@ -230,6 +242,8 @@ datascores %>%
                  repel = FALSE) +
   theme_graph(base_family = "serif", base_size = 10)
 
+# Gaussian Graphical Model
+
 # ---- mfa_graph ---------------------------------------------------------------
 # check_factorstructure(datascores)
 # n_factors(datascores, rotation="cluster") 
@@ -238,7 +252,7 @@ datascores %>%
   prcomp(scale = TRUE) %>% 
   fviz_pca_var(repel = TRUE,
                col.var = "contrib",
-               title = "Analyse Factorielle Multiples des variables",
+               title = "Analyse Factorielle Multiple des variables",
   ) + 
   theme_bw(base_size = 14, base_family = "serif") +
   theme(axis.text.x=element_blank(),
@@ -256,6 +270,8 @@ factor_analysis(datascores,
                 standardize = TRUE) %>% 
   plot() + labs(title=NULL)
 
+# Rotated loadings from factor analysis
+
 # ---- loadings_tbl ------------------------------------------------------------
 factor_analysis(datascores, 
                 rotation = "cluster",
@@ -263,14 +279,20 @@ factor_analysis(datascores,
                 sort = TRUE,
                 standardize = TRUE,) %>% 
   summary() %>%
-  knitr::kable(caption = "Analyses des poids des facteurs adaptés à une analyse de clusters.\\label{loadings_tbl}",
+  knitr::kable(caption = "Analyses des performances en termes de variance expliquée des facteurs détérminés selon une rotation adaptée à une analyse de clusters.\\label{loadings_tbl}",
                digits = 3)
 
-# ---- annex_clusters ----------------------------------------------------------
-# data_latent %>% check_clusterstructure()
-# data_latent %>% n_clusters() %>% plot()
-# cluster_analysis(datascores, n = 2, method = "hkmeans")
-# cluster_analysis(data_latent, n = 4, method = "hkmeans")
+# ---- loadings_graph_annex ----------------------------------------------------------
+factor_analysis(datascores, 
+                rotation = "cluster",
+                n = 4,
+                sort = TRUE,
+                standardize = TRUE) %>% 
+  plot() + labs(title=NULL)
+
+# Rotated loadings from factor analysis
+
+
 
 # ---- kmeans_plot -------------------------------------------------------------
 
@@ -283,12 +305,13 @@ kmeans(datascores %>% mutate(across(everything(), ~ scale(.x))),
     repel = TRUE,
     ellipse.type = "convex",
     shape = "circle", pointsize = 1.2,
-    main =
-      "Représentation des clusters selon les deux composantes principales",
     xlab = "Dimension 1 (40.2%)",
     ylab = "Dimension 2 (18.7%)",
     ) +
-  theme_bw(base_size = 14, base_family = "serif")
+  theme_bw(base_size = 14, base_family = "serif") +
+  labs(title = NULL)
+
+#"Représentation des clusters selon les deux composantes principales"
 
 # ---- radar -------------------------------------------------------------------
 p <- data_latent %>%
@@ -323,15 +346,16 @@ facet(p,facet.by = "cluster")
 
 # Profils cognitifs des clusters identifies par partition non-supervisee (*hierachical k-means*)"
 
-# ---- cluster_repatition ------------------------------------------------------
+# ---- repartition ------------------------------------------------------
 data_latent %>% 
   group_by(cluster) %>% 
   summarise(across(everything(),mean)) %>% 
+  rename(Cluster = cluster) %>% 
   mutate(`Aphantasiques` = c(42,29,0,126),
          `Non-Aphantasiques` = c(73,49,81,0)) %>% 
   knitr::kable(
     caption =
-      "Moyennes et répartion des effectifs par cluster.\\label{repartition}",
+      "Moyennes évaluée à chaque compétence et répartion des effectifs par cluster.\\label{repartition}",
     row.names = FALSE
   )
 
@@ -364,10 +388,15 @@ data_latent %>%
         panel.grid.minor = element_blank(),
   )
     
-# caption = "Réprésentation des moyennes de chaque cluster pour les trois capacités cognitives."
+# Représentation des moyennes de chaque cluster pour les trois capacités cognitives
   
+# ---- analyses pour clusters
+# data_latent %>% check_clusterstructure()
+# data_latent %>% n_clusters() %>% plot()
+# cluster_analysis(datascores, n = 2, method = "hkmeans")
+# cluster_analysis(data_latent, n = 4, method = "hkmeans")
 
-# # ---- modélisation et tests ----
+# # ---- modélisation et tests
 # model1c <- lm(Raisonnement ~ 0 + cluster,data_latent)
 # model2c <- lm(`Imagerie Objet` ~ 0 + cluster,data_latent)
 # model3c <- lm(`Imagerie Spatiale` ~ 0 + cluster,data_latent)
