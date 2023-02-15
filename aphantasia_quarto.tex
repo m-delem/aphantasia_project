@@ -213,7 +213,7 @@
 
 \newpage{}
 
-\ifdefined\Shaded\renewenvironment{Shaded}{\begin{tcolorbox}[sharp corners, boxrule=0pt, interior hidden, enhanced, borderline west={3pt}{0pt}{shadecolor}, frame hidden, breakable]}{\end{tcolorbox}}\fi
+\ifdefined\Shaded\renewenvironment{Shaded}{\begin{tcolorbox}[boxrule=0pt, borderline west={3pt}{0pt}{shadecolor}, interior hidden, enhanced, sharp corners, frame hidden, breakable]}{\end{tcolorbox}}\fi
 
 \renewcommand*\contentsname{Table des matières}
 {
@@ -1310,6 +1310,25 @@ SRI & 37.463108 & 7.429337 & 14.6270358 & 69.13171 \\
 \caption{Statistiques descriptives de l'ensemble des variables mesurées
 : Moyenne (\emph{Mean}), Écart-type (\emph{SD}), Minimum (\emph{Min}) et
 Maximum (\emph{Max}).\label{desc}}\tabularnewline
+\end{longtable}
+
+On a conduit une ANOVA entre les deux groupes sur les scores au VVIQ
+(voir \autoref{vv})
+
+\begin{longtable}[]{@{}lrrrrrr@{}}
+\toprule()
+Parameter & Sum\_Squares & df & Mean\_Square & F & p & Eta2 \\
+\midrule()
+\endfirsthead
+\toprule()
+Parameter & Sum\_Squares & df & Mean\_Square & F & p & Eta2 \\
+\midrule()
+\endhead
+Group & 108107.6 & 1 & 108107.63 & 1083.06 & 1.26443e-115 & 0.73 \\
+Residuals & 39727.0 & 398 & 99.82 & & & \\
+\bottomrule()
+\caption{Anova conduite sur les groupes pour le score au
+VVIQ.\label{vv}}\tabularnewline
 \end{longtable}
 
 \hypertarget{corruxe9lations-entre-les-variables-mesuruxe9es}{%

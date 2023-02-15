@@ -10,17 +10,10 @@
 # packages
 shelf(
   easystats,  # modelling, visualization and reporting ecosystem
-  # ez,         # analysis and visualization of factorial exp
-  # rstatix,    # pipe friendly statistical functions
-  # lme4,       # mixed models
-  # lmerTest,   # tests in lmer
-  # cluster,    # cluster analysis
-  # factoextra, # multivariate data analysis visualization
-  # ggpubr,     # publication plots
-  # ggradar,    # radar charts
-  # ggraph,     # auto graph layout
-  # equatiomatic, # model equation
-)
+  ggpubr,     # publication plots
+  ggradar,    # radar charts
+  cluster,     # self-explanatory
+  )
 
 # global theme
 theme_set(theme_bw(base_size = 14, base_family = "serif"))
@@ -174,49 +167,34 @@ simulation <- function(variables, fmodel, effect) {
 # la fonction est donc clefs en main
 data <- simulation(variables,fmodel,effect)
 
+# nettoyage de l'environnement (considérations écologiques)
+rm(variables, fmodel, effect)
+
+# Pré-traitement
+
 # on crée un dataset avec les scores uniquement
 datascores <- data %>% select(-c(Subject_nr, Group, Sex, Age))
 
-# nettoyage de l'environnement (considération écologique)
-rm(variables, fmodel, effect)
+# Analyses
 
-# # # standardisation
-# # # Paradoxalement on va defaire ce qu'on a construit avec les moyennes,
-# # # en re-standardisant tous les scores sous forme de z-scores
-# # data_scale <- data %>% 
-# #   select(OSIQ_O:SRI) %>% 
-# #   mutate(across(everything(), ~ scale(.x)))
-# 
-# # k-means clustering
-# data_kmeans <- kmeans(data_scale, 
-#                       centers = 4,
-#                       nstart = 100)
-# 
-# # on ajoute les clusters aux donnees des participants
-# data <- data %>% mutate(Cluster = data_kmeans$cluster %>% factor())
-# 
-# # Profils cognitifs sous-jacents des clusters
-# # on fusionne les scores des composantes proches
-# deep <- data %>% 
-#   mutate(Spatial_Img = OSIQ_S + Corsi + MRT + SRI,
-#          Object_Img = OSIQ_O + VVIQ,
-#          Reasoning = Raven + Simili + Wason,
-#          Executive = Empan_MDT + WCST + Lecture) %>% 
-#   select(Spatial_Img : Executive, Cluster) %>% 
-#   mutate(across(c(Spatial_Img : Executive), 
-#                 ~ rescale(.x, to = c(0,1))),)
+# le dataset réduit à 3 facteurs contre 12 initialement
+data_latent <- 
+  factor_analysis(datascores,
+                  rotation = "cluster",
+                  n = 3,
+                  sort = TRUE,
+                  standardize = TRUE) %>% 
+  predict(names = c("Imagerie Spatiale", 
+                    "Imagerie Objet",
+                    "Raisonnement"))
 
-# # ---- equation
-# 
-# mtcars <- mtcars
-# fit <- lm(mpg ~ cyl + disp, mtcars)
-# equatiomatic::extract_eq(
-#   label = "Modèle 1",
-#   fit,
-#   )
+# ajout des clusters identifiés
+data_latent$Cluster <- 
+  cluster_analysis(datascores, n = 4, method = "hkmeans") %>%
+  predict() %>% 
+  as.factor()
 
-# ---- desc --------------------------------------------------------------------
-
+# ---- descriptives ------------------------------------------------------------
 datascores %>% 
   report() %>% 
   as.data.frame() %>% 
@@ -229,18 +207,9 @@ datascores %>%
     Variable=replace(Variable,Variable=="Lecture","Compréhension en lecture")
   ) %>% 
   knitr::kable(row.names = FALSE,
-               caption = "Statistiques descriptives de l'ensemble des variables mesurées : Moyenne (*Mean*), Écart-type (*SD*), Minimum (*Min*) et Maximum (*Max*).\\label{desc}",
-               )
+               caption = "Statistiques descriptives de l'ensemble des variables mesurées : Moyenne (*Mean*), Écart-type (*SD*), Minimum (*Min*) et Maximum (*Max*).\\label{descriptives}")
 
-# ---- ggm ---------------------------------------------------------------------
-# package *correlation* de easystats
-
-# Gaussian Graphical Models (GGMs)
-# Such partial correlations can also be represented as Gaussian Graphical Models (GGM), 
-# an increasingly popular tool in psychology. 
-# A GGM traditionally include a set of variables depicted as circles (“nodes”), 
-# and a set of lines that visualize relationships between them, 
-# which thickness represents the strength of association (see Bhushan et al., 2019).
+# ---- ggm_graph ----------------------------------------------------------------
 datascores %>%
   correlation(partial = FALSE) %>%
   filter(abs(r) >= .08) %>% 
@@ -261,88 +230,84 @@ datascores %>%
                  repel = FALSE) +
   theme_graph(base_family = "serif", base_size = 10)
 
-# ---- factor analysis -----------------------------------------------------------
-# package *parameters* de easystats
+# ---- mfa_graph ---------------------------------------------------------------
+# check_factorstructure(datascores)
+# n_factors(datascores, rotation="cluster") 
 
-# Is the data suitable for Factor Analysis?
-check_factorstructure(datascores)
-
-data_scale %>% 
+datascores %>% 
   prcomp(scale = TRUE) %>% 
   fviz_pca_var(repel = TRUE,
                col.var = "contrib",
-               title = "Analyse en Composantes Principales des variables",
+               title = "Analyse Factorielle Multiples des variables",
   ) + 
   theme_bw(base_size = 14, base_family = "serif") +
   theme(axis.text.x=element_blank(),
         axis.ticks.x=element_blank(),
         axis.text.y=element_blank(),
         axis.ticks.y=element_blank()) +
-  labs(x = "Dimension 1 (40.7%)",
-       y = "Dimension 2 (18.4%)")
+  labs(x = "Dimension 1 (43.2%)",
+       y = "Dimension 2 (34.4%)")
 
-# ---- cluster_number ----------------------------------------------------------
-data_scale %>% 
-  fviz_nbclust(kmeans, method = "wss",
-               linecolor = "white") +
-  geom_vline(xintercept = 4, linetype = 2) +
-  theme_bw(base_size = 14, base_family = "serif") +
-  geom_line(aes(group = 1), color = "aquamarine2",size = 1.3) + 
-  geom_point(group = 1, size = 3, color = "aquamarine4") +
-  labs(
-    title = "Nombre optimal de clusters (methode `Within Sum of Squares`)",
-    x = "Nombre de clusters",
-    y = "Total des Somme des Carres intra-clusters")
+# ---- loadings_graph ----------------------------------------------------------
+factor_analysis(datascores, 
+                rotation = "cluster",
+                n = 3,
+                sort = TRUE,
+                standardize = TRUE) %>% 
+  plot() + labs(title=NULL)
 
+# ---- loadings_tbl ------------------------------------------------------------
+factor_analysis(datascores, 
+                rotation = "cluster",
+                n = 3,
+                sort = TRUE,
+                standardize = TRUE,) %>% 
+  summary() %>%
+  knitr::kable(caption = "Analyses des poids des facteurs adaptés à une analyse de clusters.\\label{loadings_tbl}",
+               digits = 3)
 
-# ---- k_means -----------------------------------------------------------------
-data_kmeans %>% 
+# ---- annex_clusters ----------------------------------------------------------
+# data_latent %>% check_clusterstructure()
+# data_latent %>% n_clusters() %>% plot()
+# cluster_analysis(datascores, n = 2, method = "hkmeans")
+# cluster_analysis(data_latent, n = 4, method = "hkmeans")
+
+# ---- kmeans_plot -------------------------------------------------------------
+
+kmeans(datascores %>% mutate(across(everything(), ~ scale(.x))), 
+       centers = 4,
+       nstart = 100) %>%
   fviz_cluster(
-    data_scale,
+    datascores,
     geom = "point",
     repel = TRUE,
     ellipse.type = "convex",
     shape = "circle", pointsize = 1.2,
     main =
-      "Representation des clusters selon les deux composantes principales",
-    xlab = "Dimension 1 (40.7%)",
-    ylab = "Dimension 2 (18.4%)",
+      "Représentation des clusters selon les deux composantes principales",
+    xlab = "Dimension 1 (40.2%)",
+    ylab = "Dimension 2 (18.7%)",
     ) +
   theme_bw(base_size = 14, base_family = "serif")
 
-# ---- cluster_repatition ------------------------------------------------------
-# repartion des groupes par cluster
-data %>% 
-  ggbivariate(outcome = "Group",
-              explanatory = "Cluster") +
-  scale_fill_manual("Groupe", 
-                    values = c("aquamarine2", "coral"),
-                    labels = c("Aphantasiques","Non-Aphantasiques"))
-  # labs(title = 
-  #   "Repartition des aphantasiques et non-aphantasiques dans les clusters")
-
-# ---- profiles_radar ----------------------------------------------------------
-deep %>%
-  group_by(Cluster) %>%  
+# ---- radar -------------------------------------------------------------------
+p <- data_latent %>%
+  group_by(cluster) %>%  
   summarise(across(everything(),mean)) %>% 
+  mutate(across(-cluster, ~ rescale(.x, to = c(0,1))),) %>% 
   ggradar(base.size = 10,
           font.radar = "serif",
           values.radar = c("0","0.5","1"),
           grid.label.size = 4,
-          axis.labels = c( "Imagerie Spatiale",
-                           "Imagerie\n Objet", 
-                           "Raisonnement",
-                           "Fonctions\n Executives"),
           grid.min = 0, grid.mid = .5, grid.max = 1,
           label.gridline.min = FALSE,
           group.line.width = 1, group.point.size = 3,
           group.colours =,
           background.circle.transparency = .1,
           legend.title = "Clusters",
-          legend.text.size = 12,
+          legend.text.size = 8,
+          axis.label.size = 4,
           legend.position = "bottom",
-          # plot.title = "Profils cognitifs des clusters identifies\n 
-          # par partition non-supervisee (k-means)",
           fill = TRUE,
           fill.alpha = 0.1
   ) + 
@@ -353,44 +318,59 @@ deep %>%
         axis.ticks.y=element_blank()) +
   theme(panel.grid.major = element_blank(),
         panel.grid.minor = element_blank())
-  #facet(facet.by = "Cluster")
 
-# ---- profiles_lollipop -------------------------------------------------------
-deep %>% 
-  gather(key = variable, value = value, -Cluster) %>% 
-  mutate(variable = replace(variable, 
-                            variable == "Spatial_Img", 
-                            "Imagerie\n Spatiale"),
-         variable = replace(variable, 
-                            variable == "Reasoning", 
-                            "Raisonnement"),
-         variable = replace(variable, 
-                            variable == "Object_Img", 
-                            "Imagerie\n Objet"),
-         variable = replace(variable, 
-                            variable == "Executive", 
-                            "Fonctions\n Exectutives")) %>% 
-  group_by(variable, Cluster) %>% 
+facet(p,facet.by = "cluster")
+
+# Profils cognitifs des clusters identifies par partition non-supervisee (*hierachical k-means*)"
+
+# ---- cluster_repatition ------------------------------------------------------
+data_latent %>% 
+  group_by(cluster) %>% 
+  summarise(across(everything(),mean)) %>% 
+  mutate(`Aphantasiques` = c(42,29,0,126),
+         `Non-Aphantasiques` = c(73,49,81,0)) %>% 
+  knitr::kable(
+    caption =
+      "Moyennes et répartion des effectifs par cluster.\\label{repartition}",
+    row.names = FALSE
+  )
+
+# ---- lollipop ----------------------------------------------------------------
+data_latent %>% 
+  mutate(across(-cluster, ~ rescale(.x, to = c(0,1))),) %>% 
+  gather(key = variable, value = value, -cluster) %>% 
+  group_by(variable, cluster) %>% 
   summarise(mean = mean(value)) %>% 
   ggdotchart(
     x = "variable",
     y = "mean",
-    group = "Cluster",
-    color = "Cluster", size = 1, dot.size = 3,
+    group = "cluster",
+    color = "cluster", size = 1, dot.size = 3,
     palette = "aas",
     add = "segment",
-    position = position_dodge(0),
-    #sorting = "descending",
-    #facet.by = "Cluster",
-    #rotate = TRUE,
+    position = position_dodge(.5),
+    sorting = "descending",
+    #facet.by = "cluster",
+    rotate = TRUE,
     #legend = "none",
     ggtheme = theme_bw(base_size = 14, base_family = "serif"),
     xlab = "Fonctions Cognitives",
     ylab = "Moyennes",
     # title =
     #   "Scores aux differentes fonctions cognitives en fonction des clusters"
-    ) +
-  geom_smooth(aes(group = Cluster, color = Cluster),size = .8) +
+  ) +
+  # geom_smooth(aes(group = cluster, color = cluster),size = .8) +
   theme(panel.grid.major = element_blank(),
         panel.grid.minor = element_blank(),
-        )
+  )
+    
+# caption = "Réprésentation des moyennes de chaque cluster pour les trois capacités cognitives."
+  
+
+# # ---- modélisation et tests ----
+# model1c <- lm(Raisonnement ~ 0 + cluster,data_latent)
+# model2c <- lm(`Imagerie Objet` ~ 0 + cluster,data_latent)
+# model3c <- lm(`Imagerie Spatiale` ~ 0 + cluster,data_latent)
+# 
+# model1c %>% check_model()
+# model1c %>% report()

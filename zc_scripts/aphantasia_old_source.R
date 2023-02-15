@@ -9,13 +9,13 @@
 
 # packages
 shelf(
-  MASS,       # functions and data frame ecosystem
+  # MASS,       # functions and data frame ecosystem
   easystats,  # modelling, visualization and reporting ecosystem
-  ez,         # analysis and visualization of factorial exp
-  rstatix,    # pipe friendly statistical functions
-  # scale,      # scale functions
-  corrr,      # correlations
-  lme4,       # mixed models
+  # ez,         # analysis and visualization of factorial exp
+  # rstatix,    # pipe friendly statistical functions
+  # # scale,      # scale functions
+  # corrr,      # correlations
+  # lme4,       # mixed models
   lmerTest,   # tests in lmer
   cluster,    # cluster analysis
   factoextra, # multivariate data analysis visualization
@@ -24,8 +24,8 @@ shelf(
   ggradar,    # radar charts
   ggraph,     # auto graph layout
   igraph,     # network graphs
-  equatiomatic, # model equation
-  papaja,     # apa things
+  # equatiomatic, # model equation
+  # papaja,     # apa things
 )
 
 # global theme

@@ -7,6 +7,11 @@ Les statistiques descriptives de notre échantillon sont en \autoref{desc}.
 ```{r,desc}
 ```
 
+On a conduit une ANOVA entre les deux groupes sur les scores au VVIQ (voir \autoref{vv})
+
+```{r,vv}
+```
+
 ### Corrélations entre les variables mesurées
 
 *correlation* de *easystats*            
@@ -22,14 +27,42 @@ Comme nous l'avons vu, il existe de nombreux liens (ici par construction, à des
 \label{ggm}
 \end{figure}
 ```
+
+Gaussian Graphical Models (GGMs)
+Such partial correlations can also be represented as Gaussian Graphical Models (GGM),
+an increasingly popular tool in psychology.
+A GGM traditionally include a set of variables depicted as circles (“nodes”),
+and a set of lines that visualize relationships between them,
+which thickness represents the strength of association (see Bhushan et al., 2019).
+
 ### Analyse de facteurs
 
 *check_factorstructure* de *easystats*
 Is the data suitable for Factor Analysis?
   - KMO: The Kaiser, Meyer, Olkin (KMO) measure of sampling adequacy suggests that data seems appropriate for factor analysis (KMO = 0.82).
   - Sphericity: Bartlett's test of sphericity suggests that there is sufficient significant correlation in the data for factor analysis (Chisq(66) = 3194.04, p < .001).
-  
-### Analyses des groupes par partition non-supervisée
+
+The choice of 3 dimensions is supported by 5 (35.71%) methods out of 14 (CNG, Optimal coordinates, Parallel analysis, Kaiser criterion, Scree (SE)).
+
+The 3 latent factors (cluster rotation) accounted for 62.55% of the total variance of the original data (MR1 = 26.91%, MR2 = 21.53%, MR3 = 14.11%).
+
+The 4 latent factors (cluster rotation) accounted for 67.82% of the total variance of the original data (MR1 = 25.86%, MR2 = 21.57%, MR3 = 12.91%, MR4 = 7.48%).
+
+### Analyse des clusters
+
+The dataset is suitable for clustering (Hopkins' H = 0.23).[@lawsonNewIndexClustering1990]
+This checks whether the data is appropriate for clustering using the Hopkins' H statistic of given data. If the value of Hopkins statistic is close to 0 (below 0.5), then we can reject the null hypothesis and conclude that the dataset is significantly clusterable. A value for H lower than 0.25 indicates a clustering tendency at the 90% confidence level. The visual assessment of cluster tendency (VAT) approach (Bezdek and Hathaway, 2002) consists in investigating the heatmap of the ordered dissimilarity matrix. Following this, one can potentially detect the clustering tendency by counting the number of square shaped blocks along the diagonal.
+
+The choice of 2 clusters is supported by 14 (48.28%) methods out of 29 (Elbow, Silhouette, Ch, CCC, Cindex, DB, Duda, Pseudot2, Beale, Ratkowsky, Mcclain, SDindex, Mixture (EVE), Mixture (VVE)).
+
+(Avec les anciennes variables :
+The 2 clusters accounted for 25.77% of the total variance of the original data.
+The 4 clusters accounted for 41.79% of the total variance of the original data.
+r2 0.25 et 0.42
+)
+
+(The 4 clusters accounted for 60.70% of the total variance of the original data.
+The 2 clusters accounted for 37.26% of the total variance of the original data.)
 
 <!-- Lefèvre 2022
 
@@ -75,7 +108,7 @@ Le résultat des k-means est représenté dans la Figure 1.3 (avec les profils c
 \end{figure}
 ```
 
-### Analyse des clusters
+
 
 <!-- Les profils ont ensuite été étudiés sur leur composition en fonction du diagnostic initial et sur les compétences cognitives du profil et celles sous-tendant ces performances grâce à des comparaisons de groupes.-->
 ```{=latex}
@@ -111,12 +144,12 @@ Le résultat des k-means est représenté dans la Figure 1.3 (avec les profils c
 \label{cluster_repatition}
 \end{figure}
 ```
-<!-- Dawes 2022
 
-Violin plot vertical avec toutes les mesures (ils en ont 12 ! Comme nous)
--> le nom de la mesure
--> la capacité cognitive qu'elle évalue, comme une barre traversant plusieurs mesures
--> la légende avec les deux groupes au dessus
+### Différences de moyenne des deux groupes
+
+Nous avons ajusté des modèles linéaires sur nos données pour prédire les nouveaux scores de *Raisonnement*, d'*Imagerie Objet* et d'*Imagerie Spatiale* en fonction des clusters. Ces modèles ont permis d'expliquer une part de variance importante et statistiquement significative des scores en Raisonnement ($r^2$ = 0.49, *F*(3,
+396) = 128.86, *p* < .001, adj. $r^2$ ajusté = 0.49), en Imagerie Objet ($r^2$
+= 0.69, *F*(3, 396) = 290.12, *p*< .001, $r^2$ ajusté = 0.68) et en Imagerie Spatiale ($r^2$ = 0.56, *F*(3, 396) = 168.39, *p* < .001, $r^2$ ajusté = 0.56).
 
 <!--
 Dans le but d’interpréter les clusters à partir des scores des compétences les composant, une moyenne en dessous de 0 (moyenne standardisée) était considérée comme déficitaire et une moyenne au-dessus de 0 comme non-déficitaire. Les moyennes et écart-types avec les tailles d’effectif sont présentés dans le Tableau 1.2. Dans l’objectif de mieux décrire les sousgroupes, nous avons réalisé des analyses de variance univariées. Les trois comparaisons étant significatives, nous présentons les résultats des tests post-hocs (avec correction de Bonferroni) qui sont représentés sur les histogrammes de la Figure 1.4.
@@ -126,38 +159,22 @@ Note : Les moyennes en gras correspondent à des moyennes supérieures à 0.
 Voir la figure d'Elise : les clusters sont en ligne, les fonctions cognitives en colonnes, deux colonnes avec la proportion d'Aph NAph et le total des clusters. Le notre aura en théorie juste une colonne en plus
 Je sais pas si elle a fait le tableau manuellement sur Rmd ou Latex ou R, mais le résultat est joli.
 -->
+Les comparaisons ont été ajustées sur un intercept centré par rapport aux données standardisées, pour pouvoir contraster chaque cluster par rapport à la moyenne globale. Nous observons pour tous les clusters des effets statistiquement significatifs sur les trois composantes (les *p* values seront précisées plus bas). Ainsi nous observons, par cluster :
+ - Le cluster 1 a un effet négatif sur le Raisonnement (beta = -0.18, 95% CI [-0.30, -0.06],
+t(396) = -2.95, p = 0.003; Std. beta = -0.20, 95% CI [-0.33, -0.07]), sur l'Imagerie Objet (beta = -0.77, 95% CI [-0.88, -0.67],
+t(396) = -14.93, p < .001; Std. beta = -0.78, 95% CI [-0.88, -0.68]) et sur l'Imagerie Spatiale (beta = -0.24, 95% CI [-0.36, -0.12],
+t(396) = -3.98, p < .001; Std. beta = -0.25, 95% CI [-0.37, -0.13]).
+ - Le cluster 2 a un effet positif sur le Raisonnement (beta = 0.63, 95% CI [0.48, 0.77],
+t(396) = 8.43, p < .001; Std. beta = 0.68, 95% CI [0.52, 0.84]), positif sur l'Imagerie Objet (beta = 0.71, 95% CI [0.59, 0.83],
+t(396) = 11.26, p < .001; Std. beta = 0.72, 95% CI [0.59, 0.84]) et sur l'Imagerie Spatiale (beta = 0.42, 95% CI [0.28, 0.57],
+t(396) = 5.72, p < .001; Std. beta = 0.43, 95% CI [0.28, 0.58])
+- Le cluster 3 a un effet positif sur le Raisonnement (beta = 0.85, 95% CI [0.70, 0.99],
+t(396) = 11.60, p < .001; Std. beta = 0.92, 95% CI [0.76, 1.08]), négatif sur l'Imagerie Objet (beta = -0.92, 95% CI [-1.04, -0.80],
+t(396) = -14.86, p < .001; Std. beta = -0.93, 95% CI [-1.05, -0.80]), et positif sur l'Imagerie Spatiale (beta = 1.19, 95% CI [1.05, 1.33],
+t(396) = 16.33, p < .001; Std. beta = 1.21, 95% CI [1.06, 1.35])
+- Le cluster 4 a un effet négatif sur le Raisonnement (beta = -0.77, 95% CI [-0.88, -0.65],
+t(396) = -13.12, p < .001; Std. beta = -0.83, 95% CI [-0.96, -0.71]), positif sur l'Imagerie Objet (beta = 0.86, 95% CI [0.76, 0.96],
+t(396) = 17.32, p < .001; Std. beta = 0.87, 95% CI [0.77, 0.96]) et négatif sur l'Imagerie Spatiale (beta = -0.81, 95% CI [-0.92, -0.69],
+t(396) = -13.79, p < .001; Std. beta = -0.82, 95% CI [-0.93, -0.70]).
 
-```{=latex}
-\begin{figure}[H]
-```
-```{r,object_img_violins,eval=FALSE}
-```
-```{=latex}
-\caption{Comparaison des moyennes de score d'imagerie visuelle-objet entre les quatre groupes identifiés.}
-\label{object_img_violins}
-\end{figure}
-```
-
-<!--
-```{=latex}
-\begin{figure}[H]
-```
-```{r,spatial_img_violins}
-```
-```{=latex}
-\caption{Comparaison des moyennes de score d'imagerie visuospatiale entre les quatre groupes identifiés.}
-\label{spatial_img_violins}
-\end{figure}
-```
--->
-
-### Différences de moyenne des deux groupes
-
-Spatial Ability Results. 
-Aphantasic participants reported slightly lower spatial imagery ability on the spatial sub-component of the OSIQ when compared to control group 1 (Mann-Whitney U = 24,462, p = 0.001, r = .15, BF10 = 14.65, two-sided; see Figure 2.1 purple section), although this effect was not significant after Bonferroni correction. Additionally, the scores of aphantasic individuals on the Spatial Memory component of the SAM (which includes items measuring reported spatial navigation and naturalistic spatial memory ability) were not significantly different from controls (SAM; Mann-Whitney U = 24,720, p = 0.1, r = .08, BF10 = .23, two-sided; see Figure 2.1 purple section). These results demonstrate that overall, there were no consistent differences in reported spatial abilities between aphantasic individuals and participants in control group 1.
-
-
-Lefèvre 2022
-
-Ptet aussi faire un tableau simple pour les moyennes générales
 
