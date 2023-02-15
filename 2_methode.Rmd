@@ -19,25 +19,25 @@ Le protocole sera composé de plusieurs questionnaires et tâches qui seront adm
 ### Questionnaires
 
 #### *Vividness of Visual Imagery Questionnaire* (VVIQ) {.unnumbered}
-Dawes 2022
-The Vividness of Visual Imagery Questionnaire (VVIQ; Marks, 1995) is a 16-item scale which asks participants to imagine a person as well as several scenes and rate the vividness of these mental images using a 5-point scale ranging from 1 (“No image at all, you only “know” that you are thinking of the object”) to 5 (“Perfectly clear and <as> vivid as normal vision”). A single mean score on the VVIQ was computed for each participant. 
-Une faible capacité d'imagerie visuelle est généralement définie par un score total de 32 ou moins au questionnaire sur la vivacité de l'imagerie visuelle (VVIQ : voir Questionnaires sur l'imagerie dans les documents), une échelle d'auto-évaluation de Likert en cinq points qui varie de 16 à 80 (Marks, 1995 ; Zeman et al., 2015). Un score total de 32 équivaut à une note de 2 ("vague et faible") pour chaque item du questionnaire ; où 1 = "Pas d'image du tout, vous savez seulement que vous pensez à l'objet"). 
-
-Sema
-Questionnaire de Vivacité de l'Imagerie Visuelle (Marks, 1973), 
-qui comporte 16 items et dans lequel le participant doit coter sur une échelle de Likert de 5 points l'énoncé qui lui correspond le mieux. 
-Les scores vont de 16 à 80. 
-Il constitue le questionnaire subjectif de référence dans l'aphantasie. 
+Le VVIQ [@marksVividnessVisualImagery1973] est une échelle d'auto-évaluation de 16 items qui demande aux participants d'imaginer une personne ainsi que plusieurs scènes et d'évaluer la vivacité de ces images mentales à l'aide d'une échelle de 5 points allant de 1 ("Aucune image, vous savez seulement que vous pensez à l'objet") à 5 ("Parfaitement clair et aussi vif que la vision normale"). Un seul score moyen sur le VVIQ a été calculé pour chaque participant. Le score total de 32 conventionnellement utilisé comme la limite pour définir l'aphantasie équivaut à un score de 2 (" vague et faible ") pour chaque item du questionnaire ; là où 1 = " Aucune imagerie du tout, vous savez seulement que vous pensez à l'objet ").
 
 #### *Object and Spatial Imagery Questionnaire* (OSIQ). {.unnumbered}
 
-OSIQ
-The Object and Spatial Imagery Questionnaire (OSIQ; Blajenkova, Kozhevnikov, & Motes, 2006) is a 30-item scale which requires participants to indicate how well each of several statements on object imagery ability (e.g. “When I imagine the face of a friend, I have a perfectly clear and bright image”) and spatial imagery ability (e.g. “I am a good Tetris player”) applies to them on a 5-point scale ranging from 1 (“Totally disagree”) to 5 (“Totally agree”). There are 15 items each comprising the Object and Spatial imagery domains of the OSIQ, averaged to form a mean score on each domain.
+L'OSIQ [@blajenkovaObjectspatialImageryNew2006] est une échelle de 30 items qui demande aux participants d'indiquer dans quelle mesure chacune des affirmations sur la capacité d'imagerie visuelle-objet (par exemple : "Quand j'imagine le visage d'un ami, j'ai une image parfaitement claire et lumineuse") et sur la capacité d'imagerie visuospatiale (par exemple : "Je suis un bon joueur de Tetris") s'applique à eux sur une échelle de 5 points allant de 1 ("Totalement en désaccord") à 5 ("Totalement d'accord"). Les domaines de l'imagerie spatiale et de l'imagerie des objets de l'OSIQ comportent chacun 15 items dont la moyenne est calculée pour obtenir un score  pour chaque domaine.
+
 
 #### Metacognition Awareness Inventory (MAI). {.unnumbered}
-Le second questionnaire était le MAI, Inventaire de Conscience Métacognitive (Schraw & Dennison, 1994)
+Le MAI [@schrawAssessingMetacognitiveAwareness1994] est une échelle d'auto-évaluation en 52 items
+Chaque item est évalué sur une échelle de 5 points, allant de 1 à 5.
+de type Likert à 5 points, allant de "1-toujours faux" à "5-toujours vrai".
+le niveau d'accord des répondants avec les 52 items. Les scores élevés
+indiquent un fort degré d'accord. Le MAI prend environ vingt
+minutes pour le remplir.
+
 évalue les deux composantes de la métacognition : les connaissances métacognitives et la régulation métacognitive.
 
+
+Nous avons construit un inventaire de 52 items pour mesurer la conscience métacognitive des adultes′. Les items ont été classés en huit sous-composantes subsumées sous deux catégories plus larges, la connaissance de la cognition et la régulation de la cognition.
 ### Tâches
 
 #### Matrices de Raven. {.unnumbered}
