@@ -15,7 +15,6 @@ warning: false
 error: false
 message: false
 fig-align: center
-fig-pos: H
 fig-cap-location: bottom
 fig-height: 8
 fig-width: 10
@@ -28,6 +27,7 @@ lang: fr
 langid: french
 include-in-header: "za_header.tex"
 include-before-body: "zb_beforebody.tex"
+keep-tex: true
 ---
 <!-- shelf(quarto) -->
 
@@ -36,7 +36,8 @@ include-before-body: "zb_beforebody.tex"
 # chargement du code source et reglages
 knitr::read_chunk('./zc_scripts/aphantasia_new_source.R')
 knitr::opts_chunk$set(out.height = "50%",
-                      out.extra = ""
+                      out.extra = "",
+                      knitr.table.format = "latex"
                       )
 ```
 

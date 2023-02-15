@@ -2,26 +2,33 @@
 
 ### Statistiques descriptives
 
-Violin plot vertical méga classe de Dawes pour afficher les scores des deux groupees sur tous les questionnaires
+Les statistiques descriptives de notre échantillon sont en \autoref{desc}.
 
-On peut ici observer les différences entre les deux groupes sur différents scores, avec des distributions qui se recoupent, et des scores équivalents à certains endroits
-
+```{r,desc}
+```
 
 ### Corrélations entre les variables mesurées
 
-Comme nous l'avons vu, il existe de nombreux liens (ici par construction, à des fins d'observation). La \autoref{network_plot} en donne une représentation graphique explicite (voir \autoref{correlation_matrix} en \nameref{annexes} pour une matrice avec l'ensemble des *r* de corrélation et leur significativité). Parmi les covariances significatives, le VVIQ et l'OSIQ-objet sont extrêmement proches `test de corrélation`, le MRT, le SRI, l'OSIQ-spatial et les blocs de Corsi (toutes des tâches impliquant de l'imagerie spatiale) forment un réseau très corrélé (voir \autoref{correlation_matrix} pour les corrélations deux à deux), l'empan de chiffres est proche des blocs de Corsi (tâches mnésiques), la tâche de lecture est lointaine et 
+*correlation* de *easystats*            
+Comme nous l'avons vu, il existe de nombreux liens (ici par construction, à des fins d'observation). La \autoref{ggm} en donne une représentation graphique explicite. Parmi les covariances significatives, le VVIQ et l'OSIQ-objet sont extrêmement proches `test de corrélation`, le MRT, le SRI, l'OSIQ-spatial et les blocs de Corsi (toutes des tâches impliquant de l'imagerie spatiale) forment un réseau très corrélé,l'empan de chiffres est proche des blocs de Corsi (tâches mnésiques), la tâche de lecture est lointaine et 
 
 ```{=latex}
 \begin{figure}[H]
 ```
-```{r,network_plot}
+```{r,ggm}
 ```
 ```{=latex}
 \caption{Représentation des corrélations entre les variables mesurées. Les liens bleus dénotent une corrélation positive, et les rouges une corrélation négative. Cette figure illustre les choix de pondération réalisés à l'étape de simulation : on peut notamment voir des corrélations très prononcées entre le VVIQ et l'OSIQ-objet (r = 0.77*) qui évaluent tous deux l'imagerie objet, le Digit Span et les blocs de Corsi (r = 0.68*) qui évaluent entre autres la mémoire de travail, ou encore entre l'OSIQ-spatial et le SRI, qui respectivement l'auto-évaluation et la tâche les plus spécifiques de l'imagerie spatiale.}
-\label{network_plot}
+\label{ggm}
 \end{figure}
 ```
+### Analyse de facteurs
 
+*check_factorstructure* de *easystats*
+Is the data suitable for Factor Analysis?
+  - KMO: The Kaiser, Meyer, Olkin (KMO) measure of sampling adequacy suggests that data seems appropriate for factor analysis (KMO = 0.82).
+  - Sphericity: Bartlett's test of sphericity suggests that there is sufficient significant correlation in the data for factor analysis (Chisq(66) = 3194.04, p < .001).
+  
 ### Analyses des groupes par partition non-supervisée
 
 <!-- Lefèvre 2022

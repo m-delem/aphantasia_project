@@ -215,6 +215,23 @@ rm(variables, fmodel, effect)
 #   fit,
 #   )
 
+# ---- desc --------------------------------------------------------------------
+
+datascores %>% 
+  report() %>% 
+  as.data.frame() %>% 
+  summary() %>%
+  select(Variable:Max) %>%
+  mutate(
+    Variable=replace(Variable,Variable=="OSIQ_O","OSIQ-Objet"),
+    Variable=replace(Variable,Variable=="OSIQ_S","OSIQ-Spatial"),
+    Variable=replace(Variable,Variable=="Empan_MDT","Empan verbal"),
+    Variable=replace(Variable,Variable=="Lecture","Compréhension en lecture")
+  ) %>% 
+  knitr::kable(row.names = FALSE,
+               caption = "Statistiques descriptives de l'ensemble des variables mesurées : Moyenne (*Mean*), Écart-type (*SD*), Minimum (*Min*) et Maximum (*Max*).\\label{desc}",
+               )
+
 # ---- ggm ---------------------------------------------------------------------
 # package *correlation* de easystats
 

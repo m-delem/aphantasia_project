@@ -28,7 +28,7 @@ link-citations: yes
 \newpage
 ```{r, include=FALSE, cache=FALSE}
 # chargement du code source et reglages
-knitr::read_chunk('./zc_scripts/aphantasia_source.R')
+knitr::read_chunk('./zc_scripts/aphantasia_old_source.R')
 knitr::opts_chunk$set(message=FALSE,
                       warning=FALSE,
                       echo=FALSE,
