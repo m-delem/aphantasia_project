@@ -19,7 +19,8 @@ Le protocole sera composé de plusieurs questionnaires et tâches qui seront adm
 ### Questionnaires
 
 #### *Vividness of Visual Imagery Questionnaire* (VVIQ) {.unnumbered}
-Le VVIQ [@marksVividnessVisualImagery1973] est une échelle d'auto-évaluation de 16 items qui demande aux participants d'imaginer une personne ainsi que plusieurs scènes et d'évaluer la vivacité de ces images mentales à l'aide d'une échelle de 5 points allant de 1 ("Aucune image, vous savez seulement que vous pensez à l'objet") à 5 ("Parfaitement clair et aussi vif que la vision normale"). Un seul score moyen sur le VVIQ a été calculé pour chaque participant. Le score total de 32 conventionnellement utilisé comme la limite pour définir l'aphantasie équivaut à un score de 2 (" vague et faible ") pour chaque item du questionnaire ; là où 1 = " Aucune imagerie du tout, vous savez seulement que vous pensez à l'objet ").
+
+Le VVIQ [@marksVividnessVisualImagery1973] est une échelle d'auto-évaluation de 16 items qui demande aux participants d'imaginer une personne ainsi que plusieurs scènes et d'évaluer la vivacité de ces images mentales à l'aide d'une échelle de 5 points allant de 1 ("Aucune image, vous savez seulement que vous pensez à l'objet") à 5 ("Parfaitement clair et aussi vif que la vision normale"). Le score total de 32 conventionnellement utilisé comme la limite pour définir l'aphantasie équivaut à un score de 2 (" vague et faible ") pour chaque item du questionnaire ; là où 1 est " Aucune imagerie du tout, vous savez seulement que vous pensez à l'objet ").
 
 #### *Object and Spatial Imagery Questionnaire* (OSIQ). {.unnumbered}
 
@@ -27,51 +28,46 @@ L'OSIQ [@blajenkovaObjectspatialImageryNew2006] est une échelle de 30 items qui
 
 
 #### Metacognition Awareness Inventory (MAI). {.unnumbered}
-Le MAI [@schrawAssessingMetacognitiveAwareness1994] est une échelle d'auto-évaluation en 52 items
-Chaque item est évalué sur une échelle de 5 points, allant de 1 à 5.
-de type Likert à 5 points, allant de "1-toujours faux" à "5-toujours vrai".
-le niveau d'accord des répondants avec les 52 items. Les scores élevés
-indiquent un fort degré d'accord. Le MAI prend environ vingt
-minutes pour le remplir.
 
-évalue les deux composantes de la métacognition : les connaissances métacognitives et la régulation métacognitive.
+Le MAI [@schrawAssessingMetacognitiveAwareness1994] est une échelle d'auto-évaluation en 52 items, chaque item évalué sur une échelle allant de 1 à 5. Elle mesure la conscience métacognitive des adultes dans huit sous-composantes rassemblées dans deux larges catégories, la connaissance de la cognition et la régulation de la cognition.
 
-
-Nous avons construit un inventaire de 52 items pour mesurer la conscience métacognitive des adultes′. Les items ont été classés en huit sous-composantes subsumées sous deux catégories plus larges, la connaissance de la cognition et la régulation de la cognition.
 ### Tâches
 
-#### Matrices de Raven. {.unnumbered}
-Sema
-version courte des matrices de Raven (Bilker et al., 2012)
-capacités de raisonnement visuel et d'induction et de déduction de règles (
+#### Matrices Progressives Standard de Raven (RSPM). {.unnumbered}
+
+Les RSPM [@ravenRavenProgressiveMatrices1938] se composent de 60 items divisés en cinq ensembles. Chaque item consiste à compléter une figure manquante dans une matrice de 3x3 figures en extrayant et suivant les règles logiques sous-jacentes à l'organisation des figures entre elles. Les items ont une difficulté croissante. A la fin d'une série, la difficulté redevient facile mais la règle logique change, et les ensembles ont aussi une difficulté croissante. Les matrices ont pour objectif d'évaluer le raisonnement abstrait, un versant non-verbal de l'intelligence fluide. Nous utiliserons potentiellement une version clinique raccourcie de deux ensembles de 9 items [@bilkerDevelopmentAbbreviatedNineItem2012] prédisant le score aux 60 items avec une bonne précision. Ceux-ci pourraient représenter un gain potentiel de 75% du temps, pour des caractéristiques similaires au test complet.
 
 #### Tâche de Wason.{.unnumbered}
-Tâche de Wason, 1968
-courte tâche de raisonnement
+
+La tâche de Wason [@wasonReasoningRule1968] est une très courte tâche de raisonnement se présentant sous la forme d'un problème posé au participant. Pour résoudre celui-ci, le participant doit maîtriser les règles logiques déductives et inférentielles de type "P implique Q" et sa contraposée "Non-Q implique Non-P".
 
 #### Sous-test des Similitudes de la WAIS-IV. {.unnumbered}
-les capacités d'abstraction et de conceptualisation verbale
-Subtest Similitudes de la WAIS-IV 
+
+Le sous-test des similitudes de la WAIS-IV [@wechslerWechslerAdultIntelligence2008] est composé de 18 paires de mots dont le participant doit identifier la relation qualitative sous-jacente. Il reflète ainsi les capacités d'abstraction, de formation de concepts et le raisonnement verbal.
 
 #### Empan de chiffres envers. {.unnumbered}
-Empan de chiffre envers
-la mémoire de travail verbale, 
 
-#### *Wisconsin Card-Sorting Test*. {.unnumbered}
-les fonctions exécutives
-WCST
-
-#### Compréhension en lecture.{.unnumbered}
-et les capacités de compréhension en lecture
-Textes. Cette dernière épreuve constituait une tache écologique dans laquelle les images mentales pouvaient être sollicitées. 
-Tâche de lecture
-Concernant la tâche de lecture, les participants étaient soumis à un texte qu'ils devaient lire. Le temps de lecture est libre mais chronométré. A la fin de la lecture, le texte est caché. Les participants devaient ensuite répondre à des questions sur le texte qui étaient d'ordres explicite ou implicite.
+Une mesure d'empan mnésique consiste à présenter une séquence d'items à un participant, qui doit les reproduire dans l'ordre ou à l'envers. Ici l'empan de chiffres envers (ou *Reverse Digit Span*) consiste à présenter des chiffres au rythme de 1 par seconde, puis de demander au participant de les rappeler du dernier au premier. La tâche commence par une séquence courte, puis s'allonge à chaque réussite. Le score est le nombre maximum de chiffres rappelés (le nombre de séquences correctement rappelées est aussi utilisé dans la littérature). Les mesures d'empan évaluent toutes en partie la mémoire de travail, mais parmi elles le *reverse digit span* est le plus corrélé avec les mesures d'intelligence fluide ou de fonctions exécutives [@groegerMeasuringMemorySpan1999].
 
 #### Blocs de Corsi. {.unnumbered}
 
+Les blocs de Corsi sont aussi une tâche d'empan mnésique, mêlée avec de la visualisation spatiale [@gibeauCorsiBlocksTask2021]. La tâche consiste à présenter au participant des blocs disposés aléatoirement dans un cadre, puis afficher une séquence (les blocs changeant de couleur tour à tour pour une version informatisée par exemple) et demander au participant de la rappeler. La tâche commence par une séquence courte qui s'allonge à chaque réussite. De même, le score est le nombre maximum de blocs rappelés. 
+
+#### *Wisconsin Card-Sorting Test* (WCST). {.unnumbered}
+
+Dans le WCST  [@heatonWCST64ComputerVersion2000], les participants doivent trier 64 cartes en fonction de leur couleur (rouge, bleu, jaune ou vert), de leur forme (croix, cercle, triangle ou étoile) ou du nombre de figures (un, deux, trois ou quatre). Au cours de la tâche, la règle de tri change discrètement de la couleur à la forme ou au nombre de figures sans que les participants en soient informés. Les participants doivent modifier leurs prédictions et choix en conséquence et trier les cartes en suivant la nouvelle règle de tri : ils reçoivent un feedback pour leur réponse (correcte ou erronée), qui doit leur permettre de s'améliorer avec une extraction implicte des règles. Le WCST est utilisé pour mesurer des processus cognitifs de haut niveau tels que l'attention, la persévérance, la mémoire globale, la pensée abstraite ou la capacité de concentration. De plus, pour être capable de changer de catégorie, il faut avoir une grande flexibilité mentale et une aisance dans la formation de concepts. Le WCST représente donc une évaluation mixte de composantes de raisonnement et de plusieurs fonctions exécutives.
+
+#### Compréhension en lecture.{.unnumbered}
+
+Cette tâche consistera à lire des textes spécifiquement préparés pour requérir de la visualisation mentale et à évaluer les capacités d'extraction d'informations censées être liées aux "images" évoquées par le texte. Les participants auront donc un texte à lire dans un temps limité, puis devront répondre à des questions de compréhension et d'interprétation ou de déduction/inférence sur celui-ci. 
+
 #### Test de Rotation Mentale (MRT). {.unnumbered}
 
+La MRT est une tâche composée de 30 items. Chaque item est une image d'un objet de trois dimensions accompagné de quatre réponses possibles : une étant le même objet ayant subi une rotation, les trois autres étant des rotations du miroir de l'objet initial [@petersRedrawnVandenbergKuse1995; @zhaoSpatialTransformationMental2022]. Les participants doivent choisir quelle image correspond à la première, avec la consigne d'être le plus rapide possible tout en gardant une précision maximale. La mesure d'intérêt pour cette étude sera la précision (la proportion de réponses justes), d'où la considération de celui-ci comme un "score" pour les analyses (le temps de réaction à la MRT est aussi utilisé dans la littérature, à d'autres fins). Bien que la MRT soit en partie intégré dans le SRI (voir ci-dessous), elle est l'une des mesures les plus communes pour l'évaluation de l'imagerie spatiale dans la littérature, et l'avoir à des fins de comparaison et de reproductibilité peut être intéressant.
+
 #### Spatial Reasoning Inventory (SRI). {.unnumbered}
+
+Le SRI est un questionnaire évaluant plusieurs composantes de l'imagerie visuospatiale, considérée comme un construit complexe en quatre composantes, pour en avoir le reflet le plus fidèle possible [@ramfulMeasurementSpatialAbility2017]. Il inclut notamment des tests de rotation comme le MRT, mais aussi d'orientation dans l'espace, de manipulation dans l'espace et de visualisation.
 
 ## Variables
 
@@ -80,21 +76,23 @@ Nos participants seront initialement divisés en deux groupes, et potentiellemen
 ## Hypothèses
 
 ### Imagerie visuelle-objet
-Dawes 2022
-Object Imagery
-We expected aphantasic individuals to report reduced visual imagery ability compared to controls, in line with previous findings (Keogh & Pearson, 2018; Zeman et al., 2015). There is some suggestion that auditory imagery may also be reduced in individuals who report visual imagery absence, however this evidence comes from case studies with limited sample sizes (Greenberg & Knowlton, 2014). We therefore had no strong hypotheses regarding group differences in other multi-sensory imagery domains.
+
+Nous nous attendons à ce que les personnes aphantasiques rapportent une capacité d'imagerie visuelle réduite par rapport aux témoins, conformément aux résultats antérieurs [@keoghBlindMindNo2018; @zemanLivesImageryCongenital2015].
 
 ### Imagerie visuospatiale
-Spatial Imagery
-Lastly, we expected aphantasic self-reports of spatial imagery and spatial navigation abilities to align with data from previous studies suggesting that despite visual imagery absence, spatial abilities (as measured by questionnaires and performance on mental rotation and visuo-spatial tasks) appear to be largely preserved in aphantasia (Keogh & Pearson, 2018; Zeman et al., 2010).
+
+Nous nous attendons à ce que les auto-déclarations des aphantasiques concernant les capacités d'imagerie spatiale s'alignent sur les données d'études antérieures suggérant que, malgré l'absence d'imagerie visuelle, les capacités spatiales (mesurées par des questionnaires et les performances sur des tâches de rotation mentale et visuo-spatiales) semblent être largement préservées dans l'aphantasie [@keoghBlindMindNo2018; @zemanLossImageryPhenomenology2010]. Dans l'hypothèse que nous émettons de la *compensation* de l'imagerie visuelle réduite chez les aphantasiques, on pourrait s'attendre à des scores plus élevés chez les aphantasiques^[Cette hypothèse opérationnelle est celle qui se reflète le plus dans la simulation, illustrant le phénomène mentionné plus haut de *wishful thinking*.]. 
 
 ### Raisonnement
-D'après les données présentées par l'étude de Zeman et al. (2020) (taux important d'aphantasiques dans les métiers scientifiques), on peut faire l'hypothèse que le groupe de participants aphantasiques présentera des capacités de raisonnement (mesurées par le test des Similitudes et les Matrices) plus développés que le groupe de participants non aphantasiques.
+
+D'après les données présentées par l'étude de Zeman et al. [-@zemanPhantasiaPsychologicalSignificance2020] - un taux important d'aphantasiques dans les métiers scientifiques) - on peut faire l'hypothèse que le groupe de participants aphantasiques présentera des capacités de raisonnement (mesurées par le test des Similitudes et les Matrices) plus développés que le groupe de participants non aphantasiques.
 
 ### Compréhension en lecture
-Dans la mesure où les aphantasiques ont un défaut d'imagerie visuelle, si le texte de compréhension en lecture sollicite des images visuelles, on peut s'attendre à des performances différentes à ce texte entre les aphantasiques et les non aphantasiques.
+
+Dans la mesure où les aphantasiques ont un défaut d'imagerie visuelle, si le texte de compréhension en lecture sollicite des images visuelles, on peut s'attendre à des performances différentes à ce texte entre les aphantasiques et les non aphantasiques : nous n'avons pas de littérature antérieure pour justifier le fait que cette tâche mobilise des images mentales ou non, et quelles composantes cognitives elle mobilise, nous n'avons donc pas d'hypothèse définie sur la variabilité ici.
 
 ### Fonctions exécutives
+
 Conformément à l'hypothèse que les aphantasiques auraient recours à des stratégies pour compenser leur déficit en imagerie visuelle, des performances élevées en compréhension de texte pourraient être corrélées à des scores élevés aux épreuves mesurant le fonctionnement exécutif et les capacités d'abstraction.
 
 ## Simulation

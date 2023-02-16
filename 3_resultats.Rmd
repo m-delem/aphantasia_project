@@ -24,20 +24,18 @@ Parmi les covariances significatives, le VVIQ et l'OSIQ-objet sont extrêmement 
 \end{figure}
 ```
 
-Gaussian Graphical Models (GGMs)
-Such partial correlations can also be represented as Gaussian Graphical Models (GGM),
-an increasingly popular tool in psychology.
-A GGM traditionally include a set of variables depicted as circles (“nodes”),
-and a set of lines that visualize relationships between them,
-which thickness represents the strength of association (see Bhushan et al., 2019).
+Modèles graphiques gaussiens (GGM)
+Ces corrélations partielles peuvent également être représentées par des modèles graphiques gaussiens (GGM),
+un outil de plus en plus populaire en psychologie.
+Un GGM comprend traditionnellement un ensemble de variables représentées par des cercles ("nœuds"),
+et un ensemble de lignes qui visualisent les relations entre elles,
+dont l'épaisseur représente la force de l'association (voir Bhushan et al., 2019).
 
-
-Is the data suitable for Factor Analysis?
 Nous avons évalué que les données étaient adaptées à une analyse factorielle multiple avec plusieurs indices :
-  - KMO: The Kaiser, Meyer, Olkin (KMO) measure of sampling adequacy suggests that data seems appropriate for factor analysis (KMO = 0.82).
-  - Sphericity: Bartlett's test of sphericity suggests that there is sufficient significant correlation in the data for factor analysis (Chisq(66) = 3194.04, p < .001).
+  - KMO : La mesure Kaiser, Meyer, Olkin (KMO) de l'adéquation de l'échantillonnage suggère que les données semblent appropriées à une analyse factorielle (KMO = 0,82).
+  - Sphéricité : Le test de sphéricité de Bartlett suggère qu'il y a une corrélation significative suffisante dans les données pour une analyse factorielle (Chisq(66) = 3194.04, p < .001).
 
-The choice of 3 dimensions is supported by 5 (35.71%) methods out of 14 (CNG, Optimal coordinates, Parallel analysis, Kaiser criterion, Scree (SE))^[Nous avons par ailleurs mené une analyse à quatre facteurs, dans la mesure où ce nombre était le deuxième le plus supporté par les indices de détermination : la quatrième dimension identifiée par cette analyse rassemble quasi-exclusivement les scores au Corsi et à l'Empan Verbal, soit les deux tâches de mémoire de travail. Voir la \autoref{loadings_graph_annex} en \nameref{annexes}. The 4 latent factors (cluster rotation) accounted for 67.82% of the total variance of the original data (MR1 = 25.86%, MR2 = 21.57%, MR3 = 12.91%, MR4 = 7.48%).]. Nous avons donc conduit l'analyse avec la fonction `factor_analysis` du package *parameters* sur R. La \autoref{loadings_tbl} présente les capacités explicatives de chaque composante sur la variance de totale de l'échantillon. The 3 latent factors (cluster rotation) accounted for 62.55% of the total variance of the original data (MR1 = 26.91%, MR2 = 21.53%, MR3 = 14.11%). La distribution des poids de chaque variable selon les facteurs est présentée en \autoref{loadings_graph}.
+Le choix de trois dimensions est soutenu par cinq (35,71%) méthodes sur quatorze (dont CNG, coordonnées optimales, analyse parallèle, critère de Kaiser, Scree (SE)).^[Nous avons par ailleurs mené une analyse à quatre facteurs, dans la mesure où ce nombre était le deuxième le plus supporté par les indices de détermination : la quatrième dimension identifiée par cette analyse rassemble quasi-exclusivement les scores au Corsi et à l'Empan Verbal, soit les deux tâches de mémoire de travail. Voir la \autoref{loadings_graph_annex} en \nameref{annexes}. Les 4 facteurs latents ont représenté 67,82% de la variance totale des données originales (MR1 = 25,86%, MR2 = 21,57%, MR3 = 12,91%, MR4 = 7,48%).]. Nous avons donc conduit l'analyse avec la fonction `factor_analysis` du package *parameters* sur R, réglée pour trois facteurs et une rotation adaptée à l'analyse de clusters. La \autoref{loadings_tbl} présente les capacités explicatives de chaque composante sur la variance de totale de l'échantillon. Les 3 facteurs latents ont représenté 62,55% de la variance totale des données originales (MR1 = 26,91%, MR2 = 21,53%, MR3 = 14,11%). La distribution des poids de chaque variable selon les facteurs est présentée en \autoref{loadings_graph}.
 
 ```{r,loadings_tbl}
 ```
@@ -48,7 +46,7 @@ The choice of 3 dimensions is supported by 5 (35.71%) methods out of 14 (CNG, Op
 ```{r,loadings_graph}
 ```
 ```{=latex}
-\caption{Rotated loadings from factor analysis.}
+\caption{Poids de chaque variable dans l'Analyse Factorielle Multiple à quatre facteurs.}
 \label{loadings_graph}
 \end{figure}
 ```
@@ -57,29 +55,16 @@ A partir de cette distribution et de l'analyse en graphes de nos facteurs, nous 
 
 ### Analyse en *clusters*
 
-The dataset is suitable for clustering (Hopkins' H = 0.23).[@lawsonNewIndexClustering1990]
-This checks whether the data is appropriate for clustering using the Hopkins' H statistic of given data. If the value of Hopkins statistic is close to 0 (below 0.5), then we can reject the null hypothesis and conclude that the dataset is significantly clusterable. A value for H lower than 0.25 indicates a clustering tendency at the 90% confidence level. The visual assessment of cluster tendency (VAT) approach (Bezdek and Hathaway, 2002) consists in investigating the heatmap of the ordered dissimilarity matrix. Following this, one can potentially detect the clustering tendency by counting the number of square shaped blocks along the diagonal.
+Nous avons vérifié si l'ensemble de données était approprié pour le clustering via la statistique H de Hopkins : H = 0.23. Si la valeur de la statistique de Hopkins est proche de 0 (inférieure à 0,5), alors nous pouvons rejeter l'hypothèse nulle et conclure que l'ensemble de données est significativement clusterisable. Une valeur de H inférieure à 0,25 indique une tendance au clustering au niveau de confiance de 90% [@lawsonNewIndexClustering1990].
 
-Lefèvre 2022
-La création de ces profils dans notre échantillon repose sur les trois compétences du langage écrit : fluence et compréhension en lecture et orthographe. Nous avons calculé une matrice de dissimilarité puis le nombre de clusters a été calculé grâce à l’ensemble des indices présents dans le package R NbClus (Charrad et al., 2014).
-La majorité des indices propose un nombre optimal de quatre clusters pour notre échantillon. Une implémentation multiple (n = 1000) de l’algorithme des k-means a été conduite avec 4 clusters sur l’ensemble de l’échantillon.
+<!--
+La création de ces profils dans notre échantillon repose sur les trois compétences du langage écrit : fluence et compréhension en lecture et orthographe.
+-->
 
-The choice of 2 clusters is supported by 14 (48.28%) methods out of 29 (Elbow, Silhouette, Ch, CCC, Cindex, DB, Duda, Pseudot2, Beale, Ratkowsky, Mcclain, SDindex, Mixture (EVE), Mixture (VVE)).
-
-(Avec les anciennes variables :
-The 2 clusters accounted for 25.77% of the total variance of the original data.
-The 4 clusters accounted for 41.79% of the total variance of the original data.
-r2 0.25 et 0.42
-)
-(The 4 clusters accounted for 60.70% of the total variance of the original data.
-The 2 clusters accounted for 37.26% of the total variance of the original data.)
-
-
-Les observations étaient ensuite attribuées au cluster le plus probable en termes d’assignation.
-Le résultat des k-means est représenté dans la \autoref{kmeans_plot}, et les profils cognitifs associés sur les trois capacités en \autoref{radar}.
+Le nombre de clusters optimal a été calculé grâce à l'ensemble des indices présents dans le package R NbClus [@charradNbClustPackageDetermining2014]. 38% indices (11 sur 29) proposait un nombre optimal de deux clusters pour notre échantillon, reflétant nos connaissances *a priori* et la construction de notre structure de facteurs sur la base dichotomique aphantasiques/non-aphantasiques que nous connaissons. Néanmoins, 27.5% des indices (8 sur 29 - Elbow, Silhouette, Ch, CCC, Cindex, DB, Duda, Pseudot2) soutenaient le choix de 4 clusters. A des fins exploratoires, et pour mettre en évidence l'intérêt potentiel de notre démarche analytique, nous avons décidé de mener nos analyses sur 4 clusters.         
 
 ```{=latex}
-\begin{figure}[H]
+\begin{figure}[h]
 ```
 ```{r,kmeans_plot}
 ```
@@ -89,7 +74,9 @@ Le résultat des k-means est représenté dans la \autoref{kmeans_plot}, et les 
 \end{figure}
 ```
 
-Les profils ont ensuite été étudiés sur leur composition en fonction du diagnostic initial et sur les compétences cognitives du profil et celles sous-tendant ces performances grâce à des comparaisons de groupes.
+Une implémentation de l’algorithme des k-means a donc été conduite avec 4 clusters sur l’ensemble de l’échantillon. Comme décrit plus haut, suite au calcul de la matrice de dissimilarité, les observations sont attribuées au cluster le plus probable en termes d’assignation. L'algorithme entier est répété un grand nombre de fois (n = 200 ici) avec des "points de départ" (l'endroit d'initialisation des centres des clusters) différents. La partition choisie place chaque participant dans le cluster où il était "majoritairement" sur toutes les répétitions. Le résultat des k-means est représenté dans la \autoref{kmeans_plot}, et les profils cognitifs associés sur les trois capacités définies par l'AFM est en \autoref{radar}.         
+
+Par ailleurs, l'analyse de clusters montre que les quatre clusters expliquent 60,70% de la variance totale des données originales. Nous avons alors mené une analyse comparative avec la solution à deux clusters, qui n'expliqueraient "que" 37,26% de la variance totale des données, s'ajoutant à l'argumentaire de notre choix de trois clusters.
 
 ```{=latex}
 \begin{figure}[h]
@@ -101,6 +88,25 @@ Les profils ont ensuite été étudiés sur leur composition en fonction du diag
 \label{radar}
 \end{figure}
 ```
+
+### Composition et description des clusters
+
+Les profils ont ensuite été étudiés sur leur composition en fonction du diagnostic initial et sur les compétences cognitives du profil et celles sous-tendant ces performances grâce à des comparaisons de groupes.
+
+La \autoref{repartition} présente la répartition dans les nouveaux clusters des participants initialement identifiés comme aphantasiques ou non par le VVIQ. Les clusters 3 et 4 sont représentatifs de l'importance du critère de l'imagerie visuelle-objet : ils sont composés respectivement de 100% de contrôles et de 100% d'aphantasiques. Les clusters 1 et 2 sont néanmoins plus équilibrés.  
+
+Dans le but d’interpréter les clusters à partir des scores des compétences les composant, une moyenne en dessous de 0 (moyenne standardisée) est considérée comme déficitaire et une moyenne au-dessus de 0 comme non-déficitaire. Les moyennes de chaque cluster aux variables avec les tailles d’effectif sont présentés dans la \autoref{repartition}.
+
+```{r,repartition}
+```
+
+Dans l’objectif de mieux décrire les sous-groupes, nous réaliserons es analyses de variance univariées. 
+
+Nous avons ajusté des modèles linéaires sur nos données pour prédire les nouveaux scores de *Raisonnement*, d'*Imagerie Objet* et d'*Imagerie Spatiale* en fonction des clusters, et ainsi mieux comparer et caractériser nos sous-groupes. Ces modèles ont permis d'expliquer une part de variance importante et statistiquement significative des scores en Raisonnement ($r^2$ = 0.49, *F*(3,
+396) = 128.86, *p* < .001, adj. $r^2$ ajusté = 0.49), en Imagerie Objet ($r^2$
+= 0.69, *F*(3, 396) = 290.12, *p*< .001, $r^2$ ajusté = 0.68) et en Imagerie Spatiale ($r^2$ = 0.56, *F*(3, 396) = 168.39, *p* < .001, $r^2$ ajusté = 0.56).    
+
+A cette étape, les post-hoc des modèles avec un intercept à 0 nous permettent de retrouver les valeurs de la \autoref{repartition}. Dans l'analyse effective, nous réaliserions *tendanciellement* (*p* = .06) des post-hocs deux-à-deux plus ciblés avec la correction que nous choisirons : néanmoins dans ces analyses prévisionnelles, tout est extrêmement significatif par construction et ces tests seraient inutilement lourds. La \autoref{lollipop} présente les comparaisons des différentes moyennes dans un histogramme de type *Cleveland* (dit *lollipop chart*).
 
 ```{=latex}
 \begin{figure}[H]
@@ -114,28 +120,8 @@ Les profils ont ensuite été étudiés sur leur composition en fonction du diag
 ```
 
 
-La \autoref{repartition} présente la répartition dans les nouveaux clusters des participants initialement identifiés comme aphantasiques ou non par le VVIQ. Les clusters 3 et 4 sont représentatifs de l'importance du critère de l'imagerie visuelle-objet : ils sont composés respectivement de 100% de contrôles et de 100% d'aphantasiques. Les clusters 1 et 2 sont néanmoins plus équilibrés,     
-
-...et reflèteraient potentiellement la nécessité de raffiner la définition de l'imagerie visuelle, ou de considérer celle-ci comme un continuum avec des corrélations spécifiques.
-
-```{r,repartition}
-```
-
-
-### Différences de moyenne des deux groupes
-
-Nous avons ajusté des modèles linéaires sur nos données pour prédire les nouveaux scores de *Raisonnement*, d'*Imagerie Objet* et d'*Imagerie Spatiale* en fonction des clusters. Ces modèles ont permis d'expliquer une part de variance importante et statistiquement significative des scores en Raisonnement ($r^2$ = 0.49, *F*(3,
-396) = 128.86, *p* < .001, adj. $r^2$ ajusté = 0.49), en Imagerie Objet ($r^2$
-= 0.69, *F*(3, 396) = 290.12, *p*< .001, $r^2$ ajusté = 0.68) et en Imagerie Spatiale ($r^2$ = 0.56, *F*(3, 396) = 168.39, *p* < .001, $r^2$ ajusté = 0.56).
 
 <!--
-Dans le but d’interpréter les clusters à partir des scores des compétences les composant, une moyenne en dessous de 0 (moyenne standardisée) était considérée comme déficitaire et une moyenne au-dessus de 0 comme non-déficitaire. Les moyennes et écart-types avec les tailles d’effectif sont présentés dans le Tableau 1.2. Dans l’objectif de mieux décrire les sousgroupes, nous avons réalisé des analyses de variance univariées. Les trois comparaisons étant significatives, nous présentons les résultats des tests post-hocs (avec correction de Bonferroni) qui sont représentés sur les histogrammes de la Figure 1.4.
-
-Moyennes, écart-types et effectifs par clusters.
-Note : Les moyennes en gras correspondent à des moyennes supérieures à 0.
-Voir la figure d'Elise : les clusters sont en ligne, les fonctions cognitives en colonnes, deux colonnes avec la proportion d'Aph NAph et le total des clusters. Le notre aura en théorie juste une colonne en plus
-Je sais pas si elle a fait le tableau manuellement sur Rmd ou Latex ou R, mais le résultat est joli.
--->
 Les comparaisons ont été ajustées sur un intercept centré par rapport aux données standardisées, pour pouvoir contraster chaque cluster par rapport à la moyenne globale. Nous observons pour tous les clusters des effets statistiquement significatifs sur les trois composantes (les *p* values seront précisées plus bas). Ainsi nous observons, par cluster :
  - Le cluster 1 a un effet négatif sur le Raisonnement (beta = -0.18, 95% CI [-0.30, -0.06],
 t(396) = -2.95, p = 0.003; Std. beta = -0.20, 95% CI [-0.33, -0.07]), sur l'Imagerie Objet (beta = -0.77, 95% CI [-0.88, -0.67],
@@ -153,5 +139,5 @@ t(396) = 16.33, p < .001; Std. beta = 1.21, 95% CI [1.06, 1.35])
 t(396) = -13.12, p < .001; Std. beta = -0.83, 95% CI [-0.96, -0.71]), positif sur l'Imagerie Objet (beta = 0.86, 95% CI [0.76, 0.96],
 t(396) = 17.32, p < .001; Std. beta = 0.87, 95% CI [0.77, 0.96]) et négatif sur l'Imagerie Spatiale (beta = -0.81, 95% CI [-0.92, -0.69],
 t(396) = -13.79, p < .001; Std. beta = -0.82, 95% CI [-0.93, -0.70]).
-
+-->
 
