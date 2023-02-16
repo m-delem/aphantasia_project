@@ -1,3 +1,9 @@
 # aphantasia_project
 
-2023 EMC aphantasia study code and manuscripts.
+Code et manuscrit de l'étude exploratoire de l'aphantasie conduite au laboratoire EMC sur le premier et deuxième trimestre 2023 par Maël DELEM et Sema Turkben sous la direction de Gaën Plancher et Eddy Cavalli.
+
+Le code utilisé pour produire les analyses est la dernière version de `\zc_scripts\aphantasia_source.R`. 
+
+Le fichier de base du manuscrit est `aphantasia_quarto.qmd`, qui appelle `za_header`, `zb_beforebody`,`1_intro`, `2_methode`, `3_resultats`, `4_discussion`, `5_annexes` pour générer `aphantasia_quarto.pdf`.
+
+La liste intégrale des références au format BibTex est dans le fichier `references.bib`.
