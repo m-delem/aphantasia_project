@@ -1,4 +1,4 @@
-# aphantasia_project
+# Du Profil Cognitif des Aphantasiques
 
 Code et manuscrit de l'étude exploratoire de l'aphantasie conduite au laboratoire EMC sur le premier et deuxième trimestre 2023 par Maël DELEM et Sema Turkben sous la direction de Gaën Plancher et Eddy Cavalli.
 
