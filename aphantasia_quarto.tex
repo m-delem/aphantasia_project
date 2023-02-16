@@ -214,7 +214,7 @@
 
 \newpage{}
 
-\ifdefined\Shaded\renewenvironment{Shaded}{\begin{tcolorbox}[breakable, enhanced, interior hidden, sharp corners, boxrule=0pt, borderline west={3pt}{0pt}{shadecolor}, frame hidden]}{\end{tcolorbox}}\fi
+\ifdefined\Shaded\renewenvironment{Shaded}{\begin{tcolorbox}[boxrule=0pt, borderline west={3pt}{0pt}{shadecolor}, sharp corners, breakable, enhanced, frame hidden, interior hidden]}{\end{tcolorbox}}\fi
 
 \renewcommand*\contentsname{Table des matières}
 {
@@ -1549,15 +1549,15 @@ clusters.
 \label{kmeans_plot}
 \end{figure}
 
-Une implémentation de l'algorithme des k-means a donc été conduite avec
-4 clusters sur l'ensemble de l'échantillon. Comme décrit plus haut,
-suite au calcul de la matrice de dissimilarité, les observations sont
-attribuées au cluster le plus probable en termes d'assignation.
-L'algorithme entier est répété un grand nombre de fois (n = 200 ici)
-avec des ``points de départ'' (l'endroit d'initialisation des centres
-des clusters) différents. La partition choisie place chaque participant
-dans le cluster où il était ``majoritairement'' sur toutes les
-répétitions. Le résultat des k-means est représenté dans la
+Une implémentation de l'algorithme des \emph{k-means} a donc été
+conduite avec 4 clusters sur l'ensemble de l'échantillon. Comme décrit
+plus haut, suite au calcul de la matrice de dissimilarité, les
+observations sont attribuées au cluster le plus probable en termes
+d'assignation. L'algorithme entier est répété un grand nombre de fois (n
+= 200 ici) avec des ``points de départ'' - l'endroit d'initialisation
+des centres des clusters - différents. La partition choisie place chaque
+participant dans le cluster où il était ``majoritairement'' sur toutes
+les répétitions. Le résultat des k-means est représenté dans la
 \autoref{kmeans_plot}, et les profils cognitifs associés sur les trois
 capacités définies par l'AFM est en \autoref{radar}.
 
@@ -1565,7 +1565,7 @@ Par ailleurs, l'analyse de clusters montre que les quatre clusters
 expliquent 60,70\% de la variance totale des données originales. Nous
 avons alors mené une analyse comparative avec la solution à deux
 clusters, qui n'expliqueraient ``que'' 37,26\% de la variance totale des
-données, s'ajoutant à l'argumentaire de notre choix de trois clusters.
+données, s'ajoutant à l'argumentaire de notre choix de quatre clusters.
 
 \begin{figure}[h]
 
@@ -1645,27 +1645,24 @@ Non-Aphantasiques
 effectifs par cluster.\label{repartition}}\tabularnewline
 \end{longtable}
 
-X\% des aphantasiques sont dans un groupe performant Nous pourrons par
-la suite mener des analyses plus poussées par cluster pour raffiner la
-description de chaque profil et son fonctionnement (notamment tester des
-liens potentiels avec les statistiques démographiques), mais celles-ci
-présenteraient peu d'intérêt dans le cas présent, les données simulées
-ne représentant personne.
+Nous pourrons par la suite mener des analyses plus poussées par cluster
+pour raffiner la description de chaque profil et son fonctionnement
+(notamment tester des liens potentiels avec les statistiques
+démographiques), mais celles-ci présenteraient peu d'intérêt dans le cas
+présent, les données simulées ne représentant personne.
 
-Dans l'objectif de mieux décrire les sous-groupes, nous réaliserons es
-analyses de variance univariées.
-
-Nous avons ajusté des modèles linéaires sur nos données pour prédire les
-nouveaux scores de \emph{Raisonnement}, d'\emph{Imagerie Objet} et
-d'\emph{Imagerie Spatiale} en fonction des clusters, et ainsi mieux
-comparer et caractériser nos sous-groupes. Ces modèles ont permis
-d'expliquer une part de variance importante et statistiquement
-significative des scores en Raisonnement (\(r^2\) = 0.49, \emph{F}(3,
-396) = 128.86, \emph{p} \textless{} .001, adj. \(r^2\) ajusté = 0.49),
-en Imagerie Objet (\(r^2\) = 0.69, \emph{F}(3, 396) = 290.12,
-\emph{p}\textless{} .001, \(r^2\) ajusté = 0.68) et en Imagerie Spatiale
-(\(r^2\) = 0.56, \emph{F}(3, 396) = 168.39, \emph{p} \textless{} .001,
-\(r^2\) ajusté = 0.56).
+Dans l'objectif de mieux décrire les sous-groupes, nous réaliserons des
+analyses de variance univariées. Nous avons ajusté des modèles linéaires
+sur nos données pour prédire les nouveaux scores de \emph{Raisonnement},
+d'\emph{Imagerie Objet} et d'\emph{Imagerie Spatiale} en fonction des
+clusters, et ainsi mieux comparer et caractériser nos sous-groupes. Ces
+modèles ont permis d'expliquer une part de variance importante et
+statistiquement significative des scores en Raisonnement (\(r^2\) =
+0.49, \emph{F}(3, 396) = 128.86, \emph{p} \textless{} .001, adj. \(r^2\)
+ajusté = 0.49), en Imagerie Objet (\(r^2\) = 0.69, \emph{F}(3, 396) =
+290.12, \emph{p}\textless{} .001, \(r^2\) ajusté = 0.68) et en Imagerie
+Spatiale (\(r^2\) = 0.56, \emph{F}(3, 396) = 168.39, \emph{p}
+\textless{} .001, \(r^2\) ajusté = 0.56).
 
 A cette étape, les post-hoc des modèles avec un intercept à 0 nous
 permettent de retrouver les valeurs de la \autoref{repartition}. Dans
@@ -1677,7 +1674,7 @@ inutilement lourds. La \autoref{lollipop} présente les comparaisons des
 différentes moyennes dans un histogramme de type \emph{Cleveland} (dit
 \emph{lollipop chart}).
 
-\begin{figure}[H]
+\begin{figure}[h]
 
 \includegraphics[width=\textwidth,height=0.5\textheight]{aphantasia_quarto_files/figure-pdf/lollipop-1.pdf}
 
@@ -1745,16 +1742,35 @@ construites sur la base de deux sets de moyennes représentant deux
 groupes \emph{supposés}, divisés selon un axe d'une seule dimension : le
 déficit (ou non) d'imagerie visuelle (objet). Cette étude a permis de
 démontrer la pertinence de l'intervention d'un algorithme de partition
-non-supervisée (\emph{kmeans}) pour redéfinir les groupes - si
+non-supervisée (\emph{k-means}) pour redéfinir les groupes - si
 nécessaire - sur plusieurs dimensions en partant des données elles-mêmes
 et en s'affranchissant alors de nos connaissances préalables. Nous avons
 ici illustré une situation potentielle ou cette partition résulte en une
 recommandation de quatre groupes au lieu de deux. Du fait de la
 construction manuelle des données, ces groupes ont des caractéristiques
 exagérées. Néanmoins nous pouvons dégager le sens de la partition
-réalisée par l'algorithme. Il existe deux groupes performants en
-raisonnement : un groupe performant à toutes les compétences (le cluster
-3)
+réalisée par l'algorithme (voir \autoref{radar}). Il existe deux groupes
+performants en raisonnement : un groupe performant à toutes les
+compétences (le cluster 2), composé majoritairement de non-aphantasiques
+- ceux-ci représentent les contrôles moyens et les aphantasiques
+``indiscernables''. Il existe ensuite un groupe - le cluster 3 - très
+faible en imagerie objet mais encore davantage performant en
+raisonnement et imagerie spatiale, composé uniquement d'aphantasiques :
+il reflète les aphantasiques de ``haut niveau'' et illustre l'équilibre
+potentiellement avantageux des stratégies alternatives des
+aphantasiques\footnote{Ce serait ici notre groupe ``\emph{aphantasiques
+  scientifiques}.}. Le cluster 1 est mixte mais composé majoritairement
+de non-aphantasiques, et représente la moyenne basse des ``compétences
+équilibrées'' et des aphantasiques ``indiscernables''. Enfin le cluster
+4, composé uniquement de non-aphantasiques, présente des moyennes très
+basses sauf en imagerie-objet, où il présente la moyenne la plus élevée
+: ce serait ici nos ``hyperphantasiques''.
+
+Nous avons donc établi avec ce dossier, notre simulation et nos analyses
+prévisionnelles, qu'un tel plan d'étude et d'analyse basé sur des
+méthodes non-supervisées et \emph{data-driven} semble prometteur et
+fécond : ce plan sera potentiellement mis en application dès le deuxième
+trimestre 2023 dans l'étude réelle.
 
 \newpage
 

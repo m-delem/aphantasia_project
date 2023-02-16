@@ -63,9 +63,9 @@ Le nombre de clusters optimal a été calculé grâce à l'ensemble des indices 
 \end{figure}
 ```
 
-Une implémentation de l’algorithme des k-means a donc été conduite avec 4 clusters sur l’ensemble de l’échantillon. Comme décrit plus haut, suite au calcul de la matrice de dissimilarité, les observations sont attribuées au cluster le plus probable en termes d’assignation. L'algorithme entier est répété un grand nombre de fois (n = 200 ici) avec des "points de départ" (l'endroit d'initialisation des centres des clusters) différents. La partition choisie place chaque participant dans le cluster où il était "majoritairement" sur toutes les répétitions. Le résultat des k-means est représenté dans la \autoref{kmeans_plot}, et les profils cognitifs associés sur les trois capacités définies par l'AFM est en \autoref{radar}.         
+Une implémentation de l’algorithme des *k-means* a donc été conduite avec 4 clusters sur l’ensemble de l’échantillon. Comme décrit plus haut, suite au calcul de la matrice de dissimilarité, les observations sont attribuées au cluster le plus probable en termes d’assignation. L'algorithme entier est répété un grand nombre de fois (n = 200 ici) avec des "points de départ" - l'endroit d'initialisation des centres des clusters - différents. La partition choisie place chaque participant dans le cluster où il était "majoritairement" sur toutes les répétitions. Le résultat des k-means est représenté dans la \autoref{kmeans_plot}, et les profils cognitifs associés sur les trois capacités définies par l'AFM est en \autoref{radar}.         
 
-Par ailleurs, l'analyse de clusters montre que les quatre clusters expliquent 60,70% de la variance totale des données originales. Nous avons alors mené une analyse comparative avec la solution à deux clusters, qui n'expliqueraient "que" 37,26% de la variance totale des données, s'ajoutant à l'argumentaire de notre choix de trois clusters.
+Par ailleurs, l'analyse de clusters montre que les quatre clusters expliquent 60,70% de la variance totale des données originales. Nous avons alors mené une analyse comparative avec la solution à deux clusters, qui n'expliqueraient "que" 37,26% de la variance totale des données, s'ajoutant à l'argumentaire de notre choix de quatre clusters.
 
 ```{=latex}
 \begin{figure}[h]
@@ -89,20 +89,16 @@ Dans le but d’interpréter les clusters à partir des scores des compétences 
 ```{r,repartition}
 ```
 
-X% des aphantasiques sont dans un groupe performant
 Nous pourrons par la suite mener des analyses plus poussées par cluster pour raffiner la description de chaque profil et son fonctionnement (notamment tester des liens potentiels avec les statistiques démographiques), mais celles-ci présenteraient peu d'intérêt dans le cas présent, les données simulées ne représentant personne.
 
-
-Dans l’objectif de mieux décrire les sous-groupes, nous réaliserons es analyses de variance univariées. 
-
-Nous avons ajusté des modèles linéaires sur nos données pour prédire les nouveaux scores de *Raisonnement*, d'*Imagerie Objet* et d'*Imagerie Spatiale* en fonction des clusters, et ainsi mieux comparer et caractériser nos sous-groupes. Ces modèles ont permis d'expliquer une part de variance importante et statistiquement significative des scores en Raisonnement ($r^2$ = 0.49, *F*(3,
+Dans l’objectif de mieux décrire les sous-groupes, nous réaliserons des analyses de variance univariées. Nous avons ajusté des modèles linéaires sur nos données pour prédire les nouveaux scores de *Raisonnement*, d'*Imagerie Objet* et d'*Imagerie Spatiale* en fonction des clusters, et ainsi mieux comparer et caractériser nos sous-groupes. Ces modèles ont permis d'expliquer une part de variance importante et statistiquement significative des scores en Raisonnement ($r^2$ = 0.49, *F*(3,
 396) = 128.86, *p* < .001, adj. $r^2$ ajusté = 0.49), en Imagerie Objet ($r^2$
 = 0.69, *F*(3, 396) = 290.12, *p*< .001, $r^2$ ajusté = 0.68) et en Imagerie Spatiale ($r^2$ = 0.56, *F*(3, 396) = 168.39, *p* < .001, $r^2$ ajusté = 0.56).    
 
 A cette étape, les post-hoc des modèles avec un intercept à 0 nous permettent de retrouver les valeurs de la \autoref{repartition}. Dans l'analyse effective, nous réaliserions *tendanciellement* (*p* = .06) des post-hocs deux-à-deux plus ciblés avec la correction que nous choisirons : néanmoins dans ces analyses prévisionnelles, tout est extrêmement significatif par construction et ces tests seraient inutilement lourds. La \autoref{lollipop} présente les comparaisons des différentes moyennes dans un histogramme de type *Cleveland* (dit *lollipop chart*).
 
 ```{=latex}
-\begin{figure}[H]
+\begin{figure}[h]
 ```
 ```{r,lollipop}
 ```
