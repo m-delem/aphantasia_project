@@ -36,6 +36,8 @@ En accord avec le fait que leur vie quotidienne ne semble pas être affectée pa
 
 Bien que les affirmations initiales de Galton selon lesquelles les "hommes de science" manquaient d'imagerie mentale aient été contestées depuis et qu'il ait été démontré qu'il s'agissait d'une extension excessive de son observation de quelques répondants particulièrement inhabituels parmi ses collègues scientifiques [@brewerScientistsAreNot2006], son récit reste intéressant d'un point de vue opposé : Si les aphantasiques sont effectivement très peu nombreux, comme l'ont montré des données plus récentes, ont-ils vraiment tendance à se tourner vers les domaines scientifiques ? Les premiers résultats concernant les aphantasiques semblent corroborer cette intuition. Pourtant, quelles bases cognitives pourraient sous-tendre ces différentes stratégies mentales des aphantasiques et ces apparentes affinités intellectuelles ? Quelle est la nature des différents "modes" supposés de traitement de l'information visuelle ?
 
+<!-- A partir d'ici mon manuscrit initial se 
+
 ## La disctinction entre imagerie visuelle-objet et visuospatiale
 
 Une hypothèse est que cette dualité reposerait sur la distinction fondamentale, dans l'imagerie visuelle, entre deux composantes, l'imagerie visuelle-objet (c'est-à-dire la représentation mentale des caractéristiques visuelles d'un objet telles que la forme, la luminosité ou la couleur) et l'imagerie visuelle-spatiale (c'est-à-dire la représentation mentale des emplacements spatiaux et des relations entre les parties d'un objet).

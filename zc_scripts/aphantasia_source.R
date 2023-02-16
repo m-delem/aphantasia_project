@@ -351,11 +351,11 @@ data_latent %>%
   group_by(cluster) %>% 
   summarise(across(everything(),mean)) %>% 
   rename(Cluster = cluster) %>% 
-  mutate(`Aphantasiques` = c(42,29,0,126),
-         `Non-Aphantasiques` = c(73,49,81,0)) %>% 
+  mutate(`Aphantasiques` = c(29,42,126,0) ,
+         `Non-Aphantasiques` = c(49,73,0,81)) %>% 
   knitr::kable(
     caption =
-      "Moyennes évaluée à chaque compétence et répartion des effectifs par cluster.\\label{repartition}",
+      "Moyennes évaluées à chaque compétence et répartion des effectifs par cluster.\\label{repartition}",
     row.names = FALSE
   )
 
@@ -366,10 +366,10 @@ data_latent %>%
   group_by(variable, cluster) %>% 
   summarise(mean = mean(value)) %>% 
   ggdotchart(
-    x = "variable",
+    x = "cluster",
     y = "mean",
-    group = "cluster",
-    color = "cluster", size = 1, dot.size = 3,
+    group = "variable",
+    color = "variable", size = 1, dot.size = 3,
     palette = "aas",
     add = "segment",
     position = position_dodge(.5),
@@ -378,7 +378,7 @@ data_latent %>%
     rotate = TRUE,
     #legend = "none",
     ggtheme = theme_bw(base_size = 14, base_family = "serif"),
-    xlab = "Fonctions Cognitives",
+    xlab = "Cluster",
     ylab = "Moyennes",
     # title =
     #   "Scores aux differentes fonctions cognitives en fonction des clusters"

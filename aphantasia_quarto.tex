@@ -213,7 +213,7 @@
 
 \newpage{}
 
-\ifdefined\Shaded\renewenvironment{Shaded}{\begin{tcolorbox}[interior hidden, frame hidden, sharp corners, boxrule=0pt, enhanced, borderline west={3pt}{0pt}{shadecolor}, breakable]}{\end{tcolorbox}}\fi
+\ifdefined\Shaded\renewenvironment{Shaded}{\begin{tcolorbox}[interior hidden, borderline west={3pt}{0pt}{shadecolor}, breakable, sharp corners, boxrule=0pt, frame hidden, enhanced]}{\end{tcolorbox}}\fi
 
 \renewcommand*\contentsname{Table des matières}
 {
@@ -1107,9 +1107,9 @@ et al., 2022}). Les participants doivent choisir quelle image correspond
 à la première, avec la consigne d'être le plus rapide possible tout en
 gardant une précision maximale. La mesure d'intérêt pour cette étude
 sera la précision (la proportion de réponses justes), d'où la
-considération de celui-ci comme un ``score'' pour les analyses (le temps
+considération de celle-ci comme un ``score'' pour les analyses (le temps
 de réaction à la MRT est aussi utilisé dans la littérature, à d'autres
-fins). Bien que la MRT soit en partie intégré dans le SRI (voir
+fins). Bien que la MRT soit en partie intégrée dans le SRI (voir
 ci-dessous), elle est l'une des mesures les plus communes pour
 l'évaluation de l'imagerie spatiale dans la littérature, et l'avoir à
 des fins de comparaison et de reproductibilité peut être intéressant.
@@ -1218,20 +1218,20 @@ aphantasiques et hautes chez les contrôles, des scores aux tâches
 d'imagerie spatiale et de raisonnement légèrement plus élevés chez les
 aphantasiques, et des scores aux tâches de fonctions exécutives
 variables.\\
-Nous avons ensuite établi un \textbf{modèle de mesures}, une matrice
+Nous avons ensuite établi un \textbf{modèle de facteurs}, une matrice
 définissant par des coefficients les liens entre nos douze variables et
-ce qu'elles ``évaluent vraiment'', les capacités cognitives
-sous-jacentes. Nous avons choisi d'en désigner cinq : l'\emph{imagerie
-objet}, l'\emph{imagerie spatiale}, le \emph{raisonnement abstrait}, la
+ce qu'elles ``évaluent vraiment'', les facteurs cognitifs sous-jacents.
+Nous avons choisi d'en désigner cinq : l'\emph{imagerie objet},
+l'\emph{imagerie spatiale}, le \emph{raisonnement abstrait}, la
 \emph{mémoire de travail} et \emph{la flexibilité mentale} (ces deux
-dernières pouvant être regroupées ou non sous la catégorie de
+derniers pouvant être regroupés ou non sous la catégorie de
 \emph{fonctions exécutives}). Nous aurons donc des corrélations entre
 nos variables évaluées, qu'il faudra éclaircir pour comprendre les
 aspects fondamentaux qu'elles révèlent.\\
-Enfin, nous avons fixé une \textbf{matrice de covariance} entre ces cinq
-capacités cognitives, qui sont loin d'être indépendantes : la
-littérature pointe par exemple vers des liens entre imagerie spatiale et
-raisonnement
+Enfin, nous avons fixé un \textbf{modèle d'effets}, i.e.~une matrice de
+covariance entre ces cinq capacités cognitives, qui sont loin d'être
+indépendantes : la littérature pointe par exemple vers des liens entre
+imagerie spatiale et raisonnement
 (\protect\hyperlink{ref-kozhevnikovTradeoffObjectSpatial2010}{Kozhevnikov
 et al., 2010};
 \protect\hyperlink{ref-kozhevnikovSpatialVisualizationPhysics2007}{Kozhevnikov
@@ -1244,16 +1244,16 @@ Dawes et al., 2020};
 Logie, 1995}). Nous avons donc pondéré ces liens avec des coefficients
 arbitraires sur cette base et celle de nos prédictions.\\
 Notre fonction de simulation a donc eu pour tâche, à l'aide de ces trois
-matrices (\emph{moyennes}, \emph{mesures}, \emph{covariance}), de créer
-des moyennes aléatoires -bien que liées par les corrélations
-sous-jacentes- pour chaque tâche et chaque participant, avec une
-distribution normale et l'ajout d'erreurs aléatoires normales. Les
-moyennes ont ensuite été standardisées en \emph{z-scores} pour les
-analyses (et pour les rassembler si nécessaire). La fonction de
-simulation a été codée sur R (\protect\hyperlink{ref-R-base}{R Core
-Team, 2022}) (voir \emph{\nameref{annexes}} pour la liste complète des
-packages cités dans le document, leurs références ainsi que les liens
-vers le code détaillé ici).
+matrices (\emph{moyennes}, \emph{facteurs}, \emph{effets}), de créer des
+moyennes aléatoires -bien que liées par les corrélations sous-jacentes-
+pour chaque tâche et chaque participant, avec une distribution normale
+et l'ajout d'erreurs aléatoires normales. Les moyennes ont ensuite été
+standardisées en \emph{z-scores} pour les analyses (et pour les
+rassembler si nécessaire). La fonction de simulation a été codée sur R
+(\protect\hyperlink{ref-R-base}{R Core Team, 2022}) (voir
+\emph{\nameref{annexes}} pour la liste complète des packages cités dans
+le document, leurs références ainsi que les liens vers le code détaillé
+ici).
 
 \hypertarget{analyses}{%
 \subsection{Analyses}\label{analyses}}
@@ -1298,13 +1298,13 @@ Comme nous l'avons mentionné dans la section
 pour certaines des corrélations très significatives entre elles du fait
 de la proximité des capacités cognitives qu'elles évaluent. Nous
 pourrons alors réduire le nombre de variables en isolant des dimensions
-essentielles qu'elles représentent par une \textbf{analyse en
-composantes principales} (ACP). Celle-ci nous permettra alors de
-combiner les scores de différentes tâches pour les ramener à des scores
-liés à des capacités cognitives (e.g.~un score en imagerie visuelle au
-lieu de deux scores au VVIQ et à l'OSIQ-objet). Cette analyse a ici été
-conduite sur R via la fonction \texttt{fviz\_pca\_var()} du package
-\texttt{factoextra}.
+essentielles qu'elles représentent par une \textbf{Analyse Factorielle
+Multiple} (AFM). Celle-ci nous permettra alors de combiner les scores de
+différentes tâches pour les ramener à des scores prédictifs liés à des
+capacités cognitives (e.g.~un score en imagerie visuelle au lieu de deux
+scores au VVIQ et à l'OSIQ-objet). Cette analyse a ici été conduite sur
+R via la fonction \texttt{factor\_analysis} du package \emph{parameters}
+et \texttt{fviz\_pca\_var()} du package \emph{factoextra}.
 
 De même, nos groupes initiaux ont été définis de manière arbitraire (une
 limite de score définie par convention, VVIQ \textless{} 32) et
@@ -1319,7 +1319,9 @@ dissimilarité} selon des distances euclidiennes : i.e.~il évalue
 entre chaque observation (ici les participants). La distance euclidienne
 en deux dimensions se calcule simplement par le théorème de Pythagore.
 Pour un nombre plus grand de dimensions, la formule généralisée est la
-suivante : \[
+suivante :
+
+\[
 D_{i,j}^2 = \sum_{v=1}^{n}(x_{vi}-x_{vj})^2
 \] ``D'' étant la distance entre i et j dans n dimensions, égale à la
 somme des carrés des distances dans chaque dimension. Cette distance, ou
@@ -1375,7 +1377,21 @@ restent à définir.
 descriptives}\label{statistiques-descriptives}}
 
 Les statistiques descriptives de notre échantillon sont en
-\autoref{descriptives}.
+\autoref{descriptives}. Les scores sont simulés aléatoirement, avec des
+écarts-types arbitraires et certains aspects approximatifs du fait des
+contraintes techniques de notre simulation (les minimums et maximums par
+exemple sont souvent irréalistes ou impossibles). Dans l'étude réelle
+nous y adjoindrons les données démographiques collectées : les âges,
+genres, études et secteurs d'activité des participants, à la fois à des
+fins exploratoires et de contrôle pour certaines analyses\footnote{Le
+  domaine d'intérêt - grossièrement sciences/arts/autres - a par exemple
+  été lié aux capacités d'imagerie objet et spatiale
+  (\protect\hyperlink{ref-kozhevnikovCreativityVisualizationAbilities2013}{Kozhevnikov
+  et al., 2013},
+  \protect\hyperlink{ref-kozhevnikovSpatialVisualizationPhysics2007}{2007})
+  : cette variable aurait donc à la fois un intérêt exploratoire (quelle
+  proportion d'aphantasiques ?) et de contrôle (analyse par secteur si
+  celui-ci a un effet significatif).}.
 
 \begin{longtable}[]{@{}lrrrr@{}}
 \toprule()
@@ -1405,9 +1421,9 @@ SRI & 37.463108 & 7.429337 & 14.6270358 & 69.13171 \\
 Maximum (\emph{Max}).\label{descriptives}}\tabularnewline
 \end{longtable}
 
-\hypertarget{analyse-factorielle-multiple}{%
-\subsubsection{Analyse Factorielle
-Multiple}\label{analyse-factorielle-multiple}}
+\hypertarget{analyse-factorielle-multiple-et-ggm}{%
+\subsubsection{Analyse Factorielle Multiple et
+GGM}\label{analyse-factorielle-multiple-et-ggm}}
 
 Comme nous l'avons vu, il existe de nombreux liens (ici par
 construction, à des fins d'observation). La \autoref{ggm_graph} en donne
@@ -1444,6 +1460,22 @@ données semblent appropriées à une analyse factorielle (KMO = 0,82). -
 Sphéricité : Le test de sphéricité de Bartlett suggère qu'il y a une
 corrélation significative suffisante dans les données pour une analyse
 factorielle (Chisq(66) = 3194.04, p \textless{} .001).
+
+ELISE « Cette analyse retient 3 dimensions présentant des valeurs
+propres (ou eigenvalues) respectives de 4.02, 1.87 et 0.95. Ensuite, une
+ACP avec une rotation oblimin a été conduite dont les résultats sont
+présentés dans la Figure 1.7. Les trois dimensions de l'ACP réunissent
+67.3\% de la variance totale. Les dimensions sont ensuite interprétées,
+une valeur supérieure à .30 est considérée comme significative (Kline,
+2002, pp.52-53). La première dimension était composée de la lecture de
+pseudo-mots, la lecture de mots, la fluence en lecture, l'orthographe,
+la conscience phonologique et la mémoire à court terme phonologique.
+Nous avons par conséquent décidé de la nommer « Décodage et Phono ». La
+seconde dimension était composée des mesures de vocabulaire, de
+compréhension orale et de compréhension en lecture (CL). Cette dimension
+a été appelée « Sémantique et CL ». La dernière dimension était composée
+uniquement de la mesure de raisonnement non-verbal, et a donc été nommée
+« Matrice ». »
 
 Le choix de trois dimensions est soutenu par cinq (35,71\%) méthodes sur
 quatorze (dont CNG, coordonnées optimales, analyse parallèle, critère de
@@ -1622,10 +1654,10 @@ Non-Aphantasiques
 \end{minipage} \\
 \midrule()
 \endhead
-1 & -0.2435470 & -0.7742495 & -0.1801197 & 42 & 73 \\
-2 & 0.4247462 & 0.7090962 & 0.6260035 & 29 & 49 \\
-3 & 1.1891565 & -0.9185303 & 0.8451114 & 0 & 81 \\
-4 & -0.8051109 & 0.8581758 & -0.7664169 & 126 & 0 \\
+1 & -0.2435470 & -0.7742495 & -0.1801197 & 29 & 49 \\
+2 & 0.4247462 & 0.7090962 & 0.6260035 & 42 & 73 \\
+3 & 1.1891565 & -0.9185303 & 0.8451114 & 126 & 0 \\
+4 & -0.8051109 & 0.8581758 & -0.7664169 & 0 & 81 \\
 \bottomrule()
 \caption{Moyennes évaluée à chaque compétence et répartion des effectifs
 par cluster.\label{repartition}}\tabularnewline
@@ -1667,12 +1699,73 @@ différentes moyennes dans un histogramme de type \emph{Cleveland} (dit
 \hypertarget{discussion}{%
 \section{Discussion}\label{discussion}}
 
-\hypertarget{imagerie-et-profils-cognitifs}{%
-\subsection*{Imagerie et profils
-cognitifs}\label{imagerie-et-profils-cognitifs}}
-\addcontentsline{toc}{subsection}{Imagerie et profils cognitifs}
+Le plan d'analyse et les simulations présentées ici ont permis de mettre
+en évidence l'intérêt dans un premier temps d'une étude dimensionnelle
+et exploratoire (\emph{data-driven}) des compétences de l'imagerie et de
+l'abstraction, puis d'une analyse des données des participants
+partitionnées de façon non-supervisée.
 
-\ldots{} Plein de choses à dire. Jeudi 16 février nous voilà !
+\hypertarget{une-analyse-exploratoire-de-limagerie-mentale.}{%
+\subparagraph{Une analyse exploratoire de l'imagerie
+mentale.}\label{une-analyse-exploratoire-de-limagerie-mentale.}}
+
+L'analyse dimensionnelle \emph{data driven} peut mettre en évidence des
+liens entre des capacités cognitives à partir des données : elle
+pourrait permettre d'élucider les connections des différentes formes de
+l'imagerie entre elles et avec les compétences abstraites. Une analyse
+factorielle puis basée sur la théorie des graphes permettrait de lier
+les compétences individuelles en des réseaux fonctionnels cohérents dont
+la proximité ou la distance serait mise en évidence sans interférence
+des nos hypothèses.\\
+Dans cette simulation (dont la base est bien sûr teintée par toutes les
+connaissances et hypothèses \emph{a priori}), l'Analyse Factorielle
+Multiple a permis de mettre en évidence trois composantes cognitives
+reflétées par nos facteurs: l'imagerie visuelle-objet, l'imagerie
+visuospatiale et le raisonnement. La pertinence analytique de la méthode
+est reflétée par la différence entre notre méthodologie de simulation et
+le résultat de l'AFM : nous avions initialement simulé douze variables
+et les avions liées linéairement à cinq facteurs latents, pondération
+qui était dépendante de nos présupposition sur les facteurs en question.
+L'AFM en a extrait trois très pertinents, mais avait aussi identifié -
+dans un quatrième facteur moins impactant - la \emph{mémoire de
+travail}. L'autre facteur que nous avions construit, la
+\emph{flexibilité mentale}, a été évacué par l'analyse de facteurs car
+indiscernable des autres : nos variables étaient toutes plus corrélées à
+d'autres facteurs qu'à la flexibilité elle-même. L'analyse successive en
+graphes par un \emph{Gaussian Graphical Model} nous a permis d'observer
+les distances entre ces réseaux et leur liens réciproques. Sur la base
+d'une matrice corrélation entre les variables, elle a créé une analyse
+géométrique du plan de facteurs et une représentation de celui-ci. Cette
+représentation a montré sa capacité à révéler des liens entre variables
+mais aussi entre \emph{réseaux}. Dans notre simulation nous avions par
+exemple créé intentionnellement\footnote{Ces phénomènes n'existaient que
+  de façon sous-jacente à nos coefficients du modèle factoriel,
+  i.e.~dans notre modèle d'\emph{effets}.} deux phénomènes : une
+corrélation négative entre l'imagerie visuelle-objet d'un côté et
+l'imagerie spatiale et le raisonnement de l'autre, ainsi qu'une
+corrélation positive entre l'imagerie spatiale et le raisonnement. Ces
+deux phénomènes sont très bien retranscrits par le GGM, illustrant sa
+pertinence dans de tels modèles de données.
+
+\hypertarget{vers-la-construction-de-profils-cognitifs-des-aphantasies}{%
+\paragraph{Vers la construction de profils cognitifs des
+aphantasies}\label{vers-la-construction-de-profils-cognitifs-des-aphantasies}}
+
+Nos données - illustrant notre recrutement réel potentiel - étaient ici
+construites sur la base de deux sets de moyennes représentant deux
+groupes \emph{supposés}, divisés selon un axe d'une seule dimension : le
+déficit (ou non) d'imagerie visuelle (objet). Cette étude a permis de
+démontrer la pertinence de l'intervention d'un algorithme de partition
+non-supervisée (\emph{kmeans}) pour redéfinir les groupes - si
+nécessaire - sur plusieurs dimensions en partant des données elles-mêmes
+et en s'affranchissant alors de nos connaissances préalables. Nous avons
+ici illustré une situation potentielle ou cette partition résulte en une
+recommandation de quatre groupes au lieu de deux. Du fait de la
+construction manuelle des données, ces groupes ont des caractéristiques
+exagérées. Néanmoins nous pouvons dégager le sens de la partition
+réalisée par l'algorithme. Il existe deux groupes performants en
+raisonnement : un groupe performant à toutes les compétences (le cluster
+3)
 
 \newpage
 
