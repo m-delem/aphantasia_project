@@ -4,6 +4,6 @@ Code et manuscrit de l'étude exploratoire sur l'aphantasie conduite au laborato
 
 Le code utilisé pour produire les analyses est la dernière version de `\zc_scripts\aphantasia_source.R`. 
 
-Le fichier de base du manuscrit est `aphantasia_quarto.qmd`, qui appelle `za_header`, `zb_beforebody`,`1_intro`, `2_methode`, `3_resultats`, `4_discussion`, `5_annexes` pour générer le .pdf `aphantasia_project.pdf`.
+Le fichier de base du manuscrit est `aphantasia_project.qmd`, créé sur RStudio via Quarto et une distribution LaTeX, qui appelle `za_header`, `zb_beforebody`,`1_intro`, `2_methode`, `3_resultats`, `4_discussion`, `5_annexes` pour générer le .pdf `aphantasia_project.pdf`.
 
 La liste intégrale des références au format BibTex est dans le fichier `references.bib`.
