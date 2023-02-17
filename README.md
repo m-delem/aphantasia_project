@@ -1,6 +1,6 @@
 # Du Profil Cognitif des Aphantasiques
 
-Code et manuscrit de l'étude exploratoire de l'aphantasie conduite au laboratoire EMC sur le premier et deuxième trimestre 2023 par Maël DELEM et Sema TURKBEN sous la direction de Gaën PLANCHER et Eddy CAVALLI.
+Code et manuscrit de l'étude exploratoire sur l'aphantasie conduite au laboratoire EMC sur le premier et deuxième trimestre 2023 par Maël DELEM et Sema TURKBEN sous la direction de Gaën PLANCHER et Eddy CAVALLI.
 
 Le code utilisé pour produire les analyses est la dernière version de `\zc_scripts\aphantasia_source.R`. 
 
