@@ -29,9 +29,9 @@ knitr::write_bib(
   # package list
   x = c(
     # all packages
-    .packages(),
+    # .packages(),
     # or individual packages
-    that_forgotten_package,
+    # "that_forgotten_package",
     ),
   # output .bib
   file = "packages.bib",

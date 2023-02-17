@@ -9,7 +9,6 @@
 
 # packages
 shelf(
-  easystats,  # modelling, visualization and reporting ecosystem
   ggpubr,     # publication plots
   ggradar,    # radar charts
   cluster,     # self-explanatory
@@ -242,8 +241,6 @@ datascores %>%
                  repel = FALSE) +
   theme_graph(base_family = "serif", base_size = 10)
 
-# Gaussian Graphical Model
-
 # ---- mfa_graph ---------------------------------------------------------------
 # check_factorstructure(datascores)
 # n_factors(datascores, rotation="cluster") 
@@ -291,8 +288,6 @@ factor_analysis(datascores,
   plot() + labs(title=NULL)
 
 # Rotated loadings from factor analysis
-
-
 
 # ---- kmeans_plot -------------------------------------------------------------
 

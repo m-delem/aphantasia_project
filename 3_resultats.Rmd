@@ -35,7 +35,7 @@ Le choix de trois dimensions pour l'analyse était soutenu par cinq (35,71%) mé
 ```{r,loadings_graph}
 ```
 ```{=latex}
-\caption{Poids de chaque variable dans l'Analyse Factorielle Multiple à quatre facteurs.}
+\caption{Poids de chaque variable dans l'Analyse Factorielle Multiple à trois facteurs.}
 \label{loadings_graph}
 \end{figure}
 ```

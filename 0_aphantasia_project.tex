@@ -214,7 +214,7 @@
 
 \newpage{}
 
-\ifdefined\Shaded\renewenvironment{Shaded}{\begin{tcolorbox}[boxrule=0pt, interior hidden, borderline west={3pt}{0pt}{shadecolor}, frame hidden, enhanced, breakable, sharp corners]}{\end{tcolorbox}}\fi
+\ifdefined\Shaded\renewenvironment{Shaded}{\begin{tcolorbox}[sharp corners, breakable, interior hidden, boxrule=0pt, borderline west={3pt}{0pt}{shadecolor}, frame hidden, enhanced]}{\end{tcolorbox}}\fi
 
 \renewcommand*\contentsname{Table des matières}
 {
@@ -1442,7 +1442,7 @@ partiels et leur significativité.
 
 \begin{figure}[h]
 
-\includegraphics[width=\textwidth,height=0.5\textheight]{aphantasia_project_files/figure-pdf/ggm_graph-1.pdf}
+\includegraphics[width=\textwidth,height=0.5\textheight]{0_aphantasia_project_files/figure-pdf/ggm_graph-1.pdf}
 
 \caption{Représentation du GGM ajusté sur nos données. Chaque noeud représente une variable. Les liens bleus dénotent une corrélation positive, les rouges une corrélation négative, et leur épaisseur dépend de la force de cette corrélation. Le modèle illustre les choix de pondération réalisés à l'étape de simulation : on peut notamment voir des corrélations très prononcées entre le VVIQ et l'OSIQ-objet (r = 0.77, p<.001) qui évaluent tous deux l'imagerie objet, le Digit Span et les blocs de Corsi (r = 0.68, p<.001) qui évaluent entre autres la mémoire de travail, ou encore entre l'OSIQ-spatial et le SRI, qui sont respectivement l'auto-évaluation et la tâche les plus spécifiques de l'imagerie spatiale.}
 \label{ggm_graph}
@@ -1500,9 +1500,9 @@ clusters.\label{loadings_tbl}}\tabularnewline
 
 \begin{figure}[h]
 
-\includegraphics[width=\textwidth,height=0.5\textheight]{aphantasia_project_files/figure-pdf/loadings_graph-1.pdf}
+\includegraphics[width=\textwidth,height=0.5\textheight]{0_aphantasia_project_files/figure-pdf/loadings_graph-1.pdf}
 
-\caption{Poids de chaque variable dans l'Analyse Factorielle Multiple à quatre facteurs.}
+\caption{Poids de chaque variable dans l'Analyse Factorielle Multiple à trois facteurs.}
 \label{loadings_graph}
 \end{figure}
 
@@ -1543,7 +1543,7 @@ clusters.
 
 \begin{figure}[h]
 
-\includegraphics[width=\textwidth,height=0.5\textheight]{aphantasia_project_files/figure-pdf/kmeans_plot-1.pdf}
+\includegraphics[width=\textwidth,height=0.5\textheight]{0_aphantasia_project_files/figure-pdf/kmeans_plot-1.pdf}
 
 \caption{Représentation des clusters reconnus par la méthode des 'k-means', selon les deux composantes principales de l'AFM.}
 \label{kmeans_plot}
@@ -1569,7 +1569,7 @@ données, s'ajoutant à l'argumentaire de notre choix de quatre clusters.
 
 \begin{figure}[h]
 
-\includegraphics[width=1\textwidth,height=0.5\textheight]{aphantasia_project_files/figure-pdf/radar-1.pdf}
+\includegraphics[width=1\textwidth,height=0.5\textheight]{0_aphantasia_project_files/figure-pdf/radar-1.pdf}
 
 \caption{Diagramme représentatant les profils cognitifs associés à chaque cluster, selon  trois dimensions principales : l'imagerie visuelle-objet, l'imagerie visuo-spatiale et le raisonnement.}
 \label{radar}
@@ -1676,7 +1676,7 @@ différentes moyennes dans un histogramme de type \emph{Cleveland} (dit
 
 \begin{figure}[h]
 
-\includegraphics[width=\textwidth,height=0.5\textheight]{aphantasia_project_files/figure-pdf/lollipop-1.pdf}
+\includegraphics[width=\textwidth,height=0.5\textheight]{0_aphantasia_project_files/figure-pdf/lollipop-1.pdf}
 
 \caption{Représentation des moyennes de chaque cluster pour les trois capacités cognitives.}
 \label{lollipop}
@@ -1789,11 +1789,6 @@ A., Wickham, H., Cheng, J., Chang, W., \& Iannone, R. (2023).
 \emph{Rmarkdown: {Dynamic} Documents for {R}} {[}Manual{]}.
 \url{https://CRAN.R-project.org/package=rmarkdown}
 
-\leavevmode\vadjust pre{\hypertarget{ref-R-equatiomatic}{}}%
-Anderson, D., Heiss, A., \& Sumners, J. (2022). \emph{Equatiomatic:
-{Transform} Models into {LaTeX} Equations} {[}Manual{]}.
-\url{https://CRAN.R-project.org/package=equatiomatic}
-
 \leavevmode\vadjust pre{\hypertarget{ref-bainbridgeQuantifyingAphantasiaDrawing2021}{}}%
 Bainbridge, W. A., Pounder, Z., Eardley, A. F., \& Baker, C. I. (2021).
 Quantifying Aphantasia through Drawing: {Those} without Visual Imagery
@@ -1805,16 +1800,6 @@ Bartolomeo, P., Hajhajate, D., Liu, J., \& Spagna, A. (2020). Assessing
 the Causal Role of Early Visual Areas in Visual Mental Imagery.
 \emph{Nature Reviews Neuroscience}, \emph{21}(9, 9), 517‑517.
 \url{https://doi.org/10.1038/s41583-020-0348-5}
-
-\leavevmode\vadjust pre{\hypertarget{ref-R-lme4}{}}%
-Bates, D., Maechler, M., Bolker, B., \& Walker, S. (2022). \emph{Lme4:
-{Linear} Mixed-Effects Models Using Eigen and {S4}} {[}Manual{]}.
-\url{https://github.com/lme4/lme4/}
-
-\leavevmode\vadjust pre{\hypertarget{ref-R-Matrix}{}}%
-Bates, D., Maechler, M., \& Jagan, M. (2022). \emph{Matrix: {Sparse} and
-Dense Matrix Classes and Methods} {[}Manual{]}.
-\url{https://CRAN.R-project.org/package=Matrix}
 
 \leavevmode\vadjust pre{\hypertarget{ref-R-effectsize}{}}%
 Ben-Shachar, M. S., Makowski, D., Lüdecke, D., Patil, I., Wiernik, B.
@@ -1892,11 +1877,6 @@ Coleman, S. L., \& Gotch, A. J. (1998). Spatial {Perception Skills} of
 Crowder, A. (2018). \emph{Differences in {Spatial Visualization Ability}
 and {Vividness} of {Spatial Imagery Between People With} and {Without
 Aphantasia}}.
-
-\leavevmode\vadjust pre{\hypertarget{ref-igraph2006}{}}%
-Csardi, G., \& Nepusz, T. (2006). The Igraph Software Package for
-Complex Network Research. \emph{InterJournal}, \emph{Complex Systems},
-1695. \url{https://igraph.org}
 
 \leavevmode\vadjust pre{\hypertarget{ref-danceLessSensoryOverwhelm2022}{}}%
 Dance, C. (2022, janvier 26). \emph{Less {Sensory Overwhelm In
@@ -1991,13 +1971,8 @@ Aphantasia in {Japan}. \emph{Tohoku Psychologica Folia}, \emph{79},
 26‑32.
 
 \leavevmode\vadjust pre{\hypertarget{ref-R-ggpubr}{}}%
-Kassambara, A. (2022a). \emph{Ggpubr: Ggplot2 Based Publication Ready
+Kassambara, A. (2022). \emph{Ggpubr: Ggplot2 Based Publication Ready
 Plots} {[}Manual{]}. \url{https://rpkgs.datanovia.com/ggpubr/}
-
-\leavevmode\vadjust pre{\hypertarget{ref-R-rstatix}{}}%
-Kassambara, A. (2022b). \emph{Rstatix: {Pipe-friendly} Framework for
-Basic Statistical Tests} {[}Manual{]}.
-\url{https://rpkgs.datanovia.com/rstatix/}
 
 \leavevmode\vadjust pre{\hypertarget{ref-R-factoextra}{}}%
 Kassambara, A., \& Mundt, F. (2020). \emph{Factoextra: {Extract} and
@@ -2078,16 +2053,6 @@ Kozhevnikov, M., Motes, M. A., \& Hegarty, M. (2007). Spatial
 {Visualization} in {Physics Problem Solving}. \emph{Cognitive Science},
 \emph{31}(4), 549‑579. \url{https://doi.org/10.1080/15326900701399897}
 
-\leavevmode\vadjust pre{\hypertarget{ref-R-corrr}{}}%
-Kuhn, M., Jackson, S., \& Cimentada, J. (2022). \emph{Corrr:
-{Correlations} in {R}} {[}Manual{]}.
-\url{https://CRAN.R-project.org/package=corrr}
-
-\leavevmode\vadjust pre{\hypertarget{ref-R-lmerTest}{}}%
-Kuznetsova, A., Bruun Brockhoff, P., \& Haubo Bojesen Christensen, R.
-(2020). \emph{{lmerTest}: {Tests} in Linear Mixed Effects Models}
-{[}Manual{]}. \url{https://github.com/runehaubo/lmerTestR}
-
 \leavevmode\vadjust pre{\hypertarget{ref-lachlanPupillaryLightResponse2022}{}}%
 Lachlan, K., Keogh, R., Andrillion, T., \& Pearson, J. (2022, mars 31).
 \emph{The Pupillary Light Response as a Physiological Index of
@@ -2101,21 +2066,33 @@ Lange, K., Kühn, S., \& Filevich, E. (2015). {Just Another Tool} for
 ONE}, \emph{10}(6), e0130834.
 \url{https://doi.org/10.1371/journal.pone.0130834}
 
-\leavevmode\vadjust pre{\hypertarget{ref-R-ez}{}}%
-Lawrence, M. A. (2016). \emph{Ez: {Easy} Analysis and Visualization of
-Factorial Experiments} {[}Manual{]}.
-\url{http://github.com/mike-lawrence/ez}
-
 \leavevmode\vadjust pre{\hypertarget{ref-lawsonNewIndexClustering1990}{}}%
 Lawson, R. G., \& Jurs, P. C. (1990). New Index for Clustering Tendency
 and Its Application to Chemical Problems. \emph{Journal of chemical
 information and computer sciences}, \emph{30}(1), 36‑41.
+
+\leavevmode\vadjust pre{\hypertarget{ref-R-parameters}{}}%
+Lüdecke, D., Makowski, D., Ben-Shachar, M. S., Patil, I., Højsgaard, S.,
+\& Wiernik, B. M. (2023). \emph{Parameters: {Processing} of Model
+Parameters} {[}Manual{]}. \url{https://easystats.github.io/parameters/}
+
+\leavevmode\vadjust pre{\hypertarget{ref-R-performance}{}}%
+Lüdecke, D., Makowski, D., Ben-Shachar, M. S., Patil, I., Waggoner, P.,
+\& Wiernik, B. M. (2023). \emph{Performance: {Assessment} of Regression
+Models Performance} {[}Manual{]}.
+\url{https://easystats.github.io/performance/}
 
 \leavevmode\vadjust pre{\hypertarget{ref-R-easystats}{}}%
 Lüdecke, D., Makowski, D., Ben-Shachar, M. S., Patil, I., \& Wiernik, B.
 M. (2022). \emph{Easystats: {Framework} for Easy Statistical Modeling,
 Visualization, and Reporting} {[}Manual{]}.
 \url{https://easystats.github.io/easystats/}
+
+\leavevmode\vadjust pre{\hypertarget{ref-R-see}{}}%
+Lüdecke, D., Makowski, D., Patil, I., Ben-Shachar, M. S., Wiernik, B.
+M., \& Waggoner, P. (2022). \emph{See: {Model Visualisation Toolbox} for
+Easystats and Ggplot2} {[}Manual{]}.
+\url{https://easystats.github.io/see/}
 
 \leavevmode\vadjust pre{\hypertarget{ref-R-insight}{}}%
 Lüdecke, D., Makowski, D., Patil, I., Waggoner, P., Ben-Shachar, M. S.,
@@ -2133,6 +2110,18 @@ Rousseeuw et Al.} {[}Manual{]}.
 Makowski, D., Lüdecke, D., Ben-Shachar, M. S., \& Patil, I. (2023).
 \emph{Modelbased: {Estimation} of Model-Based Predictions, Contrasts and
 Means} {[}Manual{]}. \url{https://easystats.github.io/modelbased/}
+
+\leavevmode\vadjust pre{\hypertarget{ref-R-bayestestR}{}}%
+Makowski, D., Lüdecke, D., Ben-Shachar, M. S., Patil, I., Wilson, M. D.,
+\& Wiernik, B. M. (2022). \emph{{bayestestR}: {Understand} and Describe
+Bayesian Models and Posterior Distributions} {[}Manual{]}.
+\url{https://easystats.github.io/bayestestR/}
+
+\leavevmode\vadjust pre{\hypertarget{ref-R-report}{}}%
+Makowski, D., Lüdecke, D., Patil, I., Th'eriault, R., Ben-Shachar, M.
+S., \& Wiernik, B. M. (2023). \emph{Report: {Automated} Reporting of
+Results and Statistical Models} {[}Manual{]}.
+\url{https://easystats.github.io/report/}
 
 \leavevmode\vadjust pre{\hypertarget{ref-R-correlation}{}}%
 Makowski, D., Wiernik, B. M., Patil, I., Lüdecke, D., \& Ben-Shachar, M.
@@ -2163,6 +2152,10 @@ Monzel, M., Mitchell, D., Macpherson, F., Pearson, J., \& Zeman, A.
 the Lack of Mental Imagery--{Commentary} on {Dance} et~al. (2021) and
 {Hinwar} and {Lambert} (2021). \emph{Cortex}, \emph{150}, 149‑152.
 \url{https://doi.org/10.1016/j.cortex.2022.02.002}
+
+\leavevmode\vadjust pre{\hypertarget{ref-R-tibble}{}}%
+Müller, K., \& Wickham, H. (2022). \emph{Tibble: {Simple} Data Frames}
+{[}Manual{]}. \url{https://CRAN.R-project.org/package=tibble}
 
 \leavevmode\vadjust pre{\hypertarget{ref-orionRelationshipEarthScienceEducation1997}{}}%
 Orion, N., Ben-Chaim, D., \& Kali, Y. (1997). Relationship {Between
@@ -2246,22 +2239,11 @@ an Investigator's Theoretical Views. \emph{Applied Cognitive
 Psychology}, \emph{17}(2), 147‑160.
 \url{https://doi.org/10.1002/acp.858}
 
-\leavevmode\vadjust pre{\hypertarget{ref-R-MASS}{}}%
-Ripley, B. (2022). \emph{{MASS}: {Support} Functions and Datasets for
-Venables and Ripley's {MASS}} {[}Manual{]}.
-\url{http://www.stats.ox.ac.uk/pub/MASS4/}
-
 \leavevmode\vadjust pre{\hypertarget{ref-salwayVisuospatialWorkingMemory1995}{}}%
 Salway, A. F. S., \& Logie, R. H. (1995). Visuospatial Working Memory,
 Movement Control and Executive Demands. \emph{British Journal of
 Psychology}, \emph{86}(2), 253‑269.
 \url{https://doi.org/10.1111/j.2044-8295.1995.tb02560.x}
-
-\leavevmode\vadjust pre{\hypertarget{ref-R-GGally}{}}%
-Schloerke, B., Cook, D., Larmarange, J., Briatte, F., Marbach, M.,
-Thoen, E., Elberg, A., \& Crowley, J. (2021). \emph{{GGally}:
-{Extension} to Ggplot2} {[}Manual{]}.
-\url{https://CRAN.R-project.org/package=GGally}
 
 \leavevmode\vadjust pre{\hypertarget{ref-schrawAssessingMetacognitiveAwareness1994}{}}%
 Schraw, G., \& Dennison, R. S. (1994). Assessing {Metacognitive
@@ -2308,13 +2290,23 @@ Wechsler, D., Coalson, D. L., \& Raiford, S. E. (2008). \emph{Wechsler
 Adult Intelligence Scale ({Technical} and Interpretive Manual 4th Ed.).
 {San Antonio}: {NCS Pearson}}. {Inc}.
 
+\leavevmode\vadjust pre{\hypertarget{ref-ggplot22016}{}}%
+Wickham, H. (2016). \emph{Ggplot2: {Elegant} Graphics for Data
+Analysis}. {Springer-Verlag New York}.
+\url{https://ggplot2.tidyverse.org}
+
 \leavevmode\vadjust pre{\hypertarget{ref-R-forcats}{}}%
 Wickham, H. (2022a). \emph{Forcats: {Tools} for Working with Categorical
 Variables (Factors)} {[}Manual{]}.
 \url{https://CRAN.R-project.org/package=forcats}
 
+\leavevmode\vadjust pre{\hypertarget{ref-R-stringr}{}}%
+Wickham, H. (2022b). \emph{Stringr: {Simple}, Consistent Wrappers for
+Common String Operations} {[}Manual{]}.
+\url{https://CRAN.R-project.org/package=stringr}
+
 \leavevmode\vadjust pre{\hypertarget{ref-R-tidyverse}{}}%
-Wickham, H. (2022b). \emph{Tidyverse: {Easily} Install and Load the
+Wickham, H. (2022c). \emph{Tidyverse: {Easily} Install and Load the
 Tidyverse} {[}Manual{]}.
 \url{https://CRAN.R-project.org/package=tidyverse}
 
@@ -2334,6 +2326,11 @@ Wickham, H., François, R., Henry, L., \& Müller, K. (2022). \emph{Dplyr:
 \leavevmode\vadjust pre{\hypertarget{ref-R-tidyr}{}}%
 Wickham, H., \& Girlich, M. (2022). \emph{Tidyr: {Tidy} Messy Data}
 {[}Manual{]}. \url{https://CRAN.R-project.org/package=tidyr}
+
+\leavevmode\vadjust pre{\hypertarget{ref-R-readr}{}}%
+Wickham, H., Hester, J., \& Bryan, J. (2022). \emph{Readr: {Read}
+Rectangular Text Data} {[}Manual{]}.
+\url{https://CRAN.R-project.org/package=readr}
 
 \leavevmode\vadjust pre{\hypertarget{ref-knitr2014}{}}%
 Xie, Y. (2014). Knitr: {A} Comprehensive Tool for Reproducible Research
@@ -2395,73 +2392,86 @@ Zimmer, C. (2010, mars 23). \emph{The {Brain}: {Look Deep Into} the
 \addcontentsline{toc}{section}{Annexes}
 
 Ce manuscrit a été rédigé avec \href{https://rmarkdown.rstudio.com}{R
-Markdown} (\protect\hyperlink{ref-R-rmarkdown}{Allaire et al., 2023}),
-\href{https://pandoc.org/}{Pandoc}
-(\protect\hyperlink{ref-R-pandoc}{Dervieux, 2022}),
-\href{https://quarto.org/}{Quarto}
-(\protect\hyperlink{ref-R-quarto}{Allaire, 2022}) et en \LaTeX, médiés
-par le package \emph{knitr} (\protect\hyperlink{ref-knitr2014}{Xie,
-2014}, \protect\hyperlink{ref-knitr2015}{2015},
-\protect\hyperlink{ref-R-knitr}{2023}), dans l'Environnement de
-Développement Intégré (IDE) \href{https://posit.co/}{RStudio}
+Markdown}, \href{https://pandoc.org/}{Pandoc},
+\href{https://quarto.org/}{Quarto} et en \LaTeX, médiés par le package
+\emph{knitr}, dans l'Environnement de Développement Intégré (IDE)
+\href{https://posit.co/}{RStudio}
 (\protect\hyperlink{ref-positteamRStudioIntegratedDevelopment2022}{Posit
 team, 2022}). Il a été partagé entre collaborateurs à l'aide de
-\href{https://github.com/}{\emph{GitHub}}, de Google Docs et du package
-\emph{trackdown}
-(\protect\hyperlink{ref-kotheTrackdownCollaborativeWriting2021}{Kothe et
-al., 2021}). Le code complet de ce manuscrit, de la simulation, des
+\href{https://github.com/}{\emph{GitHub}}, de
+\href{https://docs.google.com/}{Google Docs} et du package
+\emph{trackdown}. Le code complet de ce manuscrit, de la simulation, des
 figures, tables et analyses est accessible dans
 \href{https://github.com/m-delem/aphantasia_project.git}{\emph{le
 dossier de ce projet sur GitHub}}.
 
-La préparation du code, la simulation, les figures, tables et analyses
-ont nécessité les packages \emph{cluster}
-(\protect\hyperlink{ref-R-cluster}{Maechler et al., 2022}),
-\emph{correlation} (\protect\hyperlink{ref-R-correlation}{Makowski et
-al., 2022}), \emph{corrr} (\protect\hyperlink{ref-R-corrr}{Kuhn et al.,
-2022}), \emph{datawizard} (\protect\hyperlink{ref-datawizard2022}{Patil
-et al., 2022}), \emph{dplyr} (\protect\hyperlink{ref-R-dplyr}{Wickham et
-al., 2022}), \emph{easystats}
-(\protect\hyperlink{ref-R-easystats}{Lüdecke et al., 2022}),
-\emph{effectsize} (\protect\hyperlink{ref-R-effectsize}{Ben-Shachar et
-al., 2023}), \emph{equatiomatic}
-(\protect\hyperlink{ref-R-equatiomatic}{Anderson et al., 2022}),
-\emph{ez} (\protect\hyperlink{ref-R-ez}{Lawrence, 2016}),
-\emph{factoextra} (\protect\hyperlink{ref-R-factoextra}{Kassambara \&
-Mundt, 2020}), \emph{forcats}
-(\protect\hyperlink{ref-R-forcats}{Wickham, 2022a}), \emph{GGally}
-(\protect\hyperlink{ref-R-GGally}{Schloerke et al., 2021}),
-\emph{ggpubr} (\protect\hyperlink{ref-R-ggpubr}{Kassambara, 2022a}),
-\emph{ggradar} (\protect\hyperlink{ref-R-ggradar}{Bion, 2023}),
-\emph{ggraph} (\protect\hyperlink{ref-R-ggraph}{Pedersen, 2022}),
-\emph{igraph} (\protect\hyperlink{ref-igraph2006}{Csardi \& Nepusz,
-2006}), \emph{insight} (\protect\hyperlink{ref-R-insight}{Lüdecke et
-al., 2023}), \emph{librarian}
-(\protect\hyperlink{ref-R-librarian}{Quintans, 2021}), \emph{lme4}
-(\protect\hyperlink{ref-R-lme4}{Bates, Maechler, Bolker, et al., 2022}),
-\emph{lmerTest} (\protect\hyperlink{ref-R-lmerTest}{Kuznetsova et al.,
-2020}), \emph{MASS} (\protect\hyperlink{ref-R-MASS}{Ripley, 2022}),
-\emph{Matrix} (\protect\hyperlink{ref-R-Matrix}{Bates, Maechler, \&
-Jagan, 2022}), \emph{modelbased}
-(\protect\hyperlink{ref-R-modelbased}{Makowski et al., 2023}),
-\emph{purrr} (\protect\hyperlink{ref-R-purrr}{Henry \& Wickham, 2022}),
-\emph{rstatix} (\protect\hyperlink{ref-R-rstatix}{Kassambara, 2022b}),
-\emph{tidyr} (\protect\hyperlink{ref-R-tidyr}{Wickham \& Girlich,
-2022}), et \emph{tidyverse}
-(\protect\hyperlink{ref-tidyverse2019}{Wickham et al., 2019};
-\protect\hyperlink{ref-R-tidyverse}{Wickham, 2022b}).
+La simulation et les analyses ont été menées en langage statistique R
+(version 4.2.0 ; R Core Team (\protect\hyperlink{ref-R-base}{2022})),
+sur Windows 10 x64 (build 19044), avec les packages suivants installés :
+\emph{bayestestR} (version 0.13.0 ; Makowski, Lüdecke, et al.
+(\protect\hyperlink{ref-R-bayestestR}{2022})), \emph{cluster} (version
+2.1.3 ; Maechler et al. (\protect\hyperlink{ref-R-cluster}{2022})),
+\emph{correlation} (version 0.8.3 ; Makowski, Wiernik, et al.
+(\protect\hyperlink{ref-R-correlation}{2022})), \emph{datawizard}
+(version 0.6.5 ; Patil et al.
+(\protect\hyperlink{ref-datawizard2022}{2022})), \emph{dplyr} (version
+1.0.10 ; Wickham, François, et al.
+(\protect\hyperlink{ref-R-dplyr}{2022})), \emph{easystats} (version
+0.6.0 ; Lüdecke, Makowski, Ben-Shachar, et al.
+(\protect\hyperlink{ref-R-easystats}{2022})), \emph{effectsize} (version
+0.8.3 ; Ben-Shachar et al.
+(\protect\hyperlink{ref-R-effectsize}{2023})), \emph{factoextra}
+(version 1.0.7 ; Kassambara \& Mundt
+(\protect\hyperlink{ref-R-factoextra}{2020})), \emph{forcats} (version
+0.5.2 ; Wickham (\protect\hyperlink{ref-R-forcats}{2022a})),
+\emph{insight} (version 0.19.0 ; Lüdecke, Makowski, Patil, et al.
+(\protect\hyperlink{ref-R-insight}{2023})), \emph{ggplot2} (version
+3.4.0 ; Wickham (\protect\hyperlink{ref-ggplot22016}{2016})),
+\emph{ggpubr} (version 0.5.0; Kassambara
+(\protect\hyperlink{ref-R-ggpubr}{2022})), \emph{ggradar} (version 0.2 ;
+Bion (\protect\hyperlink{ref-R-ggradar}{2023})), \emph{ggraph} (version
+2.1.0 ; Pedersen (\protect\hyperlink{ref-R-ggraph}{2022})), \emph{knitr}
+(version 1.41 ; (\protect\hyperlink{ref-knitr2014}{Xie, 2014},
+\protect\hyperlink{ref-knitr2015}{2015},
+\protect\hyperlink{ref-R-knitr}{2023})), \emph{librarian} (version 1.8.1
+; Quintans (\protect\hyperlink{ref-R-librarian}{2021})),
+\emph{modelbased} (version 0.8.6 ; Makowski, Lüdecke, Ben-Shachar, et
+al. (\protect\hyperlink{ref-R-modelbased}{2023})), \emph{parameters}
+(version 0.20.2 ; Lüdecke, Makowski, Ben-Shachar, Patil, Højsgaard, et
+al. (\protect\hyperlink{ref-R-parameters}{2023})), \emph{pandoc}
+(version 0.1.0 ; Dervieux (\protect\hyperlink{ref-R-pandoc}{2022})),
+\emph{performance} (version 0.10.2 ; Lüdecke, Makowski, Ben-Shachar,
+Patil, Waggoner, et al. (\protect\hyperlink{ref-R-performance}{2023})),
+\emph{purrr} (version 0.3.5 ; Henry \& Wickham
+(\protect\hyperlink{ref-R-purrr}{2022})), \emph{quarto} (version 1.2 ;
+Allaire (\protect\hyperlink{ref-R-quarto}{2022})), \emph{readr} (version
+2.1.3; Wickham, Hester, et al. (\protect\hyperlink{ref-R-readr}{2022})).
+\emph{report} (version 0.5.6 ; Makowski, Lüdecke, Patil, et al.
+(\protect\hyperlink{ref-R-report}{2023})), \emph{rmarkdown} (version
+2.20 ; Allaire et al. (\protect\hyperlink{ref-R-rmarkdown}{2023})),
+\emph{see} (version 0.7.4 ; Lüdecke, Makowski, Patil, et al.
+(\protect\hyperlink{ref-R-see}{2022})), \emph{stringr} (version 1.5.0 ;
+Wickham (\protect\hyperlink{ref-R-stringr}{2022b})), \emph{tibble}
+(version 3.1.8 ; Müller \& Wickham
+(\protect\hyperlink{ref-R-tibble}{2022})), \emph{tidyr} (version 1.2.1;
+Wickham \& Girlich (\protect\hyperlink{ref-R-tidyr}{2022})),
+\emph{tidyverse} (version 1.3.2;
+(\protect\hyperlink{ref-R-tidyverse}{Wickham, 2022c} ;
+\protect\hyperlink{ref-tidyverse2019}{Wickham et al., 2019})), et
+\emph{trackdown} (version 1.1.1; Kothe et al.
+(\protect\hyperlink{ref-kotheTrackdownCollaborativeWriting2021}{2021})),
 
 \begin{figure}[H]
 
-\includegraphics[width=\textwidth,height=0.5\textheight]{aphantasia_project_files/figure-pdf/loadings_graph_annex-1.pdf}
+\includegraphics[width=\textwidth,height=0.5\textheight]{0_aphantasia_project_files/figure-pdf/loadings_graph_annex-1.pdf}
 
-\caption{Rotated loadings from factor analysis.}
+\caption{Poids de chaque variable dans l'Analyse Factorielle Multiple à quatre facteurs.}
 \label{loadings_graph_annex}
 \end{figure}
 
 \begin{figure}[H]
 
-\includegraphics[width=\textwidth,height=0.5\textheight]{aphantasia_project_files/figure-pdf/correlation_matrix-1.pdf}
+\includegraphics[width=\textwidth,height=0.5\textheight]{0_aphantasia_project_files/figure-pdf/correlation_matrix-1.pdf}
 
 \caption{Matrice de corrélation entre les toutes les variables mesurées.}
 \label{correlation_matrix}
