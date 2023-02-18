@@ -43,38 +43,38 @@ knitr::write_bib(
 shelf(trackdown)
 
 # update the GDoc with the Rmds
-upload_file(
+update_file(
   "1_intro.Rmd",
   gfile = "1_introduction",
-  gpath = "M2 EMC - Aphantasia/manuscrit",
+  gpath = "M2 EMC - Aphantasia/manuscrit_aphantasia",
   hide_code = TRUE,
   )
 
-upload_file(
+update_file(
   "2_methode.Rmd",
   gfile = "2_methode",
-  gpath = "M2 EMC - Aphantasia/manuscrit",
+  gpath = "M2 EMC - Aphantasia/manuscrit_aphantasia",
   hide_code = TRUE,
   )
 
-upload_file(
+update_file(
   "3_resultats.Rmd",
   gfile = "3_resultats",
-  gpath = "M2 EMC - Aphantasia/manuscrit",
+  gpath = "M2 EMC - Aphantasia/manuscrit_aphantasia",
   hide_code = TRUE,
   )
 
-upload_file(
+update_file(
   "4_discussion.Rmd",
   gfile = "4_discussion",
-  gpath = "M2 EMC - Aphantasia/manuscrit",
+  gpath = "M2 EMC - Aphantasia/manuscrit_aphantasia",
   hide_code = TRUE,
   )
 
-upload_file(
+update_file(
   "5_annexes.Rmd",
   gfile = "5_annexes",
-  gpath = "M2 EMC - Aphantasia/manuscrit",
+  gpath = "M2 EMC - Aphantasia/manuscrit_aphantasia",
   hide_code = TRUE,
   )
 
@@ -82,25 +82,25 @@ upload_file(
 download_file(
   "1_intro.Rmd",
   gfile = "1_introduction",
-  gpath = "M2 EMC - Aphantasia/manuscrit",
+  gpath = "M2 EMC - Aphantasia/manuscrit_aphantasia",
   )
 
 download_file(
   "2_methode.Rmd",
   gfile = "2_methode",
-  gpath = "M2 EMC - Aphantasia/manuscrit",
+  gpath = "M2 EMC - Aphantasia/manuscrit_aphantasia",
   )
 
 download_file(
   "3_resultats.Rmd",
   gfile = "3_resultats",
-  gpath = "M2 EMC - Aphantasia/manuscrit",
+  gpath = "M2 EMC - Aphantasia/manuscrit_aphantasia",
   )
 
 download_file(
   "4_discussion.Rmd",
   gfile = "4_discussion",
-  gpath = "M2 EMC - Aphantasia/manuscrit",
+  gpath = "M2 EMC - Aphantasia/manuscrit_aphantasia",
   )
 
 # ---- no-output setup ---------------------------------------------------------
