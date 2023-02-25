@@ -214,7 +214,7 @@
 
 \newpage{}
 
-\ifdefined\Shaded\renewenvironment{Shaded}{\begin{tcolorbox}[sharp corners, breakable, interior hidden, boxrule=0pt, borderline west={3pt}{0pt}{shadecolor}, frame hidden, enhanced]}{\end{tcolorbox}}\fi
+\ifdefined\Shaded\renewenvironment{Shaded}{\begin{tcolorbox}[boxrule=0pt, frame hidden, interior hidden, breakable, sharp corners, borderline west={3pt}{0pt}{shadecolor}, enhanced]}{\end{tcolorbox}}\fi
 
 \renewcommand*\contentsname{Table des matières}
 {
@@ -1442,7 +1442,7 @@ partiels et leur significativité.
 
 \begin{figure}[h]
 
-\includegraphics[width=\textwidth,height=0.5\textheight]{0_aphantasia_project_files/figure-pdf/ggm_graph-1.pdf}
+\includegraphics[width=\textwidth,height=0.5\textheight]{simu_0_aphantasia_files/figure-pdf/ggm_graph-1.pdf}
 
 \caption{Représentation du GGM ajusté sur nos données. Chaque noeud représente une variable. Les liens bleus dénotent une corrélation positive, les rouges une corrélation négative, et leur épaisseur dépend de la force de cette corrélation. Le modèle illustre les choix de pondération réalisés à l'étape de simulation : on peut notamment voir des corrélations très prononcées entre le VVIQ et l'OSIQ-objet (r = 0.77, p<.001) qui évaluent tous deux l'imagerie objet, le Digit Span et les blocs de Corsi (r = 0.68, p<.001) qui évaluent entre autres la mémoire de travail, ou encore entre l'OSIQ-spatial et le SRI, qui sont respectivement l'auto-évaluation et la tâche les plus spécifiques de l'imagerie spatiale.}
 \label{ggm_graph}
@@ -1500,7 +1500,7 @@ clusters.\label{loadings_tbl}}\tabularnewline
 
 \begin{figure}[h]
 
-\includegraphics[width=\textwidth,height=0.5\textheight]{0_aphantasia_project_files/figure-pdf/loadings_graph-1.pdf}
+\includegraphics[width=\textwidth,height=0.5\textheight]{simu_0_aphantasia_files/figure-pdf/loadings_graph-1.pdf}
 
 \caption{Poids de chaque variable dans l'Analyse Factorielle Multiple à trois facteurs.}
 \label{loadings_graph}
@@ -1543,7 +1543,7 @@ clusters.
 
 \begin{figure}[h]
 
-\includegraphics[width=\textwidth,height=0.5\textheight]{0_aphantasia_project_files/figure-pdf/kmeans_plot-1.pdf}
+\includegraphics[width=\textwidth,height=0.5\textheight]{simu_0_aphantasia_files/figure-pdf/kmeans_plot-1.pdf}
 
 \caption{Représentation des clusters reconnus par la méthode des 'k-means', selon les deux composantes principales de l'AFM.}
 \label{kmeans_plot}
@@ -1569,7 +1569,7 @@ données, s'ajoutant à l'argumentaire de notre choix de quatre clusters.
 
 \begin{figure}[h]
 
-\includegraphics[width=1\textwidth,height=0.5\textheight]{0_aphantasia_project_files/figure-pdf/radar-1.pdf}
+\includegraphics[width=1\textwidth,height=0.5\textheight]{simu_0_aphantasia_files/figure-pdf/radar-1.pdf}
 
 \caption{Diagramme représentatant les profils cognitifs associés à chaque cluster, selon  trois dimensions principales : l'imagerie visuelle-objet, l'imagerie visuo-spatiale et le raisonnement.}
 \label{radar}
@@ -1676,7 +1676,7 @@ différentes moyennes dans un histogramme de type \emph{Cleveland} (dit
 
 \begin{figure}[h]
 
-\includegraphics[width=\textwidth,height=0.5\textheight]{0_aphantasia_project_files/figure-pdf/lollipop-1.pdf}
+\includegraphics[width=\textwidth,height=0.5\textheight]{simu_0_aphantasia_files/figure-pdf/lollipop-1.pdf}
 
 \caption{Représentation des moyennes de chaque cluster pour les trois capacités cognitives.}
 \label{lollipop}
@@ -1705,10 +1705,10 @@ visuospatiale et le raisonnement. La pertinence analytique de la méthode
 est reflétée par la différence entre notre méthodologie de simulation et
 le résultat de l'AFM : nous avions initialement simulé douze variables
 et les avions liées linéairement à cinq facteurs latents, pondération
-qui était dépendante de nos présupposition sur les facteurs en question.
-L'AFM en a extrait trois très pertinents, mais avait aussi identifié -
-dans un quatrième facteur moins impactant - la \emph{mémoire de
-travail}. L'autre facteur que nous avions construit, la
+qui était dépendante de nos présuppositions sur les facteurs en
+question. L'AFM en a extrait trois très pertinents, mais avait aussi
+identifié - dans un quatrième facteur moins impactant - la \emph{mémoire
+de travail}. L'autre facteur que nous avions construit, la
 \emph{flexibilité mentale}, a été évacué par l'analyse de facteurs car
 indiscernable des autres : nos variables étaient toutes plus corrélées à
 d'autres facteurs qu'à la flexibilité elle-même. L'analyse successive en
@@ -2463,7 +2463,7 @@ Wickham \& Girlich (\protect\hyperlink{ref-R-tidyr}{2022})),
 
 \begin{figure}[H]
 
-\includegraphics[width=\textwidth,height=0.5\textheight]{0_aphantasia_project_files/figure-pdf/loadings_graph_annex-1.pdf}
+\includegraphics[width=\textwidth,height=0.5\textheight]{simu_0_aphantasia_files/figure-pdf/loadings_graph_annex-1.pdf}
 
 \caption{Poids de chaque variable dans l'Analyse Factorielle Multiple à quatre facteurs.}
 \label{loadings_graph_annex}
@@ -2471,7 +2471,7 @@ Wickham \& Girlich (\protect\hyperlink{ref-R-tidyr}{2022})),
 
 \begin{figure}[H]
 
-\includegraphics[width=\textwidth,height=0.5\textheight]{0_aphantasia_project_files/figure-pdf/correlation_matrix-1.pdf}
+\includegraphics[width=\textwidth,height=0.5\textheight]{simu_0_aphantasia_files/figure-pdf/correlation_matrix-1.pdf}
 
 \caption{Matrice de corrélation entre les toutes les variables mesurées.}
 \label{correlation_matrix}

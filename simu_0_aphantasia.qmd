@@ -19,14 +19,14 @@ fig-cap-location: bottom
 fig-height: 8
 fig-width: 10
 tbl-cap-location: bottom
-bibliography: references.bib
+bibliography: simu_references.bib
 csl: apa.csl
 links-as-notes: true
 link-citations: yes
 lang: fr
 langid: french
-include-in-header: "za_header.tex"
-include-before-body: "zb_beforebody.tex"
+include-in-header: "simu_a_header.tex"
+include-before-body: "simu_b_beforebody.tex"
 keep-tex: true
 ---
 <!-- shelf(quarto) -->
@@ -34,7 +34,7 @@ keep-tex: true
 \newpage
 ```{r, include=FALSE, cache=FALSE}
 # chargement du code source et reglages
-knitr::read_chunk('./zc_scripts/aphantasia_source.R')
+knitr::read_chunk('./zc_scripts/aphantasia_source_simu.R')
 knitr::opts_chunk$set(out.height = "50%",
                       out.extra = "",
                       knitr.table.format = "latex"
@@ -49,19 +49,19 @@ options(knitr.kable.NA = "")
 <!-- Le manuscrit est divisé en plusieurs documents pour faciliter les modifications locales - ceux-ci sont dans le dossier du Drive. L'output complet du R Markdown (le pdf final) est en pdf dans le Drive, avec le même nom que ce fichier. Les GDoc de ce Drive servent à éditer le texte rédigé du document final : le code R sous-jacent et les analyses des données seront partagées et travaillées sur GitHub, lié localement à RStudio. Le repository GitHub en question : https://github.com/m-delem/aphantasia_project.git -->
 
 <!-- Introduction -->
-```{r, child="1_intro.Rmd"}
+```{r, child="simu_1_intro.Rmd"}
 ```
 
 <!-- Méthode -->
-```{r, child="2_methode.Rmd"}
+```{r, child="simu_2_methode.Rmd"}
 ```
 
 <!-- Résultats -->
-```{r, child="3_resultats.Rmd"}
+```{r, child="simu_3_resultats.Rmd"}
 ```
 
 <!-- Discussion --> 
-```{r, child="4_discussion.Rmd"}
+```{r, child="simu_4_discussion.Rmd"}
 ```
 
 \newpage
@@ -71,7 +71,7 @@ options(knitr.kable.NA = "")
 
 \newpage
 <!-- Annexes -->
-```{r, child="5_annexes.Rmd"}
+```{r, child="simu_5_annexes.Rmd"}
 ```
 
 
