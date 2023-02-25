@@ -1,9 +1,8 @@
 # 
 # ---- Aphantasia Project - Source code ----------------------------------------
 # 
-# Delem, Turkben, Plancher, Cavalli
+# Delem, M., Turkben, S., Plancher, G., Cavalli, E.
 # Email : m.delem@univ-lyon2.fr
-# Last update : February 24, 2022
 
 # ---- setup -------------------------------------------------------------------
 
@@ -16,12 +15,30 @@ shelf(
   jsonlite
   )
 
-# global theme
+# thème esthétique global
 theme_set(theme_bw(base_size = 14, base_family = "serif"))
 
+# récupération de la fonction pour importer les données
+source(zc_scripts/data_import.R)
+
+# les chemins vers nos fichiers JATOS
+jatos_results <- "./ze_data/jatos_results_XXXXXXXXXXX"
+jatos_meta <- "./ze_data/jatos_meta_XXXXXXXXXX"
+# à noter que les parties XXXXXXXXX dans les fichiers indiquent les dates
+# d'exportation, utile pour stocker tout le monde au même endroit et pas se 
+# casser la tête à tout renommer
+
+# notre nombre de composantes
+nb_composantes <- x
+
+# import des données toutes prêtes dans un dataframe 
+data <- import_data(jatos_results, jatos_meta, nb_composantes)
+
+# ---- analyses de données ------------------------------------------------------
+#
 # ---- previous pca and clustering ---------------------------------------------
 # data_latent <- 
-#   factor_analysis(datascores,
+#   factor_analysis(data_standardisee,
 #                   rotation = "cluster",
 #                   n = 3,
 #                   sort = TRUE,
@@ -32,7 +49,7 @@ theme_set(theme_bw(base_size = 14, base_family = "serif"))
 # 
 # # ajout des clusters identifiés
 # data_latent$cluster <- 
-#   cluster_analysis(datascores, n = 4, method = "hkmeans") %>%
+#   cluster_analysis(data_standardisee, n = 4, method = "hkmeans") %>%
 #   predict() %>% 
 #   as.factor()
 

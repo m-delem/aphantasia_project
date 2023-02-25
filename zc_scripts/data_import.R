@@ -1,6 +1,28 @@
-
-
+# 
 # ---- import_data -------------------------------------------------------------
+# 
+# Delem, Maël
+# Email : m.delem@univ-lyon2.fr
+#
+
+# L'objectif ici sera de créer une fonction "import_data" qui prendra pour
+# argument nos deux fichiers jatos bruts et notre nombre de composantes, et en
+# ressortira un dataframe propre (extractible en csv). Cette fonction pourra 
+# ainsi être utilisée dans d'autres scripts simplement en appelant :
+#   source("./zcscripts/import_data.R")
+#   ... puis en faisant tourner la fonction.
+
+# Nous allons procéder en plusieurs étapes - plusieurs fonctions - qui seront
+# imbriquées dans la fonction finale.
+# - "get_data" va couper le "jatos_results.txt" en petits JSON, les aligner dans
+#   un dataframe pour reconstituer nos sujets, puis accoler ce dataframe avec
+#   celui importé de "jatos_meta.csv", qui de son côté est tout prêt et a la
+#   bonne taille.
+
+
+#
+
+# ---- get_data ----------------------------------------------------------------
 
 # on va créer une fonction pour importer les données depuis le jatos_results.txt
 # et le jatos_meta.csv dans un dataframe propre
@@ -143,3 +165,5 @@ data %>% select(
   order(colnames(data %>% select(starts_with("sri")))),
   everything()
 )
+
+# ---- 
