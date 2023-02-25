@@ -127,14 +127,19 @@ theme_set(
 
 # ---- importing data ----------------------------------------------------------
 data <- 
-  read.csv(
+  read_csv(
     "./data/data.csv",
-    sep = ";",
-    fileEncoding="UTF-8-BOM",
+    # sep = ";",
+    # fileEncoding="UTF-8-BOM",
+    # pas forcément nécessaires
     )
 
 # structure check
-str(data)
+str(data, path)
+
+# ---- exporting data ----------------------------------------------------------
+# exporting df as csv
+write_csv(data)
 
 # ---- ggplot2 structure -------------------------------------------------------
 data %>% 
