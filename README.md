@@ -10,5 +10,8 @@ Le fichier de base du manuscrit est `simu_0_aphantasia.qmd`, créé sur RStudio 
 
 La liste intégrale des références au format BibTex est dans le fichier `simu_references.bib`.
 
-## Code pour les analyses réelles
+## Traitement des données réelles
 
+Les données seront récupérées sur JATOS sous forme de deux fichiers, un fichier `jatos_results.txt` composé d'une concaténation des JSON de toutes les composantes passées par tous les participants, et un fichier `jatos_meta.csv` avec des données essentielles pour associer un ensemble de données à un seul id. Ces données seront stockées dans le dossier `ze_data`.
+
+Le traitement de telles données implique de traduire le premier fichier en .csv sans faire de mélange des résultats d'un sujet à l'autre, puis d'y accoler le second pour les informations. Le code utilisé pour réaliser cette tâche puis pour nettoyer les données (calcul des scores et suppression des colonnes multiples, cumul des questions, etc.) est la dernière version de `zc_scripts\import_data.R`.
