@@ -24,15 +24,22 @@ source(zc_scripts/data_import.R)
 # les chemins vers nos fichiers JATOS
 jatos_results <- "./ze_data/jatos_results_XXXXXXXXXXX"
 jatos_meta <- "./ze_data/jatos_meta_XXXXXXXXXX"
-# à noter que les parties XXXXXXXXX dans les fichiers indiquent les dates
-# d'exportation, utile pour stocker tout le monde au même endroit et pas se 
-# casser la tête à tout renommer
+# (à noter : la partie xxxxx indique la date d'export, ça peut être utile)
+
+# les chemins vers les corrections
+correction_sri <- "ze_data/correction_sri.csv"
+correction_raven <- "ze_data/correction_raven.csv"
 
 # notre nombre de composantes
 nb_composantes <- x
 
 # import des données toutes prêtes dans un dataframe 
-data <- import_data(jatos_results, jatos_meta, nb_composantes)
+data <- import_data(
+  jatos_results, 
+  jatos_meta, 
+  nb_composantes,
+  correction_sri,
+  correction_raven)
 
 # ---- analyses de données ------------------------------------------------------
 #

@@ -1,4 +1,10 @@
 #
+# ébauche de la future fonction import_data
+#
+
+# ---- packages
+shelf(jsonlite)
+#
 # ce qu'on rentrera manuellement dans la fonction :
 
 # nos chemins vers les données :
@@ -11,38 +17,12 @@ correction_raven <- "ze_data/correction_raven.csv"
 nb_composantes <- 17
 
 
-# ---- début de la création de la fonction import_data -------------------------
-# 
-# Delem, Maël
-# Email : m.delem@univ-lyon2.fr
-#
-
-# L'objectif ici sera de créer une fonction "import_data" qui prendra pour
-# argument nos deux fichiers jatos bruts et notre nombre de composantes, et en
-# ressortira un dataframe propre (extractible en csv). Cette fonction pourra 
-# ainsi être utilisée dans d'autres scripts simplement en appelant :
-#   source("./zcscripts/import_data.R")
-#   ... puis en faisant tourner la fonction.
-
-# Nous allons procéder en plusieurs étapes - plusieurs fonctions - qui seront
-# imbriquées dans la fonction finale.
-# - "get_data" va couper le "jatos_results.txt" en petits JSON, les aligner dans
-#   un dataframe pour reconstituer nos sujets, puis accoler ce dataframe avec
-#   celui importé de "jatos_meta.csv", qui de son côté est tout prêt et a la
-#   bonne taille.
-
-
-#
 
 # ---- première fonction : expecto_data ----------------------------------------
 
 # on va créer une fonction pour importer les données depuis le jatos_results.txt
 # et le jatos_meta.csv dans un dataframe propre
 
-# packages
-shelf(jsonlite)
-
-# la fonction d'import de données
 expecto_data <- function(jatos_results_path, jatos_meta_path, nb_composantes){
   # jatos_results_path : le chemin vers les résultats relativement au 
   #                      "working directory" - dans ce dossier:
@@ -91,9 +71,11 @@ expecto_data <- function(jatos_results_path, jatos_meta_path, nb_composantes){
       # ... puis on réinitialise notre sujet caméléon.
       sujet <- list(1)
       
-      # On a coupé la churros ! L'itération continue et la pâte recommence
+      # On a coupé la churros ! L'itération continue et la pâte recommence...
+      } 
+    # ... Jusqu'à avoir parcouru toutes les composantes du .txt sorti par JATOS.
+    # (toute la pâte, si l'analogie vous a plu.)
     }
-  } # ... Jusqu'à avoir parcouru toutes les composantes du .txt sorti par JATOS.
   
   # on enlève notre colonne "placeholder" composée que de "1"...
   # et le consentement, qui sera forcément "oui" si les gens ont participé
@@ -106,7 +88,7 @@ expecto_data <- function(jatos_results_path, jatos_meta_path, nb_composantes){
   return(data) 
 }
 
-# ---- importation manuelle pour l'instant -------------------------------------
+# ---- importation manuelle ----------------------------------------------------
 
 # faisons tourner ça : expecto dataframum !
 data <- expecto_data(jatos_results, jatos_meta, nb_composantes)

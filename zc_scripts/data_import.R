@@ -1,57 +1,81 @@
-#
-# ce qu'on rentrera manuellement dans la fonction :
-
-# nos chemins vers les données :
-jatos_results <- "ze_data/jatos_results_20230224195553.txt"
-jatos_meta <- "ze_data/jatos_meta_20230224195557.csv"
-correction_sri <- "ze_data/correction_sri.csv"
-correction_raven <- "ze_data/correction_raven.csv"
-
-# notre nombre de composantes :
-nb_composantes <- 17
-
-
-# ---- début de la création de la fonction import_data -------------------------
 # 
+# # ce qu'on rentrera manuellement dans la fonction :
+# 
+# # nos chemins vers les données :
+# jatos_results <- "ze_data/jatos_results_20230224195553.txt"
+# jatos_meta <- "ze_data/jatos_meta_20230224195557.csv"
+# correction_sri <- "ze_data/correction_sri.csv"
+# correction_raven <- "ze_data/correction_raven.csv"
+# 
+# # notre nombre de composantes actuelles :
+# nb_composantes <- 17
+
+# ---- Création d'une fonction d'import de données -----------------------------
+#
 # Delem, Maël
 # Email : m.delem@univ-lyon2.fr
 #
 
-# L'objectif ici sera de créer une fonction "import_data" qui prendra pour
-# argument nos deux fichiers jatos bruts et notre nombre de composantes, et en
-# ressortira un dataframe propre (extractible en csv). Cette fonction pourra 
-# ainsi être utilisée dans d'autres scripts simplement en appelant :
-#   source("./zcscripts/import_data.R")
+# l'objectif ici sera de créer une fonction "import_data" qui prendra pour
+# arguments nos deux fichiers JATOS bruts, notre nombre de composantes, et
+# quelques fichiers annexes, et en ressortira un dataframe propre (extractible 
+# en csv). Cette fonction pourra ainsi être utilisée dans d'autres scripts 
+# simplement en appelant :
+#   source("./zcscripts/data_import.R")
 #   ... puis en faisant tourner la fonction.
 
-# Nous allons procéder en plusieurs étapes - plusieurs fonctions - qui seront
-# imbriquées dans la fonction finale.
-# - "get_data" va couper le "jatos_results.txt" en petits JSON, les aligner dans
-#   un dataframe pour reconstituer nos sujets, puis accoler ce dataframe avec
-#   celui importé de "jatos_meta.csv", qui de son côté est tout prêt et a la
-#   bonne taille.
+# Nous allons procéder en plusieurs étapes :
 
+# - la partie "expecto_data" va couper le "jatos_results" en petits JSON, les
+#   aligner pour former nos sujets, et entasser progressivement les sujets pour
+#   former le dataframe brut. l'accole alors à droite du "jatos_meta" (très 
+#   facile à importer car tout prêt, à la bonne forme et taille) pour obtenir un
+#   dataframe complet avec toutes les infos brutes, y compris de quoi identifier
+#   les sujets directement dans les premières colonnes.
 
-#
+# - la partie "compression" va calculer les scores aux différents questionnaires
+#   et tâches : toutes les réponses individuelles sont séparés en colonnes, il
+#   faut les "compresser" entre elles pour nous donner les jolis scores qu'on va
+#   analyser. Certaines parties sont particulièrement fastidieuses, comme le
+#   calcul des scores au SRI ou au Raven, car il faut les comparer à des bonnes
+#   réponses. Les fichiers contenant ces réponses sont créés à l'avance, et 
+#   seront récupérés grâce aux arguments "correction_test" pris par la fonction.
 
-# ---- première fonction : expecto_data ----------------------------------------
-
-# on va créer une fonction pour importer les données depuis le jatos_results.txt
-# et le jatos_meta.csv dans un dataframe propre
-
-# packages
+# ---- package pour les JSON ----
 shelf(jsonlite)
 
-# la fonction d'import de données
-expecto_data <- function(jatos_results_path, jatos_meta_path, nb_composantes){
-  # jatos_results_path : le chemin vers les résultats relativement au 
-  #                      "working directory" - dans ce dossier:
-  #                      "ze_data/jatos_results.txt"
-  # jatos_meta_path : idem pour métadonnées, ici "ze_data/jatos_meta"
-  # 
-  # nb_composantes : le nombre de composantes de l'expérience sur jatos
+# ---- la fonction -------------------------------------------------------------
+#' 
+#' @title import_data
+#' 
+#' Permet de récupérer un dataframe des résultats de notre expérience à partir 
+#' des fichiers de résultats et de métadonnées issus de JATOS, ainsi que de 
+#' différents fichiers d'information sur nos tâches - des corrections par 
+#' exemple.
+#' 
+#' Les arguments de la fonction :
+#' @param jatos_results_path Le chemin vers le fichier de résultats en .txt
+#' @param jatos_meta_path Le chemin vers le fichier de métadonnées en .csv
+#' @param nb_composantes Le nombre total de composantes de notre expé JATOS
+#' @param correction_sri Le chemin vers la correction du SRI en .csv
+#' @param correction_raven Le chemin vers la correction du Raven en .csv
+#'
+#' Le résultat :
+#' @return Un dataframe contenant nos données finales pour tous les sujets
+#' 
+#' @author Maël Delem
+#' 
+import_data <- function(
+    jatos_results_path, 
+    jatos_meta_path, 
+    nb_composantes,
+    correction_sri,
+    correction_raven
+    ){ 
   
   # Commençons
+  
+  # ------------------------------------- expecto_data ! la récup du df brut ---
   
   # on vient lire le fichier texte
   composantes <- read_file(jatos_results_path) %>%
@@ -71,7 +95,7 @@ expecto_data <- function(jatos_results_path, jatos_meta_path, nb_composantes){
   # on forme un sujet caméléon (avec un placeholder "1" pour "bind_cols")
   sujet <- list(1)
   
-  # Puis vient notre boucle itérative :
+  # puis vient notre boucle itérative :
   # on parcourt toutes les composantes individuelles sans regarder qui est où =
   # imaginons une production continue de pâte à churros
   for (i in (1:length(composantes))){
@@ -82,34 +106,58 @@ expecto_data <- function(jatos_results_path, jatos_meta_path, nb_composantes){
     # notre compteur de composantes grossit
     compteur <- compteur + 1
     
-    # si le compteur atteint le nombre de composantes par sujet ...
+    # si le compteur atteint le nombre de composantes par sujet (i.e. tout ce 
+    # qu'a passé un sujet donné)...
     if (compteur == nb_composantes){
       # ... on réinitialise le compteur ...
       compteur <- 0
-      # ... on ajoute notre sujet au dataframe ...
-      data <- bind_rows(data,sujet)
+      # ... on ajoute notre sujet au dataframe (on "l'entasse" par dessus) ...
+      data <- bind_rows(sujet, data)
       # ... puis on réinitialise notre sujet caméléon.
       sujet <- list(1)
       
-      # On a coupé la churros ! L'itération continue et la pâte recommence
-    }
-  } # ... Jusqu'à avoir parcouru toutes les composantes du .txt sorti par JATOS.
+      # On a coupé la pâte à churros ! l'itération continue, la pâte reprend...
+      } 
+    # ... jusqu'à avoir parcouru toutes les composantes du .txt sorti par JATOS.
+    # (toute la pâte, si l'analogie vous a plu.)
+    } 
   
-  # on enlève notre colonne "placeholder" composée que de "1"...
-  # et le consentement, qui sera forcément "oui" si les gens ont participé
-  data <- data %>% select(- c(...1, consentement))
+  # on a donc tous les résultats des sujets entassés dans "data" !
+  
+  # on a plus besoin de "composantes", "sujet" et "compteur", donc on va 
+  # nettoyer l'environnement (essentiel de nos jours) :
+  rm(composantes, sujet, compteur)
+  
+  # on enlève notre colonne "placeholder" composée que de "1" (celle du 
+  # caméléon), et le consentement, qui sera forcément "oui" si les gens ont 
+  # participé :
+  data <- data %>% select(
+    - c(...1, consentement),
+    # - message # peut-être "message" aussi, je suis pas sûr de ce que c'est
+    )
   
   # on accole le dataframe de métadonnées à gauche
   data <- bind_cols(read_csv(jatos_meta_path), data)
   
-  # ... et on récupère notre dataframe prêt à être nettoyé !
+  # et voilà notre dataframe brut ! Un énorme pavé, sur lequel on va devoir 
+  # faire beaucoup de travail.
+  
+  # ------------------------ "compression" en scores de beaucoup de colonnes ---
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  # --------------------- la collecte de notre précieux rectangle... Enfin ! ---
   return(data) 
-}
+  }
 
-# ---- importation manuelle pour l'instant -------------------------------------
 
-# faisons tourner ça : expecto dataframum !
-data <- expecto_data(jatos_results, jatos_meta, nb_composantes)
+
 
 # ---- tidying_data ------------------------------------------------------------
 
