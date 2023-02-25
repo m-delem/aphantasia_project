@@ -1,20 +1,5 @@
-# 
-# # ce qu'on rentrera manuellement dans la fonction :
-# 
-# # nos chemins vers les données :
-# jatos_results <- "ze_data/jatos_results_20230224195553.txt"
-# jatos_meta <- "ze_data/jatos_meta_20230224195557.csv"
-# correction_sri <- "ze_data/correction_sri.csv"
-# correction_raven <- "ze_data/correction_raven.csv"
-# 
-# # notre nombre de composantes actuelles :
-# nb_composantes <- 17
-
-# ---- Création d'une fonction d'import de données -----------------------------
 #
-# Delem, Maël
-# Email : m.delem@univ-lyon2.fr
-#
+# ---- Création d'une fonction d'import de données
 
 # l'objectif ici sera de créer une fonction "import_data" qui prendra pour
 # arguments nos deux fichiers JATOS bruts, notre nombre de composantes, et
@@ -41,10 +26,21 @@
 #   réponses. Les fichiers contenant ces réponses sont créés à l'avance, et 
 #   seront récupérés grâce aux arguments "correction_test" pris par la fonction.
 
-# ---- package pour les JSON ----
+# # ce qu'on rentrera manuellement dans la fonction :
+# 
+# # nos chemins vers les données :
+# jatos_results <- "ze_data/jatos_results_20230224195553.txt"
+# jatos_meta <- "ze_data/jatos_meta_20230224195557.csv"
+# correction_sri <- "ze_data/correction_sri.csv"
+# correction_raven <- "ze_data/correction_raven.csv"
+# 
+# # notre nombre de composantes actuelles :
+# nb_composantes <- 17
+
+# ---- package pour les JSON
 shelf(jsonlite)
 
-# ---- la fonction -------------------------------------------------------------
+# ---- la fonction en question -------------------------------------------------
 #' 
 #' @title import_data
 #' 
@@ -139,17 +135,125 @@ import_data <- function(
   # on accole le dataframe de métadonnées à gauche
   data <- bind_cols(read_csv(jatos_meta_path), data)
   
+  # on nettoie les NA (données manquantes) s'il y en a 
+  if (any(is.na(data))){
+    data <- data %>% 
+      # on remplace les NA textuels par "" ...
+      mutate_if(is.character, ~replace_na(.,"")) %>% 
+      # ... et les NA numériques par 0.
+      mutate_if(is.numeric, ~replace_na(.,0))
+    }
+  
   # et voilà notre dataframe brut ! Un énorme pavé, sur lequel on va devoir 
   # faire beaucoup de travail.
+  
   
   # ------------------------ "compression" en scores de beaucoup de colonnes ---
   
   
+  # pour commencer, les scores additifs très simples des questionnaires 
+  data <- data %>% 
+    mutate(
+      # -------- VVIQ : on additionne simplement toutes les colonnes
+      vviq = rowSums(across(starts_with("vviq"))),
+      
+      # -------- OSVIQ : idem
+      osviq = rowSums(across(starts_with("osviq"))),
+      
+      # ... puis on supprime toutes les colonnes qui ont été utilisées.
+      .keep = "unused",
+      ) %>% 
+    
+    # --------- MAI : on commence par convertir en 0 ou 1
+    mutate(across(starts_with("mai"), ~ifelse(.x == TRUE, 1, 0)),) %>%
+    mutate(
+      # on additionne tout...
+      mai = rowSums(across(starts_with("mai"))),
+      # ... et on ne garde que notre résultat.
+      .keep = "unused",
+      ) %>% 
+    
+    # --------- latéralité : on la convertit en 1, 0 ou -1
+    mutate(
+      across(starts_with("Row"), # à changer en "lat"
+             ~case_when(.x == "gauche" ~ 1,
+                        .x == "ambi" ~ 0,
+                        .x == "droite" ~ -1,
+                        .x == "" ~ 0))
+      ) %>% 
+    mutate(
+      # on fait la "moyenne de la latéralité"...
+      lateralite = rowMeans(across(starts_with("Row"))),
+      # ... et on ne garde que notre résultat.
+      .keep = "unused"
+      ) %>% 
+    mutate(
+      # enfin on décide de la latéralité "globale" du sujet !
+      lateralite = ifelse(lateralite > 0, "gaucher", "droitier"),
+      # (à noter que les ambidextres ont été considérés droitiers)
+      ) %>% 
+    
+    # après ce chamboulement, on remet tout le monde dans l'ordre de départ
+    select(
+      `Result ID`:education,
+      domaine,
+      vision,
+      lateralite, 
+      vviq, 
+      osviq, 
+      mai, 
+      everything(),
+      )
+  # fin de la première compression massive
   
+  # ---------- SRI : nouveau chantier
   
+  # on lit le df de correction du SRI
+  correction <- read_csv(correction_sri)
   
+  # on va créer un petit dataframe dans "resultats"
+  resultats <- data %>% 
+    # on veut sélectionner les colonnes du SRI
+    select(
+      # on s'assure du bon ordre des colonnes :
+      str_sort(
+        # donc on prend le nom des colonnes...
+        colnames(
+          # ... qui commencent par "sri"...
+          data %>% select(starts_with("sri"))),
+        # ... et on les trie selon le numéro à la fin.
+        numeric = TRUE)
+      # et on extrait les colonnes avec ces noms !
+      ) %>% 
+    # on ajoute une colonne pour la note finale...
+    mutate(sri = 0)
+  # ... et nos résultats sont prêts à être corrigés.
   
+  # maintenant on corrige TOUT le monde
+  # on va parcourir tous les sujets = le nb de lignes
+  for(n_sujet in (1 : nrow(resultats))){
+    # on parcourt toutes les questions de la correction = le nb de colonnes
+    for(n_question in (1 : length(correction))){
+      # maintenant notre condition : si réponse == réponse correcte...
+      # (la correction n'a qu'une ligne, d'où le "1")
+      if(resultats[n_sujet, n_question] == correction[1, n_question]){
+        # ... alors sa note augmente d'un point.
+        resultats$sri[n_sujet] = resultats$sri[n_sujet] + 1
+      }
+    }
+  }
   
+  data <- data %>% 
+    # on supprime toutes les anciennes colonnes SRI de data...
+    select(-starts_with("sri")) %>% 
+    # ... et on récupère la colonne des notes depuis resultats !
+    mutate(sri = resultats$sri) %>% 
+    # on remet tout le monde dans l'ordre
+    select(
+      `Result ID`: mai,
+      sri,
+      everything()
+      )
   
   
   # --------------------- la collecte de notre précieux rectangle... Enfin ! ---
@@ -157,110 +261,5 @@ import_data <- function(
   }
 
 
+# ---- wip ---------------------------------------------------------------------
 
-
-# ---- tidying_data ------------------------------------------------------------
-
-# on va nettoyer les données en calculant tous les scores qu'on va utiliser et
-# en supprimant toutes les colonnes des réponses individuelles
-
-# ---- ETAPES FAITES -----------------------------------------------------------
-data <- data %>% 
-  mutate(
-    # -------- VVIQ : on additionne simplement toutes les colonnes
-    vviq = rowSums(across(starts_with("vviq")), na.rm = TRUE),
-    
-    # -------- OSVIQ : idem
-    osviq = rowSums(across(starts_with("osviq")), na.rm = TRUE),
-    
-    # ... puis on supprime toutes les colonnes qui ont été utilisées.
-    .keep = "unused",
-    ) %>% 
-  
-  # --------- MAI : on convertit en 0 ou 1
-  mutate(across(starts_with("mai"), ~ifelse(.x == TRUE, 1, 0)),) %>%
-  # on additionne tout...
-  mutate(mai = rowSums(across(starts_with("mai")), na.rm = TRUE),
-         # ... et on ne garde que notre résultat.
-         .keep = "unused") %>% 
-
-  # --------- latéralité : on la convertit en 1, 0 ou -1
-  mutate(
-    across(starts_with("Row"),
-           ~case_when(.x == "gauche" ~ 1,
-                      .x == "ambi" ~ 0,
-                      .x == "droite" ~ -1,
-                      is.na(.x) ~ 0))) %>% 
-  # on fait la "moyenne de la latéralité"...
-  mutate(lateralite = rowMeans(across(starts_with("Row"))),
-         # ... et on ne garde que notre résultat.
-         .keep = "unused") %>% 
-  # on décide de la latéralité "globale" du sujet
-  mutate(lateralite = ifelse(lateralite > 0, "gaucher", "droitier"),
-         # à noter que les ambidextres ont été considérés droitiers
-  ) %>% 
-  
-  # --------- Enfin... on remet tout le monde dans l'ordre.
-  select(
-    `Result ID`:vision, 
-    lateralite, 
-    vviq, 
-    osviq, 
-    mai, 
-    # sri, 
-    everything(),
-    )
-
-# nettoyage des NA s'il y en a 
-if (any(is.na(data))){
-  data <- data %>% 
-    # remplacer les NA textuels par "" ...
-    mutate_if(is.character, ~replace_na(.,"")) %>% 
-    # ... et les NA numériques par 0
-    mutate_if(is.numeric, ~replace_na(.,0))
-}
-# ---- ETAPES EN CONSTRUCTION --------------------------------------------------
-
-
-
-
-# on crée une colonne vide avec le score au sri
-data <- data %>% 
-
-# on lit le df de correction
-correction <- read_csv(correction_sri)
-
-# resultats va prendre un subset avec les colonnes du SRI
-resultats <- data %>% 
-  # on ajoute d'abord une colonne pour la note finale
-  mutate(sri = 0) %>% 
-  # on va maintenant sélectionner les colonnes en question
-  select(
-  # on s'assure du bon ordre des colonnes :
-  str_sort(
-    # donc on prend le nom des colonnes...
-    colnames(
-      # ... qui commencent par "sri"...
-      data %>% select(starts_with("sri"))),
-    # ... et on les trie selon le numéro à la fin.
-    numeric = TRUE)
-  # la sélection est faite !
-  )
-
-# maintenant on corrige tout le monde
-# on va parcourir tous les sujets = le nb de lignes
-for(n_sujet in (1 : nrow(resultats))){
-  # on parcourt toutes les questions de la correction = le nb de colonnes
-  for(n_question in (1 : length(correction))){
-    # maintenant notre condition : si réponse == réponse correcte...
-    # (la correction n'a qu'une ligne, d'où le "1")
-    if(resultats[n_sujet, n_question] == correction[1, n_question]){
-      # ... alors sa note augmente d'un point.
-      data$sri[n_sujet] = data$sri[n_sujet] + 1
-    }
-  }
-}
-
-# on enlève toutes les colonnes sri
-data %>% select(-starts_with("sri"))
-# ---- 
