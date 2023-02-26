@@ -400,6 +400,7 @@ colnames(data)
 # l'état. Donc très peu à faire ici en fait - prochaines étapes :
 # - corriger les noms des outputs pour tout le monde
 # - rajouter la lecture dans l'expé, sortir 2/3 tests et préparer de quoi 
+# - rajouter la lecture dans l'expé, sortir 2/3 tests et préparer de quoi 
 #   l'accueillir ici (vraisemblablement juste l'exporter dans "for_cotation")
 # - hop done
 # - après il faut redesign l'expé :
