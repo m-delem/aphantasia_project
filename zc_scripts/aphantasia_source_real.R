@@ -19,27 +19,19 @@ shelf(
 theme_set(theme_bw(base_size = 14, base_family = "serif"))
 
 # récupération de la fonction pour importer les données
-source(zc_scripts/data_import.R)
-
-# les chemins vers nos fichiers JATOS
-jatos_results <- "./ze_data/jatos_results_XXXXXXXXXXX"
-jatos_meta <- "./ze_data/jatos_meta_XXXXXXXXXX"
-# (à noter : la partie xxxxx indique la date d'export, ça peut être utile)
-
-# les chemins vers les corrections
-correction_sri <- "ze_data/correction_sri.csv"
-correction_raven <- "ze_data/correction_raven.csv"
-
-# notre nombre de composantes
-nb_composantes <- x
+source(zc_scripts/import_data.R)
 
 # import des données toutes prêtes dans un dataframe 
 data <- import_data(
-  jatos_results, 
-  jatos_meta, 
-  nb_composantes,
-  correction_sri,
-  correction_raven)
+  # les chemins vers nos fichiers JATOS
+  jatos_results_path = "./ze_data/jatos_results_XXXXXXXXXXX.txt",
+  jatos_meta_path    = "./ze_data/jatos_meta_XXXXXXXXXX.csv",
+  # notre nombre de composantes
+  nb_composantes     = 17,
+  # les chemins vers les corrections
+  correction_srt     = "./ze_data/correction_sri.csv",
+  correction_raven   = "./ze_data/correction_raven.csv"
+  )
 
 # ---- analyses de données ------------------------------------------------------
 #
