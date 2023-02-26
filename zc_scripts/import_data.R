@@ -126,23 +126,23 @@ import_data <- function(
     } 
   # on a donc tous les résultats des sujets entassés dans "data" !
   
+  # on accole le dataframe de métadonnées à gauche
+  data <- bind_cols(read_csv(jatos_meta_path), data)
+  
   # quelques suppressions
   data <- data %>% 
     select(
       # on retire...
     - c(
       # ... la colonne "placeholder" composée que de "1" (celle du caméléon)
-      ...1,
+      `...10`,
       # ... "consentement", qui sera forcément "oui" si les gens ont participé
       consentement,
       # ... "message" qui sera redondante avec "State" (= expé finie/pas finie)
-      message
+      Message
       # on peut en retirer d'autres ici au besoin
       ))
-  
-  # on accole le dataframe de métadonnées à gauche
-  data <- bind_cols(read_csv(jatos_meta_path), data)
-  
+      
   # on nettoie les NA (données manquantes) s'il y en a 
   if (any(is.na(data))){
     data <- data %>% 
@@ -383,10 +383,12 @@ data <- import_data(
   # notre nombre de composantes
   nb_composantes     = 17,
   # les chemins vers les corrections
-  correction_srt     = "./ze_data/correction_sri.csv",
+  correction_sri     = "./ze_data/correction_sri.csv",
   correction_raven   = "./ze_data/correction_raven.csv"
   )
 
+# on check les colonnes de "data"
+colnames(data)
 
 # ---- wip ---------------------------------------------------------------------
 
