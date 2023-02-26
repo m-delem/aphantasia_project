@@ -30,7 +30,7 @@
 
 # - la partie "compression" va calculer les scores aux différents questionnaires
 #   et tâches : toutes les réponses individuelles sont séparés en colonnes, donc
-#   il faut les "compresser" entre elles pour nous donner les jolis scores qu'on 
+#   il faut les "compresser" entre elles pour nous donner les jolis scores qu'on
 #   va analyser. Certaines parties sont particulièrement fastidieuses, comme le
 #   calcul des scores au SRI ou au Raven, car il faut les comparer à des bonnes
 #   réponses. Les fichiers contenant ces réponses sont créés à l'avance, et
@@ -102,7 +102,7 @@ import_data <- function(
   # puis vient notre boucle itérative :
   
   # on parcourt toutes les composantes individuelles sans regarder qui est où
-  for (i in (1:length(composantes))){
+  for (i in (seq_along(composantes))){
     
     # on ajoute les colonnes des composantes à chaque tour au sujet caméléon...
     sujet <- bind_cols(sujet,jsonlite::fromJSON(composantes[i]))
