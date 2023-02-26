@@ -22,7 +22,7 @@ theme_set(theme_bw(base_size = 14, base_family = "serif"))
 source(zc_scripts/import_data.R)
 
 # import des données toutes prêtes dans un dataframe 
-data <- import_data(
+df <- import_data(
   # les chemins vers nos fichiers JATOS
   jatos_results_path = "./ze_data/jatos_results_XXXXXXXXXXX.txt",
   jatos_meta_path    = "./ze_data/jatos_meta_XXXXXXXXXX.csv",
@@ -36,8 +36,8 @@ data <- import_data(
 # ---- analyses de données ------------------------------------------------------
 #
 # ---- previous pca and clustering ---------------------------------------------
-# data_latent <- 
-#   factor_analysis(data_standardisee,
+# df_latent <- 
+#   factor_analysis(df_standard,
 #                   rotation = "cluster",
 #                   n = 3,
 #                   sort = TRUE,
@@ -47,13 +47,13 @@ data <- import_data(
 #                     "Raisonnement"))
 # 
 # # ajout des clusters identifiés
-# data_latent$cluster <- 
-#   cluster_analysis(data_standardisee, n = 4, method = "hkmeans") %>%
+# df_latent$cluster <- 
+#   cluster_analysis(df_standard, n = 4, method = "hkmeans") %>%
 #   predict() %>% 
 #   as.factor()
 
 # ---- descriptives ------------------------------------------------------------
-datascores %>% 
+df_standard %>% 
   report() %>% 
   as.data.frame() %>% 
   summary() %>%
@@ -68,7 +68,7 @@ datascores %>%
                caption = "Statistiques descriptives de l'ensemble des variables mesurées : Moyenne (*Mean*), Écart-type (*SD*), Minimum (*Min*) et Maximum (*Max*).\\label{descriptives}")
 
 # ---- correlation_matrix ------------------------------------------------------
-datascores %>% 
+df_standard %>% 
   mutate(across(everything(), ~ scale(.x))) %>% 
   correlation(partial = TRUE) %>% 
   cor_sort() %>% 
@@ -79,7 +79,7 @@ datascores %>%
   labs(title = NULL)
 
 # ---- ggm_graph ----------------------------------------------------------------
-datascores %>%
+df_standard %>%
   correlation(partial = FALSE) %>%
   filter(abs(r) >= .3) %>% 
   mutate(Parameter1 = replace(Parameter1, Parameter1 == "Empan_MDT", "Empan"),
@@ -100,10 +100,10 @@ datascores %>%
   theme_graph(base_family = "serif", base_size = 10)
 
 # ---- mfa_graph ---------------------------------------------------------------
-# check_factorstructure(datascores)
-# n_factors(datascores, rotation="cluster") 
+# check_factorstructure(df_standard)
+# n_factors(df_standard, rotation="cluster") 
 
-datascores %>% 
+df_standard %>% 
   prcomp(scale = TRUE) %>% 
   fviz_pca_var(repel = TRUE,
                col.var = "contrib",
@@ -118,7 +118,7 @@ datascores %>%
        y = "Dimension 2 (34.4%)")
 
 # ---- loadings_graph ----------------------------------------------------------
-factor_analysis(datascores, 
+factor_analysis(df_standard, 
                 rotation = "cluster",
                 n = 3,
                 sort = TRUE,
@@ -128,7 +128,7 @@ factor_analysis(datascores,
 # Rotated loadings from factor analysis
 
 # ---- loadings_tbl ------------------------------------------------------------
-factor_analysis(datascores, 
+factor_analysis(df_standard, 
                 rotation = "cluster",
                 n = 3,
                 sort = TRUE,
@@ -138,7 +138,7 @@ factor_analysis(datascores,
                digits = 3)
 
 # ---- loadings_graph_annex ----------------------------------------------------------
-factor_analysis(datascores, 
+factor_analysis(df_standard, 
                 rotation = "cluster",
                 n = 4,
                 sort = TRUE,
@@ -149,11 +149,11 @@ factor_analysis(datascores,
 
 # ---- kmeans_plot -------------------------------------------------------------
 
-kmeans(datascores %>% mutate(across(everything(), ~ scale(.x))), 
+kmeans(df_standard %>% mutate(across(everything(), ~ scale(.x))), 
        centers = 4,
        nstart = 100) %>%
   fviz_cluster(
-    datascores,
+    df_standard,
     geom = "point",
     repel = TRUE,
     ellipse.type = "convex",
@@ -167,7 +167,7 @@ kmeans(datascores %>% mutate(across(everything(), ~ scale(.x))),
 #"Représentation des clusters selon les deux composantes principales"
 
 # ---- radar -------------------------------------------------------------------
-p <- data_latent %>%
+p <- df_latent %>%
   group_by(cluster) %>%  
   summarise(across(everything(),mean)) %>% 
   mutate(across(-cluster, ~ rescale(.x, to = c(0,1))),) %>% 
@@ -200,7 +200,7 @@ facet(p,facet.by = "cluster")
 # Profils cognitifs des clusters identifies par partition non-supervisee (*hierachical k-means*)"
 
 # ---- repartition ------------------------------------------------------
-data_latent %>% 
+df_latent %>% 
   group_by(cluster) %>% 
   summarise(across(everything(),mean)) %>% 
   rename(Cluster = cluster) %>% 
@@ -213,7 +213,7 @@ data_latent %>%
   )
 
 # ---- lollipop ----------------------------------------------------------------
-data_latent %>% 
+df_latent %>% 
   mutate(across(-cluster, ~ rescale(.x, to = c(0,1))),) %>% 
   gather(key = variable, value = value, -cluster) %>% 
   group_by(variable, cluster) %>% 
@@ -244,15 +244,15 @@ data_latent %>%
 # Représentation des moyennes de chaque cluster pour les trois capacités cognitives
   
 # ---- analyses pour clusters
-# data_latent %>% check_clusterstructure()
-# data_latent %>% n_clusters() %>% plot()
-# cluster_analysis(datascores, n = 2, method = "hkmeans")
-# cluster_analysis(data_latent, n = 4, method = "hkmeans")
+# df_latent %>% check_clusterstructure()
+# df_latent %>% n_clusters() %>% plot()
+# cluster_analysis(df_standard, n = 2, method = "hkmeans")
+# cluster_analysis(df_latent, n = 4, method = "hkmeans")
 
 # # ---- modélisation et tests
-# model1c <- lm(Raisonnement ~ 0 + cluster,data_latent)
-# model2c <- lm(`Imagerie Objet` ~ 0 + cluster,data_latent)
-# model3c <- lm(`Imagerie Spatiale` ~ 0 + cluster,data_latent)
+# model1c <- lm(Raisonnement ~ 0 + cluster,df_latent)
+# model2c <- lm(`Imagerie Objet` ~ 0 + cluster,df_latent)
+# model3c <- lm(`Imagerie Spatiale` ~ 0 + cluster,df_latent)
 # 
 # model1c %>% check_model()
 # model1c %>% report()

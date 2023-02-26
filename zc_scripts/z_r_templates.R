@@ -126,7 +126,7 @@ theme_set(
   )
 
 # ---- importing data ----------------------------------------------------------
-data <- 
+df <- 
   read_csv(
     "./data/data.csv",
     # sep = ";",
@@ -135,14 +135,14 @@ data <-
     )
 
 # structure check
-str(data, path)
+str(df, path)
 
 # ---- exporting data ----------------------------------------------------------
 # exporting df as csv
-write_csv(data)
+write_csv(df)
 
 # ---- ggplot2 structure -------------------------------------------------------
-data %>% 
+df %>% 
   ggplot(
     # variables
     aes(
@@ -234,7 +234,7 @@ ggarrange(
   )
 
 # lollipop chart
-data %>% 
+df %>% 
   ggdotchart(
     x = "x",
     y = "y",
@@ -287,7 +287,7 @@ if (!dir.exists("./z_data")) dir.create(
 )
 # exporting tidied data as csv
 write.csv(
-  x = tidy_data,
+  x = tidy_df,
   file = "./outputs/data/df.csv",
   row.names = FALSE,
   quote = FALSE,
@@ -310,7 +310,7 @@ ggsave(
   )
 
 # ---- descriptive statistics --------------------------------------------------
-data %>% 
+df %>% 
   report() %>% 
   as.data.frame() %>% 
   summary() %>% 
@@ -320,7 +320,7 @@ data %>%
     caption = "Descriptive statistics of the whole sample.\\label{descriptives}")
 
 # ---- correlation matrices ----------------------------------------------------
-data %>% 
+df %>% 
   # standadize
   mutate(across(everything(), ~ scale(.x))) %>% 
   # partial correlations
@@ -335,7 +335,7 @@ data %>%
   labs(title = NULL)
 
 # ---- gaussian graphical models -----------------------------------------------
-data %>%
+df %>%
   # partial correlations
   correlation(partial = FALSE) %>%
   # setting a minimum strength not to overclutter
@@ -386,7 +386,7 @@ data %>%
 Box <- 
   boxcox(
   RT ~ 1, 
-  data = data, 
+  df = df, 
   lambda = seq(-5, 5, 0.1),
   )
 Cox <- 
@@ -399,8 +399,8 @@ Cox <-
       ),
       ]
 lambda <- Cox[1, "Box.x"]
-data_box <- 
-  data %>% 
+df_box <- 
+  df %>% 
   mutate(RT_box = ((RT ^ lambda - 1) / lambda) %>% scale())
 
 # ---- linear mixed models -----------------------------------------------------
@@ -408,7 +408,7 @@ model1 <-
   lmer(
     RT_box ~ condition +
       (1|subject),
-    data = data,
+    df = df,
     )
 model2 <- 
   lmer(
@@ -416,7 +416,7 @@ model2 <-
       (1|subject) +
       (1|item) +
       (1|bloc),
-    data = data,
+    df = df,
     )
 
 aov(
@@ -441,23 +441,23 @@ glm <-
   glmer(
     correct ~ condition +
       (1|subject),
-    data = data,
+    df = df,
     family = binomial,
     )
 
 # ---- factor analysis (and pca) -----------------------------------------------
 
 # is it suitable for factor analysis ?
-data %>% check_factorstructure()
+df %>% check_factorstructure()
 
 # estimating the optimal number of factors
 n_factors(
-  data, 
+  df, 
   rotation="cluster", # oblimin is the most common one
   )
 
 # factoextra : circle plot
-data %>% 
+df %>% 
   prcomp(scale = TRUE) %>% 
   fviz_pca_var(
     repel = TRUE,
@@ -480,7 +480,7 @@ data %>%
 
 # plot of the loadings of each factor
 factor_analysis(
-  data, 
+  df, 
   rotation = "cluster",
   n = "auto",
   sort = TRUE,
@@ -493,7 +493,7 @@ factor_analysis(
 
 # summary table of performance and eigenvalues
 factor_analysis(
-  data, 
+  df, 
   rotation = "cluster",
   n = "auto",
   sort = TRUE,
@@ -507,9 +507,9 @@ factor_analysis(
     )
 
 # creating a df with only factor scores
-data_latent <- 
+df_latent <- 
   factor_analysis(
-    data,
+    df,
     rotation = "cluster", 
     n = "auto",
     sort = TRUE,
@@ -528,15 +528,15 @@ data_latent <-
 # ---- cluster analysis --------------------------------------------------------
 
 # is it suitable for cluster analysis ?
-data %>% check_clusterstructure()
+df %>% check_clusterstructure()
 
 # estimating the optimal number of clusters
-data %>% 
+df %>% 
   n_clusters() %>% 
   plot()
 
 # hierarchical k-means clustering
-data %>%
+df %>%
   cluster_analysis(
     n = "auto",
     method = "hkmeans",
@@ -544,12 +544,12 @@ data %>%
 
 # factoextra : clustering plot
 kmeans(
-  data %>% mutate(across(everything(), ~ scale(.x))),
+  df %>% mutate(across(everything(), ~ scale(.x))),
   centers = 4,
   nstart = 100,
   ) %>%
   fviz_cluster(
-    data,
+    df,
     geom = "point",
     repel = TRUE,
     ellipse.type = "convex",
@@ -566,8 +566,8 @@ kmeans(
     )
 
 # adding clusters belonging to data
-data <-
-  data %>%
+df <-
+  df %>%
   mutate(
     # analysis
     cluster = 
@@ -583,7 +583,7 @@ data <-
 
 # radar chart of cluster profiles
 graph <- 
-  data %>%
+  df %>%
   group_by(cluster) %>% 
   summarise(across(everything(),mean)) %>% 
   mutate(across(-cluster, ~ rescale(.x, to = c(0,1))),) %>% 

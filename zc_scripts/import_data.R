@@ -90,7 +90,7 @@ import_data <- function(
   # ... Et on a donc notre liste de composantes sous forme de strings JSON.
   
   # on initialise notre dataframe final (Rome ne s'est pas faite en un jour...)
-  data <- data.frame()
+  df <- data.frame()
   
   # on va maintenant le remplir itérativement en parcourant "composantes"
   
@@ -116,7 +116,7 @@ import_data <- function(
       # ... on réinitialise le compteur ...
       compteur <- 0
       # ... on ajoute notre sujet au dataframe (on "l'entasse" par dessus) ...
-      data <- bind_rows(sujet, data)
+      df <- bind_rows(sujet, df)
       # ... puis on réinitialise notre sujet caméléon.
       sujet <- list(1)
       
@@ -127,10 +127,10 @@ import_data <- function(
   # on a donc tous les résultats des sujets entassés dans "data" !
   
   # on accole le dataframe de métadonnées à gauche
-  data <- bind_cols(read_csv(jatos_meta_path), data)
+  df <- bind_cols(read_csv(jatos_meta_path), df)
   
   # quelques suppressions
-  data <- data %>% 
+  df <- df %>% 
     select(
       # on retire...
     - c(
@@ -144,8 +144,8 @@ import_data <- function(
       ))
       
   # on nettoie les NA (données manquantes) s'il y en a 
-  if (any(is.na(data))){
-    data <- data %>% 
+  if (any(is.na(df))){
+    df <- df %>% 
       # on remplace alors les NA textuels par "" ...
       mutate_if(is.character, ~replace_na(.,"")) %>% 
       # ... et les NA numériques par 0.
@@ -160,7 +160,7 @@ import_data <- function(
   
   
   # on va extraire les colonnes qui ont besoin d'être cotées manuellement
-  reponses <- data %>% 
+  reponses <- df %>% 
     # on isole...
     select(
       # # ... les similitudes...
@@ -174,7 +174,7 @@ import_data <- function(
   # on extrait ce petit dataframe dans un .csv "for_cotation"...
   write_csv(reponses, "./ze_data/for_cotation.csv")
   # ... et on supprime les colonnes extraites de notre dataframe principal :
-  data <- data %>% 
+  df <- df %>% 
     select(
       # on retire...
       -c(
@@ -192,7 +192,7 @@ import_data <- function(
   
   
   # pour commencer, les scores additifs très simples des questionnaires 
-  data <- data %>% 
+  df <- df %>% 
     
     # --------- VVIQ : on additionne simplement toutes les colonnes...
     mutate(
@@ -254,7 +254,7 @@ import_data <- function(
   s <- paste0("osviq_", s)
   v <- paste0("osviq_", v)
   # il est temps de calculer les scores :
-  data <- data %>% 
+  df <- df %>% 
     mutate(
       # score objet cumulé
       osviq_o = rowSums(across(all_of(o))),
@@ -278,11 +278,11 @@ import_data <- function(
   correction <- read_csv(correction_sri)
   
   # on va créer un petit dataframe dans "resultats"
-  resultats <- data %>% 
+  resultats <- df %>% 
     # on veut sélectionner les colonnes du SRI...
     select(
       # ... et s'assurer du bon ordre des colonnes :
-      data %>% 
+      df %>% 
         # on prend les colonnes qui commencent par "sri"...
         select(starts_with("sri")) %>% 
         # ... on extrait leur nom...
@@ -313,7 +313,7 @@ import_data <- function(
   # resultats contient désormais une colonne "sri" avec toutes les notes
   
   # compression finale du SRI
-  data <- data %>% 
+  df <- df %>% 
     # on supprime toutes les anciennes colonnes sri de data...
     select(-starts_with("sri")) %>% 
     # ... et on récupère la colonne des notes depuis resultats !
@@ -331,7 +331,7 @@ import_data <- function(
   correction <- read_csv(correction_raven)
   
   # on va créer un petit dataframe dans "resultats"
-  resultats <- data %>% 
+  resultats <- df %>% 
     # on isole les colonnes du Raven
     select(starts_with("raven")) %>% 
     # on ajoute une colonne pour la note finale...
@@ -356,7 +356,7 @@ import_data <- function(
   # resultats contient désormais une colonne "raven" avec toutes les notes
   
   # compression finale du Raven
-  data <- data %>% 
+  df <- df %>% 
     # on supprime toutes les anciennes colonnes raven de data...
     select(-starts_with("raven")) %>% 
     # ... et on récupère la colonne des notes depuis resultats !
@@ -370,13 +370,13 @@ import_data <- function(
   
   
   # --------------------- la collecte de notre précieux rectangle... Enfin ! ---
-  return(data) 
+  return(df) 
   }
 
 
 # ---- imports tests -----------------------------------------------------------
 
-data <- import_data(
+df <- import_data(
   # les chemins vers nos fichiers JATOS
   jatos_results_path = "./ze_data/jatos_results_20230224195553.txt",
   jatos_meta_path    = "./ze_data/jatos_meta_20230224195557.csv",
@@ -388,7 +388,7 @@ data <- import_data(
   )
 
 # on check les colonnes de "data"
-colnames(data)
+colnames(df)
 
 # ---- wip ---------------------------------------------------------------------
 

@@ -105,7 +105,7 @@ simulation <- function(variables, fmodel, effect) {
                   diag()      # recree une matrice diagonalisee
   
   # initialisation d'un dataframe vide
-  data <- data.frame()
+  df <- data.frame()
   
   ### simulation ###
   for (i in levels(variables$group)){   # on simule separement chaque groupe
@@ -136,23 +136,23 @@ simulation <- function(variables, fmodel, effect) {
     measures <- observedscores + error
     
     # on cree un dataframe avec le nom de groupe
-    data_group <- data.frame(measures) %>% 
+    df_group <- data.frame(measures) %>% 
       mutate(Group = group %>% factor())
     
     # ajout des valeurs reeles de moyenne et d'ecart-type pour chaque variable 
     # et renommage
     for (i in 1:length(var_group$name)){
-      data_group[,i] = data_group[,i]*var_group$sd[i] + var_group$mean[i]
-      colnames(data_group)[i] = var_group$name[i]
+      df_group[,i] = df_group[,i]*var_group$sd[i] + var_group$mean[i]
+      colnames(df_group)[i] = var_group$name[i]
       }
     
     # fusion avec le dataframe complet
-    data <- bind_rows(data,data_group)
+    df <- bind_rows(df,df_group)
     }
   
   # ajout d'id individuels et stats demographiques
-  n = length(data[,1])  # nombre total de participants
-  data <- data %>% 
+  n = length(df[,1])  # nombre total de participants
+  df <- df %>% 
     mutate(Subject_nr = row_number() %>% as.character(),
            Sex = (c("H","F") %>% rep(times = n/2) %>% factor()),
            Age = seq(from = 16, to = 55, by = 1) %>% sample(size = n, 
@@ -161,11 +161,11 @@ simulation <- function(variables, fmodel, effect) {
     relocate(Subject_nr)
 
   # mission accomplished!
-  return(data)  
+  return(df)  
   }
 
 # la fonction est donc clefs en main
-data <- simulation(variables,fmodel,effect)
+df <- simulation(variables,fmodel,effect)
 
 # nettoyage de l'environnement (considérations écologiques)
 rm(variables, fmodel, effect)
@@ -173,13 +173,13 @@ rm(variables, fmodel, effect)
 # Pré-traitement
 
 # on crée un dataset avec les scores uniquement
-datascores <- data %>% select(-c(Subject_nr, Group, Sex, Age))
+df_scores <- df %>% select(-c(Subject_nr, Group, Sex, Age))
 
 # Analyses
 
 # le dataset réduit à 3 facteurs contre 12 initialement
-data_latent <- 
-  factor_analysis(datascores,
+df_latent <- 
+  factor_analysis(df_scores,
                   rotation = "cluster",
                   n = 3,
                   sort = TRUE,
@@ -189,13 +189,13 @@ data_latent <-
                     "Raisonnement"))
 
 # ajout des clusters identifiés
-data_latent$cluster <- 
-  cluster_analysis(datascores, n = 4, method = "hkmeans") %>%
+df_latent$cluster <- 
+  cluster_analysis(df_scores, n = 4, method = "hkmeans") %>%
   predict() %>% 
   as.factor()
 
 # ---- descriptives ------------------------------------------------------------
-datascores %>% 
+df_scores %>% 
   report() %>% 
   as.data.frame() %>% 
   summary() %>%
@@ -210,7 +210,7 @@ datascores %>%
                caption = "Statistiques descriptives de l'ensemble des variables mesurées : Moyenne (*Mean*), Écart-type (*SD*), Minimum (*Min*) et Maximum (*Max*).\\label{descriptives}")
 
 # ---- correlation_matrix ------------------------------------------------------
-datascores %>% 
+df_scores %>% 
   mutate(across(everything(), ~ scale(.x))) %>% 
   correlation(partial = TRUE) %>% 
   cor_sort() %>% 
@@ -221,7 +221,7 @@ datascores %>%
   labs(title = NULL)
 
 # ---- ggm_graph ----------------------------------------------------------------
-datascores %>%
+df_scores %>%
   correlation(partial = FALSE) %>%
   filter(abs(r) >= .3) %>% 
   mutate(Parameter1 = replace(Parameter1, Parameter1 == "Empan_MDT", "Empan"),
@@ -242,10 +242,10 @@ datascores %>%
   theme_graph(base_family = "serif", base_size = 10)
 
 # ---- mfa_graph ---------------------------------------------------------------
-# check_factorstructure(datascores)
-# n_factors(datascores, rotation="cluster") 
+# check_factorstructure(df_scores)
+# n_factors(df_scores, rotation="cluster") 
 
-datascores %>% 
+df_scores %>% 
   prcomp(scale = TRUE) %>% 
   fviz_pca_var(repel = TRUE,
                col.var = "contrib",
@@ -260,7 +260,7 @@ datascores %>%
        y = "Dimension 2 (34.4%)")
 
 # ---- loadings_graph ----------------------------------------------------------
-factor_analysis(datascores, 
+factor_analysis(df_scores, 
                 rotation = "cluster",
                 n = 3,
                 sort = TRUE,
@@ -270,7 +270,7 @@ factor_analysis(datascores,
 # Rotated loadings from factor analysis
 
 # ---- loadings_tbl ------------------------------------------------------------
-factor_analysis(datascores, 
+factor_analysis(df_scores, 
                 rotation = "cluster",
                 n = 3,
                 sort = TRUE,
@@ -280,7 +280,7 @@ factor_analysis(datascores,
                digits = 3)
 
 # ---- loadings_graph_annex ----------------------------------------------------------
-factor_analysis(datascores, 
+factor_analysis(df_scores, 
                 rotation = "cluster",
                 n = 4,
                 sort = TRUE,
@@ -291,11 +291,11 @@ factor_analysis(datascores,
 
 # ---- kmeans_plot -------------------------------------------------------------
 
-kmeans(datascores %>% mutate(across(everything(), ~ scale(.x))), 
+kmeans(df_scores %>% mutate(across(everything(), ~ scale(.x))), 
        centers = 4,
        nstart = 100) %>%
   fviz_cluster(
-    datascores,
+    df_scores,
     geom = "point",
     repel = TRUE,
     ellipse.type = "convex",
@@ -309,7 +309,7 @@ kmeans(datascores %>% mutate(across(everything(), ~ scale(.x))),
 #"Représentation des clusters selon les deux composantes principales"
 
 # ---- radar -------------------------------------------------------------------
-p <- data_latent %>%
+p <- df_latent %>%
   group_by(cluster) %>%  
   summarise(across(everything(),mean)) %>% 
   mutate(across(-cluster, ~ rescale(.x, to = c(0,1))),) %>% 
@@ -342,7 +342,7 @@ facet(p,facet.by = "cluster")
 # Profils cognitifs des clusters identifies par partition non-supervisee (*hierachical k-means*)"
 
 # ---- repartition ------------------------------------------------------
-data_latent %>% 
+df_latent %>% 
   group_by(cluster) %>% 
   summarise(across(everything(),mean)) %>% 
   rename(Cluster = cluster) %>% 
@@ -355,7 +355,7 @@ data_latent %>%
   )
 
 # ---- lollipop ----------------------------------------------------------------
-data_latent %>% 
+df_latent %>% 
   mutate(across(-cluster, ~ rescale(.x, to = c(0,1))),) %>% 
   gather(key = variable, value = value, -cluster) %>% 
   group_by(variable, cluster) %>% 
@@ -386,15 +386,15 @@ data_latent %>%
 # Représentation des moyennes de chaque cluster pour les trois capacités cognitives
   
 # ---- analyses pour clusters
-# data_latent %>% check_clusterstructure()
-# data_latent %>% n_clusters() %>% plot()
-# cluster_analysis(datascores, n = 2, method = "hkmeans")
-# cluster_analysis(data_latent, n = 4, method = "hkmeans")
+# df_latent %>% check_clusterstructure()
+# df_latent %>% n_clusters() %>% plot()
+# cluster_analysis(df_scores, n = 2, method = "hkmeans")
+# cluster_analysis(df_latent, n = 4, method = "hkmeans")
 
 # # ---- modélisation et tests
-# model1c <- lm(Raisonnement ~ 0 + cluster,data_latent)
-# model2c <- lm(`Imagerie Objet` ~ 0 + cluster,data_latent)
-# model3c <- lm(`Imagerie Spatiale` ~ 0 + cluster,data_latent)
+# model1c <- lm(Raisonnement ~ 0 + cluster,df_latent)
+# model2c <- lm(`Imagerie Objet` ~ 0 + cluster,df_latent)
+# model3c <- lm(`Imagerie Spatiale` ~ 0 + cluster,df_latent)
 # 
 # model1c %>% check_model()
 # model1c %>% report()
