@@ -374,30 +374,18 @@ import_data <- function(
   }
 
 
-# ---- fichiers tests ----------------------------------------------------------
-
-# ce qu'on rentrera manuellement dans la fonction :
-
-# nos chemins vers les données de test :
-jatos_results_path <- "ze_data/jatos_results_20230224195553.txt"
-jatos_meta_path <- "ze_data/jatos_meta_20230224195557.csv"
-correction_sri <- "ze_data/correction_sri.csv"
-correction_raven <- "ze_data/correction_raven.csv"
-
-# notre nombre de composantes actuelles :
-nb_composantes <- 17
-
-
 # ---- imports tests -----------------------------------------------------------
 
 data <- import_data(
-  jatos_results_path,
-  jatos_meta_path,
-  nb_composantes,
-  correction_sri,
-  correction_raven
+  # les chemins vers nos fichiers JATOS
+  jatos_results_path = "./ze_data/jatos_results_20230224195553.txt",
+  jatos_meta_path    = "./ze_data/jatos_meta_20230224195557.csv",
+  # notre nombre de composantes
+  nb_composantes     = 17,
+  # les chemins vers les corrections
+  correction_srt     = "./ze_data/correction_sri.csv",
+  correction_raven   = "./ze_data/correction_raven.csv"
   )
-
 
 # ---- wip ---------------------------------------------------------------------
 
