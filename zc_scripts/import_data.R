@@ -387,6 +387,7 @@ data <- import_data(
   correction_raven   = "./ze_data/correction_raven.csv"
   )
 
+
 # ---- wip ---------------------------------------------------------------------
 
 # maintenant il faut reprendre le design de l'expé, corriger des trucs, tester/
@@ -404,6 +405,7 @@ data <- import_data(
 # - comparer corsi actuel et nouveau
 # - regarder comment raccourcir le digit span, garder que le reverse + idem pour
 #   nouveau corsi
+
 
 # ---- to-do prévisionnel ------------------------------------------------------
 
