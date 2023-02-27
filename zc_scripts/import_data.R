@@ -7,7 +7,7 @@
 # extractible en csv). Cette fonction pourra ainsi être utilisée dans d'autres
 # scripts simplement en appelant :
 #
-#   > source("./zcscripts/data_import.R")
+#   > source("./zcscripts/import_data.R")
 #
 #   ... puis en faisant tourner la fonction.
 
@@ -16,9 +16,9 @@
 # - la partie "expecto_data" va couper le "jatos_results" en petits JSON, les
 #   aligner pour former nos sujets, et entasser progressivement les sujets pour
 #   former le dataframe brut. l'accole alors à droite du "jatos_meta" (très
-#   facile à importer car tout prêt, à la bonne forme et taille) pour obtenir un
-#   dataframe complet avec toutes les infos brutes, y compris de quoi identifier
-#   les sujets directement dans les premières colonnes.
+#   facile à importer car tout prêt, de la bonne forme et taille) pour obtenir
+#   un dataframe complet avec toutes les infos brutes, y compris de quoi
+#   identifier les sujets directement dans les premières colonnes.
 
 # - la partie "send_for_cotation" va extraire du dataframe les colonnes des
 #   tâches à coter manuellement, comme le test des similitudes ou la
@@ -27,19 +27,29 @@
 #   cotés, mais en attendant on pourra analyser le reste.
 
 # - la partie "compression" va calculer les scores aux différents questionnaires
-#   et tâches : toutes les réponses individuelles sont séparés en colonnes, donc
-#   il faut les "compresser" entre elles pour nous donner les jolis scores qu'on
-#   va analyser. Certaines parties sont particulièrement fastidieuses, comme le
-#   calcul des scores au SRI ou au Raven, car il faut les comparer à des bonnes
-#   réponses. Les fichiers contenant ces réponses sont créés à l'avance, et
-#   seront récupérés grâce aux arguments "correction_test" pris par la fonction.
+#   et tâches : toutes les réponses individuelles sont séparées en colonnes,
+#   donc il faut les "compresser" entre elles pour nous donner les jolis scores
+#   qu'on va analyser. Certaines parties sont particulièrement fastidieuses,
+#   comme le calcul des scores au SRI ou au Raven, car il faut les comparer à
+#   des bonnes réponses. Les fichiers contenant ces réponses sont créés à
+#   l'avance, et seront récupérés grâce aux arguments "correction_test" pris
+#   par la fonction.
 
 
 # ---- la fonction en question -------------------------------------------------
 
 
-# ---- (package pour les JSON au cas où il serait pas là...)
-shelf(jsonlite)
+# ---- package routine
+# librairian (s'il n'est pas déjà là) pour gérer les packages efficacement
+if (!require(librarian)) install.packages(librarian)
+library(librarian)
+# et on met nos packages sur l'étagère :
+shelf(
+  # la base de tout...
+  tidyverse,
+  # ... et nos besoins du moment :
+  jsonlite
+)
 
 # ---- ... donc on disait :
 #'
