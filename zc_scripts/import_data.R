@@ -72,7 +72,7 @@ import_data <- function(
     nb_composantes,
     correction_sri,
     correction_raven
-    ){ 
+    ) { 
   
   # Commençons
   
@@ -84,9 +84,10 @@ import_data <- function(
     # on va lire le fichier texte...
     read_file(jatos_results_path) %>%
     # ... on le sépare en lignes ...
-    str_split('\n') %>% first() %>% 
+    str_split("\n") %>%
+    first() %>% 
     # ... on enlève la dernière ligne, systématiquement vide ...
-    discard(function(x) x == '')
+    discard(function(x) x == "")
   # ... Et on a donc notre liste de composantes sous forme de strings JSON.
   
   # on initialise notre dataframe final (Rome ne s'est pas faite en un jour...)
