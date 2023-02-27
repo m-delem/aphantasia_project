@@ -297,9 +297,9 @@ import_data <- function(
   
   # maintenant on corrige TOUT le monde
   # on va parcourir tous les sujets = le nb de lignes
-  for(n_sujet in (1 : nrow(resultats))){
+  for(n_sujet in seq_len(nrow(resultats))){
     # on parcourt toutes les questions de la correction = le nb de colonnes
-    for(n_question in (1 : length(correction))){
+    for(n_question in (seq_along(correction))){
       # maintenant notre condition : si réponse == réponse correcte...
       # (la correction n'a qu'une ligne, d'où le "1")
       if(resultats[n_sujet, n_question] == correction[1, n_question]){
