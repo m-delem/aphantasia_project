@@ -1,0 +1,3 @@
+id,duration,batch,worker_type,state,nom,langue,age,metier,sexe,education,domaine,vision,lateralite,vviq,osviq_o,osviq_s,osviq_v,mai_know,mai_reg,sri_score,sri_rt_mean,raven_score,raven_rt_mean,digit_span,digit_rt_mean,corsi_span,corsi_rt_mean,wcst_score,wcst_rt_mean
+6991,00:12:40,Pilote,Jatos,FINISHED,Meled_Lëam,fr,84,Encore testeur ?,m,college,rien,moyenne,gaucher,31,44,42,35,10,22,29,3.1333333333333333,18,3,8,4296.642857142857,7,4272.071428571428,30,82
+6990,00:16:57,Pilote,Jatos,FINISHED,Delem_Maël,fr,22,Testeur,m,ecole,Dessin,excellente,gaucher,16,38,29,27,17,34,11,1.7666666666666666,15,2.1666666666666665,5,3400.285714285714,5,2575.6428571428573,75,1274
