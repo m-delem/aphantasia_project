@@ -2,9 +2,11 @@
 
 Code et manuscrit de l'étude exploratoire sur l'aphantasie conduite au laboratoire EMC de l'Université Lumière Lyon 2 sur le premier et deuxième trimestre 2023 par Maël DELEM et Sema TURKBEN sous la direction de Gaën PLANCHER et Eddy CAVALLI.
 
+Le code de l'expérience à proprement parler, qui a été diffusée sur internet et dont les résultats sont traités ici, est consultable [ici](https://github.com/m-delem/aphantasia_experiment.git).
+
 ## Manuscrit et analyses pour le projet de simulation et d'analyse prévisionnelle (finalisés le 16/02/2023)
 
-Le code de simulation et d'analyse est la dernière version de `/zc_scripts/aphantasia_source_simu.R`. 
+Le code de simulation et d'analyse est la dernière version de `/zc_scripts/aphantasia_source_simu.R`.
 
 Le fichier de base du manuscrit est `simu_0_aphantasia.qmd`, créé sur RStudio via Quarto et une distribution LaTeX. Il appelle ses racines `simu_a_header.tex` et `simu_b_beforebody.tex`, ainsi que ses branches `simu_1_intro.Rmd`, `simu_2_methode.Rmd`, `simu_3_resultats.Rmd`, `simu_4_discussion.Rmd`, `simu_5_annexes.Rmd` pour générer le .pdf `simu_0_aphantasia.pdf`.
 
