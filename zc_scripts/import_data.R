@@ -482,29 +482,8 @@ df <- import_data(
 # on check les colonnes de "df"
 colnames(df)
 
-# ---- wip ---------------------------------------------------------------------
+# ---- to-do -------------------------------------------------------------------
 
-# maintenant il faut reprendre le design de l'expé, corriger des trucs, tester/
-# modifier/ajouter les tâches d'Exp Factory, regarder comment les résultats
-# sortent avec jspsych et OS
-
-# y a que corsi, lecture et wcst de désactivé par rapport à l'expé complète en
-# l'état. Donc très peu à faire ici en fait - prochaines étapes :
-# - corriger les noms des outputs pour tout le monde
-# - rajouter la lecture dans l'expé, sortir 2/3 tests et préparer de quoi
-# - rajouter la lecture dans l'expé, sortir 2/3 tests et préparer de quoi
-#   l'accueillir ici (vraisemblablement juste l'exporter dans "for_cotation")
-# - hop done
-# - après il faut redesign l'expé :
-# - regarder la forme des résultats du wcst
-# - comparer corsi actuel et nouveau
-# - regarder comment raccourcir le digit span, garder que le reverse + idem pour
-#   nouveau corsi
-
-
-# ---- to-do prévisionnel ------------------------------------------------------
-
-# renommages dans les résultats des composantes de l'expé :
-#
-# - changer "Row" en "lat"
-# - "question" est un placeholder pour "similitudes" et "lecture"
+# osviq simplified thanks to the renaming in the JSON
+# sri extension : inidividual questions are now going to be used for subscales 
+# instead of being straight-up deleted
